@@ -1,3 +1,5 @@
+// Upgrade NOTE: replaced '_Object2World' with 'unity_ObjectToWorld'
+
 Shader "Custom/Mask"
 {
     Properties
@@ -33,16 +35,17 @@ Shader "Custom/Mask"
                 v2f o;
                 o.vertex = UnityObjectToClipPos(v.vertex);
                 o.uv = v.uv;
-                o.worldPos = mul(unity_ObjectToWorld, o.vertex);
+                o.worldPos = mul(unity_ObjectToWorld, v.vertex);
                 return o;
             }
             
             fixed4 frag (v2f i) : SV_Target {
+                fixed4 text = tex2D(_MainTex, i.uv);
                 if (i.worldPos.x < 0)
                 {
-                    return tex2D(_MainTex, i.uv);
+                    text.a = 0;
                 }
-                return fixed4(1,1,1,0);
+                return text;
             }
             ENDCG
         }
