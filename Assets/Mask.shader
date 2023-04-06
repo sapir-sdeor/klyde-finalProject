@@ -5,6 +5,7 @@ Shader "Custom/Mask"
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
+        _Color ("Color", Color) = (1, 1, 1, 1)
     }
     SubShader
     {
@@ -30,6 +31,7 @@ Shader "Custom/Mask"
             };
             
             sampler2D _MainTex;
+            float4 _Color;
             
             v2f vert (appdata v) {
                 v2f o;
@@ -40,7 +42,7 @@ Shader "Custom/Mask"
             }
             
             fixed4 frag (v2f i) : SV_Target {
-                fixed4 text = tex2D(_MainTex, i.uv);
+                fixed4 text = tex2D(_MainTex, i.uv) * _Color;
                 if (i.worldPos.x < 0)
                 {
                     text.a = 0;
