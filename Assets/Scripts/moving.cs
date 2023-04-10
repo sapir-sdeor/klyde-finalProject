@@ -18,13 +18,14 @@ public class moving : MonoBehaviour
         
        if (Input.GetMouseButtonDown(0))
        {
+           print("get mouse button down");
            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
            
            Debug.DrawRay(ray.origin, ray.direction * 50, Color.red);
 
            if (Physics.Raycast(ray, out RaycastHit hit))
            {
-               print("hit");
+               print(agent.isOnNavMesh);
                if (agent.isOnNavMesh) // Check if agent is on NavMesh
                {
                    print("is on navmesh");
@@ -32,6 +33,11 @@ public class moving : MonoBehaviour
                }
            }
 
+       }
+
+       if (agent.isOnOffMeshLink)
+       {
+           print("jump");
        }
     }
  
