@@ -21,7 +21,6 @@ public class CircleRotate : MonoBehaviour
         for (int i = 0; i < axis2.Count; i++)
         {
             _initialRotationAxis2[i] = axis2[i].eulerAngles;
-            print(_initialRotationAxis2[i].z);
         }
         
     }
