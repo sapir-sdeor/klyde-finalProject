@@ -2,67 +2,43 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class CircleRotate : MonoBehaviour
 {
-    [SerializeField] private List<Transform> axis1;
-    [SerializeField] private List<Transform> axis2;
+    [SerializeField] private Transform axis1;
+    [SerializeField] private Transform axis2;
     [SerializeField] private float sensitivity = 2f;
     [SerializeField] private float rotationSpeed = 2f;
     private float _currentX;
     private float _currentY;
     private bool _isRotating;
     private Vector3 _previousMousePos;
-    private Vector3[] _initialRotationAxis2;
-
-    private void Start()
-    {
-        _initialRotationAxis2 = new Vector3[axis2.Count];
-        for (int i = 0; i < axis2.Count; i++)
-        {
-            _initialRotationAxis2[i] = axis2[i].eulerAngles;
-        }
-        
-    }
-
+    public Transform pivotPoint;
+    private GameObject centerObject;
+    private float currentRotation = 0.0f;
+    
     private void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Mouse.current.leftButton.wasPressedThisFrame)
         {
             _isRotating = true;
         }
-        if (Input.GetMouseButtonUp(0))
+        if (Mouse.current.leftButton.wasReleasedThisFrame)
         {
             _isRotating = false;
         }
         
         if (_isRotating)
         {
-            /*float deltaX = Input.GetAxis("Mouse X") * sensitivity;
-            currentX += deltaX;
-            transform.rotation = Quaternion.Euler(0, currentX, 0);*/
-            float deltaX = Input.GetAxis("Mouse X") * sensitivity;
-            float deltaY = Input.GetAxis("Mouse Y") * sensitivity;
-
+            Vector2 mouseDelta = Mouse.current.delta.ReadValue() * sensitivity;
+            float deltaX = mouseDelta.x;
+            float deltaY = mouseDelta.y;
+            if (Math.Abs(Mathf.Abs(deltaX) - Mathf.Abs(deltaY)) < 0.01) return;
             if (Mathf.Abs(deltaX) > Mathf.Abs(deltaY))
-            {
-                _currentX += deltaX;
-                foreach (var obj in axis1)
-                {
-                    obj.rotation = Quaternion.Euler(0, _currentX * rotationSpeed, 0);
-                }
-                
-            }
+                axis1.RotateAround(pivotPoint.position, Vector3.up, rotationSpeed * deltaX * 0.5f);
             else
-            {
-                _currentY += deltaY;
-                for (int i = 0; i < axis2.Count; i++)
-                {
-                    axis2[i].rotation = Quaternion.Euler(_currentY * rotationSpeed, _initialRotationAxis2[i].y,
-                        _initialRotationAxis2[i].z);
-                }
-                
-            }
+                axis2.RotateAround(pivotPoint.position, Vector3.right, rotationSpeed * deltaY * 0.5f);
         }
     }
 
