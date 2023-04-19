@@ -1,16 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.AI.Navigation;
 using UnityEngine;
 
 public class rotate2exis : MonoBehaviour
 {
     [SerializeField] private List<Transform> axis1;
     [SerializeField] private List<Transform> axis2;
+    [SerializeField] private NavMeshSurface[] surfaces;
+
     private bool _isRotating = false;
     private Vector3 _previousMousePos;
     void Start()
     {
-        
+        for (int i = 0; i < surfaces.Length; i++) 
+        {
+            surfaces [i].BuildNavMesh ();    
+        }  
     }
 
     // Update is called once per frame
@@ -27,6 +33,10 @@ public class rotate2exis : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             _isRotating = false;
+            for (int i = 0; i < surfaces.Length; i++) 
+            {
+                surfaces [i].BuildNavMesh ();    
+            }    
         }
 
         // Rotate the object if the left mouse button is pressed down
