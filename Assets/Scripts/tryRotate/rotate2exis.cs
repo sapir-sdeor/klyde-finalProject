@@ -56,7 +56,7 @@ public class rotate2exis : MonoBehaviour
             }
             
             float distance = Vector3.Distance(surfaces[0].transform.position, surfaces[1].transform.position);
-            if (distance <= 0.5f) {
+            if (distance <= 2f) {
                 print("create navlink");
                 // Create a new GameObject and add a NavMeshLink component
                 GameObject navLinkObject = new GameObject("NavLink");
