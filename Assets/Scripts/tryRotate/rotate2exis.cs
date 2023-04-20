@@ -55,20 +55,25 @@ public class rotate2exis : MonoBehaviour
                 surface2Position = surface2Hit.position;
             }
             
-            // Create a new GameObject and add a NavMeshLink component
-            GameObject navLinkObject = new GameObject("NavLink");
-            NavMeshLink navLink = navLinkObject.AddComponent<NavMeshLink>();
-            navlinks.Add(navLinkObject);
+            float distance = Vector3.Distance(surfaces[0].transform.position, surfaces[1].transform.position);
+            if (distance <= 0.5f) {
+                print("create navlink");
+                // Create a new GameObject and add a NavMeshLink component
+                GameObject navLinkObject = new GameObject("NavLink");
+                NavMeshLink navLink = navLinkObject.AddComponent<NavMeshLink>();
+                navlinks.Add(navLinkObject);
 
-            // Set the start and end points of the navmesh link
-            navLink.startPoint = surface1Position;
-            navLink.endPoint =surface2Position;
+                // Set the start and end points of the navmesh link
+                navLink.startPoint = surface1Position;
+                navLink.endPoint =surface2Position;
             
-            // Set the width and height of the navmesh link
-            navLink.width =2;
+                // Set the width and height of the navmesh link
+                navLink.width =2;
 
-            // Set the area type of the navmesh link
-            navLink.area = NavMesh.AllAreas;
+                // Set the area type of the navmesh link
+                navLink.area = NavMesh.AllAreas;
+            }
+          
             for (int i = 0; i < surfaces.Length; i++) 
             {
                 surfaces [i].BuildNavMesh ();    
