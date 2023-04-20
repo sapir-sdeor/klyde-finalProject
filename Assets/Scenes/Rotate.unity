@@ -517,8 +517,8 @@ MonoBehaviour:
   axis2:
   - {fileID: 624267162}
   surfaces:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 2009759717}
+  - {fileID: 1062839108}
 --- !u!1001 &615816190
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -698,7 +698,7 @@ MonoBehaviour:
   m_TileSize: 256
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
-  m_MinRegionArea: 2
+  m_MinRegionArea: 0.001
   m_NavMeshData: {fileID: 0}
   m_BuildHeightMesh: 0
 --- !u!1 &1120688121 stripped
@@ -1128,6 +1128,6 @@ MonoBehaviour:
   m_TileSize: 256
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
-  m_MinRegionArea: 2
+  m_MinRegionArea: 0.001
   m_NavMeshData: {fileID: 23800000, guid: 3f41cef75b17072469d8704ef3de5fa3, type: 2}
   m_BuildHeightMesh: 0
