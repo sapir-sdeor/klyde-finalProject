@@ -9,17 +9,12 @@ public class Rotate2D3D : MonoBehaviour
     [SerializeField] private Transform axis1;
     [SerializeField] private float sensitivity = 2f;
     [SerializeField] private float rotationSpeed = 2f;
-    private float _currentX;
-    private float _currentY;
     private bool _isRotating;
-    private Vector3 _previousMousePos;
     public Transform pivotPoint;
-    private GameObject centerObject;
-    private float currentRotation = 0.0f;
     
     private void Update()
     {
-        if (Mouse.current.leftButton.wasPressedThisFrame)
+        if (Mouse.current.leftButton.wasPressedThisFrame && !axis1.GetComponent<World>().isKlydeOn)
         {
             _isRotating = true;
         }

@@ -30,8 +30,7 @@ Shader "Custom/combineMask"
         void surf (Input IN, inout SurfaceOutputStandard o) {
             // Use the existing Standard shader code to get the texture color and set it to tex variable
             fixed4 tex = tex2D(_MainTex, IN.uv_MainTex) ;
-            
-            float4 worldPos = mul(unity_ObjectToWorld, float4(IN.worldPos, 1.0));
+           // float4 worldPos = mul(unity_ObjectToWorld, float4(IN.worldPos, 1.0));
             if (IN.worldPos.x >= 0 ) 
                 tex.a = 0;
 
