@@ -2,9 +2,10 @@
 
 Shader "Custom/Mask"
 {
+  
     Properties
     {
-        _MainTex ("Texture", 2D) = "white" {}
+        _MainTex ("Texture 1", 2D) = "white" {}
         _Color ("Color", Color) = (1, 1, 1, 1)
     }
     SubShader
@@ -36,18 +37,18 @@ Shader "Custom/Mask"
             v2f vert (appdata v) {
                 v2f o;
                 o.vertex = UnityObjectToClipPos(v.vertex);
-                o.uv = v.uv;
+                o.uv = v.vertex.xy * 0.5 + 0.5;
                 o.worldPos = mul(unity_ObjectToWorld, v.vertex);
                 return o;
             }
             
             fixed4 frag (v2f i) : SV_Target {
-                fixed4 text = tex2D(_MainTex, i.uv) * _Color;
-                if (i.worldPos.x < 0)
+                fixed4 tex = tex2D(_MainTex, i.uv) * _Color;
+                if (i.worldPos.x >= 0)
                 {
-                    text.a = 0;
+                    tex.a = 0;
                 }
-                return text;
+                return tex;
             }
             ENDCG
         }
