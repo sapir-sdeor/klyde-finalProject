@@ -33,8 +33,9 @@ public class Rotate2D3D : MonoBehaviour
     
     private void Update()
     {
-        if (Mouse.current.leftButton.wasPressedThisFrame && !axis1.GetComponent<World>().isKlydeOn)
+        if (Mouse.current.leftButton.wasPressedThisFrame && !axis2.GetComponent<World>().isKlydeOn)
         {
+            print("rotate is true");
             lastMousePosition = Input.mousePosition;
             _isRotating = true;
         }
@@ -91,8 +92,8 @@ public class Rotate2D3D : MonoBehaviour
             Vector2 mouseDelta = Mouse.current.delta.ReadValue() * sensitivity;
             float deltaX = mouseDelta.x;
             float deltaY = mouseDelta.y;
-            axis1.RotateAround(pivotPoint.position, Vector3.up, rotationSpeed * deltaX * 0.5f);
-            axis1.RotateAround(pivotPoint.position, Vector3.up, rotationSpeed * deltaY * 0.5f);
+            axis2.RotateAround(pivotPoint.position, Vector3.up, rotationSpeed * deltaX * 0.5f);
+            axis2.RotateAround(pivotPoint.position, Vector3.up, rotationSpeed * deltaY * 0.5f);
         }
     }
 }
