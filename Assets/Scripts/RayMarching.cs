@@ -4,86 +4,86 @@ using UnityEngine;
 
 public class RayMarching : MonoBehaviour
 {
+    public Material shape1Material;
+    public Material shape2Material;
+    public Material mergedMaterial;
+    public int maxIterations = 100;
+    public float maxDistance = 100.0f;
+    public float mergeThreshold = 0.1f;
+    private Mesh mergedMesh;
 
-    [SerializeField] private float strength = 1f;
-    [SerializeField] private float radius = 1f;
-    [SerializeField] private bool isCube = false;
-
-    private Texture3D sdfTexture;
-
-    private void Start()
+    void Start()
     {
-        int textureSize = 64; // Change this to adjust the resolution of the SDF texture
+        mergedMesh = new Mesh();
+        GetComponent<MeshFilter>().mesh = mergedMesh;
+    }
 
-        sdfTexture = new Texture3D(textureSize, textureSize, textureSize, TextureFormat.RFloat, false);
-        sdfTexture.wrapMode = TextureWrapMode.Clamp;
-        sdfTexture.filterMode = FilterMode.Bilinear;
+    void Update()
+    {
+        Vector3 shape1Position = shape1Material.GetVector("_Position");
+        Quaternion shape1Rotation = Quaternion.Euler(shape1Material.GetVector("_Rotation"));
+        Vector3 shape1Scale = shape1Material.GetVector("_Scale");
 
-        Color[] colors = new Color[textureSize * textureSize * textureSize];
+        Vector3 shape2Position = shape2Material.GetVector("_Position");
+        Quaternion shape2Rotation = Quaternion.Euler(shape2Material.GetVector("_Rotation"));
+        Vector3 shape2Scale = shape2Material.GetVector("_Scale");
 
-        Vector3 center = transform.position;
-        for (int x = 0; x < textureSize; x++)
+        Matrix4x4 shape1Matrix = Matrix4x4.TRS(shape1Position, shape1Rotation, shape1Scale);
+        Matrix4x4 shape2Matrix = Matrix4x4.TRS(shape2Position, shape2Rotation, shape2Scale);
+
+        mergedMesh.Clear();
+        mergedMesh.vertices = MergeShapes(shape1Matrix, shape2Matrix);
+        mergedMesh.triangles = new int[mergedMesh.vertices.Length];
+        for (int i = 0; i < mergedMesh.vertices.Length; i++)
         {
-            for (int y = 0; y < textureSize; y++)
+            mergedMesh.triangles[i] = i;
+        }
+        mergedMesh.RecalculateNormals();
+    }
+
+    Vector3[] MergeShapes(Matrix4x4 shape1Matrix, Matrix4x4 shape2Matrix)
+    {
+        Vector3[] vertices = new Vector3[0];
+
+        // Merge the two shapes together using ray marching
+        for (int i = 0; i < maxIterations; i++)
+        {
+            Vector3 rayOrigin = Camera.main.transform.position;
+            Vector3 rayDirection = Camera.main.transform.forward;
+            Vector3 p = rayOrigin + rayDirection * maxDistance;
+
+            float d1 = SignedDistance(shape1Matrix.inverse.MultiplyPoint3x4(p), shape1Material);
+            float d2 = SignedDistance(shape2Matrix.inverse.MultiplyPoint3x4(p), shape2Material);
+            float blend = Mathf.SmoothStep(-mergeThreshold, mergeThreshold, d1 - d2);
+            float distance = Mathf.Lerp(d1, d2, blend);
+
+            if (distance < 0.001f)
             {
-                for (int z = 0; z < textureSize; z++)
-                {
-                    Vector3 position = new Vector3((float)x / textureSize, (float)y / textureSize, (float)z / textureSize);
-                    position -= center;
-                    float distance = isCube ? CubeSDF(position, radius) : SphereSDF(position, radius);
-                    float density = strength / Mathf.Max(distance, 0.0001f); // Avoid division by zero
-                    colors[x + y * textureSize + z * textureSize * textureSize] = new Color(density, 0, 0, 0);
-                }
+                // Hit the merged shape, add vertex
+                System.Array.Resize(ref vertices, vertices.Length + 1);
+                vertices[vertices.Length - 1] = Camera.main.transform.InverseTransformPoint(rayOrigin + rayDirection * distance);
             }
+
+            rayOrigin += rayDirection * distance;
+            if (distance > maxDistance) break;
         }
 
-        sdfTexture.SetPixels(colors);
-        sdfTexture.Apply();
+        return vertices;
     }
 
-    private void OnEnable()
+    float SignedDistance(Vector3 point, Material material)
     {
-        Shader.EnableKeyword("_METABALLS");
+        Shader.SetGlobalVector("_Position", material.GetVector("_Position"));
+        Shader.SetGlobalVector("_Rotation", material.GetVector("_Rotation"));
+        Shader.SetGlobalVector("_Scale", material.GetVector("_Scale"));
+        Shader.SetGlobalColor("_Color", material.color);
+        return Shader.GetGlobalFloat("_SignedDistanceFunction") + material.GetFloat("_DistanceOffset");
     }
 
-    private void OnDisable()
+    void OnRenderObject()
     {
-        Shader.DisableKeyword("_METABALLS");
-    }
-
-    private float SphereSDF(Vector3 position, float radius)
-    {
-        return position.magnitude - radius;
-    }
-
-    private float CubeSDF(Vector3 position, float size)
-    {
-        position = Vector3.Max((position) - Vector3.one * size, Vector3.zero);
-        return position.magnitude;
-    }
-
-    private void OnValidate()
-    {
-        radius = Mathf.Max(radius, 0.01f);
-    }
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.white;
-        Gizmos.DrawWireSphere(transform.position, radius);
-    }
-
-    private void OnDestroy()
-    {
-        Destroy(sdfTexture);
-    }
-
-    private void Update()
-    {
-        Shader.SetGlobalVector("_MetaballPosition", transform.position);
-        Shader.SetGlobalFloat("_MetaballStrength", strength);
-        Shader.SetGlobalFloat("_MetaballRadius", radius);
-        Shader.SetGlobalTexture("_MetaballSDF", sdfTexture);
+        mergedMaterial.SetPass(0);
+        Graphics.DrawMeshNow(mergedMesh, transform.localToWorldMatrix);
     }
 }
 
