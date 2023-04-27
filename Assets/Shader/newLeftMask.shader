@@ -15,8 +15,8 @@ Shader "Custom/combineMask"
         Blend SrcAlpha OneMinusSrcAlpha
         
         CGPROGRAM
-        #pragma surface surf Standard fullforwardshadows addshadow alpha
-
+       // #pragma surface surf Standard fullforwardshadows addshadow alpha
+        #pragma surface surf Standard fullforwardshadows alpha:fade addshadow
         sampler2D _MainTex;
         fixed4 _Color;
         float _Metallic;

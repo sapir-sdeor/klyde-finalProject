@@ -771,15 +771,15 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1280552586}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c9e9a04796a00274ebb5bbb5a34567cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  axis1: {fileID: 0}
+  axis1: {fileID: 659777981}
   sensitivity: 2
-  rotationSpeed: 0.5
-  pivotPoint: {fileID: 0}
+  rotationSpeed: 1
+  pivotPoint: {fileID: 670158996}
 --- !u!114 &1280552590
 MonoBehaviour:
   m_ObjectHideFlags: 0
