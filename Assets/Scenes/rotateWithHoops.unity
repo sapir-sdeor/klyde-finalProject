@@ -190,6 +190,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: big-platform-with-colors-for-nitzan 1
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6f7b992618eb44b1a8bb0101ea8614e3, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6f7b992618eb44b1a8bb0101ea8614e3, type: 3}
 --- !u!4 &6832740 stripped
@@ -949,6 +953,36 @@ MonoBehaviour:
   m_MinRegionArea: 0.001
   m_NavMeshData: {fileID: 23800000, guid: 8458be6015bf01e40b9ab201303297e5, type: 2}
   m_BuildHeightMesh: 0
+--- !u!54 &1168758292
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 92891961}
+  serializedVersion: 2
+  m_Mass: 2
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 1
+--- !u!64 &1168758293
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 92891961}
+  m_Material: {fileID: 13400000, guid: bcd37de449b7cc844b634b257f3c9de4, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3462526640698022142, guid: 6f7b992618eb44b1a8bb0101ea8614e3, type: 3}
 --- !u!1001 &1185329168
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1218,7 +1252,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6f7b992618eb44b1a8bb0101ea8614e3, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.0178
+      value: 0.0202
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6f7b992618eb44b1a8bb0101ea8614e3, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1293,6 +1327,36 @@ MonoBehaviour:
   m_MinRegionArea: 0.001
   m_NavMeshData: {fileID: 0}
   m_BuildHeightMesh: 0
+--- !u!64 &1632857851
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1632857849}
+  m_Material: {fileID: 13400000, guid: bcd37de449b7cc844b634b257f3c9de4, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 1
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 3462526640698022142, guid: 6f7b992618eb44b1a8bb0101ea8614e3, type: 3}
+--- !u!54 &1632857852
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1632857849}
+  serializedVersion: 2
+  m_Mass: 2
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 1
 --- !u!64 &1659487063
 MeshCollider:
   m_ObjectHideFlags: 0
