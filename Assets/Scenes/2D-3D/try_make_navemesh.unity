@@ -813,15 +813,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   axis1: {fileID: 659777981}
-  axis2: {fileID: 1850896491}
+  axis2: {fileID: 0}
   sensitivity: 2
   sensitivity1: 2
   rotationSpeed: 1
-  rotationSpeed1: 1
+  rotationSpeed1: 2
   pivotPoint: {fileID: 670158996}
-  surfaces:
-  - {fileID: 1970584528}
-  - {fileID: 1496121740}
+  surfaces: []
 --- !u!1 &1496121738 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3519798018578786511, guid: e7cd15015d57c4875977f63c1855b9e1, type: 3}
