@@ -36,7 +36,6 @@ public class moving : MonoBehaviour
                    agent.SetDestination(hit.point);
                }
            }
-           animator.SetBool(IsWalking,agent.velocity.magnitude > 0.1f);
 
        }
        // print(agent.velocity.magnitude+ " agent vel mangititude");
@@ -45,6 +44,7 @@ public class moving : MonoBehaviour
        {
            print("jump");
        }
+       // animator.SetBool(IsWalking,agent.velocity.magnitude > 0.1f);
     }
  
 }
