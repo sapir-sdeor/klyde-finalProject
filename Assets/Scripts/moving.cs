@@ -7,9 +7,13 @@ using UnityEngine.AI;
 public class moving : MonoBehaviour
 {
     private NavMeshAgent agent;
+    private Animator animator;
+    private static readonly int IsWalking = Animator.StringToHash("IsWalking");
+
     private void Start()
     {
        agent = GetComponent<NavMeshAgent>();
+       animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -34,11 +38,13 @@ public class moving : MonoBehaviour
            }
 
        }
+       // print(agent.velocity.magnitude+ " agent vel mangititude");
 
        if (agent.isOnOffMeshLink)
        {
            print("jump");
        }
+       // animator.SetBool(IsWalking,agent.velocity.magnitude > 0.1f);
     }
  
 }
