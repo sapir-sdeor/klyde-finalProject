@@ -36,9 +36,17 @@ public class CircleRotate : MonoBehaviour
             float deltaY = mouseDelta.y;
             if (Math.Abs(Mathf.Abs(deltaX) - Mathf.Abs(deltaY)) < 0.01) return;
             if (Mathf.Abs(deltaX) > Mathf.Abs(deltaY))
+            {
                 axis1.RotateAround(pivotPoint.position, Vector3.up, rotationSpeed * deltaX * 0.5f);
+            }
             else
+            { 
                 axis2.RotateAround(pivotPoint.position, Vector3.right, rotationSpeed * deltaY * 0.5f);
+            }
+                
+
+
+         
         }
     }
 
