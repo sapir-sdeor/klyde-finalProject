@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class Obstacle : MonoBehaviour
+public class Obstacle1 : MonoBehaviour
 {
     // Start is called before the first frame update
     // private NavMeshObstacle _navMeshObstacle;
@@ -24,7 +24,7 @@ public class Obstacle : MonoBehaviour
         // Calculate the world position of the child transform
         Vector3 worldPosition = _parentTransform.TransformPoint(_childTransform.localPosition);
         //todo: make it general
-        if (worldPosition.x >= 0)
+        if (worldPosition.x < 0)
         {
             Destroy(GetComponent<NavMeshObstacle>());
             // print("destroy navmesh obstacle");

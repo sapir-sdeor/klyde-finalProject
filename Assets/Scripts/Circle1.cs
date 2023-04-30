@@ -1,26 +1,20 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.AI;
-using UnityEngine.EventSystems;
 
-
-public class Circle : World
+public class Circle1 : World
 {
     private GameObject klyde;
-    
-    
+    // Start is called before the first frame update
     void Start()
     {
         //todo: make it general
         klyde = GameObject.FindGameObjectWithTag("klyde");
-       
     }
-    
+
     // Update is called once per frame
     void Update()
     {
-        isKlydeOn = klyde.transform.position.x > 0f;
+        isKlydeOn = klyde.transform.position.x < 0f;
     }
 }
-  
