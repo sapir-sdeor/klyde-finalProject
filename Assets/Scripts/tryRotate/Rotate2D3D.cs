@@ -8,7 +8,7 @@ using UnityEngine.AI;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
-public class Rotate2D3D : MonoBehaviour, IBeginDragHandler, IEndDragHandler
+public class Rotate2D3D : MonoBehaviour, IBeginDragHandler, IEndDragHandler, IDragHandler
 {
    
     [SerializeField] private Transform[] worlds;
@@ -101,5 +101,10 @@ public class Rotate2D3D : MonoBehaviour, IBeginDragHandler, IEndDragHandler
             surfaces[i].BuildNavMesh();
             navMeshData = surfaces[i].navMeshData;
         }
+    }
+
+    public void OnDrag(PointerEventData eventData)
+    {
+        print("drag");
     }
 }
