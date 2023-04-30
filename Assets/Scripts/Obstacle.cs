@@ -32,7 +32,7 @@ public class Obstacle : MonoBehaviour
             if (gameObject.GetComponent<NavMeshObstacle>() == null)
             {
                 gameObject.AddComponent<NavMeshObstacle>();
-                print("nav mesh obstacle");
+                // print("nav mesh obstacle");
             }
         }
     }
