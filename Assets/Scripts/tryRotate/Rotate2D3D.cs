@@ -9,14 +9,11 @@ using UnityEngine.InputSystem;
 public class Rotate2D3D : MonoBehaviour
 {
    
-    [SerializeField] private Transform axis1;
-    [SerializeField] private Transform axis2;
-    [SerializeField] private Transform[] axes;
+    [SerializeField] private Transform[] worlds;
     [SerializeField] private float sensitivity = 2f;
     [SerializeField] private float rotationSpeed = 2f;
     private bool _isRotating;
     public Transform pivotPoint;
-    
     private Vector2 lastMousePosition;
     private Vector2 mouseDirection;
     
@@ -34,28 +31,27 @@ public class Rotate2D3D : MonoBehaviour
             surfaces [i].BuildNavMesh ();
             navMeshData = surfaces[i].navMeshData;
             navMeshDataInstance = NavMesh.AddNavMeshData(navMeshData);
-            GameObject obstacleObj = new GameObject("Obstacle");
-            obstacle = obstacleObj.AddComponent<NavMeshObstacle>();
+            /*GameObject obstacleObj = new GameObject("Obstacle");
+            obstacle = obstacleObj.AddComponent<NavMeshObstacle>();*/
         }  
     }
     
     private void Update()
     {
         var time = Time.deltaTime;
-        if (Mouse.current.leftButton.wasPressedThisFrame && !axis2.GetComponent<World>().isKlydeOn)
+        if (Mouse.current.leftButton.wasPressedThisFrame && !moving.isWalk)
         {
             print("rotate is true");
             lastMousePosition = Input.mousePosition;
             _isRotating = true;
         }
-         // Check if the left mouse button is released
-         // Stop tracking mouse movement when left mouse button is released
         if (Input.GetMouseButtonUp(0))
         {
             _isRotating = false;
             for (int i = 0; i < surfaces.Length; i++) 
             {
-                surfaces [i].BuildNavMesh ();
+                print("build navmesh");
+                surfaces[i].BuildNavMesh();
             }
         }
         if (_isRotating)
@@ -69,8 +65,13 @@ public class Rotate2D3D : MonoBehaviour
             Vector2 mouseDelta = Mouse.current.delta.ReadValue() * sensitivity;
             float deltaX = mouseDelta.x;
             float deltaY = mouseDelta.y;
-            axis2.RotateAround(pivotPoint.position, Vector3.up, rotationSpeed * deltaX * 0.5f);
-            axis2.RotateAround(pivotPoint.position, Vector3.up, rotationSpeed * deltaY * 0.5f);
+            foreach (var world in worlds)
+            {
+                if (world.GetComponent<World>().isKlydeOn) continue;
+                var position = pivotPoint.position;
+                world.RotateAround(position, Vector3.up, rotationSpeed * deltaX * 0.5f);
+                world.RotateAround(position, Vector3.up, rotationSpeed * deltaY * 0.5f);
+            }
         }
         if(time- start_time >= 2f){
             NavMesh.RemoveNavMeshData(navMeshDataInstance);

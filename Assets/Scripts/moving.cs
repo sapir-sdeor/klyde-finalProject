@@ -3,9 +3,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.InputSystem;
 
 public class moving : MonoBehaviour
 {
+    public static bool isWalk;
     private NavMeshAgent agent;
     private Animator animator;
     private static readonly int IsWalking = Animator.StringToHash("IsWalking");
@@ -18,10 +20,10 @@ public class moving : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-        
-       if (Input.GetMouseButtonDown(0))
-       {
+    { 
+        if (Mouse.current.leftButton.wasReleasedThisFrame) 
+        {
+           isWalk = true;
            print("get mouse button down");
            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
            
@@ -36,14 +38,16 @@ public class moving : MonoBehaviour
                    agent.SetDestination(hit.point);
                }
            }
-
-       }
+        }
+        isWalk = agent.velocity.magnitude > 0.1f;
+       
        // print(agent.velocity.magnitude+ " agent vel mangititude");
 
        if (agent.isOnOffMeshLink)
        {
            print("jump");
        }
+       
        // animator.SetBool(IsWalking,agent.velocity.magnitude > 0.1f);
     }
  
