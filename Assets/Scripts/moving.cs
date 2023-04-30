@@ -3,13 +3,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.InputSystem;
+
 
 public class moving : MonoBehaviour
 {
     private static bool isWalk;
     private NavMeshAgent agent;
     private Animator animator;
+    private Vector3 pos;
     private static readonly int IsWalking = Animator.StringToHash("IsWalking");
 
     private void Start()
@@ -20,9 +21,9 @@ public class moving : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    { 
+    {
         // if (Mouse.current.leftButton.wasReleasedThisFrame) 
-        if (Input.GetMouseButtonUp(0)) 
+        if (Input.GetMouseButtonDown(0)) 
         {
            isWalk = true;
            // print("get mouse button down");
@@ -32,24 +33,29 @@ public class moving : MonoBehaviour
 
            if (Physics.Raycast(ray, out RaycastHit hit))
            {
-               // print(agent.isOnNavMesh);
-               if (agent.isOnNavMesh) // Check if agent is on NavMesh
+               print(Rotate2D3D.GetIsRotating());
+               if (agent.isOnNavMesh && !Rotate2D3D.GetIsRotating()) // Check if agent is on NavMesh
                {
-                   // print("is on navmesh");
                    agent.SetDestination(hit.point);
                }
            }
         }
-        isWalk = agent.velocity.magnitude > 0.01f;
-       
-       // print(agent.velocity.magnitude+ " agent vel mangititude");
-
-       if (agent.isOnOffMeshLink)
+        isWalk = agent.velocity.magnitude > 0f;
+        // if (agent.isOnOffMeshLink)
+       // {
+       //     // print("jump");
+       // }
+       if (Rotate2D3D.GetIsRotating())
        {
-           // print("jump");
+           agent.velocity = Vector3.zero;
+           agent.transform.position = pos;
+       }
+       else
+       {
+           pos = agent.transform.position;
        }
        
-       animator.SetBool(IsWalking,agent.velocity.magnitude > 0.01f);
+       animator.SetBool(IsWalking,isWalk);
     }
 
     public static bool GetIsWalk()
