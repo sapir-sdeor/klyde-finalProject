@@ -7,6 +7,8 @@ TagManager:
   - platform
   - klyde
   - Mirror
+  - world1
+  - world2
   layers:
   - Default
   - TransparentFX
