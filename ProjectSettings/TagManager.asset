@@ -6,6 +6,7 @@ TagManager:
   tags:
   - platform
   - klyde
+  - Mirror
   layers:
   - Default
   - TransparentFX

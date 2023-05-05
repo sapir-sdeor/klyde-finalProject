@@ -16,6 +16,11 @@ public class Door : MonoBehaviour
             GetComponent<MeshRenderer>().enabled = false;
             GetComponent<MeshCollider>().enabled = false;
         }
+        else
+        {
+            GetComponent<MeshRenderer>().enabled = true;
+            GetComponent<MeshCollider>().enabled = true;
+        }
     }
 
     private void OnCollisionEnter(Collision other)
