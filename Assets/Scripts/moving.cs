@@ -44,6 +44,8 @@ public class moving : MonoBehaviour
            {
                agent.SetDestination(hit.position);
            }
+           
+           
 
            // Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
            // Debug.DrawRay(ray.origin, ray.direction * 50, Color.red);
