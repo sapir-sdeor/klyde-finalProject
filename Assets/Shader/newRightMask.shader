@@ -11,12 +11,15 @@ Shader "Custom/combineMask"
             "RenderType" = "Transparent"
             "Queue" = "Transparent"}
         
-        LOD 200
+        ZWrite Off
         Blend SrcAlpha OneMinusSrcAlpha
+        ColorMask RGB
+        LOD 200
         
         CGPROGRAM
-     //   #pragma surface surf Standard fullforwardshadows addshadow alpha
-         #pragma surface surf Standard fullforwardshadows alpha:fade addshadow
+       // #pragma surface surf Standard fullforwardshadows addshadow alpha
+        #pragma surface surf Standard fullforwardshadows alpha:fade
+        #pragma target 3.0
 
         sampler2D _MainTex;
         fixed4 _Color;
@@ -36,7 +39,6 @@ Shader "Custom/combineMask"
             //  float4 worldPos = mul(unity_ObjectToWorld, float4(IN.worldPos, 1.0));
             if (IN.worldPos.x < 0 )
                 tex.a = 0;
-            
             // Set the surface properties using the existing Standard shader code
             o.Albedo = tex.rgb * _Color.rgb;
             o.Metallic = _Metallic;

@@ -14,6 +14,7 @@ public class Obstacle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+       
         //TODO: add way to calculate if its rotating now or not
         // Get references to the parent and child transforms
         var transform1 = transform;
@@ -22,17 +23,19 @@ public class Obstacle : MonoBehaviour
         
         // Calculate the world position of the child transform
         Vector3 worldPosition = _parentTransform.TransformPoint(_childTransform.localPosition);
-        if (worldPosition.x > 0)
+        //todo: make it general
+        if (worldPosition.x >= 0)
         {
             Destroy(GetComponent<NavMeshObstacle>());
-            print("destroy navmesh obstacle");
+            // print("destroy navmesh obstacle");
+            GetComponent<MeshRenderer>().enabled = false;
         }
         else
         {
             if (gameObject.GetComponent<NavMeshObstacle>() == null)
             {
                 gameObject.AddComponent<NavMeshObstacle>();
-                print("nav mesh obstacle");
+                // print("nav mesh obstacle");
             }
         }
     }
