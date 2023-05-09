@@ -135,7 +135,6 @@ GameObject:
   - component: {fileID: 425124223}
   - component: {fileID: 425124222}
   - component: {fileID: 425124221}
-  - component: {fileID: 425124224}
   m_Layer: 0
   m_Name: Cube (3)
   m_TagString: Untagged
@@ -221,22 +220,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 425124219}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &425124224
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 425124219}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30d4f2077e209df45adf1d50a15383e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fadeDuration: 100
-  DoFade: 0
-  fadeAmount: 0.5
-  limit: 0
 --- !u!1 &838488777
 GameObject:
   m_ObjectHideFlags: 0
@@ -343,7 +326,6 @@ GameObject:
   - component: {fileID: 966227020}
   - component: {fileID: 966227019}
   - component: {fileID: 966227018}
-  - component: {fileID: 966227021}
   m_Layer: 0
   m_Name: Cube (4)
   m_TagString: Untagged
@@ -429,22 +411,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 966227016}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &966227021
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 966227016}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30d4f2077e209df45adf1d50a15383e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fadeDuration: 100
-  DoFade: 0
-  fadeAmount: 0.5
-  limit: 0
 --- !u!1 &1391520747
 GameObject:
   m_ObjectHideFlags: 0
@@ -594,7 +560,6 @@ GameObject:
   - component: {fileID: 1640138714}
   - component: {fileID: 1640138713}
   - component: {fileID: 1640138712}
-  - component: {fileID: 1640138715}
   m_Layer: 0
   m_Name: Cube (1)
   m_TagString: Untagged
@@ -680,22 +645,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1640138710}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1640138715
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1640138710}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30d4f2077e209df45adf1d50a15383e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fadeDuration: 100
-  DoFade: 0
-  fadeAmount: 0.5
-  limit: 0
 --- !u!1 &1668647570
 GameObject:
   m_ObjectHideFlags: 0
@@ -708,7 +657,6 @@ GameObject:
   - component: {fileID: 1668647574}
   - component: {fileID: 1668647573}
   - component: {fileID: 1668647572}
-  - component: {fileID: 1668647575}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -794,22 +742,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1668647570}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1668647575
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1668647570}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30d4f2077e209df45adf1d50a15383e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fadeDuration: 100
-  DoFade: 0
-  fadeAmount: 0.5
-  limit: 0
 --- !u!1 &2106374607
 GameObject:
   m_ObjectHideFlags: 0
@@ -822,7 +754,6 @@ GameObject:
   - component: {fileID: 2106374611}
   - component: {fileID: 2106374610}
   - component: {fileID: 2106374609}
-  - component: {fileID: 2106374612}
   m_Layer: 0
   m_Name: Cube (2)
   m_TagString: Untagged
@@ -908,19 +839,3 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2106374607}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &2106374612
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2106374607}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 30d4f2077e209df45adf1d50a15383e8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fadeDuration: 100
-  DoFade: 0
-  fadeAmount: 0.5
-  limit: 0
