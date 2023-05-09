@@ -1,0 +1,50 @@
+# Apple ModelI/O MTL File: Klyde3.mtl
+
+newmtl Sphere_UV_1
+	map_Kd Sphere_UV_1-color.png
+	Kd 1 1 1
+	Ka 0 0 0
+	Ks 0
+	ao 0
+	subsurface 0
+	map_metallic Sphere_UV_1-metallic.png
+	specularTint 0
+	map_roughness Sphere_UV_1-roughness.png
+	anisotropicRotation 0
+	sheen 0.05
+	sheenTint 0
+	clearCoat 0
+	clearCoatGloss 0
+
+newmtl Tube
+	map_Kd Tube-color.png
+	Kd 1 1 1
+	Ka 0 0 0
+	Ks 0
+	ao 0
+	subsurface 0
+	map_metallic Tube-metallic.png
+	specularTint 0
+	map_roughness Tube-roughness.png
+	anisotropicRotation 0
+	sheen 0.05
+	sheenTint 0
+	clearCoat 0
+	clearCoatGloss 0
+
+newmtl Tube_1
+	map_Kd Tube_1-color.png
+	Kd 1 1 1
+	Ka 0 0 0
+	Ks 0
+	ao 0
+	subsurface 0
+	map_metallic Tube_1-metallic.png
+	specularTint 0
+	map_roughness Tube_1-roughness.png
+	anisotropicRotation 0
+	sheen 0.05
+	sheenTint 0
+	clearCoat 0
+	clearCoatGloss 0
+
