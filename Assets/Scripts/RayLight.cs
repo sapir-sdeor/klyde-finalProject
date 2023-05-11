@@ -1,7 +1,6 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+#if UNITY_EDITOR
 using UnityEditor;
+#endif
 using UnityEngine;
 
 public class RayLight : MonoBehaviour
@@ -10,9 +9,11 @@ public class RayLight : MonoBehaviour
     public float maxStepDistance = 200;
     private void OnDrawGizmos()
     {
+        #if UNITY_EDITOR
         Handles.color = Color.red;
         Handles.ArrowHandleCap(0, transform.position + transform.forward * 0.25f, 
             transform.rotation, 0.5f, EventType.Repaint);
+        #endif
         Gizmos.color = Color.red;
         Gizmos.DrawWireSphere(transform.position, 0.25f);
         DrawPredictedReflectionPattern(transform.position + transform.forward * 0.75f, transform.forward, maxReflectionCount);

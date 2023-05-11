@@ -565,7 +565,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &192846924
 Transform:
   m_ObjectHideFlags: 0
@@ -1593,7 +1593,7 @@ MonoBehaviour:
   - {fileID: 659777981}
   - {fileID: 1850896491}
   sensitivity: 2
-  rotationSpeed: 10
+  rotationSpeed: 5
   pivotPoint: {fileID: 670158996}
   surfaces:
   - {fileID: 1970584528}
@@ -2601,7 +2601,7 @@ Camera:
   far clip plane: 1000
   field of view: 48.270565
   orthographic: 0
-  orthographic size: 4.6637926
+  orthographic size: 6.1284404
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
