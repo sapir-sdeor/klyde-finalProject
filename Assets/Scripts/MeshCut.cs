@@ -28,47 +28,46 @@ public class MeshCut : MonoBehaviour
                 Material mat = child.GetComponent<Renderer>().material;
                 if (child.position.x < limit)
                 {
-                    StartCoroutine(FadeOut(mat,child.gameObject));
+                    FadeOut(mat,child.gameObject);
                     
                 }
                 else
                 {
-                    StartCoroutine(FadeIn(mat,child.gameObject));
-                    
+                    FadeIn(mat,child.gameObject);
                 }
             }
          
             
     }
 
-    IEnumerator FadeIn(Material mat, GameObject child)
+    void FadeIn(Material mat, GameObject child)
+        =>  StartCoroutine(Fade(mat, child, InitialAlpha, true));
+    void FadeOut(Material mat, GameObject child)
+        =>  StartCoroutine(Fade(mat, child, 0, false));
+
+    IEnumerator Fade(Material mat, GameObject child, float target, bool activeStart)
     {
         var startAlpha = mat.color.a;
-        child.gameObject.SetActive(true);
-        for (float f =startAlpha ; f <= InitialAlpha; f += fadeAmount)
+        
+        child.gameObject.SetActive(activeStart);
+        var startT = Time.time;
+        Color c =mat.color;
+        
+        while (Time.time < startT + fadeDuration)
         {
-            Color c =mat.color;
+            var fraction = (Time.time - startT) / fadeDuration;
+            var f = Mathf.Lerp(startAlpha, target, 1-fraction);
             c.a = f;
             mat.color = c;
-            yield return new WaitForSeconds(fadeDuration);
+            c = mat.color;
+            yield return new WaitForEndOfFrame();
         }
-
-        // print("do fade");
-
+        c.a = target;
+        mat.color = c;
+        child.gameObject.SetActive(!activeStart);
+        print("do fade");
     }
-    IEnumerator FadeOut(Material mat, GameObject child)
-    {
-        var startAlpha = mat.color.a;
-        for (float f =startAlpha  ; f >= 0; f -= fadeAmount)
-        {
-            Color c =mat.color;
-            c.a = f;
-            mat.color = c;
-            yield return new WaitForSeconds(fadeDuration);
-        }
-        child.gameObject.SetActive(false);;
-        // print("do fade");
-    }
+   
 
 
 }
