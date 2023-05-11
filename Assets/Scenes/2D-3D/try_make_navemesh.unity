@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -838,7 +838,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &426122929
 Transform:
   m_ObjectHideFlags: 0
@@ -1052,11 +1052,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -2903746728507490166, guid: e7cd15015d57c4875977f63c1855b9e1, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.99699223
+      value: 0.9935719
       objectReference: {fileID: 0}
     - target: {fileID: -2903746728507490166, guid: e7cd15015d57c4875977f63c1855b9e1, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.07750208
+      value: 0.11320323
       objectReference: {fileID: 0}
     - target: {fileID: -2903746728507490166, guid: e7cd15015d57c4875977f63c1855b9e1, type: 3}
       propertyPath: m_LocalRotation.z
@@ -1064,7 +1064,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -2903746728507490166, guid: e7cd15015d57c4875977f63c1855b9e1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 8.89
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e7cd15015d57c4875977f63c1855b9e1, type: 3}
       propertyPath: m_Name
@@ -1588,6 +1588,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9e9a04796a00274ebb5bbb5a34567cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  snapAngle: 10
   worlds:
   - {fileID: 659777981}
   - {fileID: 1850896491}
@@ -2229,7 +2230,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &1956251786
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2600,7 +2601,7 @@ Camera:
   far clip plane: 1000
   field of view: 48.270565
   orthographic: 0
-  orthographic size: 5.625
+  orthographic size: 4.6637926
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
