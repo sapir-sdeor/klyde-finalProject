@@ -53,7 +53,7 @@ public class MeshCut : MonoBehaviour
             yield return new WaitForSeconds(fadeDuration);
         }
 
-        print("do fade");
+        // print("do fade");
 
     }
     IEnumerator FadeOut(Material mat, GameObject child)
@@ -67,7 +67,7 @@ public class MeshCut : MonoBehaviour
             yield return new WaitForSeconds(fadeDuration);
         }
         child.gameObject.SetActive(false);;
-        print("do fade");
+        // print("do fade");
     }
 
 
