@@ -38,7 +38,7 @@ public class MeshCut : MonoBehaviour
             }
          
             
-    }
+    } 
 
     void FadeIn(Material mat, GameObject child)
         =>  StartCoroutine(Fade(mat, child, InitialAlpha, true));
@@ -52,7 +52,7 @@ public class MeshCut : MonoBehaviour
         child.gameObject.SetActive(activeStart);
         var startT = Time.time;
         Color c =mat.color;
-        
+            .,l
         while (Time.time < startT + fadeDuration)
         {
             var fraction = (Time.time - startT) / fadeDuration;
