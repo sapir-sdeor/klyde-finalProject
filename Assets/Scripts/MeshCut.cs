@@ -52,7 +52,6 @@ public class MeshCut : MonoBehaviour
         child.gameObject.SetActive(activeStart);
         var startT = Time.time;
         Color c =mat.color;
-            .,l
         while (Time.time < startT + fadeDuration)
         {
             var fraction = (Time.time - startT) / fadeDuration;
