@@ -19,5 +19,53 @@ namespace tryRotate
         //                {
         //                    agent.SetDestination(hit.position);
         //                }
+        
+        // void Update()
+        // {
+        //
+        //     for (int i = 0; i < transform.childCount; i++)
+        //     {
+        //         Transform child = transform.GetChild(i);
+        //         Material mat = child.GetComponent<Renderer>().material;
+        //         if (child.position.x < limit)
+        //         {
+        //             FadeOut(mat,child.gameObject);
+        //             
+        //         }
+        //         else
+        //         {
+        //             FadeIn(mat,child.gameObject);
+        //         }
+        //     }
+        //  
+        //     
+        // } 
+
+        // void FadeIn(Material mat, GameObject child)
+        //     =>  StartCoroutine(Fade(mat, child, InitialAlpha, true));
+        // void FadeOut(Material mat, GameObject child)
+        //     =>  StartCoroutine(Fade(mat, child, 0, false));
+        //
+        // IEnumerator Fade(Material mat, GameObject child, float target, bool activeStart)
+        // {
+        //     var startAlpha = mat.color.a;
+        //
+        //     child.gameObject.SetActive(activeStart);
+        //     var startT = Time.time;
+        //     Color c =mat.color;
+        //     while (Time.time < startT + fadeDuration)
+        //     {
+        //         var fraction = (Time.time - startT) / fadeDuration;
+        //         var f = Mathf.Lerp(startAlpha, target, 1-fraction);
+        //         c.a = f;
+        //         mat.color = c;
+        //         c = mat.color;
+        //         yield return new WaitForEndOfFrame();
+        //     }
+        //     c.a = target;
+        //     mat.color = c;
+        //     child.gameObject.SetActive(!activeStart);
+        //     print("do fade");
+        // }
     }
 }
