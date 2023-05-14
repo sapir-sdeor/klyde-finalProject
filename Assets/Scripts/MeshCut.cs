@@ -10,7 +10,7 @@ public class MeshCut : MonoBehaviour
     [SerializeField] private bool DoFade = false;
     [SerializeField] private float fadeAmount = 0.5f;
     [SerializeField] private float limit = 0f;
-     private float InitialAlpha;
+    private float InitialAlpha;
 
 
     private void Start()
@@ -22,50 +22,54 @@ public class MeshCut : MonoBehaviour
     void Update()
     {
 
-            for (int i = 0; i < transform.childCount; i++)
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            Transform child = transform.GetChild(i);
+            Material mat = child.GetComponent<Renderer>().material;
+            if (child.position.x <= limit)
             {
-                Transform child = transform.GetChild(i);
-                Material mat = child.GetComponent<Renderer>().material;
-                if (child.position.x < limit)
-                {
-                    FadeOut(mat,child.gameObject);
+                StartCoroutine(FadeOut(mat,child.gameObject));
                     
-                }
-                else
-                {
-                    FadeIn(mat,child.gameObject);
-                }
             }
+            else
+            {
+                StartCoroutine(FadeIn(mat,child.gameObject));
+                    
+            }
+        }
          
             
-    } 
+    }
 
-    void FadeIn(Material mat, GameObject child)
-        =>  StartCoroutine(Fade(mat, child, InitialAlpha, true));
-    void FadeOut(Material mat, GameObject child)
-        =>  StartCoroutine(Fade(mat, child, 0, false));
-
-    IEnumerator Fade(Material mat, GameObject child, float target, bool activeStart)
+    IEnumerator FadeIn(Material mat, GameObject child)
     {
         var startAlpha = mat.color.a;
-        
-        child.gameObject.SetActive(activeStart);
-        var startT = Time.time;
-        Color c =mat.color;
-        while (Time.time < startT + fadeDuration)
+        child.gameObject.SetActive(true);
+        for (float f =startAlpha ; f <= InitialAlpha; f += fadeAmount)
         {
-            var fraction = (Time.time - startT) / fadeDuration;
-            var f = Mathf.Lerp(startAlpha, target, 1-fraction);
+            Color c =mat.color;
             c.a = f;
             mat.color = c;
-            c = mat.color;
-            yield return new WaitForEndOfFrame();
+            yield return new WaitForSeconds(fadeDuration);
         }
-        c.a = target;
-        mat.color = c;
-        child.gameObject.SetActive(!activeStart);
-        print("do fade");
+
+        // print("do fade");
+
     }
+    IEnumerator FadeOut(Material mat, GameObject child)
+    {
+        var startAlpha = mat.color.a;
+        for (float f =startAlpha  ; f >= 0; f -= fadeAmount)
+        {
+            Color c =mat.color;
+            c.a = f;
+            mat.color = c;
+            yield return new WaitForSeconds(fadeDuration);
+        }
+        child.gameObject.SetActive(false);;
+        // print("do fade");
+    }
+   
    
 
 

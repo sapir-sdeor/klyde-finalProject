@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1273174, g: 0.13414761, b: 0.12107885, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -401,7 +401,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 314323512}
-  - component: {fileID: 314323513}
   - component: {fileID: 314323514}
   m_Layer: 0
   m_Name: right platform
@@ -431,36 +430,6 @@ Transform:
   m_Father: {fileID: 655831159}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: -118.58, y: 89.971, z: 89.965}
---- !u!114 &314323513
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 314323511}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a5ac11cc976e418e8d13136b07e1f52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_AgentTypeID: 0
-  m_CollectObjects: 0
-  m_Size: {x: 10, y: 10, z: 10}
-  m_Center: {x: 0, y: 2, z: 0}
-  m_LayerMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_UseGeometry: 0
-  m_DefaultArea: 0
-  m_IgnoreNavMeshAgent: 1
-  m_IgnoreNavMeshObstacle: 1
-  m_OverrideTileSize: 0
-  m_TileSize: 256
-  m_OverrideVoxelSize: 0
-  m_VoxelSize: 0.16666667
-  m_MinRegionArea: 2
-  m_NavMeshData: {fileID: 0}
-  m_BuildHeightMesh: 0
 --- !u!114 &314323514
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1797,7 +1766,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 904975029}
-  m_LocalRotation: {x: 0.5763175, y: -0.40963492, z: -0.40949196, w: -0.57651865}
+  m_LocalRotation: {x: 0.43909273, y: -0.5542901, z: -0.55409664, w: -0.43924603}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 139.99995, y: 139.99997, z: 139.99998}
   m_ConstrainProportionsScale: 1
@@ -1808,7 +1777,7 @@ Transform:
   - {fileID: 1756432287}
   m_Father: {fileID: 1160916216}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: -89.98, y: -289.21, z: 0}
+  m_LocalEulerAnglesHint: {x: -89.98, y: -256.79, z: 0}
 --- !u!64 &904975031
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -4650,7 +4619,7 @@ MonoBehaviour:
   m_TileSize: 256
   m_OverrideVoxelSize: 0
   m_VoxelSize: 0.16666667
-  m_MinRegionArea: 2
+  m_MinRegionArea: 0.001
   m_NavMeshData: {fileID: 0}
   m_BuildHeightMesh: 0
 --- !u!114 &2044879872
@@ -4668,7 +4637,7 @@ MonoBehaviour:
   fadeDuration: 0.01
   DoFade: 0
   fadeAmount: 0.05
-  limit: 0.5
+  limit: -0.5
 --- !u!1 &2052227635
 GameObject:
   m_ObjectHideFlags: 0
