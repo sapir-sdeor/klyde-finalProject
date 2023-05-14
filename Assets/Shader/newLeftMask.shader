@@ -30,7 +30,8 @@ Shader "Custom/combineMask"
             fixed4 tex = tex2D(_MainTex, IN.uv_MainTex) ;
            // float4 worldPos = mul(unity_ObjectToWorld, float4(IN.worldPos, 1.0));
             if (IN.worldPos.x >= 0 ) 
-                tex.a = 0;
+                tex.a = 0.5f;
+                //tex.a = 0;
 
             // Set the surface properties using the existing Standard shader code
             o.Albedo = tex.rgb * _Color.rgb * tex.a;
