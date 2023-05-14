@@ -4,6 +4,7 @@ Shader "Custom/combineMask"
         _MainTex ("Texture", 2D) = "white" {}
         _Metallic ("Metallic", Range(0,1)) = 0
         _Glossiness ("Smoothness", Range(0,1)) = 0.5
+        _Transparent ("Transparent", Range(0,1)) = 0.5
     }
     SubShader {
         Tags {  "IgnoreProjector" = "True"
@@ -21,7 +22,8 @@ Shader "Custom/combineMask"
         fixed4 _Color;
         float _Metallic;
         float _Glossiness;
-
+        float _Transparent;
+        
         struct Input {
             float2 uv_MainTex;
             float3 worldPos;
@@ -32,7 +34,7 @@ Shader "Custom/combineMask"
             fixed4 tex = tex2D(_MainTex, IN.uv_MainTex) ;
            // float4 worldPos = mul(unity_ObjectToWorld, float4(IN.worldPos, 1.0));
             if (IN.worldPos.x <= 0 ) 
-                tex.a = 0.5f;
+                tex.a = _Transparent;
                 //tex.a = 0;
 
             // Set the surface properties using the existing Standard shader code
