@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028334, g: 0.22571328, b: 0.3069217, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -565,7 +565,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &192846924
 Transform:
   m_ObjectHideFlags: 0
@@ -838,7 +838,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &426122929
 Transform:
   m_ObjectHideFlags: 0
@@ -1052,11 +1052,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -2903746728507490166, guid: e7cd15015d57c4875977f63c1855b9e1, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.99699223
+      value: 0.9935719
       objectReference: {fileID: 0}
     - target: {fileID: -2903746728507490166, guid: e7cd15015d57c4875977f63c1855b9e1, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.07750208
+      value: 0.11320323
       objectReference: {fileID: 0}
     - target: {fileID: -2903746728507490166, guid: e7cd15015d57c4875977f63c1855b9e1, type: 3}
       propertyPath: m_LocalRotation.z
@@ -1064,7 +1064,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -2903746728507490166, guid: e7cd15015d57c4875977f63c1855b9e1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 8.89
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: e7cd15015d57c4875977f63c1855b9e1, type: 3}
       propertyPath: m_Name
@@ -1179,7 +1179,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 659777980}
-  m_LocalRotation: {x: 0.04993206, y: -0.7054641, z: -0.7052179, w: -0.049949493}
+  m_LocalRotation: {x: 0.13732035, y: -0.6937611, z: -0.693519, w: -0.1373683}
   m_LocalPosition: {x: 1.5380907, y: -1.7427835, z: -1.7074294}
   m_LocalScale: {x: 139.99995, y: 139.99997, z: 139.99998}
   m_ConstrainProportionsScale: 0
@@ -1188,7 +1188,7 @@ Transform:
   - {fileID: 192846924}
   m_Father: {fileID: 1342876738}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -89.98, y: -188.1, z: 0}
+  m_LocalEulerAnglesHint: {x: -89.98, y: -202.4, z: 0}
 --- !u!23 &659777982
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -1588,11 +1588,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9e9a04796a00274ebb5bbb5a34567cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  snapAngle: 10
   worlds:
   - {fileID: 659777981}
   - {fileID: 1850896491}
   sensitivity: 2
-  rotationSpeed: 10
+  rotationSpeed: 5
   pivotPoint: {fileID: 670158996}
   surfaces:
   - {fileID: 1970584528}
@@ -2222,6 +2223,7 @@ GameObject:
   - component: {fileID: 1956251788}
   - component: {fileID: 1956251787}
   - component: {fileID: 1956251786}
+  - component: {fileID: 1956251790}
   m_Layer: 0
   m_Name: Plane
   m_TagString: Untagged
@@ -2301,13 +2303,29 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1956251785}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 8.5, z: 0}
-  m_LocalScale: {x: 100, y: 1, z: 20}
+  m_LocalPosition: {x: 5.61, y: -2.4, z: -2}
+  m_LocalScale: {x: 60, y: 60, z: 60}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!208 &1956251790
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1956251785}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 5, y: 0.00001, z: 5}
+  m_MoveThreshold: 0.1
+  m_Carve: 0
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0.5
 --- !u!1 &1958545960
 GameObject:
   m_ObjectHideFlags: 0
@@ -2583,7 +2601,7 @@ Camera:
   far clip plane: 1000
   field of view: 48.270565
   orthographic: 0
-  orthographic size: 5.625
+  orthographic size: 6.1284404
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2

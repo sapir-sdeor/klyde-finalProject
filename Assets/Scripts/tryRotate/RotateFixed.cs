@@ -7,7 +7,7 @@ public class RotateFixed : MonoBehaviour
     private bool isDragging;
     private Vector3 previousMousePosition;
 
-    [SerializeField] private float snapAngle = 15f;
+    [SerializeField] private float snapAngle = 10f;
     [SerializeField] private float rotationSpeed = 20f;
 
     private void Update()

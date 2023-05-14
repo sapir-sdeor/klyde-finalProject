@@ -29,12 +29,13 @@ public class moving : MonoBehaviour
            isWalk = true;
            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
            Debug.DrawRay(ray.origin, ray.direction * 50, Color.red);
-           print(Physics.Raycast(ray, out RaycastHit raycast));
+           // print(Physics.Raycast(ray, out RaycastHit raycast));
            if (Physics.Raycast(ray, out RaycastHit raycastHit))
            {
-               // print(Rotate2D3D.GetIsRotating());
-               if (agent.isOnNavMesh && !Rotate2D3D.GetIsRotating()) // Check if agent is on NavMesh
+               // print(!Rotate2D3D.GetIsRotating());
+               if (agent.isOnNavMesh ) // Check if agent is on NavMesh
                {
+                   print("is on navmesh");
                    agent.SetDestination(raycastHit.point);
                }
            }
