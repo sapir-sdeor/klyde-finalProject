@@ -5,10 +5,10 @@ using UnityEngine;
 public class RecognizeShape : MonoBehaviour
 {
     [SerializeField] private Vector3[] positions;
-
     [SerializeField] private GameObject[] positionsGameObjects;
-
     [SerializeField] private float sphereRadius = 0.1f;
+
+    [SerializeField] private GameObject objectToShown;
     // Start is called before the first frame update
     private static bool _recognizeShape = false;
     private bool flag = true;
@@ -19,8 +19,7 @@ public class RecognizeShape : MonoBehaviour
         flag = true;
         for (int i = 0; i < positionsGameObjects.Length; i++)
         {
-
-            if (!IsInSphere(positionsGameObjects[i].transform.position, positions[i], sphereRadius))
+            if (!IsInSphere(positionsGameObjects[i].transform.localPosition, positions[i], sphereRadius))
             {
                 print(" _recognizeShape failed");
                 flag = false;
@@ -30,7 +29,7 @@ public class RecognizeShape : MonoBehaviour
         {
             print(" _recognizeShape successfully");
             _recognizeShape = true;
-
+            objectToShown.gameObject.SetActive(true);
         }
     }
     
@@ -38,7 +37,7 @@ public class RecognizeShape : MonoBehaviour
     {
         // Calculate the distance between the game object and the sphere center
         float distance = Vector3.Distance(gameObjectPosition, sphereCenterPosition);
-        // print("distance "+ distance);
+        print("distance "+ distance);
 
         // Check if the game object is within the sphere
         if (distance <= sphereRadius)
