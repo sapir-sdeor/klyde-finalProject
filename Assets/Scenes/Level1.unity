@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1273174, g: 0.13414761, b: 0.12107885, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -401,7 +401,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 314323512}
-  - component: {fileID: 314323514}
+  - component: {fileID: 314323513}
   m_Layer: 0
   m_Name: right platform
   m_TagString: Untagged
@@ -430,7 +430,7 @@ Transform:
   m_Father: {fileID: 655831159}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: -118.58, y: 89.971, z: 89.965}
---- !u!114 &314323514
+--- !u!114 &314323513
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -439,13 +439,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 314323511}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 628258346d2ffc943b7e1c0a9fcf31db, type: 3}
+  m_Script: {fileID: 11500000, guid: 30d4f2077e209df45adf1d50a15383e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeDuration: 0.01
+  fadeDuration: 0.5
   DoFade: 0
   fadeAmount: 0.5
   limit: 0
+  halfNum: 2
 --- !u!1 &317237312
 GameObject:
   m_ObjectHideFlags: 0
@@ -4908,6 +4909,7 @@ MonoBehaviour:
   DoFade: 0
   fadeAmount: 0.05
   limit: 0
+  halfNum: 0
 --- !u!4 &2027306748
 Transform:
   m_ObjectHideFlags: 0
@@ -5053,6 +5055,7 @@ MonoBehaviour:
   DoFade: 0
   fadeAmount: 0.05
   limit: -0.5
+  halfNum: 1
 --- !u!1 &2052227635
 GameObject:
   m_ObjectHideFlags: 0
