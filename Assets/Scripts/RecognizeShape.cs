@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class RecognizeShape : MonoBehaviour
 {
-    [SerializeField] private Vector3[] positions;
-
+    [SerializeField] private float[] distances;
+    [SerializeField] private float aprroximate= 0.1f;
     [SerializeField] private GameObject[] positionsGameObjects;
+    [SerializeField] private Row[] grid;
 
-    [SerializeField] private float sphereRadius = 0.1f;
+    [SerializeField] private GameObject objectToShown;
     // Start is called before the first frame update
     private static bool _recognizeShape = false;
     private bool flag = true;
@@ -17,36 +18,35 @@ public class RecognizeShape : MonoBehaviour
     void Update()
     {
         flag = true;
-        for (int i = 0; i < positionsGameObjects.Length; i++)
+        int i = 0;
+        //for multiple we have grid with row that hold two game objects and the distance between them
+        foreach (var row in grid)
         {
-
-            if (!IsInSphere(positionsGameObjects[i].transform.position, positions[i], sphereRadius))
-            {
+            var dist = Vector3.Distance(row.positions[0].transform.position, row.positions[1].transform.position);
+            print(dist + " distance");
+            if ((row.distance-aprroximate) >=dist || dist>= row.distance+aprroximate)
+            {    
                 print(" _recognizeShape failed");
-                flag = false;
-            }
+                flag = false;            
+            } 
         }
-        if (flag)
-        {
-            print(" _recognizeShape successfully");
+        if (flag){
             _recognizeShape = true;
-
+            objectToShown.gameObject.SetActive(true);
+            print(" _recognizeShape success");
         }
-    }
-    
-    private bool IsInSphere(Vector3 gameObjectPosition, Vector3 sphereCenterPosition, float sphereRadius)
-    {
-        // Calculate the distance between the game object and the sphere center
-        float distance = Vector3.Distance(gameObjectPosition, sphereCenterPosition);
-        // print("distance "+ distance);
-
-        // Check if the game object is within the sphere
-        if (distance <= sphereRadius)
-        {
-            return true; // Game object is within the sphere
-        }
-
-        return false;
+     
+        // var distance = Vector3.Distance(positionsGameObjects[0].transform.position, positionsGameObjects[1].transform.position);
+        // if (distances[i]-aprroximate<=distance && distance<= distances[i]+aprroximate)
+        // {      
+        //     print(-aprroximate+distances[i] + " distance");
+        //     _recognizeShape = true;
+        //     objectToShown.gameObject.SetActive(true);
+        // }
+        // else{
+        //     print(" _recognizeShape failed");
+        //     flag = false;
+        // }
     }
 
     public static bool GetRecognizeShape()
