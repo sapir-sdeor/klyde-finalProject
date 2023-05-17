@@ -6,7 +6,7 @@ using UnityEngine;
 public class generatePlatform : MonoBehaviour
 {
     [SerializeField] private GameObject prefabPlatform;
-    [SerializeField] private int angle = 10;
+    [SerializeField] private int angle = 1;
     [SerializeField] private int numberOfPieces = 6;
     void Start()
     {
