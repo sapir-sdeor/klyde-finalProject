@@ -6,16 +6,16 @@ using UnityEngine;
 public class MeshCut : MonoBehaviour
 {
     // [SerializeField] private float limit = 0f;
-    [SerializeField] private float fadeDuration = 0.01f; // Duration of the fade effect in
-    [SerializeField] private float fadeAmount = 0.5f;
-    private float _initialAlpha;
+    // [SerializeField] private float fadeDuration = 0.001f; // Duration of the fade effect in
+    // [SerializeField] private float fadeAmount = 0.5f;
+    // private float _initialAlpha;
     [SerializeField] private int halfNum;
     private float _angle;
 
 
     private void Start()
     {
-        _initialAlpha = transform.GetChild(0).GetComponent<Renderer>().material.color.a;
+        // _initialAlpha = transform.GetChild(0).GetComponent<Renderer>().material.color.a;
         _angle = 360 /(float) LevelManager.GetNumOfHalfs();
     }
 
@@ -30,86 +30,21 @@ public class MeshCut : MonoBehaviour
         for (int i = 0; i < transform.childCount; i++)
         {
             Transform child = transform.GetChild(i);
-            var angle = child.rotation.y;
-            var parent_angle = transform.parent.rotation.z;
-            angle += parent_angle;
-            angle *= 100;
-            
-
-                // Ensure the angle is within [0, 360) range
-            angle = (angle + 360f) % 360f;
-
-            // Do something with the calculated angle
-            if(i==1) Debug.Log("Object " + i + " angle: " + parent_angle);
-            if(i== transform.childCount-1) Debug.Log("Object " + i + " angle: " + parent_angle);
-            //
-            // Material mat = child.GetComponent<Renderer>().material;
-            // if ( _angle*(halfNum-1) <= currAngle && currAngle <= _angle*(halfNum))
-            // {
-            //     StartCoroutine(FadeIn(mat,child.gameObject));       
-            // }
-            // else
-            // {
-            //     StartCoroutine(FadeOut(mat,child.gameObject));         
-            // }
+            var currAngle = child.eulerAngles.y;
+            var parentAngle = transform.parent.eulerAngles.z;
+            currAngle += parentAngle;
+            // if(i==1) Debug.Log("Object " + i + " angle: " + currAngle);
+            // if(i== transform.childCount-1) Debug.Log("Object " + i + " angle: " + currAngle);
+            if ( _angle*(halfNum-1) <= currAngle && currAngle <= _angle*(halfNum))
+            {
+                child.gameObject.SetActive(true);
+            }
+            else
+            {
+                child.gameObject.SetActive(false);      
+            }
         }
-    }
-
-    IEnumerator FadeIn(Material mat, GameObject child)
-    {
-        var startAlpha = mat.color.a;
-        child.gameObject.SetActive(true);
-        for (float f =startAlpha ; f <= _initialAlpha; f += fadeAmount)
-        {
-            Color c =mat.color;
-            c.a = f;
-            mat.color = c;
-            yield return new WaitForSeconds(fadeDuration);
-        }
-    }
-    IEnumerator FadeOut(Material mat, GameObject child)
-    {
-        var startAlpha = mat.color.a;
-        for (float f =startAlpha  ; f >= 0; f -= fadeAmount)
-        {
-            Color c =mat.color;
-            c.a = f;
-            mat.color = c;
-            yield return new WaitForSeconds(fadeDuration);
-        }
-        child.gameObject.SetActive(false);;
     }
     
-    // private void CallFade()
-    // {
-    //     for (int i = 0; i < transform.childCount; i++)
-    //     {
-    //         Transform child = transform.GetChild(i);
-    //         // Calculate the direction vector from (0, 0, 0) to the object
-    //         Vector3 absolutePosition = child.TransformPoint(Vector3.zero);
-    //         Vector3 direction = absolutePosition - Vector3.zero;
-    //         // Calculate the angle between the direction vector and the forward vector
-    //         float currAngle = Vector3.Angle(Vector3.forward, direction);
-    //         if (child.position.x < 0) currAngle = 360 - currAngle;
-    //         if (i == 1)
-    //         {
-    //             // print(currAngle+" 1");
-    //         }
-    //         if (i == transform.childCount-1)
-    //         {
-    //             // print(currAngle+" last");
-    //         }
-    //         
-    //         Material mat = child.GetComponent<Renderer>().material;
-    //         if ( _angle*(halfNum-1) <= currAngle && currAngle <= _angle*(halfNum))
-    //         {
-    //             StartCoroutine(FadeIn(mat,child.gameObject));       
-    //         }
-    //         else
-    //         {
-    //             StartCoroutine(FadeOut(mat,child.gameObject));         
-    //         }
-    //     }
-    // }
     
 }
