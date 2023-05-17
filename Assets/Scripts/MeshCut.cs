@@ -24,73 +24,34 @@ public class MeshCut : MonoBehaviour
     { 
           CallFade(); 
     }
-    // private void CallFade()
-    // {
-    //     for (int i = 0; i < transform.childCount; i++)
-    //     {
-    //         Transform child = transform.GetChild(i);
-    //
-    //         // Calculate the direction vector from (0, 0, 0) to the object
-    //         Vector3 absolutePosition = child.TransformPoint(Vector3.zero);
-    //         Vector3 direction = absolutePosition - Vector3.zero;
-    //
-    //         // Calculate the angle between the direction vector and the forward vector using Euler angles
-    //         Quaternion targetRotation = Quaternion.LookRotation(direction, Vector3.forward);
-    //         float currAngle = targetRotation.eulerAngles.z;
-    //
-    //         if (child.position.x < 0) currAngle = 360f - currAngle;
-    //
-    //         if (i == 1)
-    //         {
-    //             print(currAngle + " 1");
-    //         }
-    //         if (i == transform.childCount - 1)
-    //         {
-    //             print(currAngle + " last");
-    //         }
-    //
-    //         Material mat = child.GetComponent<Renderer>().material;
-    //         if (_angle * (halfNum - 1) <= currAngle && currAngle <= _angle * halfNum)
-    //         {
-    //             StartCoroutine(FadeIn(mat, child.gameObject));
-    //         }
-    //         else
-    //         {
-    //             StartCoroutine(FadeOut(mat, child.gameObject));
-    //         }
-    //     }
-    // }
-
-
+    
     private void CallFade()
     {
         for (int i = 0; i < transform.childCount; i++)
         {
             Transform child = transform.GetChild(i);
-            // Calculate the direction vector from (0, 0, 0) to the object
-            Vector3 absolutePosition = child.TransformPoint(Vector3.zero);
-            Vector3 direction = absolutePosition - Vector3.zero;
-            // Calculate the angle between the direction vector and the forward vector
-            float currAngle = Vector3.Angle(Vector3.forward, direction);
-            if (child.position.x < 0) currAngle = 360 - currAngle;
-            if (i == 1)
-            {
-                // print(currAngle+" 1");
-            }
-            if (i == transform.childCount-1)
-            {
-                // print(currAngle+" last");
-            }
+            var angle = child.rotation.y;
+            var parent_angle = transform.parent.rotation.z;
+            angle += parent_angle;
+            angle *= 100;
             
-            Material mat = child.GetComponent<Renderer>().material;
-            if ( _angle*(halfNum-1) <= currAngle && currAngle <= _angle*(halfNum))
-            {
-                StartCoroutine(FadeIn(mat,child.gameObject));       
-            }
-            else
-            {
-                StartCoroutine(FadeOut(mat,child.gameObject));         
-            }
+
+                // Ensure the angle is within [0, 360) range
+            angle = (angle + 360f) % 360f;
+
+            // Do something with the calculated angle
+            if(i==1) Debug.Log("Object " + i + " angle: " + parent_angle);
+            if(i== transform.childCount-1) Debug.Log("Object " + i + " angle: " + parent_angle);
+            //
+            // Material mat = child.GetComponent<Renderer>().material;
+            // if ( _angle*(halfNum-1) <= currAngle && currAngle <= _angle*(halfNum))
+            // {
+            //     StartCoroutine(FadeIn(mat,child.gameObject));       
+            // }
+            // else
+            // {
+            //     StartCoroutine(FadeOut(mat,child.gameObject));         
+            // }
         }
     }
 
@@ -118,5 +79,37 @@ public class MeshCut : MonoBehaviour
         }
         child.gameObject.SetActive(false);;
     }
+    
+    // private void CallFade()
+    // {
+    //     for (int i = 0; i < transform.childCount; i++)
+    //     {
+    //         Transform child = transform.GetChild(i);
+    //         // Calculate the direction vector from (0, 0, 0) to the object
+    //         Vector3 absolutePosition = child.TransformPoint(Vector3.zero);
+    //         Vector3 direction = absolutePosition - Vector3.zero;
+    //         // Calculate the angle between the direction vector and the forward vector
+    //         float currAngle = Vector3.Angle(Vector3.forward, direction);
+    //         if (child.position.x < 0) currAngle = 360 - currAngle;
+    //         if (i == 1)
+    //         {
+    //             // print(currAngle+" 1");
+    //         }
+    //         if (i == transform.childCount-1)
+    //         {
+    //             // print(currAngle+" last");
+    //         }
+    //         
+    //         Material mat = child.GetComponent<Renderer>().material;
+    //         if ( _angle*(halfNum-1) <= currAngle && currAngle <= _angle*(halfNum))
+    //         {
+    //             StartCoroutine(FadeIn(mat,child.gameObject));       
+    //         }
+    //         else
+    //         {
+    //             StartCoroutine(FadeOut(mat,child.gameObject));         
+    //         }
+    //     }
+    // }
     
 }

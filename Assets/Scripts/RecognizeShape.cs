@@ -23,30 +23,18 @@ public class RecognizeShape : MonoBehaviour
         foreach (var row in grid)
         {
             var dist = Vector3.Distance(row.positions[0].transform.position, row.positions[1].transform.position);
-            print(dist + " distance");
+            // print(dist + " distance");
             if ((row.distance-aprroximate) >=dist || dist>= row.distance+aprroximate)
             {    
-                print(" _recognizeShape failed");
+                // print(" _recognizeShape failed");
                 flag = false;            
             } 
         }
         if (flag){
             _recognizeShape = true;
             objectToShown.gameObject.SetActive(true);
-            print(" _recognizeShape success");
+            // print(" _recognizeShape success");
         }
-     
-        // var distance = Vector3.Distance(positionsGameObjects[0].transform.position, positionsGameObjects[1].transform.position);
-        // if (distances[i]-aprroximate<=distance && distance<= distances[i]+aprroximate)
-        // {      
-        //     print(-aprroximate+distances[i] + " distance");
-        //     _recognizeShape = true;
-        //     objectToShown.gameObject.SetActive(true);
-        // }
-        // else{
-        //     print(" _recognizeShape failed");
-        //     flag = false;
-        // }
     }
 
     public static bool GetRecognizeShape()
