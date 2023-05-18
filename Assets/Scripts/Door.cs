@@ -12,7 +12,7 @@ public class Door : MonoBehaviour
     private void Start()
     {
         gameObject.SetActive(false);
-        _angle = 360 /(float) LevelManager.GetNumOfHalfs();
+        _angle = 360 /(float) LevelManager.GetNumOfHalves();
     }
 
 
@@ -24,29 +24,44 @@ public class Door : MonoBehaviour
         var currAngle = trans.eulerAngles.y;
         var parentAngle = trans.parent.eulerAngles.z;
         currAngle += parentAngle;
-        Debug.Log(  " angle: " + currAngle);
+   //     Debug.Log(  " angle: " + currAngle);
         // if(i== transform.childCount-1) Debug.Log("Object " + i + " angle: " + currAngle);
-        if ( _angle*(halfNum-1) <= currAngle && currAngle <= _angle*(halfNum))
+        /*if ( _angle*(halfNum-1) <= currAngle && currAngle <= _angle*(halfNum))
         {
             trans.gameObject.SetActive(true);
+        }*/
+        /*else
+        {
+            trans.gameObject.SetActive(false);      
+        }*/
+        if (transform.position.z < 0)
+        {
+            foreach (var child in GetComponentsInChildren<MeshRenderer>())
+            {
+                child.GetComponent<MeshRenderer>().enabled = false;
+            }
+            GetComponent<Collider>().enabled = false;
         }
         else
         {
-            trans.gameObject.SetActive(false);      
+            foreach (var child in GetComponentsInChildren<MeshRenderer>())
+            {
+                child.GetComponent<MeshRenderer>().enabled = true;
+            }
+            GetComponent<Collider>().enabled = true;
         }
-        // if (transform.position.x < 0)
-        // {
-        //     GetComponent<MeshRenderer>().enabled = false;
-        //     GetComponent<MeshCollider>().enabled = false;
-        // }
-        // else
-        // {
-        //     GetComponent<MeshRenderer>().enabled = true;
-        //     GetComponent<MeshCollider>().enabled = true;
-        // }
     }
 
     private void OnCollisionEnter(Collision other)
+    {
+        if(other.gameObject.CompareTag("klyde"))
+        {
+            print("klyde win");
+        }
+        
+    }
+
+    private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.CompareTag("klyde"))
         {

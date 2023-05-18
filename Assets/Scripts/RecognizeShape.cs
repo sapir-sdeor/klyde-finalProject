@@ -8,7 +8,6 @@ public class RecognizeShape : MonoBehaviour
     [SerializeField] private float aprroximate= 0.1f;
     [SerializeField] private GameObject[] positionsGameObjects;
     [SerializeField] private Row[] grid;
-
     [SerializeField] private GameObject objectToShown;
     // Start is called before the first frame update
     private static bool _recognizeShape = false;
