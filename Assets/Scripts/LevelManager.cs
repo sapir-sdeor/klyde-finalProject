@@ -11,7 +11,7 @@ public class LevelManager : MonoBehaviour
 
     private void Update()
     {
-        SetNumOfHalfs();
+        SetNumOfHalves();
     }
 
     public void NextLevel()
@@ -26,11 +26,13 @@ public class LevelManager : MonoBehaviour
         _currentLevel = LevelFactory.CreateLevel(_level);
     }
     
-    private void SetNumOfHalfs()
+    private void SetNumOfHalves()
     {
         switch (_level)
         {
             case 1:
+                _numOfHalfs = 2;
+                break;
             case 2:
                 _numOfHalfs = 2;
                 break;
@@ -40,12 +42,12 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    public static int GetLevel()
+    public int GetLevel()
     {
         return _level;
     }
 
-    public static int GetNumOfHalfs()
+    public static int GetNumOfHalves()
     {
         return _numOfHalfs;
     }

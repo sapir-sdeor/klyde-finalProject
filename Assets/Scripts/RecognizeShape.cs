@@ -33,6 +33,7 @@ public class RecognizeShape : MonoBehaviour
         if (flag){
             _recognizeShape = true;
             objectToShown.gameObject.SetActive(true);
+            GetComponent<GameManager>().RecognizeShape();
             // print(" _recognizeShape success");
         }
     }

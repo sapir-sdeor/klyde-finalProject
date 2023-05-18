@@ -16,7 +16,7 @@ public class MeshCut : MonoBehaviour
     private void Start()
     {
         // _initialAlpha = transform.GetChild(0).GetComponent<Renderer>().material.color.a;
-        _angle = 360 /(float) LevelManager.GetNumOfHalfs();
+        _angle = 360 /(float) LevelManager.GetNumOfHalves();
     }
 
     // Update is called once per frame
