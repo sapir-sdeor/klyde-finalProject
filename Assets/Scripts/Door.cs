@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
@@ -5,22 +6,44 @@ using UnityEngine;
 
 public class Door : MonoBehaviour
 {
+    [SerializeField] private int halfNum;
+    private float _angle;
     // Start is called before the first frame update
-  
+    private void Start()
+    {
+        gameObject.SetActive(false);
+        _angle = 360 /(float) LevelManager.GetNumOfHalfs();
+    }
+
 
     // Update is called once per frame
     void Update()
     {
-        if (transform.position.x < 0)
+        if (RecognizeShape.GetRecognizeShape()) gameObject.SetActive(true);
+        var trans = transform;
+        var currAngle = trans.eulerAngles.y;
+        var parentAngle = trans.parent.eulerAngles.z;
+        currAngle += parentAngle;
+        Debug.Log(  " angle: " + currAngle);
+        // if(i== transform.childCount-1) Debug.Log("Object " + i + " angle: " + currAngle);
+        if ( _angle*(halfNum-1) <= currAngle && currAngle <= _angle*(halfNum))
         {
-            GetComponent<MeshRenderer>().enabled = false;
-            GetComponent<MeshCollider>().enabled = false;
+            trans.gameObject.SetActive(true);
         }
         else
         {
-            GetComponent<MeshRenderer>().enabled = true;
-            GetComponent<MeshCollider>().enabled = true;
+            trans.gameObject.SetActive(false);      
         }
+        // if (transform.position.x < 0)
+        // {
+        //     GetComponent<MeshRenderer>().enabled = false;
+        //     GetComponent<MeshCollider>().enabled = false;
+        // }
+        // else
+        // {
+        //     GetComponent<MeshRenderer>().enabled = true;
+        //     GetComponent<MeshCollider>().enabled = true;
+        // }
     }
 
     private void OnCollisionEnter(Collision other)
