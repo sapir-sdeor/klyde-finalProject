@@ -20,7 +20,10 @@ public class Rotate2D3D : MonoBehaviour
     private Vector2 mouseDirection;
     
     [SerializeField] private NavMeshSurface[] surfaces;
+    [SerializeField] private int frameCounterLimit;
+    [SerializeField] private int SeprateBetweenRotateWalk;
     private int frameCounter;
+    
     void Start()
     {
         for (int i = 0; i < surfaces.Length; i++) 
@@ -46,27 +49,32 @@ public class Rotate2D3D : MonoBehaviour
         {
             BuildNewNavMesh();
         }
-        if (_isRotating)
+        if (_isDragging)
         {
             RotateWorld();
         }
+        
     }
 
     private void RemoveAllNavMesh()
     {
-        _isRotating = true;
         frameCounter++;
-        if (frameCounter >= 20)
+        // RotateWorld();
+        if (frameCounter >= SeprateBetweenRotateWalk)
         {
-            NavMesh.RemoveAllNavMeshData();
             _isDragging = true;
-            // print("drag");
+            print("rotate is true");
+        }
+        if (frameCounter >= frameCounterLimit)
+        {
+            _isRotating = true;
+            NavMesh.RemoveAllNavMeshData();
         }
     }
 
     private void BuildNewNavMesh()
     {
-        // print("button up");
+        // print("build nevmesh");
         _isRotating = false;
         _isDragging = false;
         for (int i = 0; i < surfaces.Length; i++) 

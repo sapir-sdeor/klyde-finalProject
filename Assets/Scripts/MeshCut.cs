@@ -11,7 +11,7 @@ public class MeshCut : MonoBehaviour
     // private float _initialAlpha;
     [SerializeField] private int halfNum;
     private float _angle;
-    [SerializeField] private int angleFadeEffect;
+    [SerializeField] private float angleFadeEffect = 5;
 
 
     private void Start()
