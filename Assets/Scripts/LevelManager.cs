@@ -2,22 +2,24 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
     private static int _level = 1;
     private Level _currentLevel;
     private static int _numOfHalfs = 2;
-
+    
     private void Update()
     {
-        SetNumOfHalfs();
+        SetNumOfHalves();
     }
 
-    public void NextLevel()
+    public static void NextLevel()
     {
         _level++;
-        _currentLevel = LevelFactory.CreateLevel(_level);
+        SceneManager.LoadScene("Level " + _level);
+        //  _currentLevel = LevelFactory.CreateLevel(_level);
     }
     
     public void SetLevel(int newLevel)
@@ -26,11 +28,13 @@ public class LevelManager : MonoBehaviour
         _currentLevel = LevelFactory.CreateLevel(_level);
     }
     
-    private void SetNumOfHalfs()
+    private void SetNumOfHalves()
     {
         switch (_level)
         {
             case 1:
+                _numOfHalfs = 2;
+                break;
             case 2:
                 _numOfHalfs = 2;
                 break;
@@ -40,12 +44,12 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    public static int GetLevel()
+    public int GetLevel()
     {
         return _level;
     }
 
-    public static int GetNumOfHalfs()
+    public static int GetNumOfHalves()
     {
         return _numOfHalfs;
     }
