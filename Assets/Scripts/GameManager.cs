@@ -15,7 +15,6 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         _levelManager = GetComponent<LevelManager>();
-        _levelManager.SetLevel(_levelManager.GetLevel()+1);
     }
 
     public void RecognizeShape()
