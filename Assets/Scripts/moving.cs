@@ -23,7 +23,7 @@ public class moving : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print(transform.position.x+"klyde pos");
+        // print(transform.position.x+"klyde pos");
         if (Input.GetMouseButtonDown(0)) 
         {
            // isWalk = true;

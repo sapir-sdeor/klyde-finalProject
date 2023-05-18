@@ -8,11 +8,12 @@ using UnityEngine.EventSystems;
 public class Circle : World
 {
     private GameObject klyde;
-    
+    private float _angle;
+    [SerializeField] private int halfNum;
     
     void Start()
     {
-        //todo: make it general
+        _angle = 360 /(float) LevelManager.GetNumOfHalves();
         klyde = GameObject.FindGameObjectWithTag("klyde");
        
     }
@@ -20,7 +21,14 @@ public class Circle : World
     // Update is called once per frame
     void Update()
     {
-        isKlydeOn = klyde.transform.position.x > 0f;
+        var trans = klyde.transform;
+        // var currAngle = trans.eulerAngles.y;
+        Vector3 direction = trans.position - Vector3.zero;
+        // Calculate the angle between the direction vector and the forward vector
+        float currAngle = Vector3.Angle(Vector3.forward, direction);
+        if (trans.position.x < 0) currAngle = 360 - currAngle;
+
+        isKlydeOn =(_angle * (halfNum - 1)  <= currAngle && currAngle <= _angle * halfNum) ;
     }
 }
   
