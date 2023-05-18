@@ -21,43 +21,37 @@ public class Door : MonoBehaviour
     {
         if (RecognizeShape.GetRecognizeShape()) gameObject.SetActive(true);
         var trans = transform;
-        var currAngle = trans.eulerAngles.y;
-        var parentAngle = trans.parent.eulerAngles.z;
-        currAngle += parentAngle;
-   //     Debug.Log(  " angle: " + currAngle);
-        // if(i== transform.childCount-1) Debug.Log("Object " + i + " angle: " + currAngle);
-        /*if ( _angle*(halfNum-1) <= currAngle && currAngle <= _angle*(halfNum))
-        {
-            trans.gameObject.SetActive(true);
-        }*/
-        /*else
-        {
-            trans.gameObject.SetActive(false);      
-        }*/
+        // var currAngle = trans.eulerAngles.y;
+        Vector3 direction = trans.position - Vector3.zero;
+        // Calculate the angle between the direction vector and the forward vector
+        float currAngle = Vector3.Angle(Vector3.forward, direction);
+        if (trans.position.x < 0) currAngle = 360 - currAngle;
         if ( _angle*(halfNum-1) <= currAngle && currAngle <= _angle*(halfNum))
         {
-            foreach (var child in GetComponentsInChildren<MeshRenderer>())
-            {
-                child.GetComponent<MeshRenderer>().enabled = false;
-            }
-            GetComponent<Collider>().enabled = false;
+            EnabledDoorChild(true);
         }
         else
         {
-            foreach (var child in GetComponentsInChildren<MeshRenderer>())
-            {
-                child.GetComponent<MeshRenderer>().enabled = true;
-            }
-            GetComponent<Collider>().enabled = true;
+           EnabledDoorChild(false);
         }
     }
 
-    private void OnTriggerEnter(Collider other)
+    private void EnabledDoorChild(bool enabled)
     {
-        if(other.gameObject.CompareTag("klyde"))
+        foreach (var child in GetComponentsInChildren<MeshRenderer>())
         {
-            print("klyde win");
-            LevelManager.NextLevel();
+            child.GetComponent<MeshRenderer>().enabled = enabled;
         }
+        GetComponent<Collider>().enabled = enabled;
     }
+    //todo: understand how collider work with ballon
+
+    // private void OnTriggerEnter(Collider other)
+    // {
+    //     if(other.gameObject.CompareTag("klyde"))
+    //     {
+    //         print("klyde win");
+    //         LevelManager.NextLevel();
+    //     }
+    // }
 }
