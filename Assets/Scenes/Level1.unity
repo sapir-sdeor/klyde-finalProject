@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
+  m_IndirectSpecularColor: {r: 0.1273174, g: 0.13414761, b: 0.12107885, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -794,6 +794,8 @@ GameObject:
   - component: {fileID: 384441277}
   - component: {fileID: 384441276}
   - component: {fileID: 384441278}
+  - component: {fileID: 384441279}
+  - component: {fileID: 384441280}
   m_Layer: 0
   m_Name: gameManager
   m_TagString: Untagged
@@ -860,6 +862,38 @@ MonoBehaviour:
   grid:
   - {fileID: 224393009}
   objectToShown: {fileID: 1259394151212269264}
+--- !u!114 &384441279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 384441275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd50b3bdd1c94b95917ec20a776d4c82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  door: {fileID: 4620093908069479843}
+  worlds:
+  - {fileID: 1676777920}
+  - {fileID: 645037638}
+  textureWorlds:
+  - {fileID: 2800000, guid: badef83b0bc2e43f7aeec631336f35af, type: 3}
+  - {fileID: 2800000, guid: 71f9ea84fd72f411f807c4f9694b50cf, type: 3}
+  hint: {fileID: 0}
+--- !u!114 &384441280
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 384441275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89ff3395a894dad4ea060aaaf1f29f12, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &392785453 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 71453d77913604f2680d6c8dd1fb1e17, type: 3}
@@ -6776,6 +6810,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5428542080724840217}
+  - component: {fileID: 5428542080724840218}
   m_Layer: 0
   m_Name: GeoSphere01
   m_TagString: Untagged
@@ -6798,8 +6833,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4620093908069479843}
-  m_LocalRotation: {x: -0.02199273, y: -0.026488343, z: 0.673539, w: -0.7383495}
-  m_LocalPosition: {x: 0.0026, y: 0.0302, z: -0.0022}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.0593, y: 0.0713, z: 0}
   m_LocalScale: {x: 0.0000714286, y: 0.00007142859, z: 0.00007142858}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -6808,7 +6843,20 @@ Transform:
   - {fileID: 9121475804709174790}
   m_Father: {fileID: 904975030}
   m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: -93.966, y: 92.699, z: 87.308}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5428542080724840218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4620093908069479843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84d036ee8372d6747bcc606aa13f5335, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  halfNum: 2
 --- !u!33 &5504827078596061348
 MeshFilter:
   m_ObjectHideFlags: 0

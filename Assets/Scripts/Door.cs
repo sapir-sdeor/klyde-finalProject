@@ -34,7 +34,7 @@ public class Door : MonoBehaviour
         {
             trans.gameObject.SetActive(false);      
         }*/
-        if (transform.position.x < 0)
+        if ( _angle*(halfNum-1) <= currAngle && currAngle <= _angle*(halfNum))
         {
             foreach (var child in GetComponentsInChildren<MeshRenderer>())
             {
