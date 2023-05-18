@@ -2019,6 +2019,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fb5699506df7fb43929042fe7f5659a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buffer: 2
 --- !u!95 &770076414
 Animator:
   serializedVersion: 4
@@ -5981,6 +5982,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fb5699506df7fb43929042fe7f5659a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buffer: 0.5
 --- !u!1 &2044879869
 GameObject:
   m_ObjectHideFlags: 0

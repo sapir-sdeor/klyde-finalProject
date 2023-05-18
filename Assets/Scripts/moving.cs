@@ -12,6 +12,7 @@ public class moving : MonoBehaviour
     private Animator animator;
     private Vector3 pos;
     private static readonly int IsWalking = Animator.StringToHash("IsWalking");
+    [SerializeField] private float buffer=0.5f;
 
     private void Start()
     {
@@ -22,7 +23,7 @@ public class moving : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // print(transform.position.x+"klyde pos");
+        print(transform.position.x+"klyde pos");
         if (Input.GetMouseButtonDown(0)) 
         {
            // isWalk = true;
@@ -31,28 +32,38 @@ public class moving : MonoBehaviour
            // print(Physics.Raycast(ray, out RaycastHit raycast));
            if (Physics.Raycast(ray, out RaycastHit raycastHit))
            {
-               print(!Rotate2D3D.GetIsRotating() +" is not rotate?");
+               // print(!Rotate2D3D.GetIsRotating() +" is not rotate?");
                if (agent.isOnNavMesh && !Rotate2D3D.GetIsRotating() ) // Check if agent is on NavMesh
                {
-                   agent.SetDestination(raycastHit.point);
+                   var target = raycastHit.point;
+                   print(target.x+" target");
+                   if (-buffer <= target.x && target.x <= +buffer)
+                   {
+                       if (target.x > 0)
+                       {
+                           target.x += buffer;
+                       }
+                       else
+                       {
+                           target.x -= buffer;
+                       }
+                   }
+                   agent.SetDestination(target);
                }
            }
-           else
-           {
-               
-           }
-
         }
         isWalk = agent.velocity.magnitude > 0.01f;
 
        if (Rotate2D3D.GetIsRotating())
        {
+           agent.enabled = false;
            agent.velocity = Vector3.zero;
            agent.transform.position = pos;
        }
        else
        {
            pos = agent.transform.position;
+           agent.enabled = true;
        }
        
        animator.SetBool(IsWalking,isWalk);

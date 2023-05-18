@@ -63,7 +63,7 @@ public class Rotate2D3D : MonoBehaviour
         if (frameCounter >= SeprateBetweenRotateWalk)
         {
             _isDragging = true;
-            print("rotate is true");
+            // print("rotate is true");
         }
         if (frameCounter >= frameCounterLimit)
         {
