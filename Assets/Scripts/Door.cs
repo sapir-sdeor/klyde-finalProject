@@ -34,7 +34,7 @@ public class Door : MonoBehaviour
         {
             trans.gameObject.SetActive(false);      
         }*/
-        if (transform.position.z < 0)
+        if (transform.position.x < 0)
         {
             foreach (var child in GetComponentsInChildren<MeshRenderer>())
             {
@@ -52,20 +52,12 @@ public class Door : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision other)
-    {
-        if(other.gameObject.CompareTag("klyde"))
-        {
-            print("klyde win");
-        }
-        
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.CompareTag("klyde"))
         {
             print("klyde win");
+            LevelManager.NextLevel();
         }
     }
 }

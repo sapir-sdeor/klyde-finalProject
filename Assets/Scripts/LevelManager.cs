@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
@@ -14,10 +15,11 @@ public class LevelManager : MonoBehaviour
         SetNumOfHalves();
     }
 
-    public void NextLevel()
+    public static void NextLevel()
     {
         _level++;
-        _currentLevel = LevelFactory.CreateLevel(_level);
+        SceneManager.LoadScene("Level " + _level);
+        //  _currentLevel = LevelFactory.CreateLevel(_level);
     }
     
     public void SetLevel(int newLevel)
