@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1273174, g: 0.13414761, b: 0.12107885, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -423,6 +423,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   halfNum: 1
+  angleFadeEffect: 0
 --- !u!1 &224393008
 GameObject:
   m_ObjectHideFlags: 0
@@ -634,6 +635,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   halfNum: 2
+  angleFadeEffect: 0
 --- !u!1 &317237312
 GameObject:
   m_ObjectHideFlags: 0
@@ -1753,6 +1755,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   halfNum: 2
+  angleFadeEffect: 5
 --- !u!114 &685927048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1928,7 +1931,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 92a4e1a088523441c9e9f78bf59aaa8b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.1
+      value: 8.47
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 92a4e1a088523441c9e9f78bf59aaa8b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1936,7 +1939,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 92a4e1a088523441c9e9f78bf59aaa8b, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 15.4
+      value: -8.1
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 92a4e1a088523441c9e9f78bf59aaa8b, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4142,6 +4145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84d036ee8372d6747bcc606aa13f5335, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  halfNum: 0
 --- !u!64 &1591605443
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5866,6 +5870,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   halfNum: 0
+  angleFadeEffect: 0
 --- !u!4 &2027306748
 Transform:
   m_ObjectHideFlags: 0
@@ -6009,6 +6014,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   halfNum: 1
+  angleFadeEffect: 0
 --- !u!114 &2044879873
 MonoBehaviour:
   m_ObjectHideFlags: 0
