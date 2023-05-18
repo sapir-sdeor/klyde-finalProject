@@ -68,7 +68,7 @@ public class Rotate2D3D : MonoBehaviour
         if (frameCounter >= frameCounterLimit)
         {
             _isRotating = true;
-            NavMesh.RemoveAllNavMeshData();
+            // NavMesh.RemoveAllNavMeshData();
         }
     }
 
