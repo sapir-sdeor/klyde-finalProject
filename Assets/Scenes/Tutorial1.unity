@@ -634,13 +634,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd50b3bdd1c94b95917ec20a776d4c82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  door: {fileID: 4620093908069479843}
-  worlds:
-  - {fileID: 1676777920}
-  - {fileID: 645037638}
-  textureWorlds:
-  - {fileID: 2800000, guid: badef83b0bc2e43f7aeec631336f35af, type: 3}
-  - {fileID: 2800000, guid: 71f9ea84fd72f411f807c4f9694b50cf, type: 3}
   hint: {fileID: 0}
 --- !u!114 &384441281
 MonoBehaviour:
@@ -654,6 +647,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 191bdb6344c04bdb86f8a42d7e8d39a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textureWithoutShape: {fileID: 0}
   isKlydeOn: 0
   walkHint: {fileID: 1393905323}
   rotateHint: {fileID: 2068256394}
@@ -1203,6 +1197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1b32c23687558347ad2a7e64e53b735, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textureWithoutShape: {fileID: 2800000, guid: badef83b0bc2e43f7aeec631336f35af, type: 3}
   isKlydeOn: 0
   halfNum: 2
 --- !u!1 &685927044
@@ -1765,6 +1760,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1b32c23687558347ad2a7e64e53b735, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textureWithoutShape: {fileID: 2800000, guid: 71f9ea84fd72f411f807c4f9694b50cf, type: 3}
   isKlydeOn: 0
   halfNum: 1
 --- !u!23 &904975033
@@ -3235,7 +3231,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!33 &5400237972792549465
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -3274,7 +3270,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 84d036ee8372d6747bcc606aa13f5335, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  halfNum: 2
+  halfNum: 1
 --- !u!65 &5428542080724840219
 BoxCollider:
   m_ObjectHideFlags: 0
