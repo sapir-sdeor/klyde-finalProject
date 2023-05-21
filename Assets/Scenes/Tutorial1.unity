@@ -592,7 +592,9 @@ MonoBehaviour:
   rotationSpeed: 10
   pivotPoint: {fileID: 1458877390}
   surfaces:
-  - {fileID: 0}
+  - {fileID: 685927048}
+  frameCounterLimit: 2
+  SeprateBetweenRotateWalk: 2
 --- !u!4 &384441277
 Transform:
   m_ObjectHideFlags: 0
@@ -1099,7 +1101,7 @@ GameObject:
   - component: {fileID: 655831163}
   - component: {fileID: 655831162}
   - component: {fileID: 655831161}
-  - component: {fileID: 655831160}
+  - component: {fileID: 655831164}
   m_Layer: 0
   m_Name: right-World
   m_TagString: Untagged
@@ -1125,19 +1127,6 @@ Transform:
   m_Father: {fileID: 1160916216}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: -89.98, y: -19.6, z: 0}
---- !u!114 &655831160
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 655831158}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e6838899c061124ba9ab7e4c7f79a1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isKlydeOn: 0
 --- !u!64 &655831161
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -1202,6 +1191,20 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 655831158}
   m_Mesh: {fileID: -2595892027883724297, guid: ae939b1e1e30af64f91bb35d04e2d850, type: 3}
+--- !u!114 &655831164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 655831158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b1b32c23687558347ad2a7e64e53b735, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isKlydeOn: 0
+  halfNum: 2
 --- !u!1 &685927044
 GameObject:
   m_ObjectHideFlags: 0
@@ -1488,7 +1491,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7fb5699506df7fb43929042fe7f5659a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  camera: {fileID: 962103950}
+  buffer: 0.5
 --- !u!95 &770076414
 Animator:
   serializedVersion: 4
@@ -1763,6 +1766,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isKlydeOn: 0
+  halfNum: 1
 --- !u!23 &904975033
 MeshRenderer:
   m_ObjectHideFlags: 0
