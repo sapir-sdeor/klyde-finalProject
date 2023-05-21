@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-    private static int _level = 2;
+    private static int _level = 1;
     private Level _currentLevel;
     private static int _numOfHalfs = 2;
     

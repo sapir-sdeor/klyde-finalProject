@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
+  m_IndirectSpecularColor: {r: 0.1273174, g: 0.13414761, b: 0.12107885, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -874,13 +874,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd50b3bdd1c94b95917ec20a776d4c82, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  door: {fileID: 4620093908069479843}
-  worlds:
-  - {fileID: 1676777920}
-  - {fileID: 645037638}
-  textureWorlds:
-  - {fileID: 2800000, guid: badef83b0bc2e43f7aeec631336f35af, type: 3}
-  - {fileID: 2800000, guid: 71f9ea84fd72f411f807c4f9694b50cf, type: 3}
   hint: {fileID: 0}
 --- !u!114 &384441280
 MonoBehaviour:
@@ -1744,6 +1737,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1b32c23687558347ad2a7e64e53b735, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textureWithoutShape: {fileID: 0}
   isKlydeOn: 0
   halfNum: 2
 --- !u!1 &685927044
@@ -2415,6 +2409,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1b32c23687558347ad2a7e64e53b735, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  textureWithoutShape: {fileID: 0}
   isKlydeOn: 0
   halfNum: 1
 --- !u!23 &904975033
@@ -6762,7 +6757,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 316680631441383914}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: -906, z: -216}
+  m_LocalPosition: {x: -1388, y: -545, z: -216}
   m_LocalScale: {x: 1.8400002, y: 1.8400002, z: 1.8400002}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -6796,7 +6791,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2495171810149039444}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: -906, z: -216}
+  m_LocalPosition: {x: -1387.9991, y: -545.00024, z: -216.00012}
   m_LocalScale: {x: 1.8400002, y: 1.8400002, z: 1.8400002}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -6813,6 +6808,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5428542080724840217}
   - component: {fileID: 5428542080724840218}
+  - component: {fileID: 5428542080724840219}
   m_Layer: 0
   m_Name: Ballon
   m_TagString: Untagged
@@ -6836,7 +6832,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4620093908069479843}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.0593, y: 0.0713, z: 0}
+  m_LocalPosition: {x: 0.0463, y: 0.0384, z: 0}
   m_LocalScale: {x: 0.0000714286, y: 0.00007142859, z: 0.00007142858}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -6859,6 +6855,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   halfNum: 1
+--- !u!65 &5428542080724840219
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4620093908069479843}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 301.58453, y: 185.2876, z: 455.61594}
+  m_Center: {x: 28.6317, y: -830.25104, z: 193.18207}
 --- !u!33 &5504827078596061348
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -6993,9 +7002,9 @@ MeshCollider:
   m_GameObject: {fileID: 316680631441383914}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
-  m_Convex: 0
+  m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 755111189276933499, guid: 000f488f53a9a7a46b95a6c694595953, type: 3}
 --- !u!4 &9121475804709174790
@@ -7006,7 +7015,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5845875538540921459}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -168, y: -907, z: 24}
+  m_LocalPosition: {x: -1556, y: -546, z: 23.999989}
   m_LocalScale: {x: 27.806007, y: 1.8400002, z: 1.1471205}
   m_ConstrainProportionsScale: 0
   m_Children: []

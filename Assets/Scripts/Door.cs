@@ -8,10 +8,20 @@ public class Door : MonoBehaviour
 {
     [SerializeField] private int halfNum;
     private float _angle;
+    private List<Transform> _childs = new();
+
+    private bool _doorAppear;
     // Start is called before the first frame update
     private void Start()
     {
-        gameObject.SetActive(false);
+        foreach (var child in GetComponentsInChildren<Transform>())
+        {
+            if (child != transform)
+            {
+                _childs.Add(child);
+                child.gameObject.SetActive(false);
+            }
+        }
         _angle = 360 /(float) LevelManager.GetNumOfHalves();
     }
 
@@ -19,7 +29,15 @@ public class Door : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (RecognizeShape.GetRecognizeShape()) gameObject.SetActive(true);
+        if (!RecognizeShape.GetRecognizeShape()) return;
+        if (RecognizeShape.GetRecognizeShape() && !_doorAppear)
+        {
+            foreach (var child in _childs)
+            {
+                child.gameObject.SetActive(true);
+            }
+            _doorAppear = true;
+        }
         var trans = transform;
         // var currAngle = trans.eulerAngles.y;
         Vector3 direction = trans.position - Vector3.zero;
