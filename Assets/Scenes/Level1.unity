@@ -824,8 +824,8 @@ MonoBehaviour:
   pivotPoint: {fileID: 1458877390}
   surfaces:
   - {fileID: 685927048}
-  frameCounterLimit: 2
-  SeprateBetweenRotateWalk: 2
+  frameCounterLimit: 4
+  SeprateBetweenRotateWalk: 4
 --- !u!4 &384441277
 Transform:
   m_ObjectHideFlags: 0
