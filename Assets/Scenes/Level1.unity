@@ -2116,7 +2116,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 770076412}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   m_Radius: 2.2737145
   m_Height: 11.054741
   m_Direction: 1
