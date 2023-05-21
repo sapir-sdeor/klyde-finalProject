@@ -30,10 +30,17 @@ public class Circle : World
         if (trans.position.x < 0) currAngle = 360 - currAngle;
 
         isKlydeOn =(_angle * (halfNum - 1)  <= currAngle && currAngle <= _angle * halfNum) ;
-        if (RecognizeShape.GetRecognizeShape() && !_changeTexture)
+        foreach (var child in GetComponentsInChildren<Transform>())
         {
-            GetComponent<MeshRenderer>().material.mainTexture = textureWithoutShape;
-            _changeTexture = true;
+            if (!child.gameObject.CompareTag("circle")) continue;
+            if (RecognizeShape.GetRecognizeShape() && !_changeTexture)
+            {
+                child.GetComponent<MeshRenderer>().material.mainTexture = textureWithoutShape;
+                _changeTexture = true;
+            }
+            print(_angle + " " + halfNum);
+            child.GetComponent<MeshRenderer>().material.SetFloat("_Angle", _angle);
+            child.GetComponent<MeshRenderer>().material.SetInt("_HalfNum", halfNum);
         }
     }
 }

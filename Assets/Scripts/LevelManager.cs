@@ -6,10 +6,15 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-    private static int _level = 1;
+    private static int _level = 3;
     private Level _currentLevel;
-    private static int _numOfHalfs = 2;
-    
+    private static int _numOfHalves = 2;
+
+    private void Awake()
+    {
+        SetNumOfHalves();
+    }
+
     private void Update()
     {
         SetNumOfHalves();
@@ -18,7 +23,7 @@ public class LevelManager : MonoBehaviour
     public static void NextLevel()
     {
         _level++;
-        SceneManager.LoadScene("Level " + _level);
+        SceneManager.LoadScene("Level" + _level);
         //  _currentLevel = LevelFactory.CreateLevel(_level);
     }
     
@@ -33,13 +38,13 @@ public class LevelManager : MonoBehaviour
         switch (_level)
         {
             case 1:
-                _numOfHalfs = 2;
+                _numOfHalves = 2;
                 break;
             case 2:
-                _numOfHalfs = 2;
+                _numOfHalves = 2;
                 break;
             case 3:
-                _numOfHalfs = 3;
+                _numOfHalves = 3;
                 break;           
         }
     }
@@ -51,6 +56,6 @@ public class LevelManager : MonoBehaviour
 
     public static int GetNumOfHalves()
     {
-        return _numOfHalfs;
+        return _numOfHalves;
     }
 }

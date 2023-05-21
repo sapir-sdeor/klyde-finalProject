@@ -9,6 +9,7 @@ TagManager:
   - Mirror
   - world1
   - world2
+  - circle
   layers:
   - Default
   - TransparentFX

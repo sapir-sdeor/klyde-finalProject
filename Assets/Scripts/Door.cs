@@ -64,12 +64,12 @@ public class Door : MonoBehaviour
     }
     //todo: understand how collider work with ballon
 
-    // private void OnTriggerEnter(Collider other)
-    // {
-    //     if(other.gameObject.CompareTag("klyde"))
-    //     {
-    //         print("klyde win");
-    //         LevelManager.NextLevel();
-    //     }
-    // }
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.gameObject.CompareTag("klyde"))
+        {
+             print("klyde win");
+             LevelManager.NextLevel();
+        }
+    }
 }
