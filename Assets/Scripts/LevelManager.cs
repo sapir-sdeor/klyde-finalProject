@@ -7,14 +7,14 @@ using UnityEngine.SceneManagement;
 public class LevelManager : MonoBehaviour
 {
     private static int _level = 2;
-    // [SerializeField] private int Level = 3;
+    [SerializeField] private int Level = 3;
     private Level _currentLevel;
     private static int _numOfHalves = 2;
 
-    // private void Start()
-    // {
-    //     _level = Level;
-    // }
+    private void Start()
+    {
+        _level = Level;
+    }
 
     private void Awake()
     {
