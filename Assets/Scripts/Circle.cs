@@ -30,6 +30,9 @@ public class Circle : World
         if (trans.position.x < 0) currAngle = 360 - currAngle;
 
         isKlydeOn =(_angle * (halfNum - 1)  <= currAngle && currAngle <= _angle * halfNum) ;
+        var parentAngle = transform.localEulerAngles.y;
+        if (parentAngle < 0) parentAngle += 360;
+        if (parentAngle >= 360) parentAngle += 360 - parentAngle;
         foreach (var child in GetComponentsInChildren<Transform>())
         {
             if (!child.gameObject.CompareTag("circle")) continue;
@@ -41,6 +44,7 @@ public class Circle : World
             print(_angle + " " + halfNum);
             child.GetComponent<MeshRenderer>().material.SetFloat("_Angle", _angle);
             child.GetComponent<MeshRenderer>().material.SetInt("_HalfNum", halfNum);
+            child.GetComponent<MeshRenderer>().material.SetFloat("_ParentAngle", parentAngle);
         }
     }
 }

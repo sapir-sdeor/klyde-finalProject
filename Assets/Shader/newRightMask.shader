@@ -6,6 +6,7 @@ Shader "Custom/combineMask"
         _Glossiness ("Smoothness", Range(0,1)) = 0.5
         _Transparent ("Transparent", Range(0,1)) = 0.5
         _Angle ("Angle", Range(0, 360)) = 45
+        _ParentAngle ("Angle", Range(0, 360)) = 45
         _HalfNum ("Half Number", Range(0, 10)) = 2
     }
     SubShader {
@@ -26,6 +27,7 @@ Shader "Custom/combineMask"
         float _Glossiness;
         float _Transparent;
         float _Angle;
+         float _ParentAngle;
         int _HalfNum;
         
         struct Input {
@@ -41,6 +43,7 @@ Shader "Custom/combineMask"
                 tex.a = _Transparent;*/
                 //tex.a = 0;
             float currAngle = acos(dot(float3(0, 0, 1), normalize(IN.worldPos)));
+            // currAngle += _ParentAngle;
             if (IN.worldPos.x < 0)
             {
                 currAngle = 360 - currAngle;

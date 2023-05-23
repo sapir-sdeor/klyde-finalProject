@@ -7,7 +7,9 @@ Shader "Custom/combineMask"
         _Glossiness ("Smoothness", Range(0,1)) = 0.5
         _Transparent ("Transparent", Range(0,1)) = 0.5
         _Angle ("Angle", Range(0, 360)) = 45
+        _ParentAngle ("Angle", Range(0, 360)) = 45
         _HalfNum ("Half Number", Range(0, 10)) = 2
+        _Rotation ("Rotation", Vector) = (0, 0, 0, 0)
     }
     SubShader {
         Tags {  "IgnoreProjector" = "True"
@@ -24,7 +26,10 @@ Shader "Custom/combineMask"
         float _Glossiness;
         float _Transparent;
         float _Angle;
+        float _ParentAngle;
         int _HalfNum;
+        float4 _Rotation;
+        
 
         struct Input {
             float2 uv_MainTex;
@@ -36,6 +41,7 @@ Shader "Custom/combineMask"
             fixed4 tex = tex2D(_MainTex, IN.uv_MainTex) ;
           
             float currAngle = acos(dot(float3(0, 0, 1), normalize(IN.worldPos)));
+            // currAngle += _ParentAngle;
             if (IN.worldPos.x < 0)
             {
                 currAngle = 360 - currAngle;
@@ -44,6 +50,21 @@ Shader "Custom/combineMask"
             {
                 tex.a = _Transparent;
             }
+
+              // Calculate the local Euler angle
+            float3 eulerAngles = _Rotation.xyz;
+            float3 rotatedNormal = mul(unity_ObjectToWorld, IN.worldPos);
+            float3 localEulerAngles = float3(
+                dot(rotatedNormal, float3(1, 0, 0)),
+                dot(rotatedNormal, float3(0, 1, 0)),
+                dot(rotatedNormal, float3(0, 0, 1))
+            ) * 180 / 3.14159;
+
+            if (!(_Angle * (_HalfNum - 1) <= currAngle && currAngle <= _Angle * _HalfNum))
+            {
+                tex.a = _Transparent;
+            }
+
             // Set the surface properties using the existing Standard shader code
             o.Albedo = tex.rgb * _Color.rgb * tex.a;
             o.Metallic = _Metallic;
