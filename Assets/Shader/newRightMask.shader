@@ -7,7 +7,6 @@ Shader "Custom/combineMask"
         _Transparent ("Transparent", Range(0,1)) = 0.5
         _Angle ("Angle", Range(0, 360)) = 45
         _HalfNum ("Half Number", Range(0, 10)) = 2
-        _CurrAngle("CurrAngle", Range(0, 360)) = 45
     }
     SubShader {
         Tags {  "IgnoreProjector" = "True"
@@ -27,7 +26,6 @@ Shader "Custom/combineMask"
         float _Glossiness;
         float _Transparent;
         float _Angle;
-        float _CurrAngle;
         int _HalfNum;
         
         struct Input {
@@ -47,13 +45,10 @@ Shader "Custom/combineMask"
             {
                 currAngle = 360 - currAngle;
             }
-            //  float currAngle = acos(dot(float3(0, 0, 1), normalize(IN.worldPos)));
-            // currAngle += _CurrAngle;
             if (!(_Angle * (_HalfNum - 1) <= currAngle && currAngle <= _Angle * _HalfNum))
             {
                 tex.a = _Transparent;
             }
-
             // Set the surface properties using the existing Standard shader code
             o.Albedo = tex.rgb * _Color.rgb * tex.a;
             o.Metallic = _Metallic;

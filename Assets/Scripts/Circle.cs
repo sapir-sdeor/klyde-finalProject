@@ -16,13 +16,6 @@ public class Circle : World
     {
         _angle = 360 /(float) LevelManager.GetNumOfHalves();
         klyde = GameObject.FindGameObjectWithTag("klyde");
-        foreach (var child in GetComponentsInChildren<Transform>())
-        {
-            if (!child.gameObject.CompareTag("circle")) continue;
-            print(_angle + " " + halfNum);
-            child.GetComponent<MeshRenderer>().material.SetFloat("_Angle", _angle);
-            child.GetComponent<MeshRenderer>().material.SetInt("_HalfNum", halfNum);
-        }
        
     }
     
@@ -35,24 +28,20 @@ public class Circle : World
         // Calculate the angle between the direction vector and the forward vector
         float currAngle = Vector3.Angle(Vector3.forward, direction);
         if (trans.position.x < 0) currAngle = 360 - currAngle;
-        float eularRotation = transform.localEulerAngles.y;
-        print(eularRotation + " circle Angle " + halfNum);
 
         isKlydeOn =(_angle * (halfNum - 1)  <= currAngle && currAngle <= _angle * halfNum) ;
         foreach (var child in GetComponentsInChildren<Transform>())
         {
             if (!child.gameObject.CompareTag("circle")) continue;
-            float childAngle = child.transform.localEulerAngles.x;
-            childAngle = eularRotation;
-            if (childAngle < 0) childAngle = 360 + childAngle;
-            if (childAngle > 360) childAngle = childAngle - 360;
-            print(childAngle + " childAngle " + halfNum);
-            
-            child.GetComponent<MeshRenderer>().material.SetFloat("_CurrAngle", childAngle);
-            // float _klydeFloatBool = isKlydeOn ? 1 : 0;
-            // child.GetComponent<MeshRenderer>().material.SetFloat("_Klyde", _klydeFloatBool);
+            if (RecognizeShape.GetRecognizeShape() && !_changeTexture)
+            {
+                child.GetComponent<MeshRenderer>().material.mainTexture = textureWithoutShape;
+                _changeTexture = true;
+            }
+            print(_angle + " " + halfNum);
+            child.GetComponent<MeshRenderer>().material.SetFloat("_Angle", _angle);
+            child.GetComponent<MeshRenderer>().material.SetInt("_HalfNum", halfNum);
         }
-        
     }
 }
   
