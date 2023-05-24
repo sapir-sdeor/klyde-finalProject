@@ -37,17 +37,17 @@ public class moving : MonoBehaviour
                {
                    var target = raycastHit.point;
                    print(target.x+" target");
-                   // if (-buffer <= target.x && target.x <= +buffer)
-                   // {
-                   //     if (target.x > 0)
-                   //     {
-                   //         target.x += buffer;
-                   //     }
-                   //     else
-                   //     {
-                   //         target.x -= buffer;
-                   //     }
-                   // }
+                   if (-buffer <= target.x && target.x <= +buffer)
+                   {
+                       if (target.x > 0)
+                       {
+                           target.x += buffer;
+                       }
+                       else
+                       {
+                           target.x -= buffer;
+                       }
+                   }
                    agent.SetDestination(target);
                }
            }
