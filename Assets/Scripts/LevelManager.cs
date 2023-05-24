@@ -49,7 +49,7 @@ public class LevelManager : MonoBehaviour
         }
     }
 
-    public int GetLevel()
+    public static int GetLevel()
     {
         return _level;
     }
