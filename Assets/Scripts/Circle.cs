@@ -41,7 +41,7 @@ public class Circle : World
                 child.GetComponent<MeshRenderer>().material.mainTexture = textureWithoutShape;
                 _changeTexture = true;
             }
-            print(_angle + " " + halfNum);
+            // print(_angle + " " + halfNum);
             child.GetComponent<MeshRenderer>().material.SetFloat("_Angle", _angle);
             child.GetComponent<MeshRenderer>().material.SetInt("_HalfNum", halfNum);
             child.GetComponent<MeshRenderer>().material.SetFloat("_ParentAngle", parentAngle);
