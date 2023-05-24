@@ -7,7 +7,7 @@ Shader "Custom/combineMask"
         _Glossiness ("Smoothness", Range(0,1)) = 0.5
         _Transparent ("Transparent", Range(0,1)) = 0.5
         _Angle ("Angle", Range(0, 360)) = 45
-        _ParentAngle ("Angle", Range(0, 360)) = 45
+        _ParentAngle ("ParentAngle", Range(0, 360)) = 45
         _HalfNum ("Half Number", Range(0, 10)) = 2
         _Rotation ("Rotation", Vector) = (0, 0, 0, 0)
     }
@@ -34,37 +34,29 @@ Shader "Custom/combineMask"
         struct Input {
             float2 uv_MainTex;
             float3 worldPos;
+            float3 vertex;
         };
 
         void surf (Input IN, inout SurfaceOutputStandard o) {
             // Use the existing Standard shader code to get the texture color and set it to tex variable
             fixed4 tex = tex2D(_MainTex, IN.uv_MainTex) ;
-          
-            float currAngle = acos(dot(float3(0, 0, 1), normalize(IN.worldPos)));
-            // currAngle += _ParentAngle;
-            if (IN.worldPos.x < 0)
-            {
-                currAngle = 360 - currAngle;
-            }
-            if (!(_Angle * (_HalfNum - 1) <= currAngle && currAngle <= _Angle * _HalfNum))
-            {
+           
+            
+           //float currAngle = atan(dot(float3(0, 0, 1), normalize(IN.worldPos - _WorldSpaceCameraPos)));// calculate the angle in radians
+            /*float2 uv = IN.uv_MainTex - 0.5; // shift UV coordinates to the center
+            float currAngle = atan2(uv.x, uv.y);*/
+            float2 projectedPos = normalize(float2(IN.worldPos.z, IN.worldPos.x)); // Project vertex position onto the XZ plane
+            float currAngle = atan2(projectedPos.y, projectedPos.x); // Calculate the angle based on the projected position
+            if (currAngle < 0.0)
+                currAngle += 2.0 * 3.14159; // ensure the angle is in the range [0, 2pi]
+
+            float angleRange = 2.0 * 3.14159 / (360.0 / _Angle); // calculate the angle range for each division based on _Angle
+            float startAngle = angleRange * (_HalfNum - 1.0); // calculate the starting angle for the current division
+            float endAngle = angleRange * (_HalfNum); // calculate the ending angle for the current division
+            bool isInDivision = (startAngle <= currAngle && currAngle <= endAngle);
+            if (!isInDivision) {
                 tex.a = _Transparent;
             }
-
-              // Calculate the local Euler angle
-            float3 eulerAngles = _Rotation.xyz;
-            float3 rotatedNormal = mul(unity_ObjectToWorld, IN.worldPos);
-            float3 localEulerAngles = float3(
-                dot(rotatedNormal, float3(1, 0, 0)),
-                dot(rotatedNormal, float3(0, 1, 0)),
-                dot(rotatedNormal, float3(0, 0, 1))
-            ) * 180 / 3.14159;
-
-            if (!(_Angle * (_HalfNum - 1) <= currAngle && currAngle <= _Angle * _HalfNum))
-            {
-                tex.a = _Transparent;
-            }
-
             // Set the surface properties using the existing Standard shader code
             o.Albedo = tex.rgb * _Color.rgb * tex.a;
             o.Metallic = _Metallic;
