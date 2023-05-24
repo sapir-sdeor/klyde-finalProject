@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1273174, g: 0.13414761, b: 0.12107885, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -410,6 +410,7 @@ MonoBehaviour:
   prefabPlatform: {fileID: 2021470081}
   angle: 1
   numberOfPieces: 50
+  tile: {x: 50, y: 1}
 --- !u!114 &183638756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -457,6 +458,7 @@ MonoBehaviour:
   - {fileID: 1758500041}
   - {fileID: 1150346541}
   distance: 12
+  halfNumPoints: 0100000002000000
 --- !u!4 &224393010
 Transform:
   m_ObjectHideFlags: 0
@@ -855,7 +857,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   distances:
   - 12
-  aprroximate: 0.01
+  aprroximate: 0.03
   positionsGameObjects:
   - {fileID: 1150346541}
   - {fileID: 1758500041}
@@ -1774,6 +1776,7 @@ MonoBehaviour:
   prefabPlatform: {fileID: 1177932857}
   angle: 1
   numberOfPieces: 50
+  tile: {x: 50, y: 50}
 --- !u!4 &685927046
 Transform:
   m_ObjectHideFlags: 0
@@ -2463,7 +2466,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 904975029}
-  m_LocalRotation: {x: -0.47647527, y: -0.52244586, z: -0.52230346, w: 0.4766769}
+  m_LocalRotation: {x: -0.53011215, y: -0.467931, z: -0.4677677, w: 0.5302972}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 139.99995, y: 139.99997, z: 139.99998}
   m_ConstrainProportionsScale: 1
@@ -2479,7 +2482,7 @@ Transform:
   - {fileID: 1405859926}
   m_Father: {fileID: 1160916216}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: -89.98, y: -802.85, z: -12.4}
+  m_LocalEulerAnglesHint: {x: -89.98, y: -802.85, z: 0}
 --- !u!64 &904975031
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3438,7 +3441,7 @@ GameObject:
   - component: {fileID: 1150346544}
   - component: {fileID: 1150346543}
   m_Layer: 0
-  m_Name: heart pivot
+  m_Name: heart pivot left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5163,7 +5166,7 @@ GameObject:
   - component: {fileID: 1758500044}
   - component: {fileID: 1758500043}
   m_Layer: 0
-  m_Name: heart pivot
+  m_Name: heart pivot right
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6438,6 +6441,7 @@ MonoBehaviour:
   prefabPlatform: {fileID: 623274354}
   angle: 10
   numberOfPieces: 5
+  tile: {x: 50, y: 1}
 --- !u!1 &2052227635
 GameObject:
   m_ObjectHideFlags: 0
