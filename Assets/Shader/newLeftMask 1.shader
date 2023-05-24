@@ -7,7 +7,6 @@ Shader "Custom/combineMask"
         _Glossiness ("Smoothness", Range(0,1)) = 0.5
         _Transparent ("Transparent", Range(0,1)) = 0.5
         _Angle ("Angle", Range(0, 360)) = 45
-        _ParentAngle ("ParentAngle", Range(0, 360)) = 45
         _HalfNum ("Half Number", Range(0, 10)) = 2
         _Rotation ("Rotation", Vector) = (0, 0, 0, 0)
     }
