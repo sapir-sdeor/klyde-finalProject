@@ -2750,7 +2750,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 316680631441383914}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: -906, z: -216}
   m_LocalScale: {x: 1.8400002, y: 1.8400002, z: 1.8400002}
   m_ConstrainProportionsScale: 1
@@ -2784,7 +2784,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2495171810149039444}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: -906, z: -216}
+  m_LocalPosition: {x: 0, y: -906, z: -216}
   m_LocalScale: {x: 1.8400002, y: 1.8400002, z: 1.8400002}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -2802,6 +2802,8 @@ GameObject:
   - component: {fileID: 5428542080724840217}
   - component: {fileID: 5428542080724840218}
   - component: {fileID: 5428542080724840219}
+  - component: {fileID: 5428542080724840220}
+  - component: {fileID: 5428542080724840221}
   m_Layer: 0
   m_Name: Ballon
   m_TagString: Untagged
@@ -2861,6 +2863,47 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 134.12553, y: 65.92328, z: 419.62064}
   m_Center: {x: 117.42187, y: -860.02216, z: 237.70326}
+--- !u!320 &5428542080724840220
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4620093908069479843}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 4f030535da3b0364bbac2116beece311, type: 2}
+  m_InitialState: 0
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 4694749100365819925, guid: 4f030535da3b0364bbac2116beece311, type: 2}
+    value: {fileID: 5428542080724840221}
+  - key: {fileID: -8206286052536432169, guid: 4f030535da3b0364bbac2116beece311, type: 2}
+    value: {fileID: 9121475804709174791}
+  m_ExposedReferences:
+    m_References: []
+--- !u!95 &5428542080724840221
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4620093908069479843}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 8ee44103e64c019429878540e8f44684, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!33 &5504827078596061348
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -2880,6 +2923,7 @@ GameObject:
   - component: {fileID: 9121475804709174790}
   - component: {fileID: 1205838757048779909}
   - component: {fileID: 6125852232233417073}
+  - component: {fileID: 9121475804709174791}
   m_Layer: 0
   m_Name: Line02
   m_TagString: Untagged
@@ -2978,11 +3022,31 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5845875538540921459}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -168, y: -907, z: 24}
-  m_LocalScale: {x: 27.806007, y: 1.8400002, z: 1.1471205}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -168.00018, y: -906.99994, z: 24.000015}
+  m_LocalScale: {x: 27.806007, y: 1.8399998, z: 1.1471205}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5428542080724840217}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &9121475804709174791
+Animator:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5845875538540921459}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 475434bf03cb2884fb953e4e28bb5e2f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

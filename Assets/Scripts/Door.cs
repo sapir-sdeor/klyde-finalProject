@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Playables;
+using UnityEngine.Timeline;
 
 public class Door : MonoBehaviour
 {
@@ -71,6 +73,7 @@ public class Door : MonoBehaviour
         if(other.gameObject.CompareTag("klyde") && _doorAppear)
         {
              print("klyde win");
+             GetComponent<PlayableDirector>().Play();
              LevelManager.NextLevel();
         }
     }
