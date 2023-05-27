@@ -409,6 +409,7 @@ MonoBehaviour:
   prefabPlatform: {fileID: 2021470081}
   angle: 1
   numberOfPieces: 50
+  tile: {x: 50, y: 1}
 --- !u!114 &183638756
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -456,6 +457,7 @@ MonoBehaviour:
   - {fileID: 1758500041}
   - {fileID: 1150346541}
   distance: 12
+  halfNumPoints: 0100000002000000
 --- !u!4 &224393010
 Transform:
   m_ObjectHideFlags: 0
@@ -1234,6 +1236,7 @@ MonoBehaviour:
   prefabPlatform: {fileID: 1177932857}
   angle: 1
   numberOfPieces: 50
+  tile: {x: 50, y: 1}
 --- !u!4 &685927046
 Transform:
   m_ObjectHideFlags: 0

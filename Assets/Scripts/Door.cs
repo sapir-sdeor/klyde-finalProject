@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Playables;
+using UnityEngine.Timeline;
 
 public class Door : MonoBehaviour
 {
@@ -19,7 +21,8 @@ public class Door : MonoBehaviour
             if (child != transform)
             {
                 _childs.Add(child);
-                child.gameObject.SetActive(false);
+             //   child.gameObject.SetActive(false);
+                child.GetComponent<MeshRenderer>().material.color = Color.gray;
             }
         }
         _angle = 360 /(float) LevelManager.GetNumOfHalves();
@@ -29,12 +32,12 @@ public class Door : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!RecognizeShape.GetRecognizeShape()) return;
         if (RecognizeShape.GetRecognizeShape() && !_doorAppear)
         {
             foreach (var child in _childs)
             {
-                child.gameObject.SetActive(true);
+                //child.gameObject.SetActive(true);
+                child.GetComponent<MeshRenderer>().material.color = new Color32(200, 111, 103,255);
             }
             _doorAppear = true;
         }
@@ -56,6 +59,7 @@ public class Door : MonoBehaviour
 
     private void EnabledDoorChild(bool enabled)
     {
+        if (LevelManager.GetLevel() == 1) return;
         foreach (var child in GetComponentsInChildren<MeshRenderer>())
         {
             child.GetComponent<MeshRenderer>().enabled = enabled;
@@ -66,9 +70,10 @@ public class Door : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("klyde"))
+        if(other.gameObject.CompareTag("klyde") && _doorAppear)
         {
              print("klyde win");
+             GetComponent<PlayableDirector>().Play();
              LevelManager.NextLevel();
         }
     }
