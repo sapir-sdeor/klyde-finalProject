@@ -21,6 +21,7 @@ public class RecognizeShape : MonoBehaviour
 
     private void Start()
     {
+        _recognizeShape = false;
         _angle = 360 /(float) LevelManager.GetNumOfHalves();
     }
 

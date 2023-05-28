@@ -33,7 +33,7 @@ public class Door : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ((RecognizeShape.GetRecognizeShape() && !_doorAppear) || LevelManager.GetLevel() == 1)
+        if ((RecognizeShape.GetRecognizeShape() && !_doorAppear) || LevelManager.GetLevel() == 0)
         {
             foreach (var child in _childs)
             {
