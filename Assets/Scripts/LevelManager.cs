@@ -6,13 +6,15 @@ using UnityEngine.SceneManagement;
 
 public class LevelManager : MonoBehaviour
 {
-    private static int _level = 2;
+    private static int _level = 1;
     private Level _currentLevel;
     private static int _numOfHalves = 2;
+    private static LevelManager _instance;
 
     private void Awake()
     {
         SetNumOfHalves();
+        _instance = this;
     }
 
     private void Update()
@@ -23,8 +25,15 @@ public class LevelManager : MonoBehaviour
     public static void NextLevel()
     {
         _level++;
-        SceneManager.LoadScene("Level" + _level);
+        _instance.StartCoroutine(WaitForLoadNextLevel());
+        //SceneManager.LoadScene("Level" + _level);
         //  _currentLevel = LevelFactory.CreateLevel(_level);
+    }
+
+    static IEnumerator WaitForLoadNextLevel()
+    {
+        yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene("Level" + _level);
     }
     
     public void SetLevel(int newLevel)

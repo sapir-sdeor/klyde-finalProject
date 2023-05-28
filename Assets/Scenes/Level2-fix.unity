@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
+  m_IndirectSpecularColor: {r: 0.1273174, g: 0.13414761, b: 0.12107885, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -864,6 +864,8 @@ MonoBehaviour:
   grid:
   - {fileID: 224393009}
   objectToShown: {fileID: 1950110925}
+  background: {fileID: 567760375}
+  backgroundAfterShape: {fileID: 2800000, guid: cbe4f5418a93944c38ae8ea8cf8abb60, type: 3}
 --- !u!114 &384441279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1747,14 +1749,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 645037638}
-  m_LocalRotation: {x: 0.20391557, y: -0.6770731, z: -0.6771372, w: 0.20365568}
+  m_LocalRotation: {x: 0.4640062, y: -0.53358734, z: -0.5337332, w: 0.46380138}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.14678578, y: 0.0003571429, z: 0.14678578}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 904975030}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 236.5, y: 89.998, z: 89.98}
+  m_LocalEulerAnglesHint: {x: 188, y: 89.998, z: 89.98}
 --- !u!208 &645037643
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -1887,7 +1889,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 655831158}
-  m_LocalRotation: {x: -0.696667, y: -0.12037724, z: -0.12033523, w: 0.69691026}
+  m_LocalRotation: {x: -0.6963496, y: -0.122201346, z: -0.12215869, w: 0.6965927}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 139.99995, y: 139.99997, z: 139.99998}
   m_ConstrainProportionsScale: 0
@@ -1902,7 +1904,7 @@ Transform:
   - {fileID: 1676777921}
   m_Father: {fileID: 1160916216}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -89.98, y: -19.6, z: 0}
+  m_LocalEulerAnglesHint: {x: -89.98, y: -19.9, z: 0}
 --- !u!64 &655831161
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2348,7 +2350,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!136 &770076419
 CapsuleCollider:
@@ -2359,7 +2361,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 770076412}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 0
+  m_Enabled: 1
   m_Radius: 2.2737145
   m_Height: 11.054741
   m_Direction: 1
@@ -2706,7 +2708,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 904975029}
-  m_LocalRotation: {x: -0.53011215, y: -0.467931, z: -0.4677677, w: 0.5302972}
+  m_LocalRotation: {x: -0.5274504, y: -0.4709314, z: -0.47076702, w: 0.5276345}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 139.99995, y: 139.99997, z: 139.99998}
   m_ConstrainProportionsScale: 1
@@ -2724,7 +2726,7 @@ Transform:
   - {fileID: 1615855842}
   m_Father: {fileID: 1160916216}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: -89.98, y: -802.85, z: 0}
+  m_LocalEulerAnglesHint: {x: -89.98, y: -803.5, z: 0}
 --- !u!64 &904975031
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3697,7 +3699,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1150346541}
   m_LocalRotation: {x: 0.69229174, y: 0.14339064, z: 0.14339365, w: 0.69253856}
-  m_LocalPosition: {x: 0.01966567, y: 0.008512657, z: 0}
+  m_LocalPosition: {x: 0.0112, y: 0.0194, z: -0}
   m_LocalScale: {x: 0.003571431, y: 0.0035714288, z: 0.0035714281}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5029,14 +5031,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1676777920}
-  m_LocalRotation: {x: -0.040186554, y: 0.7060025, z: 0.7060053, w: -0.038757056}
+  m_LocalRotation: {x: -0.67748845, y: 0.20317094, z: 0.2032183, w: -0.67707705}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.14678581, y: 0.00035714297, z: 0.14678577}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 655831159}
   m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: -96.4, y: 89.944, z: 89.94}
+  m_LocalEulerAnglesHint: {x: -236.6, y: 89.944, z: 89.94}
 --- !u!136 &1676777922
 CapsuleCollider:
   m_ObjectHideFlags: 0

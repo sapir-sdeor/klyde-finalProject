@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
 
@@ -32,7 +33,7 @@ public class Door : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (RecognizeShape.GetRecognizeShape() && !_doorAppear)
+        if ((RecognizeShape.GetRecognizeShape() && !_doorAppear) || LevelManager.GetLevel() == 1)
         {
             foreach (var child in _childs)
             {
@@ -59,7 +60,6 @@ public class Door : MonoBehaviour
 
     private void EnabledDoorChild(bool enabled)
     {
-        if (LevelManager.GetLevel() == 1) return;
         foreach (var child in GetComponentsInChildren<MeshRenderer>())
         {
             child.GetComponent<MeshRenderer>().enabled = enabled;
@@ -75,6 +75,10 @@ public class Door : MonoBehaviour
              print("klyde win");
              GetComponent<PlayableDirector>().Play();
              LevelManager.NextLevel();
+             other.GetComponent<NavMeshAgent>().enabled = false;
+             other.transform.parent = transform;
+             _doorAppear = false;
         }
     }
+
 }

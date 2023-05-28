@@ -44,8 +44,6 @@ public class Circle : World
             // print(_angle + " " + halfNum);
             child.GetComponent<MeshRenderer>().material.SetFloat("_Angle", _angle);
             child.GetComponent<MeshRenderer>().material.SetInt("_HalfNum", halfNum);
-            child.GetComponent<MeshRenderer>().material.SetFloat("_ParentAngle", parentAngle);
-            child.GetComponent<MeshRenderer>().material.SetVector("_Rotation", child.eulerAngles);
         }
     }
 }
