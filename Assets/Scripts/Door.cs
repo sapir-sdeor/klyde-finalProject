@@ -12,6 +12,7 @@ public class Door : MonoBehaviour
     [SerializeField] private int halfNum;
     private float _angle;
     private List<Transform> _childs = new();
+    private static bool endGame = false;
 
     private bool _doorAppear;
     // Start is called before the first frame update
@@ -70,15 +71,21 @@ public class Door : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        print("trigger should work");
         if(other.gameObject.CompareTag("klyde") && _doorAppear)
         {
              print("klyde win");
+             endGame = true;
              GetComponent<PlayableDirector>().Play();
              LevelManager.NextLevel();
-             other.GetComponent<NavMeshAgent>().enabled = false;
-            // other.transform.parent = transform;
+             // other.transform.parent = transform;
              _doorAppear = false;
         }
+    }
+
+    public static bool GetEndGame()
+    {
+        return endGame;
     }
 
 }

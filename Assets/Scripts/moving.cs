@@ -36,7 +36,7 @@ public class moving : MonoBehaviour
                if (agent.isOnNavMesh && !Rotate2D3D.GetIsRotating() ) // Check if agent is on NavMesh
                {
                    var target = raycastHit.point;
-                   print(target.x+" target");
+                   print("should walk");
                    if (-buffer <= target.x && target.x <= +buffer)
                    {
                        if (target.x > 0)
@@ -54,8 +54,9 @@ public class moving : MonoBehaviour
         }
         isWalk = agent.velocity.magnitude > 0.01f;
 
-       if (Rotate2D3D.GetIsRotating())
+       if (Rotate2D3D.GetIsRotating()|| Door.GetEndGame())
        {
+           print(" un enabled klyde");
            agent.enabled = false;
            agent.velocity = Vector3.zero;
            agent.transform.position = pos;
@@ -64,6 +65,7 @@ public class moving : MonoBehaviour
        {
            pos = agent.transform.position;
            agent.enabled = true;
+           print("enabled klyde");
        }
        
        animator.SetBool(IsWalking,isWalk);
@@ -74,20 +76,6 @@ public class moving : MonoBehaviour
         return isWalk;
     } 
     
-    // if (!Rotate2D3D.GetIsRotating())
-    // {
-    //     Vector3 direction = (raycastHit.point - transform.position).normalized;
-    //     float desiredSpeed =  speed * 0.5f;
-    //     Vector3 desiredVelocity = direction * speed;
-    //     if (Vector3.Distance(transform.position, raycastHit.point) <= stoppingDistance)
-    //     {
-    //         rb.velocity = Vector3.zero;
-    //     }
-    //     else
-    //     {
-    //         rb.velocity = desiredVelocity;
-    //     }
-    // }
  
 }
 

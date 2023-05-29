@@ -27,6 +27,9 @@ public class Rotate2D3D : MonoBehaviour
     
     void Start()
     {
+        // Disable VSync
+        QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = 60;
         for (int i = 0; i < surfaces.Length; i++) 
         {
             surfaces [i].BuildNavMesh (); ;

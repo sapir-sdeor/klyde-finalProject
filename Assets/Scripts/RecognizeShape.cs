@@ -43,7 +43,7 @@ public class RecognizeShape : MonoBehaviour
         foreach (var row in grid)
         {
             var dist = Vector3.Distance(row.positions[0].transform.position, row.positions[1].transform.position);
-            print(dist + " distance");
+            // print(dist + " distance");
             if ((row.distance-aprroximate >=dist || dist>= row.distance+aprroximate || PointsInRightHalf(row)))
             {    
                 // print(" _recognizeShape failed");
