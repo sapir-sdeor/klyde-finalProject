@@ -37,13 +37,11 @@ public class Door : MonoBehaviour
         {
             foreach (var child in _childs)
             {
-                //child.gameObject.SetActive(true);
                 child.GetComponent<MeshRenderer>().material.color = new Color32(200, 111, 103,255);
             }
             _doorAppear = true;
         }
         var trans = transform;
-        // var currAngle = trans.eulerAngles.y;
         Vector3 direction = trans.position - Vector3.zero;
         // Calculate the angle between the direction vector and the forward vector
         float currAngle = Vector3.Angle(Vector3.forward, direction);

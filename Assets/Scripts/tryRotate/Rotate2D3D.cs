@@ -27,10 +27,18 @@ public class Rotate2D3D : MonoBehaviour
     
     void Start()
     {
-        for (int i = 0; i < surfaces.Length; i++) 
-        {
-            surfaces [i].BuildNavMesh (); ;
-        }  
+        // for (int i = 0; i < surfaces.Length; i++) 
+        // {
+        //     surfaces [i].BuildNavMesh (); 
+        //     print("build navmesh");
+        // } 
+        BuildNewNavMesh();
+        print("build navmesh");
+        // Disable VSync
+        QualitySettings.vSyncCount = 0;
+        
+        // Set the desired frame rate
+        Application.targetFrameRate = 60;
     }
     
     private void Update()

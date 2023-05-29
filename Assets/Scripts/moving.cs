@@ -36,7 +36,6 @@ public class moving : MonoBehaviour
                if (agent.isOnNavMesh && !Rotate2D3D.GetIsRotating() ) // Check if agent is on NavMesh
                {
                    var target = raycastHit.point;
-                   print(target.x+" target");
                    if (-buffer <= target.x && target.x <= +buffer)
                    {
                        if (target.x > 0)

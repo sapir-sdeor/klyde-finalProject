@@ -9,7 +9,7 @@ public class generatePlatform : MonoBehaviour
     [SerializeField] private int angle = 1;
     [SerializeField] private int numberOfPieces = 6;
     [SerializeField] private Vector2 tile = new Vector2(50,1);
-    void Start()
+    void Awake()
     {
         //when pivot on (0,0)
         for (int i = 0; i < numberOfPieces - 1; i++)
