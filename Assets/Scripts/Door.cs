@@ -76,7 +76,7 @@ public class Door : MonoBehaviour
              GetComponent<PlayableDirector>().Play();
              LevelManager.NextLevel();
              other.GetComponent<NavMeshAgent>().enabled = false;
-             other.transform.parent = transform;
+            // other.transform.parent = transform;
              _doorAppear = false;
         }
     }

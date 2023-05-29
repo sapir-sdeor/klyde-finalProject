@@ -22,6 +22,7 @@ public class Rotate2D3D : MonoBehaviour
     [SerializeField] private NavMeshSurface[] surfaces;
     [SerializeField] private int frameCounterLimit;
     [SerializeField] private int SeprateBetweenRotateWalk;
+    [SerializeField] private float maxRotationAmount = 10f;
     private int frameCounter;
     
     void Start()
@@ -48,12 +49,14 @@ public class Rotate2D3D : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             BuildNewNavMesh();
+            GetComponent<AudioSource>().Stop();
         }
         if (_isDragging)
         {
             RotateWorld();
         }
-        
+
+
     }
 
     private void RemoveAllNavMesh()
@@ -97,21 +100,34 @@ public class Rotate2D3D : MonoBehaviour
         /*
         deltaX = Mathf.Round(deltaX / snapAngle) * snapAngle;
         deltaY = Mathf.Round(deltaY / snapAngle) * snapAngle;*/
-        
+        var rotationAmountX = rotationSpeed * deltaX * 0.5f;
+        var rotationAmountY = rotationSpeed * deltaY * 0.5f;
+      //  float mouseMovementMagnitude = new Vector2(deltaX, deltaY).magnitude;
+      //  float mouseSpeedFactor = Mathf.Clamp01(mouseMovementMagnitude / maxRotationAmount);
+      /*
+      rotationAmountX *= mouseSpeedFactor;
+      rotationAmountY *= mouseSpeedFactor;
+      */
+     
+        rotationAmountX = Mathf.Clamp(rotationAmountX, -maxRotationAmount, maxRotationAmount);
+        rotationAmountY = Mathf.Clamp(rotationAmountY, -maxRotationAmount, maxRotationAmount);
+
         // Rotate the worlds around the pivot point based on mouse movement
         foreach (var world in worlds)
         {
             if (world.GetComponent<World>().isKlydeOn) continue;
             var position = pivotPoint.position;
-            world.transform.RotateAround(position, Vector3.up, rotationSpeed * deltaX * 0.5f);
-            world.transform.RotateAround(position, Vector3.up, rotationSpeed * deltaY * 0.5f);
+            world.transform.RotateAround(position, Vector3.up, rotationAmountX);
+            world.transform.RotateAround(position, Vector3.up, rotationAmountY);
             var currentRotation = world.transform.rotation;
             var xAngle = Mathf.Round(currentRotation.eulerAngles.x / snapAngle) * snapAngle;
             var yAngle = Mathf.Round(currentRotation.eulerAngles.y / snapAngle) * snapAngle;
             var zAngle = Mathf.Round(currentRotation.eulerAngles.z / snapAngle) * snapAngle;
             world.transform.rotation = Quaternion.Euler(xAngle, yAngle, zAngle);
-        } 
+        }
         // Snap to the nearest multiple of snapAngle
+        if (!GetComponent<AudioSource>().isPlaying)
+            GetComponent<AudioSource>().Play();
         
     }
 
