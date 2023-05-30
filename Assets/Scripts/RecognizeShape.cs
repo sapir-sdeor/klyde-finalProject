@@ -10,13 +10,18 @@ public class RecognizeShape : MonoBehaviour
     [SerializeField] private GameObject[] positionsGameObjects;
     [SerializeField] private Row[] grid;
     [SerializeField] private GameObject objectToShown;
+
+    [SerializeField] private GameObject background;
+    [SerializeField] private Texture backgroundAfterShape;
     // Start is called before the first frame update
     private static bool _recognizeShape = false;
     private float _angle;
     private bool flag = true;
+    private float _timeToDisappear;
 
     private void Start()
     {
+        _recognizeShape = false;
         _angle = 360 /(float) LevelManager.GetNumOfHalves();
     }
 
@@ -25,6 +30,15 @@ public class RecognizeShape : MonoBehaviour
     {
         flag = true;
         int i = 0;
+        if (_recognizeShape)
+            _timeToDisappear += Time.deltaTime;
+        if (_timeToDisappear > 3)
+            background.GetComponent<MeshRenderer>().material.mainTexture = backgroundAfterShape;
+
+        if (_timeToDisappear > 5)
+            objectToShown.gameObject.SetActive(false);
+        
+            
         //for multiple we have grid with row that hold two game objects and the distance between them
         foreach (var row in grid)
         {
@@ -36,10 +50,11 @@ public class RecognizeShape : MonoBehaviour
                 flag = false;            
             } 
         }
-        if (flag){
+        if (flag && !_recognizeShape){
             _recognizeShape = true;
             objectToShown.gameObject.SetActive(true);
         }
+        
     }
 
     public static bool GetRecognizeShape()

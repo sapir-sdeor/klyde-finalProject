@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.AI;
 using UnityEngine.Playables;
 using UnityEngine.Timeline;
 
@@ -32,17 +33,15 @@ public class Door : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (RecognizeShape.GetRecognizeShape() && !_doorAppear)
+        if ((RecognizeShape.GetRecognizeShape() && !_doorAppear) || LevelManager.GetLevel() == 0)
         {
             foreach (var child in _childs)
             {
-                //child.gameObject.SetActive(true);
                 child.GetComponent<MeshRenderer>().material.color = new Color32(200, 111, 103,255);
             }
             _doorAppear = true;
         }
         var trans = transform;
-        // var currAngle = trans.eulerAngles.y;
         Vector3 direction = trans.position - Vector3.zero;
         // Calculate the angle between the direction vector and the forward vector
         float currAngle = Vector3.Angle(Vector3.forward, direction);
@@ -59,7 +58,6 @@ public class Door : MonoBehaviour
 
     private void EnabledDoorChild(bool enabled)
     {
-        if (LevelManager.GetLevel() == 1) return;
         foreach (var child in GetComponentsInChildren<MeshRenderer>())
         {
             child.GetComponent<MeshRenderer>().enabled = enabled;
@@ -75,6 +73,10 @@ public class Door : MonoBehaviour
              print("klyde win");
              GetComponent<PlayableDirector>().Play();
              LevelManager.NextLevel();
+             other.GetComponent<NavMeshAgent>().enabled = false;
+            // other.transform.parent = transform;
+             _doorAppear = false;
         }
     }
+
 }

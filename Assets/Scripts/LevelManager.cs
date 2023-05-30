@@ -3,16 +3,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
-    private static int _level = 2;
-    private Level _currentLevel;
+    private static int _level = 0;
     private static int _numOfHalves = 2;
-
+    private static LevelManager _instance;
+    
     private void Awake()
     {
         SetNumOfHalves();
+        _instance = this;
     }
 
     private void Update()
@@ -23,14 +25,23 @@ public class LevelManager : MonoBehaviour
     public static void NextLevel()
     {
         _level++;
-        SceneManager.LoadScene("Level" + _level);
+        if (Levels.unlockedLevel == _level-1)
+            Levels.unlockedLevel += 1;
+        _instance.StartCoroutine(WaitForLoadNextLevel());
+        //SceneManager.LoadScene("Level" + _level);
         //  _currentLevel = LevelFactory.CreateLevel(_level);
     }
+
+    static IEnumerator WaitForLoadNextLevel()
+    {
+        yield return new WaitForSeconds(3f);
+        SceneManager.LoadScene("Level" + _level);
+    }
     
-    public void SetLevel(int newLevel)
+    public static void SetLevel(int newLevel)
     {
         _level = newLevel;
-        _currentLevel = LevelFactory.CreateLevel(_level);
+       // _currentLevel = LevelFactory.CreateLevel(_level);
     }
     
     private void SetNumOfHalves()

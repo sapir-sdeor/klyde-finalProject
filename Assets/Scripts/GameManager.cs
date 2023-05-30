@@ -8,9 +8,15 @@ using UnityEngine.PlayerLoop;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private GameObject hint;
+    [SerializeField] private AudioSource audioSource;
+    private void Awake()
+    {
+        DontDestroyOnLoad(audioSource);
+    }
+
     private void Update()
     {
-        if (!RecognizeShape.GetRecognizeShape() || LevelManager.GetLevel() != 2) return;
+        if (!RecognizeShape.GetRecognizeShape() || LevelManager.GetLevel() != 1) return;
         hint.SetActive(false);
     }
 }
