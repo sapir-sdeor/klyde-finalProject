@@ -14,8 +14,8 @@ public class Rotate2D3D : MonoBehaviour
     [SerializeField] private Transform[] worlds;
     [SerializeField] private float sensitivity = 2f;
     [SerializeField] private float rotationSpeed = 2f;
-    private static bool _isRotating;
-    private static bool _isDragging;
+    private static bool _isRotating ;
+    private static bool _isDragging ;
     public Transform pivotPoint;
     private Vector2 mouseDirection;
     

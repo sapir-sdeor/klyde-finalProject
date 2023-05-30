@@ -1821,6 +1821,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buffer: 2
+  bufferDistance: 1.5
 --- !u!95 &770076414
 Animator:
   serializedVersion: 4
@@ -8259,7 +8260,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!64 &1431864472
 MeshCollider:
   m_ObjectHideFlags: 0

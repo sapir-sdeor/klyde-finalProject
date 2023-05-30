@@ -13,6 +13,8 @@ public class moving : MonoBehaviour
     private Vector3 pos;
     private static readonly int IsWalking = Animator.StringToHash("IsWalking");
     [SerializeField] private float buffer=0.5f;
+    [SerializeField] private float bufferDistance =1.5f;
+
 
     private void Start()
     {
@@ -51,42 +53,25 @@ public class moving : MonoBehaviour
                }
            }
         }
-        isWalk = agent.velocity.magnitude > 0.01f;
-
-       if (Rotate2D3D.GetIsRotating())
-       {
+        // isWalk = agent.velocity.magnitude > 0.01f;
+        if(agent.isOnNavMesh) isWalk = agent.remainingDistance > bufferDistance;
+        if (Rotate2D3D.GetIsRotating())
+        {
            agent.enabled = false;
            agent.velocity = Vector3.zero;
            agent.transform.position = pos;
-       }
-       else
-       {
+        }
+        else
+        {
            pos = agent.transform.position;
            agent.enabled = true;
-       }
-       
-       animator.SetBool(IsWalking,isWalk);
+        }
+        animator.SetBool(IsWalking,isWalk);
     }
-
     public static bool GetIsWalk()
     {
         return isWalk;
     } 
     
-    // if (!Rotate2D3D.GetIsRotating())
-    // {
-    //     Vector3 direction = (raycastHit.point - transform.position).normalized;
-    //     float desiredSpeed =  speed * 0.5f;
-    //     Vector3 desiredVelocity = direction * speed;
-    //     if (Vector3.Distance(transform.position, raycastHit.point) <= stoppingDistance)
-    //     {
-    //         rb.velocity = Vector3.zero;
-    //     }
-    //     else
-    //     {
-    //         rb.velocity = desiredVelocity;
-    //     }
-    // }
- 
 }
 
