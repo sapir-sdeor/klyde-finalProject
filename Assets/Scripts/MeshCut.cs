@@ -35,7 +35,7 @@ public class MeshCut : MonoBehaviour
             var currAngle = child.eulerAngles.y;
             var parentAngle = transform.parent.eulerAngles.z;
             currAngle += parentAngle;
-            if ( (_angle + offset)*(halfNum-1) -angleFadeEffect <= currAngle && currAngle <= (_angle+offset)*(halfNum)-angleFadeEffect)
+            if ((_angle)*(halfNum-1) -angleFadeEffect <= currAngle && currAngle <= (_angle)*(halfNum)+angleFadeEffect)
             {
                 child.gameObject.SetActive(true);
             }

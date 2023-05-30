@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1273174, g: 0.13414761, b: 0.12107885, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -712,6 +712,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   halfNum: 1
   angleFadeEffect: 5
+  offset: 0
 --- !u!1 &224393008
 GameObject:
   m_ObjectHideFlags: 0
@@ -998,6 +999,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   halfNum: 2
   angleFadeEffect: 0
+  offset: 0
 --- !u!1 &317237312
 GameObject:
   m_ObjectHideFlags: 0
@@ -1189,7 +1191,7 @@ MonoBehaviour:
   - {fileID: 685927048}
   frameCounterLimit: 6
   SeprateBetweenRotateWalk: 6
-  maxRotationAmount: 40
+  maxRotationAmount: 30
 --- !u!4 &384441277
 Transform:
   m_ObjectHideFlags: 0
@@ -1218,8 +1220,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distances:
-  - 12
-  aprroximate: 0.03
+  - 11.5
+  aprroximate: 0.5
   positionsGameObjects:
   - {fileID: 1150346541}
   - {fileID: 1758500041}
@@ -2268,6 +2270,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   halfNum: 2
   angleFadeEffect: 5
+  offset: 0
 --- !u!114 &685927048
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5329,14 +5332,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1676777920}
-  m_LocalRotation: {x: 0.69386, y: 0.13555223, z: 0.13550368, w: 0.6941345}
+  m_LocalRotation: {x: 0.7044784, y: -0.061603755, z: -0.061653018, w: 0.70435363}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.14678581, y: 0.00035714297, z: 0.14678577}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 655831159}
   m_RootOrder: 7
-  m_LocalEulerAnglesHint: {x: 67.9, y: 89.944, z: 89.94}
+  m_LocalEulerAnglesHint: {x: 100, y: 89.944, z: 89.94}
 --- !u!136 &1676777922
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -5925,14 +5928,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1758500041}
-  m_LocalRotation: {x: 0.696667, y: 0.120377235, z: 0.12033525, w: 0.69691026}
+  m_LocalRotation: {x: 0.5428003, y: 0.45264468, z: 0.4526067, w: 0.5437167}
   m_LocalPosition: {x: -0.020186955, y: -0.0071858405, z: 0.006895368}
   m_LocalScale: {x: 0.0035714298, y: 0.0035714288, z: 0.0035714293}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 655831159}
   m_RootOrder: 6
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 10.4, y: 89.944, z: 89.94}
 --- !u!135 &1758500043
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -7028,6 +7031,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   halfNum: 0
   angleFadeEffect: 0
+  offset: 0
 --- !u!4 &2027306748
 Transform:
   m_ObjectHideFlags: 0
@@ -7172,6 +7176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   halfNum: 1
   angleFadeEffect: 0
+  offset: 0
 --- !u!114 &2044879873
 MonoBehaviour:
   m_ObjectHideFlags: 0
