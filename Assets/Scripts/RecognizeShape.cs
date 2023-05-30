@@ -44,7 +44,7 @@ public class RecognizeShape : MonoBehaviour
         {
             var dist = Vector3.Distance(row.positions[0].transform.position, row.positions[1].transform.position);
             print(dist + " distance");
-            if ((row.distance-aprroximate >=dist || dist>= row.distance+aprroximate || PointsInRightHalf(row)))
+            if (row.distance-aprroximate >=dist || dist>= row.distance+aprroximate || PointsInRightHalf(row) ||Rotate2D3D.GetIsRotating())
             {    
                 // print(" _recognizeShape failed");
                 flag = false;            
@@ -61,6 +61,7 @@ public class RecognizeShape : MonoBehaviour
     {
         return _recognizeShape;
     }
+
 
     private bool PointsInRightHalf(Row row)
     {
