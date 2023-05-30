@@ -12,6 +12,7 @@ public class MeshCut : MonoBehaviour
     [SerializeField] private int halfNum;
     private float _angle;
     [SerializeField] private float angleFadeEffect = 5;
+    [SerializeField] private float offset = 0;
 
 
     private void Start()
@@ -34,7 +35,7 @@ public class MeshCut : MonoBehaviour
             var currAngle = child.eulerAngles.y;
             var parentAngle = transform.parent.eulerAngles.z;
             currAngle += parentAngle;
-            if ( _angle*(halfNum-1) -angleFadeEffect <= currAngle && currAngle <= _angle*(halfNum)+angleFadeEffect)
+            if ( (_angle + offset)*(halfNum-1) -angleFadeEffect <= currAngle && currAngle <= (_angle+offset)*(halfNum)-angleFadeEffect)
             {
                 child.gameObject.SetActive(true);
             }
