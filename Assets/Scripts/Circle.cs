@@ -117,5 +117,10 @@ public class Circle : World
         return angle;
     }
 
+    public float GetRotation()
+    {
+        return gameObject.transform.eulerAngles.y;
+    }
+
 }
   
