@@ -27,11 +27,6 @@ public class Rotate2D3D : MonoBehaviour
     
     void Start()
     {
-        // for (int i = 0; i < surfaces.Length; i++) 
-        // {
-        //     surfaces [i].BuildNavMesh (); 
-        //     print("build navmesh");
-        // } 
         BuildNewNavMesh();
         print("build navmesh");
         // Disable VSync
