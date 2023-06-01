@@ -33,7 +33,7 @@ public class Rotate2D3D : MonoBehaviour
         QualitySettings.vSyncCount = 0;
         
         // Set the desired frame rate
-        Application.targetFrameRate = 60;
+        // Application.targetFrameRate = 60;
     }
     
     private void Update()
