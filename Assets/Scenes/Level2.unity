@@ -795,7 +795,7 @@ MonoBehaviour:
   - {fileID: 685927048}
   frameCounterLimit: 6
   SeprateBetweenRotateWalk: 6
-  maxRotationAmount: 30
+  maxRotationAmount: 4
 --- !u!4 &384441277
 Transform:
   m_ObjectHideFlags: 0

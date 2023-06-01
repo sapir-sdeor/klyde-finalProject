@@ -44,7 +44,7 @@ Shader "Custom/combineMask"
             /*float2 uv = IN.uv_MainTex - 0.5; // shift UV coordinates to the center
             float currAngle = atan2(uv.x, uv.y);*/
             float2 projectedPos = normalize(float2(IN.worldPos.z, IN.worldPos.x)); // Project vertex position onto the XZ plane
-            float currAngle = atan2(projectedPos.y, projectedPos.x); // Calculate the angle based on the projected position
+            float currAngle = atan2(projectedPos.y, -projectedPos.x); // Calculate the angle based on the projected position
             if (currAngle < 0.0)
                 currAngle += 2.0 * 3.14159; // ensure the angle is in the range [0, 2pi]
 
