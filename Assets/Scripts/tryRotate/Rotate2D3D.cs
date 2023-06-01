@@ -4,8 +4,7 @@ using System.Collections.Generic;
 using Unity.AI.Navigation;
 using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.AI;
-using UnityEngine.EventSystems;
+
 
 
 public class Rotate2D3D : MonoBehaviour
@@ -20,10 +19,10 @@ public class Rotate2D3D : MonoBehaviour
     private Vector2 mouseDirection;
     
     [SerializeField] private NavMeshSurface[] surfaces;
-    [SerializeField] private int frameCounterLimit;
-    [SerializeField] private int SeprateBetweenRotateWalk;
+    [SerializeField] private float SeprateBetweenRotateWalk;
     [SerializeField] private float maxRotationAmount = 10f;
-    private int frameCounter;
+    private float millisecCounter;
+    private float currentTime;
     
     void Start()
     {
@@ -51,7 +50,7 @@ public class Rotate2D3D : MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            frameCounter = 0;
+            millisecCounter = Time.time;
         }
 
         if (Input.GetMouseButtonUp(0))
@@ -67,17 +66,13 @@ public class Rotate2D3D : MonoBehaviour
 
     private void RemoveAllNavMesh()
     {
-        frameCounter++;
+        currentTime = Time.time;
         // RotateWorld();
-        if (frameCounter >= SeprateBetweenRotateWalk)
+        if (currentTime - millisecCounter >= SeprateBetweenRotateWalk)
         {
             _isDragging = true;
-            // print("rotate is true");
-        }
-        if (frameCounter >= frameCounterLimit)
-        {
             _isRotating = true;
-            // NavMesh.RemoveAllNavMeshData();
+            // print("rotate is true");
         }
     }
 
