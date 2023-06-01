@@ -12,7 +12,7 @@ public class Rotate2D3D : MonoBehaviour
     [SerializeField] private float snapAngle = 10f;
     [SerializeField] private Transform[] worlds;
     [SerializeField] private float sensitivity = 2f;
-    [SerializeField] private float rotationSpeed = 2f;
+    [SerializeField] private float rotationSpeed = 1f;
     private static bool _isRotating ;
     private static bool _isDragging ;
     public Transform pivotPoint;
@@ -96,24 +96,17 @@ public class Rotate2D3D : MonoBehaviour
 
     private void RotateWorld()
     {
-        /*Vector3 currentMousePosition = Input.mousePosition;
-        Vector3 dragDirection = currentMousePosition - lastMousePosition;
-        float angle = Mathf.Atan2(dragDirection.y, dragDirection.x) * Mathf.Rad2Deg;*/
-        //  angle = (angle + 180) % 360 - 180;
-        
-        // Get the amount of mouse movement since the last frame
-        float deltaX = Input.GetAxis("Mouse X");
+        /*float deltaX = Input.GetAxis("Mouse X");
         float deltaY = Input.GetAxis("Mouse Y");
-        Vector3 currentMousePosition = Input.mousePosition;
-        
+       
         deltaX *= sensitivity;
-        deltaY *= sensitivity;
+        deltaY *= sensitivity;*/
         
-        var rotationAmountX = rotationSpeed * deltaX * 0.5f;
+        /*var rotationAmountX = rotationSpeed * deltaX * 0.5f;
         var rotationAmountY = rotationSpeed * deltaY * 0.5f;
 
         rotationAmountX = Mathf.Clamp(rotationAmountX, -maxRotationAmount, maxRotationAmount);
-        rotationAmountY = Mathf.Clamp(rotationAmountY, -maxRotationAmount, maxRotationAmount);
+        rotationAmountY = Mathf.Clamp(rotationAmountY, -maxRotationAmount, maxRotationAmount);*/
 
         // Rotate the worlds around the pivot point based on mouse movement
         foreach (var world in worlds)
@@ -122,11 +115,9 @@ public class Rotate2D3D : MonoBehaviour
             
             Vector2 mousePos = Input.mousePosition;
             Vector2 tempPos = mousePos - _mousePosStart;
-
-            float rotationSpeed = 10f; // Adjust this value as per your requirement
-
+            
             Quaternion targetRotation = Quaternion.LookRotation(new Vector3(tempPos.x, 0, tempPos.y), Vector3.up);
-            Quaternion rotation = Quaternion.RotateTowards(world.transform.rotation, targetRotation, rotationSpeed);
+            Quaternion rotation = Quaternion.RotateTowards(world.transform.rotation, targetRotation, rotationSpeed * 0.5f);
             world.transform.rotation = Quaternion.Euler(world.transform.rotation.eulerAngles.x, rotation.eulerAngles.y, 
                 world.transform.rotation.eulerAngles.z);
             
