@@ -26,6 +26,7 @@ public class moving : MonoBehaviour
     void Update()
     {
         // print(transform.position.x+"klyde pos");
+        if (UIButtons.isPause) return;
         if (Input.GetMouseButtonDown(0)) 
         {
            // isWalk = true;

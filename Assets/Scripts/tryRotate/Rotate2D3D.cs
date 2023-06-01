@@ -39,6 +39,11 @@ public class Rotate2D3D : MonoBehaviour
     private void Update()
     {
         // if (Mouse.current.leftButton.wasPressedThisFrame&& !moving.GetIsWalk())
+        if (UIButtons.isPause)
+        {
+            GetComponent<AudioSource>().Stop();
+            return;
+        }
         if (Input.GetMouseButton(0)&& !moving.GetIsWalk())
         {
             RemoveAllNavMesh();
@@ -58,8 +63,6 @@ public class Rotate2D3D : MonoBehaviour
         {
             RotateWorld();
         }
-
-
     }
 
     private void RemoveAllNavMesh()
