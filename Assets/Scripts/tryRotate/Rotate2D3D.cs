@@ -23,6 +23,7 @@ public class Rotate2D3D : MonoBehaviour
     [SerializeField] private float maxRotationAmount = 10f;
     private float millisecCounter;
     private float currentTime;
+    private bool isWalking;
     
     void Start()
     {
@@ -30,9 +31,8 @@ public class Rotate2D3D : MonoBehaviour
         print("build navmesh");
         // Disable VSync
         QualitySettings.vSyncCount = 0;
-        
         // Set the desired frame rate
-        // Application.targetFrameRate = 60;
+        Application.targetFrameRate = 60;
     }
     
     private void Update()
@@ -43,47 +43,48 @@ public class Rotate2D3D : MonoBehaviour
             GetComponent<AudioSource>().Stop();
             return;
         }
-        if (Input.GetMouseButton(0)&& !moving.GetIsWalk())
-        {
-            RemoveAllNavMesh();
-        }
-
         if (Input.GetMouseButtonDown(0))
         {
             millisecCounter = Time.time;
         }
-
         if (Input.GetMouseButtonUp(0))
         {
             BuildNewNavMesh();
             GetComponent<AudioSource>().Stop();
         }
+        else if (Input.GetMouseButton(0))
+        {
+            RemoveAllNavMesh();
+        }
+        
         if (_isDragging)
         {
             RotateWorld();
         }
+        print("out " + (Time.time - millisecCounter));
     }
 
     private void RemoveAllNavMesh()
     {
-        currentTime = Time.time;
         // RotateWorld();
-        if (currentTime - millisecCounter >= SeprateBetweenRotateWalk)
+        print(Time.time - millisecCounter + " button down");
+        if (Time.time - millisecCounter >= SeprateBetweenRotateWalk)
         {
             _isDragging = true;
             _isRotating = true;
-            // print("rotate is true");
         }
     }
 
     private void BuildNewNavMesh()
     {
-        // print("build nevmesh");
         _isRotating = false;
         _isDragging = false;
-        for (int i = 0; i < surfaces.Length; i++) 
+        if (!moving.GetIsWalk())
         {
-            surfaces[i].BuildNavMesh();
+            for (int i = 0; i < surfaces.Length; i++) 
+            {
+                surfaces[i].BuildNavMesh();
+            } 
         }
     }
 

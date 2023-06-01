@@ -8,12 +8,14 @@ using UnityEngine.AI;
 public class moving : MonoBehaviour
 {
     private static bool isWalk;
+    private bool isWalkAnimation;
     private NavMeshAgent agent;
     private Animator animator;
     private Vector3 pos;
     private static readonly int IsWalking = Animator.StringToHash("IsWalking");
     [SerializeField] private float buffer=0.5f;
     [SerializeField] private float bufferDistance =1.5f;
+    
 
 
     private void Start()
@@ -29,14 +31,13 @@ public class moving : MonoBehaviour
         if (UIButtons.isPause) return;
         if (Input.GetMouseButtonDown(0)) 
         {
-           // isWalk = true;
-           Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            print("is walking");
+            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
            Debug.DrawRay(ray.origin, ray.direction * 50, Color.red);
-           // print(Physics.Raycast(ray, out RaycastHit raycast));
            if (Physics.Raycast(ray, out RaycastHit raycastHit))
            {
-               // print(!Rotate2D3D.GetIsRotating() +" is not rotate?");
-               if (agent.isOnNavMesh && !Rotate2D3D.GetIsRotating() ) // Check if agent is on NavMesh
+               // print("is walking");
+               if (agent.isOnNavMesh && !Rotate2D3D.GetIsRotating()) // Check if agent is on NavMesh
                {
                    var target = raycastHit.point;
                    if (-buffer <= target.x && target.x <= +buffer)
@@ -54,8 +55,8 @@ public class moving : MonoBehaviour
                }
            }
         }
-        // isWalk = agent.velocity.magnitude > 0.01f;
-        if(agent.isOnNavMesh) isWalk = agent.remainingDistance > bufferDistance;
+        isWalk = agent.velocity.magnitude > 0.01f;
+        if(agent.isOnNavMesh) isWalkAnimation = agent.remainingDistance > bufferDistance;
         if (Rotate2D3D.GetIsRotating())
         {
            agent.enabled = false;
@@ -67,7 +68,7 @@ public class moving : MonoBehaviour
            pos = agent.transform.position;
            agent.enabled = true;
         }
-        animator.SetBool(IsWalking,isWalk);
+        animator.SetBool(IsWalking,isWalkAnimation);
     }
     public static bool GetIsWalk()
     {
