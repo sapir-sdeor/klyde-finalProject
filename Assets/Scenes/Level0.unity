@@ -714,6 +714,7 @@ MonoBehaviour:
   positions:
   - {fileID: 1758500041}
   - {fileID: 1150346541}
+  aprroximate: 0.1
   distance: 12
   halfNumPoints: 0100000002000000
 --- !u!4 &224393010
@@ -1084,7 +1085,7 @@ MonoBehaviour:
   - {fileID: 655831159}
   - {fileID: 904975030}
   sensitivity: 2
-  rotationSpeed: 1
+  rotationSpeed: 10
   pivotPoint: {fileID: 1458877390}
   surfaces:
   - {fileID: 685927048}

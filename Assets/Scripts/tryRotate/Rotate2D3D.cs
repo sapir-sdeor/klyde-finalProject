@@ -18,7 +18,7 @@ public class Rotate2D3D : MonoBehaviour
     public Transform pivotPoint;
     private Vector3 lastMousePosition;
     private Vector3 _pos;
-    private Vector2 _mousePosStart;
+    private Vector3 _mousePosStart;
     
     [SerializeField] private NavMeshSurface[] surfaces;
     [SerializeField] private float SeprateBetweenRotateWalk;
@@ -47,8 +47,8 @@ public class Rotate2D3D : MonoBehaviour
         }
         if (Input.GetMouseButtonDown(0))
         {
-            _mousePosStart = Input.mousePosition;
-            Vector2 localPos = new Vector2(worlds[0].transform.parent.transform.position.x, 
+            _mousePosStart = GetPlayerPlaneMousePos(Input.mousePosition);
+            Vector3 localPos = new Vector3(worlds[0].transform.parent.transform.position.x, 0,
                 worlds[0].transform.parent.transform.position.z);
             _pos = _mousePosStart - localPos;
             millisecCounter = Time.time;
@@ -122,8 +122,8 @@ public class Rotate2D3D : MonoBehaviour
                 world.transform.rotation.eulerAngles.z);
 
                 */
-            Vector2 mousePos = Input.mousePosition;
-            Vector2 tempPos = mousePos - _mousePosStart;
+            Vector3 mousePos = GetPlayerPlaneMousePos(Input.mousePosition);
+            Vector3 tempPos = mousePos - _mousePosStart;
             Quaternion targetRotation = Quaternion.LookRotation(new Vector3(tempPos.x, 0, tempPos.y), Vector3.up);
             float maxRotationAngle = rotationSpeed;
 
@@ -156,22 +156,16 @@ public class Rotate2D3D : MonoBehaviour
         return _isRotating;
     }
     
-                
-    /*var position = pivotPoint.position;
-    if (ang > 0)
+    public Vector3 GetPlayerPlaneMousePos(Vector3 aPlayerPos)
     {
-        world.transform.RotateAround(position, Vector3.up, rotationAmountX);
-        world.transform.RotateAround(position, Vector3.up, rotationAmountY);
+        Plane plane = new Plane(Vector3.up, aPlayerPos);
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        float dist;
+        if (plane.Raycast(ray, out dist))
+        {
+            return ray.GetPoint(dist);
+        }
+        return Vector3.zero;
     }
-    else
-    {
-        world.transform.RotateAround(position, Vector3.up, -rotationAmountX);
-        world.transform.RotateAround(position, Vector3.up, -rotationAmountY);
-    }*/
-    /*var currentRotation = world.transform.rotation;
-    var xAngle = Mathf.Round(currentRotation.eulerAngles.x / snapAngle) * snapAngle;
-    var yAngle = Mathf.Round(currentRotation.eulerAngles.y / snapAngle) * snapAngle;
-    var zAngle = Mathf.Round(currentRotation.eulerAngles.z / snapAngle) * snapAngle;
-    world.transform.rotation = Quaternion.Euler(xAngle, yAngle, zAngle);*/
     
 }
