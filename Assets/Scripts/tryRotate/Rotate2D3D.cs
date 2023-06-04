@@ -119,23 +119,6 @@ public class Rotate2D3D : MonoBehaviour
             Quaternion rotation = Quaternion.RotateTowards(world.transform.rotation, targetRotation, rotationSpeed * 0.5f);
             world.transform.rotation = Quaternion.Euler(world.transform.rotation.eulerAngles.x, rotation.eulerAngles.y, 
                 world.transform.rotation.eulerAngles.z);
-            
-            /*var position = pivotPoint.position;
-            if (ang > 0)
-            {
-                world.transform.RotateAround(position, Vector3.up, rotationAmountX);
-                world.transform.RotateAround(position, Vector3.up, rotationAmountY);
-            }
-            else
-            {
-                world.transform.RotateAround(position, Vector3.up, -rotationAmountX);
-                world.transform.RotateAround(position, Vector3.up, -rotationAmountY);
-            }*/
-            /*var currentRotation = world.transform.rotation;
-            var xAngle = Mathf.Round(currentRotation.eulerAngles.x / snapAngle) * snapAngle;
-            var yAngle = Mathf.Round(currentRotation.eulerAngles.y / snapAngle) * snapAngle;
-            var zAngle = Mathf.Round(currentRotation.eulerAngles.z / snapAngle) * snapAngle;
-            world.transform.rotation = Quaternion.Euler(xAngle, yAngle, zAngle);*/
         }
         // Snap to the nearest multiple of snapAngle
         if (!GetComponent<AudioSource>().isPlaying)
@@ -146,5 +129,23 @@ public class Rotate2D3D : MonoBehaviour
     {
         return _isRotating;
     }
+    
+                
+    /*var position = pivotPoint.position;
+    if (ang > 0)
+    {
+        world.transform.RotateAround(position, Vector3.up, rotationAmountX);
+        world.transform.RotateAround(position, Vector3.up, rotationAmountY);
+    }
+    else
+    {
+        world.transform.RotateAround(position, Vector3.up, -rotationAmountX);
+        world.transform.RotateAround(position, Vector3.up, -rotationAmountY);
+    }*/
+    /*var currentRotation = world.transform.rotation;
+    var xAngle = Mathf.Round(currentRotation.eulerAngles.x / snapAngle) * snapAngle;
+    var yAngle = Mathf.Round(currentRotation.eulerAngles.y / snapAngle) * snapAngle;
+    var zAngle = Mathf.Round(currentRotation.eulerAngles.z / snapAngle) * snapAngle;
+    world.transform.rotation = Quaternion.Euler(xAngle, yAngle, zAngle);*/
     
 }
