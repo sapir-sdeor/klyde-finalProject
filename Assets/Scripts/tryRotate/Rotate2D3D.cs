@@ -67,13 +67,12 @@ public class Rotate2D3D : MonoBehaviour
         {
             RotateWorld();
         }
-        print("out " + (Time.time - millisecCounter));
     }
 
     private void RemoveAllNavMesh()
     {
         // RotateWorld();
-        print(Time.time - millisecCounter + " button down");
+        // print(Time.time - millisecCounter + " button down");
         if (Time.time - millisecCounter >= SeprateBetweenRotateWalk)
         {
             _isDragging = true;

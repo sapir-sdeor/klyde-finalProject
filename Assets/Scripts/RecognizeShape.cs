@@ -5,16 +5,14 @@ using UnityEngine;
 
 public class RecognizeShape : MonoBehaviour
 {
-    [SerializeField] private float[] distances;
-    [SerializeField] private float aprroximate= 0.1f;
-    [SerializeField] private GameObject[] positionsGameObjects;
+    // [SerializeField] private GameObject[] positionsGameObjects;
     [SerializeField] private Row[] grid;
     [SerializeField] private GameObject objectToShown;
 
     [SerializeField] private GameObject background;
     [SerializeField] private Texture backgroundAfterShape;
     // Start is called before the first frame update
-    private static bool _recognizeShape = false;
+    private static bool _recognizeShape ;
     private float _angle;
     private bool flag = true;
     private float _timeToDisappear;
@@ -43,8 +41,12 @@ public class RecognizeShape : MonoBehaviour
         foreach (var row in grid)
         {
             var dist = Vector3.Distance(row.positions[0].transform.position, row.positions[1].transform.position);
-            print(dist + " distance");
-            if (row.distance-aprroximate >=dist || dist>= row.distance+aprroximate || PointsInRightHalf(row) ||Rotate2D3D.GetIsRotating())
+            print(dist + " distance " + row.aprroximate +" aprroximate "+ " is rotating? "+ Rotate2D3D.GetIsRotating()+
+                " points in right half? "+ !PointsInRightHalf(row));
+                // 
+            
+            if (row.distance-row.aprroximate >=dist || dist>= row.distance+row.aprroximate ||Rotate2D3D.GetIsRotating()
+                || !PointsInRightHalf(row)  )
             {    
                 // print(" _recognizeShape failed");
                 flag = false;            
@@ -72,7 +74,7 @@ public class RecognizeShape : MonoBehaviour
             // Calculate the angle between the direction vector and the forward vector
             float currAngle = Vector3.Angle(Vector3.forward, direction);
             if (trans.position.x < 0) currAngle = 360 - currAngle;
-            if (!(_angle * (row.halfNumPoints[i] - 1) <= currAngle && currAngle <= _angle * (row.halfNumPoints[i])))
+            if ((_angle * (row.halfNumPoints[i] - 1) >= currAngle || currAngle >= _angle * (row.halfNumPoints[i])))
             {
                 return false;
             }
