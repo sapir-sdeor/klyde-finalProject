@@ -1085,7 +1085,7 @@ MonoBehaviour:
   - {fileID: 655831159}
   - {fileID: 904975030}
   sensitivity: 2
-  rotationSpeed: 10
+  rotationSpeed: 3
   pivotPoint: {fileID: 1458877390}
   surfaces:
   - {fileID: 685927048}

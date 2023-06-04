@@ -47,10 +47,10 @@ public class Rotate2D3D : MonoBehaviour
         }
         if (Input.GetMouseButtonDown(0))
         {
-            _mousePosStart = GetPlayerPlaneMousePos(Input.mousePosition);
-            Vector3 localPos = new Vector3(worlds[0].transform.parent.transform.position.x, 0,
+            _mousePosStart = Input.mousePosition;
+            /*Vector3 localPos = new Vector3(worlds[0].transform.parent.transform.position.x, 0,
                 worlds[0].transform.parent.transform.position.z);
-            _pos = _mousePosStart - localPos;
+            _pos = _mousePosStart - localPos;*/
             millisecCounter = Time.time;
         }
         if (Input.GetMouseButtonUp(0))
@@ -121,13 +121,21 @@ public class Rotate2D3D : MonoBehaviour
             world.transform.rotation = Quaternion.Euler(world.transform.rotation.eulerAngles.x, rotation.eulerAngles.y, 
                 world.transform.rotation.eulerAngles.z);
                 */
-            Vector3 mousePos = GetPlayerPlaneMousePos(Input.mousePosition);
+            /*Vector3 mousePos = GetPlayerPlaneMousePos(Input.mousePosition);
             Vector3 tempPos = mousePos - _mousePosStart;
             Quaternion targetRotation = Quaternion.LookRotation(new Vector3(tempPos.x, 0, tempPos.y), Vector3.up);
             float maxRotationAngle = rotationSpeed;
 
             Quaternion rotation = Quaternion.RotateTowards(world.transform.rotation, targetRotation, maxRotationAngle);
-            world.transform.rotation = Quaternion.Euler(world.transform.rotation.eulerAngles.x, rotation.eulerAngles.y, world.transform.rotation.eulerAngles.z);
+            world.transform.rotation = Quaternion.Euler(world.transform.rotation.eulerAngles.x, rotation.eulerAngles.y, world.transform.rotation.eulerAngles.z);*/
+            // Calculate the difference in mouse position
+            Vector3 mouseDelta = Input.mousePosition - _mousePosStart;
+
+            float angle = Mathf.Atan2(mouseDelta.x, mouseDelta.y) * Mathf.Rad2Deg;
+
+            world.transform.rotation = Quaternion.Euler(world.transform.eulerAngles.x, -angle, world.transform.eulerAngles.z);
+
+            _mousePosStart = Input.mousePosition;
             /*var position = pivotPoint.position;
             if (ang > 0)
             {
