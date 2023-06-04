@@ -112,14 +112,22 @@ public class Rotate2D3D : MonoBehaviour
         {
             if (world.GetComponent<World>().isKlydeOn) continue;
             
+            /*
             Vector2 mousePos = Input.mousePosition;
             Vector2 tempPos = mousePos - _mousePosStart;
             
             Quaternion targetRotation = Quaternion.LookRotation(new Vector3(tempPos.x, 0, tempPos.y), Vector3.up);
-            Quaternion rotation = Quaternion.RotateTowards(world.transform.rotation, targetRotation, rotationSpeed * 0.5f);
+            Quaternion rotation = Quaternion.RotateTowards(world.transform.rotation, targetRotation, rotationSpeed);
             world.transform.rotation = Quaternion.Euler(world.transform.rotation.eulerAngles.x, rotation.eulerAngles.y, 
                 world.transform.rotation.eulerAngles.z);
-            
+                */
+            Vector2 mousePos = Input.mousePosition;
+            Vector2 tempPos = mousePos - _mousePosStart;
+            Quaternion targetRotation = Quaternion.LookRotation(new Vector3(tempPos.x, 0, tempPos.y), Vector3.up);
+            float maxRotationAngle = rotationSpeed;
+
+            Quaternion rotation = Quaternion.RotateTowards(world.transform.rotation, targetRotation, maxRotationAngle);
+            world.transform.rotation = Quaternion.Euler(world.transform.rotation.eulerAngles.x, rotation.eulerAngles.y, world.transform.rotation.eulerAngles.z);
             /*var position = pivotPoint.position;
             if (ang > 0)
             {
