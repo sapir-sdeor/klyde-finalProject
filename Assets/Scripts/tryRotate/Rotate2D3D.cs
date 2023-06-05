@@ -19,6 +19,7 @@ public class Rotate2D3D : MonoBehaviour
     private Vector3 lastMousePosition;
     private Vector3 _pos;
     private Vector3 _mousePosStart;
+    private Vector3 lastPosition;
     
     [SerializeField] private NavMeshSurface[] surfaces;
     [SerializeField] private float SeprateBetweenRotateWalk;
@@ -26,11 +27,39 @@ public class Rotate2D3D : MonoBehaviour
     private float millisecCounter;
     private float currentTime;
     private bool isWalking;
+    [SerializeField]
+    private float speed = 150f;
+
+    [SerializeField]
+    private float flipAngle = 30f;
+
+    [SerializeField]
+    private float flipDelta = 10f;
+
+    [SerializeField]
+    private bool createObj = true;
+
+    [SerializeField]
+    private GameObject obj;
+
+    private Vector3 _lastPosition;
+    private GameObject _lastObj;
+    private Plane _plane;
+
+    private Vector3 OrigDir { get; set; }
+
+    private Transform MyTransform { get; set; }
+    
+    private void Awake()
+    {
+        // MyTransform = transform;
+        // _plane = new Plane(MyTransform.up, MyTransform.position);
+        _plane = new Plane(worlds[1].transform.up, worlds[1].transform.position);
+    }
     
     void Start()
     {
         BuildNewNavMesh();
-        print("build navmesh");
         // Disable VSync
         QualitySettings.vSyncCount = 0;
         // Set the desired frame rate
@@ -48,9 +77,12 @@ public class Rotate2D3D : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             _mousePosStart = Input.mousePosition;
-            /*Vector3 localPos = new Vector3(worlds[0].transform.parent.transform.position.x, 0,
+            Vector3 localPos = new Vector3(worlds[0].transform.parent.transform.position.x, 0,
                 worlds[0].transform.parent.transform.position.z);
-            _pos = _mousePosStart - localPos;*/
+            _pos = _mousePosStart - localPos;
+            _lastPosition = GetPointOnPlane(Input.mousePosition,worlds[1].transform);
+            // OrigDir = _lastPosition - MyTransform.position;
+            OrigDir = _lastPosition;
             millisecCounter = Time.time;
         }
         if (Input.GetMouseButtonUp(0))
@@ -65,14 +97,13 @@ public class Rotate2D3D : MonoBehaviour
         
         if (_isDragging)
         {
-            RotateWorld();
+            // RotateWorld();
+            PerformCircularRotation();
         }
     }
 
     private void RemoveAllNavMesh()
     {
-        // RotateWorld();
-        // print(Time.time - millisecCounter + " button down");
         if (Time.time - millisecCounter >= SeprateBetweenRotateWalk)
         {
             _isDragging = true;
@@ -92,106 +123,112 @@ public class Rotate2D3D : MonoBehaviour
             } 
         }
     }
-
-    private void RotateWorld()
-    {
-        /*float deltaX = Input.GetAxis("Mouse X");
-        float deltaY = Input.GetAxis("Mouse Y");
-       
-        deltaX *= sensitivity;
-        deltaY *= sensitivity;*/
-        
-        /*var rotationAmountX = rotationSpeed * deltaX * 0.5f;
-        var rotationAmountY = rotationSpeed * deltaY * 0.5f;
-
-        rotationAmountX = Mathf.Clamp(rotationAmountX, -maxRotationAmount, maxRotationAmount);
-        rotationAmountY = Mathf.Clamp(rotationAmountY, -maxRotationAmount, maxRotationAmount);*/
-
-        // Rotate the worlds around the pivot point based on mouse movement
-        foreach (var world in worlds)
-        {
-            if (world.GetComponent<World>().isKlydeOn) continue;
-            
-            /*
-            Vector2 mousePos = Input.mousePosition;
-            Vector2 tempPos = mousePos - _mousePosStart;
-            
-            Quaternion targetRotation = Quaternion.LookRotation(new Vector3(tempPos.x, 0, tempPos.y), Vector3.up);
-            Quaternion rotation = Quaternion.RotateTowards(world.transform.rotation, targetRotation, rotationSpeed);
-            world.transform.rotation = Quaternion.Euler(world.transform.rotation.eulerAngles.x, rotation.eulerAngles.y, 
-                world.transform.rotation.eulerAngles.z);
-
-                */
-            /*Vector3 mousePos = GetPlayerPlaneMousePos(Input.mousePosition);
-            Vector3 tempPos = mousePos - _mousePosStart;
-            Quaternion targetRotation = Quaternion.LookRotation(new Vector3(tempPos.x, 0, tempPos.y), Vector3.up);
-            float maxRotationAngle = rotationSpeed;
-
-            Quaternion rotation = Quaternion.RotateTowards(world.transform.rotation, targetRotation, maxRotationAngle);
-            world.transform.rotation = Quaternion.Euler(world.transform.rotation.eulerAngles.x, rotation.eulerAngles.y, world.transform.rotation.eulerAngles.z);*/
-            // Calculate the difference in mouse position
-            Vector3 mouseDelta = Input.mousePosition - _mousePosStart;
-
-            float angle = Mathf.Atan2(mouseDelta.x, mouseDelta.y) * Mathf.Rad2Deg;
-
-            world.transform.rotation = Quaternion.Euler(world.transform.eulerAngles.x, -angle, world.transform.eulerAngles.z);
-
-            _mousePosStart = Input.mousePosition;
-            /*var position = pivotPoint.position;
-            if (ang > 0)
-            {
-                world.transform.RotateAround(position, Vector3.up, rotationAmountX);
-                world.transform.RotateAround(position, Vector3.up, rotationAmountY);
-            }
-            else
-            {
-                world.transform.RotateAround(position, Vector3.up, -rotationAmountX);
-                world.transform.RotateAround(position, Vector3.up, -rotationAmountY);
-            }*/
-            /*var currentRotation = world.transform.rotation;
-            var xAngle = Mathf.Round(currentRotation.eulerAngles.x / snapAngle) * snapAngle;
-            var yAngle = Mathf.Round(currentRotation.eulerAngles.y / snapAngle) * snapAngle;
-            var zAngle = Mathf.Round(currentRotation.eulerAngles.z / snapAngle) * snapAngle;
-            world.transform.rotation = Quaternion.Euler(xAngle, yAngle, zAngle);*/
-        }
-        // Snap to the nearest multiple of snapAngle
-        if (!GetComponent<AudioSource>().isPlaying)
-            GetComponent<AudioSource>().Play();
-    }
-
+    
     public static bool GetIsRotating()
     {
         return _isRotating;
     }
+  
     
-    public Vector3 GetPlayerPlaneMousePos(Vector3 aPlayerPos)
+    private void PerformCircularRotation()
     {
-        Plane plane = new Plane(Vector3.up, aPlayerPos);
-        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        float dist;
-        if (plane.Raycast(ray, out dist))
+        foreach (var world in worlds)
         {
-            return ray.GetPoint(dist);
-        }
-        return Vector3.zero;
-    }
-                
-    /*var position = pivotPoint.position;
-    if (ang > 0)
-    {
-        world.transform.RotateAround(position, Vector3.up, rotationAmountX);
-        world.transform.RotateAround(position, Vector3.up, rotationAmountY);
-    }
-    else
-    {
-        world.transform.RotateAround(position, Vector3.up, -rotationAmountX);
-        world.transform.RotateAround(position, Vector3.up, -rotationAmountY);
-    }*/
-    /*var currentRotation = world.transform.rotation;
-    var xAngle = Mathf.Round(currentRotation.eulerAngles.x / snapAngle) * snapAngle;
-    var yAngle = Mathf.Round(currentRotation.eulerAngles.y / snapAngle) * snapAngle;
-    var zAngle = Mathf.Round(currentRotation.eulerAngles.z / snapAngle) * snapAngle;
-    world.transform.rotation = Quaternion.Euler(xAngle, yAngle, zAngle);*/
+            if (world.GetComponent<World>().isKlydeOn) continue;
+            var adjustedSpeed = Time.deltaTime * speed;
+            var worldTransform = world.transform;
+            var center = Vector3.zero;
+            // Vector3 center = new Vector3(worlds[0].transform.parent.transform.position.x, 0,
+            //     worlds[0].transform.parent.transform.position.z);
+            // var center = Vector3.zero;
+            var up = Vector3.up;
+            var rotation = worldTransform.rotation;
 
+            var currPosition = GetPointOnPlane(Input.mousePosition,worldTransform);
+            print("currPosition "+ currPosition);
+
+            var angleDelta = Vector3.SignedAngle(OrigDir, currPosition - center, up) ;
+            // angleDelta = HandleFlipAngle(center, currPosition, up, angleDelta);
+            // TODO: Any smoothing will probably go here
+            // rotate by that much
+            //var rot = Quaternion.AngleAxis(angleDelta * 1f, up);
+            //OrigDir = rot * OrigDir;
+            OrigDir = currPosition;
+            angleDelta = Mathf.Clamp(angleDelta, -adjustedSpeed, adjustedSpeed);
+
+            Debug.DrawLine(center, currPosition, Color.green);
+            Debug.DrawRay(center, OrigDir, Color.red);
+
+            
+            worldTransform.Rotate(0,angleDelta,0,Space.World);
+            // worldTransform.rotation = tmpRot;
+            // worldTransform.rotation = Quaternion.Euler(world.transform.rotation.eulerAngles.x, tmpRot.eulerAngles.y, world.transform.rotation.eulerAngles.z);;
+        }
+        
+    } 
     
+    private float HandleFlipAngle(Vector3 center, Vector3 currPosition, Vector3 up, float angleDelta)
+    {
+        //check if mouse is moving
+        var lastPosAngleDelta = Vector3.SignedAngle(_lastPosition - center, currPosition - center, up) % 360f;
+       // if the angle is smaller then 180+flipDelta instead of rotate -90 rotate +90
+       //the reason for this implemntation 
+       var clockwise = lastPosAngleDelta >= 0f;
+
+       // return clockwise ? Mathf.Abs(angleDelta) : -Mathf.Abs(angleDelta);
+       if (clockwise && angleDelta < -180f + flipDelta || !clockwise && angleDelta > 180f - flipDelta)
+        {
+            OrigDir = Quaternion.AngleAxis(clockwise ? flipAngle : -flipAngle, up) * OrigDir;
+            angleDelta = -angleDelta;
+        }
+
+        return angleDelta;
+    }
+
+    private Vector3 GetPointOnPlane(Vector3 mousePos,Transform trans)
+    {
+        Plane _plane = new Plane(Vector3.up, Vector3.zero);
+        var ray = Camera.main!.ScreenPointToRay(mousePos);
+        return _plane.Raycast(ray, out var dist) ? ray.GetPoint(dist) : Vector3.zero;
+    }
+    
+    // private void RotateWorld()
+    // {
+    //     foreach (var world in worlds)
+    //     {
+    //         if (world.GetComponent<World>().isKlydeOn) continue;
+    //         Vector3 mousePos = Input.mousePosition;
+    //         Vector2 tempPos = mousePos - _mousePosStart;
+    //         Quaternion targetRotation = Quaternion.LookRotation(new Vector3(tempPos.x, 0, tempPos.y), Vector3.up);
+    //         float maxRotationAngle = rotationSpeed;
+    //
+    //         Quaternion rotation = Quaternion.RotateTowards(world.transform.rotation, targetRotation, maxRotationAngle);
+    //         world.transform.rotation = Quaternion.Euler(world.transform.rotation.eulerAngles.x, rotation.eulerAngles.y, world.transform.rotation.eulerAngles.z);
+    //         
+    //     }
+    //     // Snap to the nearest multiple of snapAngle
+    //     if (!GetComponent<AudioSource>().isPlaying)
+    //         GetComponent<AudioSource>().Play();
+    // }
+
+    private void RotateWorld()
+    {
+        float deltaX = Input.GetAxis("Mouse X");
+        var rotationAmountX = rotationSpeed * deltaX * 0.5f;
+        foreach (var world in worlds)
+        {
+            if (world.GetComponent<World>().isKlydeOn) continue;
+
+            Vector3 mousePos = Input.mousePosition;
+            Vector3 tempPos = mousePos - _mousePosStart;
+
+            float rotationSpeed = 10f; // Adjust this value as per your requirement
+            
+            Quaternion targetRotation = Quaternion.LookRotation(new Vector3(tempPos.x, 0, tempPos.y), Vector3.up);
+            Quaternion rotation = Quaternion.RotateTowards(world.transform.rotation, targetRotation, rotationSpeed);
+            // Quaternion rotation = Quaternion.RotateTowards(world.transform.rotation, targetRotation, rotationSpeed * 0.5f);
+            world.transform.rotation = Quaternion.Euler(world.transform.rotation.eulerAngles.x, rotation.eulerAngles.y,
+                world.transform.rotation.eulerAngles.z);
+        }
+    }
 }
