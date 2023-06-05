@@ -145,7 +145,7 @@ public class Rotate2D3D : MonoBehaviour
             var rotation = worldTransform.rotation;
 
             var currPosition = GetPointOnPlane(Input.mousePosition,worldTransform);
-            print("currPosition "+ currPosition);
+            
 
             var angleDelta = Vector3.SignedAngle(OrigDir, currPosition - center, up) ;
             // angleDelta = HandleFlipAngle(center, currPosition, up, angleDelta);
