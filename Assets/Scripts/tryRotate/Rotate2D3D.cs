@@ -76,7 +76,7 @@ public class Rotate2D3D : MonoBehaviour
         }
         if (Input.GetMouseButtonDown(0))
         {
-            _mousePosStart = GetPointOnPlane(Input.mousePosition);
+            _mousePosStart = Input.mousePosition;
             Vector3 localPos = new Vector3(worlds[0].transform.parent.transform.position.x, 0,
                 worlds[0].transform.parent.transform.position.z);
             _pos = _mousePosStart - localPos;
@@ -191,26 +191,43 @@ public class Rotate2D3D : MonoBehaviour
         return _plane.Raycast(ray, out var dist) ? ray.GetPoint(dist) : Vector3.zero;
     }
     
+    // private void RotateWorld()
+    // {
+    //     foreach (var world in worlds)
+    //     {
+    //         if (world.GetComponent<World>().isKlydeOn) continue;
+    //         Vector3 mousePos = Input.mousePosition;
+    //         Vector2 tempPos = mousePos - _mousePosStart;
+    //         Quaternion targetRotation = Quaternion.LookRotation(new Vector3(tempPos.x, 0, tempPos.y), Vector3.up);
+    //         float maxRotationAngle = rotationSpeed;
+    //
+    //         Quaternion rotation = Quaternion.RotateTowards(world.transform.rotation, targetRotation, maxRotationAngle);
+    //         world.transform.rotation = Quaternion.Euler(world.transform.rotation.eulerAngles.x, rotation.eulerAngles.y, world.transform.rotation.eulerAngles.z);
+    //         
+    //     }
+    //     // Snap to the nearest multiple of snapAngle
+    //     if (!GetComponent<AudioSource>().isPlaying)
+    //         GetComponent<AudioSource>().Play();
+    // }
+
     private void RotateWorld()
     {
+        float deltaX = Input.GetAxis("Mouse X");
+        var rotationAmountX = rotationSpeed * deltaX * 0.5f;
         foreach (var world in worlds)
         {
             if (world.GetComponent<World>().isKlydeOn) continue;
-            Vector3 mousePos = GetPointOnPlane(Input.mousePosition);
+
+            Vector3 mousePos = Input.mousePosition;
             Vector3 tempPos = mousePos - _mousePosStart;
-            Quaternion targetRotation = Quaternion.LookRotation(new Vector3(tempPos.x, 0, tempPos.y), Vector3.up);
-            float maxRotationAngle = rotationSpeed;
 
-            Quaternion rotation = Quaternion.RotateTowards(world.transform.rotation, targetRotation, maxRotationAngle);
-            world.transform.rotation = Quaternion.Euler(world.transform.rotation.eulerAngles.x, rotation.eulerAngles.y, world.transform.rotation.eulerAngles.z);
+            float rotationSpeed = 10f; // Adjust this value as per your requirement
             
+            Quaternion targetRotation = Quaternion.LookRotation(new Vector3(tempPos.x, 0, tempPos.y), Vector3.up);
+            Quaternion rotation = Quaternion.RotateTowards(world.transform.rotation, targetRotation, rotationSpeed);
+            // Quaternion rotation = Quaternion.RotateTowards(world.transform.rotation, targetRotation, rotationSpeed * 0.5f);
+            world.transform.rotation = Quaternion.Euler(world.transform.rotation.eulerAngles.x, rotation.eulerAngles.y,
+                world.transform.rotation.eulerAngles.z);
         }
-        // Snap to the nearest multiple of snapAngle
-        if (!GetComponent<AudioSource>().isPlaying)
-            GetComponent<AudioSource>().Play();
     }
-
-    
-
-    
 }

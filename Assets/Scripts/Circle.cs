@@ -11,6 +11,7 @@ public class Circle : World
     private float _angle;
     private bool _changeTexture;
     [SerializeField] private int halfNum;
+    [SerializeField] private float offset=-60;
     
     void Start()
     {
@@ -55,8 +56,8 @@ public class Circle : World
         if (currAngle < 0) currAngle += 360f;
 
         // Calculate the adjusted angle range based on the number of halves
-        float startAngle = _angle * (halfNum - 1);
-        float endAngle = _angle * halfNum;
+        float startAngle = _angle * (halfNum - 1)+offset;
+        float endAngle = _angle * halfNum+offset;
 
         // Handle wraparound from 360 to 0 degrees
         if (endAngle > 360f)
@@ -96,10 +97,7 @@ public class Circle : World
         {
             return angle >= start && angle <= end;
         }
-        else
-        {
-            return angle >= start || angle <= end;
-        }
+        return angle >= start || angle <= end;
     }
 
 // Helper method to normalize an angle to the range of 0-360 degrees
