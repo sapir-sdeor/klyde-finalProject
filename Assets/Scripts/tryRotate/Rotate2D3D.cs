@@ -80,9 +80,9 @@ public class Rotate2D3D : MonoBehaviour
             Vector3 localPos = new Vector3(worlds[0].transform.parent.transform.position.x, 0,
                 worlds[0].transform.parent.transform.position.z);
             _pos = _mousePosStart - localPos;
-            _lastPosition = GetPointOnPlane(Input.mousePosition);
+            _lastPosition = GetPointOnPlane(Input.mousePosition,worlds[1].transform);
             // OrigDir = _lastPosition - MyTransform.position;
-            OrigDir = _lastPosition-worlds[1].transform.parent.transform.position;
+            OrigDir = _lastPosition;
             millisecCounter = Time.time;
         }
         if (Input.GetMouseButtonUp(0))
@@ -97,8 +97,8 @@ public class Rotate2D3D : MonoBehaviour
         
         if (_isDragging)
         {
-            RotateWorld();
-            // PerformCircularRotation();
+            // RotateWorld();
+            PerformCircularRotation();
         }
     }
 
@@ -137,56 +137,57 @@ public class Rotate2D3D : MonoBehaviour
             if (world.GetComponent<World>().isKlydeOn) continue;
             var adjustedSpeed = Time.deltaTime * speed;
             var worldTransform = world.transform;
-            var center = worldTransform.position;
+            var center = Vector3.zero;
             // Vector3 center = new Vector3(worlds[0].transform.parent.transform.position.x, 0,
             //     worlds[0].transform.parent.transform.position.z);
             // var center = Vector3.zero;
-            var up = worldTransform.up;
+            var up = Vector3.up;
             var rotation = worldTransform.rotation;
 
-            var currPosition = GetPointOnPlane(Input.mousePosition);
+            var currPosition = GetPointOnPlane(Input.mousePosition,worldTransform);
             print("currPosition "+ currPosition);
 
-            var angleDelta = Vector3.SignedAngle(OrigDir, currPosition - center, up) % 360f;
+            var angleDelta = Vector3.SignedAngle(OrigDir, currPosition - center, up) ;
             // angleDelta = HandleFlipAngle(center, currPosition, up, angleDelta);
             // TODO: Any smoothing will probably go here
-            // angleDelta = Mathf.Clamp(angleDelta, -adjustedSpeed, adjustedSpeed);
-
-            _lastPosition = currPosition;
+            // rotate by that much
+            //var rot = Quaternion.AngleAxis(angleDelta * 1f, up);
+            //OrigDir = rot * OrigDir;
+            OrigDir = currPosition;
+            angleDelta = Mathf.Clamp(angleDelta, -adjustedSpeed, adjustedSpeed);
 
             Debug.DrawLine(center, currPosition, Color.green);
             Debug.DrawRay(center, OrigDir, Color.red);
 
-            // rotate by that much
-            var rot = Quaternion.AngleAxis(angleDelta, up);
-            OrigDir = rot * OrigDir;
-            rotation*= rot;
-            worldTransform.rotation = Quaternion.Euler(world.transform.rotation.eulerAngles.x, rotation.eulerAngles.y, world.transform.rotation.eulerAngles.z);;
+            
+            worldTransform.Rotate(0,angleDelta,0,Space.World);
+            // worldTransform.rotation = tmpRot;
+            // worldTransform.rotation = Quaternion.Euler(world.transform.rotation.eulerAngles.x, tmpRot.eulerAngles.y, world.transform.rotation.eulerAngles.z);;
         }
         
     } 
     
     private float HandleFlipAngle(Vector3 center, Vector3 currPosition, Vector3 up, float angleDelta)
     {
+        //check if mouse is moving
         var lastPosAngleDelta = Vector3.SignedAngle(_lastPosition - center, currPosition - center, up) % 360f;
-        var clockwise = lastPosAngleDelta >= 0f;
-        if (clockwise && angleDelta < -180f + flipDelta || !clockwise && angleDelta > 180f - flipDelta)
+       // if the angle is smaller then 180+flipDelta instead of rotate -90 rotate +90
+       //the reason for this implemntation 
+       var clockwise = lastPosAngleDelta >= 0f;
+
+       // return clockwise ? Mathf.Abs(angleDelta) : -Mathf.Abs(angleDelta);
+       if (clockwise && angleDelta < -180f + flipDelta || !clockwise && angleDelta > 180f - flipDelta)
         {
             OrigDir = Quaternion.AngleAxis(clockwise ? flipAngle : -flipAngle, up) * OrigDir;
-            if (createObj)
-            {
-                obj.transform.position = center + OrigDir;
-            }
-
             angleDelta = -angleDelta;
         }
 
         return angleDelta;
     }
 
-    private Vector3 GetPointOnPlane(Vector3 mousePos)
+    private Vector3 GetPointOnPlane(Vector3 mousePos,Transform trans)
     {
-        Plane _plane = new Plane(Vector3.up, mousePos);
+        Plane _plane = new Plane(Vector3.up, Vector3.zero);
         var ray = Camera.main!.ScreenPointToRay(mousePos);
         return _plane.Raycast(ray, out var dist) ? ray.GetPoint(dist) : Vector3.zero;
     }
