@@ -13,8 +13,15 @@ public class Door : MonoBehaviour
     [SerializeField] private float offset;
     private float _angle;
     private List<Transform> _childs = new();
-
+    private bool _win;
+    private bool _wrong;
+    private bool _getBack;
     private bool _doorAppear;
+    private bool _touchBallon;
+    private static readonly Vector3 TargetInit = new Vector3(0.300000012f, 6.30000019f, -18f);
+    private Vector3 _target = TargetInit;
+    private Vector3 _firstPos;
+    private GameObject _klyde;
     // Start is called before the first frame update
     private void Start()
     {
@@ -59,6 +66,12 @@ public class Door : MonoBehaviour
     //
     void Update()
     {
+        if (_win)
+            MoveToVitrajWinCase();
+        
+        else if (_wrong && !_touchBallon)
+            MoveToVitrajWrongCase();
+        
         if ((RecognizeShape.GetRecognizeShape() && !_doorAppear) || LevelManager.GetLevel() == 0)
         {
             foreach (var child in _childs)
@@ -109,12 +122,27 @@ public class Door : MonoBehaviour
         if(other.gameObject.CompareTag("klyde") && _doorAppear)
         {
              print("klyde win");
-             GetComponent<PlayableDirector>().Play();
-             LevelManager.NextLevel();
+           //  GetComponent<PlayableDirector>().Play();
+             _klyde = other.gameObject;
+             _win = true;
+             _klyde.transform.eulerAngles =
+                 new Vector3(_klyde.transform.eulerAngles.x, 180, _klyde.transform.eulerAngles.z);
+             _klyde.GetComponent<moving>().SetWalkAnimationFalse();
              other.GetComponent<NavMeshAgent>().enabled = false;
             // other.transform.parent = transform;
              _doorAppear = false;
+             _target = TargetInit;
         }
+        else if (other.gameObject.CompareTag("klyde") && !_wrong)
+        {
+            _wrong = true;
+            _firstPos = other.transform.position;
+            _klyde = other.gameObject;
+            _klyde.transform.eulerAngles =
+                new Vector3(_klyde.transform.eulerAngles.x, 180, _klyde.transform.eulerAngles.z);
+            _target = TargetInit;
+        }
+        
     }
     
     // Helper method to check if an angle is within a specified range
@@ -152,4 +180,38 @@ public class Door : MonoBehaviour
     }
 
 
+    private void MoveToVitrajWinCase()
+    {
+        _klyde.GetComponent<NavMeshAgent>().enabled = false;
+        _klyde.GetComponent<moving>().enabled = false;
+        _klyde.transform.position = Vector3.MoveTowards(_klyde.transform.position, _target,
+            Time.deltaTime * 5);
+        if (Vector3.Distance(_klyde.transform.position, _target) < 0.01f)
+        {
+            LevelManager.NextLevel();
+            _win = false;
+        }
+    }
+
+    private void MoveToVitrajWrongCase()
+    {
+        _klyde.GetComponent<NavMeshAgent>().enabled = false;
+        _klyde.GetComponent<moving>().enabled = false;
+        _klyde.transform.position = Vector3.MoveTowards(_klyde.transform.position, _target,
+            Time.deltaTime * 5);
+        if (Vector3.Distance(_klyde.transform.position, _target) < 0.01f && !_getBack)
+        {
+            _getBack = true;
+            _target = _firstPos;
+        }
+        else if (Vector3.Distance(_klyde.transform.position, _target) < 0.01f)
+        {
+            _wrong = false;
+            _klyde.transform.eulerAngles =
+                new Vector3(_klyde.transform.eulerAngles.x, 0, _klyde.transform.eulerAngles.z);
+            _klyde.GetComponent<NavMeshAgent>().enabled = true;
+            _klyde.GetComponent<moving>().enabled = true;
+            _touchBallon = true;
+        }
+    }
 }

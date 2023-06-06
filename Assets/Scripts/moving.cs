@@ -73,7 +73,12 @@ public class moving : MonoBehaviour
     public static bool GetIsWalk()
     {
         return isWalk;
-    } 
+    }
+
+    public void SetWalkAnimationFalse()
+    {
+        animator.SetBool(IsWalking,false);    
+    }
     
 }
 
