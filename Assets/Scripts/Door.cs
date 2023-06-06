@@ -15,13 +15,14 @@ public class Door : MonoBehaviour
     private float _angle;
     private List<Transform> _childs = new();
     private bool _win, _rotateOnce,_wrong,_getBack, _doorAppear,_touchBallon;
-    private static readonly Vector3 TargetInit = new Vector3(0.300000012f, 6.30000019f, -18f);
-    private Vector3 _target = TargetInit;
+    [SerializeField] private Vector3 TargetInit = new Vector3(0.300000012f, 6.30000019f, -18f);
+    private Vector3 _target;
     private Vector3 _firstPos;
     private GameObject _klyde;
     // Start is called before the first frame update
     private void Start()
     {
+        _target = TargetInit;
         foreach (var child in GetComponentsInChildren<Transform>())
         {
             if (child != transform)
