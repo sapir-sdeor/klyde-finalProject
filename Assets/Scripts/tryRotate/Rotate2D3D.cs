@@ -4,7 +4,8 @@ using System.Collections.Generic;
 using Unity.AI.Navigation;
 using Unity.VisualScripting;
 using UnityEngine;
-
+using UnityEngine.AI;
+using NavMeshBuilder = UnityEditor.AI.NavMeshBuilder;
 
 
 public class Rotate2D3D : MonoBehaviour
@@ -16,6 +17,7 @@ public class Rotate2D3D : MonoBehaviour
     private Vector3 lastPosition;
     
     [SerializeField] private NavMeshSurface[] surfaces;
+    [SerializeField] private NavMeshLink linkObject1,linkObject2;
     private Plane _plane;
     [SerializeField] private float SeprateBetweenRotateWalk;
     private float millisecCounter;
@@ -91,10 +93,19 @@ public class Rotate2D3D : MonoBehaviour
         _isDragging = false;
         if (!moving.GetIsWalk())
         {
+            // surfaces[0].RemoveData();
             for (int i = 0; i < surfaces.Length; i++) 
             {
+                // NavMeshLink navMeshLink = linkObject.GetComponent<NavMeshLink>();
+                linkObject1.UpdateLink();
+                linkObject2.UpdateLink();
                 surfaces[i].BuildNavMesh();
-            } 
+                
+            }
+            print("build new navmesh");
+
+            NewNavLink.BuildNavMesh();
+            
         }
     }
     

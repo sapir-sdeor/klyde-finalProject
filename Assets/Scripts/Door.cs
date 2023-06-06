@@ -11,13 +11,10 @@ public class Door : MonoBehaviour
 {
     [SerializeField] private int halfNum;
     [SerializeField] private float offset;
+    [SerializeField] private float speed = 10f;
     private float _angle;
     private List<Transform> _childs = new();
-    private bool _win;
-    private bool _wrong;
-    private bool _getBack;
-    private bool _doorAppear;
-    private bool _touchBallon;
+    private bool _win, _rotateOnce,_wrong,_getBack, _doorAppear,_touchBallon;
     private static readonly Vector3 TargetInit = new Vector3(0.300000012f, 6.30000019f, -18f);
     private Vector3 _target = TargetInit;
     private Vector3 _firstPos;
@@ -119,6 +116,7 @@ public class Door : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        print("_doorAppear "+_doorAppear);
         if(other.gameObject.CompareTag("klyde") && _doorAppear)
         {
              print("klyde win");
@@ -182,10 +180,17 @@ public class Door : MonoBehaviour
 
     private void MoveToVitrajWinCase()
     {
+        print("win");
         _klyde.GetComponent<NavMeshAgent>().enabled = false;
         _klyde.GetComponent<moving>().enabled = false;
         _klyde.transform.position = Vector3.MoveTowards(_klyde.transform.position, _target,
-            Time.deltaTime * 5);
+            Time.deltaTime * speed);
+        if (!_rotateOnce)
+        {
+            _klyde.transform.Rotate(45, 0, 0);
+            _rotateOnce = true;
+        }
+        
         if (Vector3.Distance(_klyde.transform.position, _target) < 0.01f)
         {
             LevelManager.NextLevel();

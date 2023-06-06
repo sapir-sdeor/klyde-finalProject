@@ -12,6 +12,7 @@ public class moving : MonoBehaviour
     private NavMeshAgent agent;
     private Animator animator;
     private Vector3 pos;
+    private static bool changeRot;
     private static readonly int IsWalking = Animator.StringToHash("IsWalking");
     [SerializeField] private float buffer=0.5f;
     [SerializeField] private float bufferDistance =1.5f;
@@ -56,9 +57,13 @@ public class moving : MonoBehaviour
            }
         }
         isWalk = agent.velocity.magnitude > 0.01f;
-        if(agent.isOnNavMesh) isWalkAnimation = agent.remainingDistance > bufferDistance;
+        if (agent.isOnNavMesh && !Rotate2D3D.GetIsRotating()) 
+            isWalkAnimation = agent.remainingDistance > bufferDistance;
+   
+
         if (Rotate2D3D.GetIsRotating())
-        {
+        { 
+           isWalkAnimation = false;
            agent.enabled = false;
            agent.velocity = Vector3.zero;
            agent.transform.position = pos;
@@ -79,6 +84,7 @@ public class moving : MonoBehaviour
     {
         animator.SetBool(IsWalking,false);    
     }
+    
     
 }
 

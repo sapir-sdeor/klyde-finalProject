@@ -34,7 +34,7 @@ public class LevelManager : MonoBehaviour
 
     static IEnumerator WaitForLoadNextLevel()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(0.01f);
         SceneManager.LoadScene("Level" + _level);
     }
     
