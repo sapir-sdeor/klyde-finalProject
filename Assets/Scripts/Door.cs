@@ -11,7 +11,9 @@ public class Door : MonoBehaviour
 {
     [SerializeField] private int halfNum;
     [SerializeField] private float offset;
-    [SerializeField] private float speed = 10f;
+    [SerializeField] private float speed = 10f,getBackDistance=5f;
+    
+    
     private float _angle;
     private List<Transform> _childs = new();
     private bool _win, _rotateOnce,_wrong,_getBack, _doorAppear,_touchBallon;
@@ -126,7 +128,7 @@ public class Door : MonoBehaviour
              _win = true;
              _klyde.transform.eulerAngles =
                  new Vector3(_klyde.transform.eulerAngles.x, 180, _klyde.transform.eulerAngles.z);
-             _klyde.GetComponent<moving>().SetWalkAnimationFalse();
+             moving.SetWalkAnimationFalse();
              other.GetComponent<NavMeshAgent>().enabled = false;
             // other.transform.parent = transform;
              _doorAppear = false;
@@ -204,11 +206,17 @@ public class Door : MonoBehaviour
         _klyde.GetComponent<NavMeshAgent>().enabled = false;
         _klyde.GetComponent<moving>().enabled = false;
         _klyde.transform.position = Vector3.MoveTowards(_klyde.transform.position, _target,
-            Time.deltaTime * 5);
-        if (Vector3.Distance(_klyde.transform.position, _target) < 0.01f && !_getBack)
+            Time.deltaTime * speed*1.5f);
+        if (!_rotateOnce)
+        {
+            _klyde.transform.Rotate(45, 0, 0);
+            _rotateOnce = true;
+        }
+        if (Vector3.Distance(_klyde.transform.position, _target) < getBackDistance && !_getBack)
         {
             _getBack = true;
             _target = _firstPos;
+            _rotateOnce = false;
         }
         else if (Vector3.Distance(_klyde.transform.position, _target) < 0.01f)
         {
@@ -218,6 +226,7 @@ public class Door : MonoBehaviour
             _klyde.GetComponent<NavMeshAgent>().enabled = true;
             _klyde.GetComponent<moving>().enabled = true;
             _touchBallon = true;
+            _rotateOnce = false;
         }
     }
 }

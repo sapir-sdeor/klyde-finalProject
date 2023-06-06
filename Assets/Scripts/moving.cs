@@ -8,7 +8,7 @@ using UnityEngine.AI;
 public class moving : MonoBehaviour
 {
     private static bool isWalk;
-    private bool isWalkAnimation;
+    private static bool isWalkAnimation;
     private NavMeshAgent agent;
     private Animator animator;
     private Vector3 pos;
@@ -80,9 +80,9 @@ public class moving : MonoBehaviour
         return isWalk;
     }
 
-    public void SetWalkAnimationFalse()
+    public static void SetWalkAnimationFalse()
     {
-        animator.SetBool(IsWalking,false);    
+        isWalkAnimation = false;
     }
     
     
