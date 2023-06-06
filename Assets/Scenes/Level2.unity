@@ -780,7 +780,7 @@ MonoBehaviour:
   backgroundAfterShape: {fileID: 2800000, guid: cbe4f5418a93944c38ae8ea8cf8abb60, type: 3}
   rightPlane: {fileID: 1538441049}
   leftPlane: {fileID: 443312428}
-  timeToDisappearLimit: 7
+  timeToDisappearLimit: 4
 --- !u!114 &384441279
 MonoBehaviour:
   m_ObjectHideFlags: 0
