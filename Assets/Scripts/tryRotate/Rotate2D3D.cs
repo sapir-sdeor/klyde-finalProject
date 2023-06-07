@@ -2,10 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.AI.Navigation;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.AI;
-using NavMeshBuilder = UnityEditor.AI.NavMeshBuilder;
 
 
 public class Rotate2D3D : MonoBehaviour
@@ -104,8 +101,6 @@ public class Rotate2D3D : MonoBehaviour
             }
             print("build new navmesh");
 
-            NewNavLink.BuildNavMesh();
-            
         }
     }
     
