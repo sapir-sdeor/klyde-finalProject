@@ -1,11 +1,7 @@
-using System;
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.AI;
-using UnityEngine.Playables;
-using UnityEngine.Timeline;
 
 public class Door : MonoBehaviour
 {
@@ -13,16 +9,15 @@ public class Door : MonoBehaviour
     [SerializeField] private float offset;
     [SerializeField] private float speed = 10f,getBackDistance=5f;
     
-    
     private float _angle;
     private List<Transform> _childs = new();
     private bool _win, _rotateOnce,_wrong,_getBack, _doorAppear,_touchBallon;
     public static bool moveToVitraje;
-    [SerializeField] private Vector3 TargetInit = new Vector3(0.300000012f, 6.30000019f, -18f);
+    private Vector3 TargetInit = new(0.300000012f, 6.30000019f, -18f);
     private Vector3 _target;
     private Vector3 _firstPos;
     private GameObject _klyde;
-    // Start is called before the first frame update
+
     private void Start()
     {
         _target = TargetInit;
@@ -31,52 +26,18 @@ public class Door : MonoBehaviour
             if (child != transform)
             {
                 _childs.Add(child);
-             //   child.gameObject.SetActive(false);
                 child.GetComponent<MeshRenderer>().material.color = Color.gray;
             }
         }
         _angle = 360 /(float) LevelManager.GetNumOfHalves();
     }
 
-
-    // Update is called once per frame
-    // void Update()
-    // {
-    //     if ((RecognizeShape.GetRecognizeShape() && !_doorAppear) || LevelManager.GetLevel() == 0)
-    //     {
-    //         foreach (var child in _childs)
-    //         {
-    //             child.GetComponent<MeshRenderer>().material.color = new Color32(200, 111, 103,255);
-    //         }
-    //         _doorAppear = true;
-    //     }
-    //     var trans = transform;
-    //     Vector3 direction = trans.position - Vector3.zero;
-    //     // Calculate the angle between the direction vector and the forward vector
-    //     float currAngle = Vector3.Angle(Vector3.forward, direction);
-    //     if (trans.position.x < 0) currAngle = 360 - currAngle;
-    //     if ( _angle*(halfNum-1) <= currAngle && currAngle <= _angle*(halfNum))
-    //     {
-    //         EnabledDoorChild(true);
-    //     }
-    //     else
-    //     {
-    //        EnabledDoorChild(false);
-    //     }
-    // }
-    //
     void Update()
     {
         if (_win)
         {
             moveToVitraje = true;
             MoveToVitrajWinCase();
-        }
-        
-        else if (_wrong && !_touchBallon)
-        {
-            moveToVitraje = true;
-            MoveToVitrajWrongCase();
         }
         else moveToVitraje = false;
         if ((RecognizeShape.GetRecognizeShape() && !_doorAppear) || LevelManager.GetLevel() == 0)
@@ -141,14 +102,9 @@ public class Door : MonoBehaviour
              _doorAppear = false;
              _target = TargetInit;
         }
-        else if (other.gameObject.CompareTag("klyde") && !_wrong)
+        else if (other.gameObject.CompareTag("klyde"))
         {
-            _wrong = true;
-            _firstPos = other.transform.position;
-            _klyde = other.gameObject;
-            _klyde.transform.eulerAngles =
-                new Vector3(_klyde.transform.eulerAngles.x, 180, _klyde.transform.eulerAngles.z);
-            _target = TargetInit;
+            Vibration.Vibrate(500);
         }
         
     }
@@ -210,6 +166,7 @@ public class Door : MonoBehaviour
 
     private void MoveToVitrajWrongCase()
     {
+        print("enterWrong");
         _klyde.GetComponent<NavMeshAgent>().enabled = false;
         _klyde.GetComponent<moving>().enabled = false;
         _klyde.transform.position = Vector3.MoveTowards(_klyde.transform.position, _target,

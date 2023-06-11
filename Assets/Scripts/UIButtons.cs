@@ -32,7 +32,6 @@ public class UIButtons : MonoBehaviour
 
     public void Menu()
     {
-        //TODO: set to menu scene
         SceneManager.LoadScene("Levels");
     }
 }
