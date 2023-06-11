@@ -79,7 +79,8 @@ public class Rotate2D3D : MonoBehaviour
     private void RemoveAllNavMesh()
     {
         print("is walking "+!moving.GetIsWalk());
-        if ((Time.time - millisecCounter >= SeprateBetweenRotateWalk)||!moving.GetIsWalk() )
+            // ||!moving.GetIsWalk()
+        if ((Time.time - millisecCounter >= SeprateBetweenRotateWalk) )
         {
             _isDragging = true;
             _isRotating = true;
