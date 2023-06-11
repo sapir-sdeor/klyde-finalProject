@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
+  m_IndirectSpecularColor: {r: 0.1273174, g: 0.13414761, b: 0.12107885, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -556,7 +556,7 @@ MonoBehaviour:
   positions:
   - {fileID: 890424074}
   - {fileID: 1150346541}
-  aprroximate: 0.4
+  aprroximate: 0.6
   distance: 4.6
   halfNumPoints: 0100000002000000
 --- !u!4 &224393010
@@ -1371,7 +1371,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   halfNum: 2
-  angleFadeEffect: 6
+  angleFadeEffect: 3
   offset: 0
 --- !u!114 &463063184
 MonoBehaviour:
@@ -2053,7 +2053,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 655831158}
-  m_LocalRotation: {x: 0.70372856, y: -0.067784846, z: -0.06776119, w: -0.70397425}
+  m_LocalRotation: {x: 0.3588212, y: 0.6093702, z: 0.6091575, w: -0.35894647}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 139.99995, y: 139.99997, z: 139.99998}
   m_ConstrainProportionsScale: 0
@@ -2065,7 +2065,7 @@ Transform:
   - {fileID: 2144025064}
   m_Father: {fileID: 1160916216}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: -89.98, y: 371, z: 0}
+  m_LocalEulerAnglesHint: {x: -89.98, y: 241, z: 0}
 --- !u!64 &655831161
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -2210,7 +2210,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   halfNum: 2
-  angleFadeEffect: 6
+  angleFadeEffect: 3
   offset: 0
 --- !u!114 &685927048
 MonoBehaviour:
@@ -2388,7 +2388,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7d90a74ea006c454c825b04503aad3ed, type: 2}
+  - {fileID: -2455235682004149424, guid: 4c8fc6a4d70284aa9966ad1d36706130, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2609,7 +2609,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   halfNum: 1
-  angleFadeEffect: 5
+  angleFadeEffect: 3
   offset: 0
 --- !u!114 &784087865
 MonoBehaviour:
@@ -2957,7 +2957,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7d90a74ea006c454c825b04503aad3ed, type: 2}
+  - {fileID: -2455235682004149424, guid: 4c8fc6a4d70284aa9966ad1d36706130, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3014,7 +3014,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 904975029}
-  m_LocalRotation: {x: -0.5295, y: -0.4686241, z: -0.46846053, w: 0.52968484}
+  m_LocalRotation: {x: -0.6327034, y: 0.31556514, z: 0.31545502, w: 0.6329243}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 139.99995, y: 139.99997, z: 139.99998}
   m_ConstrainProportionsScale: 1
@@ -3031,7 +3031,7 @@ Transform:
   - {fileID: 1589554849}
   m_Father: {fileID: 1160916216}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: -89.98, y: -1523, z: 0}
+  m_LocalEulerAnglesHint: {x: -89.98, y: -1387, z: 0}
 --- !u!64 &904975031
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -3645,10 +3645,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.09
-  m_Height: 2.5
+  m_Radius: 0.052153546
+  m_Height: 1.7384533
   m_Direction: 1
-  m_Center: {x: -0.02, y: 1.55, z: 0}
+  m_Center: {x: 0.01943901, y: 2.2347937, z: 0.000000011469997}
 --- !u!1 &1048759100
 GameObject:
   m_ObjectHideFlags: 0
@@ -3832,7 +3832,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7d90a74ea006c454c825b04503aad3ed, type: 2}
+  - {fileID: -2455235682004149424, guid: 4c8fc6a4d70284aa9966ad1d36706130, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4270,7 +4270,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7d90a74ea006c454c825b04503aad3ed, type: 2}
+  - {fileID: -2455235682004149424, guid: 4c8fc6a4d70284aa9966ad1d36706130, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
