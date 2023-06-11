@@ -20,33 +20,6 @@ public class Circle : World
        
     }
     
-    // Update is called once per frame
-    // void Update()
-    // {
-    //     var trans = klyde.transform;
-    //     // var currAngle = trans.eulerAngles.y;
-    //     Vector3 direction = trans.position - Vector3.zero;
-    //     // Calculate the angle between the direction vector and the forward vector
-    //     float currAngle = Vector3.Angle(Vector3.forward, direction);
-    //     if (trans.position.x < 0) currAngle = 360 - currAngle;
-    //
-    //     isKlydeOn =(_angle * (halfNum - 1)  <= currAngle && currAngle <= _angle * halfNum) ;
-    //     var parentAngle = transform.localEulerAngles.y;
-    //     if (parentAngle < 0) parentAngle += 360;
-    //     if (parentAngle >= 360) parentAngle += 360 - parentAngle;
-    //     foreach (var child in GetComponentsInChildren<Transform>())
-    //     {
-    //         if (!child.gameObject.CompareTag("circle")) continue;
-    //         if (RecognizeShape.GetRecognizeShape() && !_changeTexture)
-    //         {
-    //             child.GetComponent<MeshRenderer>().material.mainTexture = textureWithoutShape;
-    //             _changeTexture = true;
-    //         }
-    //         // print(_angle + " " + halfNum);
-    //         child.GetComponent<MeshRenderer>().material.SetFloat("_Angle", _angle);
-    //         child.GetComponent<MeshRenderer>().material.SetInt("_HalfNum", halfNum);
-    //     }
-    // }
     void Update()
     {
         var trans = klyde.transform;

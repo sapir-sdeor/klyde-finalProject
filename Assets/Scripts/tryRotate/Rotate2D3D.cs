@@ -78,7 +78,8 @@ public class Rotate2D3D : MonoBehaviour
 
     private void RemoveAllNavMesh()
     {
-        if (Time.time - millisecCounter >= SeprateBetweenRotateWalk)
+        print("is walking "+!moving.GetIsWalk());
+        if ((Time.time - millisecCounter >= SeprateBetweenRotateWalk)||!moving.GetIsWalk() )
         {
             _isDragging = true;
             _isRotating = true;
@@ -89,19 +90,18 @@ public class Rotate2D3D : MonoBehaviour
     {
         _isRotating = false;
         _isDragging = false;
-        if (!moving.GetIsWalk())
+        // surfaces[0].RemoveData();
+        for (int i = 0; i < surfaces.Length; i++) 
         {
-            // surfaces[0].RemoveData();
-            for (int i = 0; i < surfaces.Length; i++) 
-            {
-                // NavMeshLink navMeshLink = linkObject.GetComponent<NavMeshLink>();
-                // linkObject1.UpdateLink();
-                // linkObject2.UpdateLink();
-                surfaces[i].BuildNavMesh();
-            }
-            print("build new navmesh");
-
+            // NavMeshLink navMeshLink = linkObject.GetComponent<NavMeshLink>();
+            // linkObject1.UpdateLink();
+            // linkObject2.UpdateLink();
+            surfaces[i].BuildNavMesh();
         }
+        print("build new navmesh");
+        // if (!moving.GetIsWalk())
+        // {
+        // }
     }
     
     public static bool GetIsRotating()
