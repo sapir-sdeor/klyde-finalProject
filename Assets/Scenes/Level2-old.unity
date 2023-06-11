@@ -463,8 +463,6 @@ MonoBehaviour:
   - {fileID: 904975030}
   surfaces:
   - {fileID: 685927048}
-  linkObject1: {fileID: 0}
-  linkObject2: {fileID: 0}
   SeprateBetweenRotateWalk: 4
   speed: 150
 --- !u!4 &384441277
@@ -2450,7 +2448,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1432246109}
   m_LocalRotation: {x: 0, y: 0.51728034, z: 0, w: 0.85581607}
-  m_LocalPosition: {x: -1.22, y: -0.99632025, z: 14.93}
+  m_LocalPosition: {x: -3.27, y: -0.99632025, z: 24.01}
   m_LocalScale: {x: 0.04, y: 0.04, z: 0.04}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3565,7 +3563,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 124847523531e48b09c0d2024ee5252a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -11.41
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 124847523531e48b09c0d2024ee5252a, type: 3}
       propertyPath: m_LocalRotation.w
