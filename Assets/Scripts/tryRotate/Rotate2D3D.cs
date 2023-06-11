@@ -112,29 +112,36 @@ public class Rotate2D3D : MonoBehaviour
     
     private void PerformCircularRotation()
     {
+        print(worlds.Length + "world length");
+        var currPosition = GetPointOnPlane(Input.mousePosition);
         foreach (var world in worlds)
         {
-            if (world.GetComponent<World>().isKlydeOn) continue;
-            var adjustedSpeed = Time.deltaTime * speed;
-            var worldTransform = world.transform;
-            var center = Vector3.zero;
-            var up = Vector3.up;
-            var currPosition = GetPointOnPlane(Input.mousePosition);
-            var angleDelta = Vector3.SignedAngle(OrigDir, currPosition - center, up) ;
-            // angleDelta = HandleFlipAngle(center, currPosition, up, angleDelta);
-            // TODO: Any smoothing will probably go here
-            // rotate by that much
-            //var rot = Quaternion.AngleAxis(angleDelta * 1f, up);
-            //OrigDir = rot * OrigDir;
-            OrigDir = currPosition;
-            angleDelta = Mathf.Clamp(angleDelta, -adjustedSpeed, adjustedSpeed);
             
-            Debug.DrawLine(center, currPosition, Color.green);
-            Debug.DrawRay(center, OrigDir, Color.red);
+            print(world.name + " world name is klyde on "+world.GetComponent<World>().isKlydeOn);
+            if (!world.GetComponent<World>().isKlydeOn)
+            { 
+              var adjustedSpeed = Time.deltaTime * speed;
+              var worldTransform = world.transform;
+              var center = Vector3.zero;
+              var up = Vector3.up;
+              
+              var angleDelta = Vector3.SignedAngle(OrigDir, currPosition - center, up) ;
+              print(world.name + " world name angle delta "+angleDelta); 
+              // angleDelta = HandleFlipAngle(center, currPosition, up, angleDelta);
+              // TODO: Any smoothing will probably go here
+              // rotate by that much
+              //var rot = Quaternion.AngleAxis(angleDelta * 1f, up);
+              //OrigDir = rot * OrigDir;
+              
+              angleDelta = Mathf.Clamp(angleDelta, -adjustedSpeed, adjustedSpeed);
+              
+              Debug.DrawLine(center, currPosition, Color.green);
+              Debug.DrawRay(center, OrigDir, Color.red);
+              worldTransform.Rotate(0,angleDelta,0,Space.World);  
+            }
             
-            worldTransform.Rotate(0,angleDelta,0,Space.World);
         }
-        
+        OrigDir = currPosition;
     } 
     
     private Vector3 GetPointOnPlane(Vector3 mousePos)
