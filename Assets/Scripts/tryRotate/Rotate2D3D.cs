@@ -14,7 +14,7 @@ public class Rotate2D3D : MonoBehaviour
     private Vector3 lastPosition;
     
     [SerializeField] private NavMeshSurface[] surfaces;
-    [SerializeField] private NavMeshLink linkObject1,linkObject2;
+    // [SerializeField] private NavMeshLink linkObject1,linkObject2;
     private Plane _plane;
     [SerializeField] private float SeprateBetweenRotateWalk;
     private float millisecCounter;
@@ -95,10 +95,9 @@ public class Rotate2D3D : MonoBehaviour
             for (int i = 0; i < surfaces.Length; i++) 
             {
                 // NavMeshLink navMeshLink = linkObject.GetComponent<NavMeshLink>();
-                linkObject1.UpdateLink();
-                linkObject2.UpdateLink();
+                // linkObject1.UpdateLink();
+                // linkObject2.UpdateLink();
                 surfaces[i].BuildNavMesh();
-                
             }
             print("build new navmesh");
 
