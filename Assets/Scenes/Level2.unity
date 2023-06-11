@@ -741,7 +741,7 @@ MonoBehaviour:
   - {fileID: 904975030}
   surfaces:
   - {fileID: 685927048}
-  SeprateBetweenRotateWalk: 0.2
+  SeprateBetweenRotateWalk: 0.1
   speed: 150
 --- !u!4 &384441277
 Transform:
