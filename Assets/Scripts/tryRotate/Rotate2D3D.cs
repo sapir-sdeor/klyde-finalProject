@@ -48,6 +48,7 @@ public class Rotate2D3D : MonoBehaviour
     
     private void Update()
     {
+        if (Door.moveToVitraje) return;
         // if (Mouse.current.leftButton.wasPressedThisFrame&& !moving.GetIsWalk())
         if (UIButtons.isPause)
         {

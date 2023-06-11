@@ -17,6 +17,7 @@ public class Door : MonoBehaviour
     private float _angle;
     private List<Transform> _childs = new();
     private bool _win, _rotateOnce,_wrong,_getBack, _doorAppear,_touchBallon;
+    public static bool moveToVitraje;
     [SerializeField] private Vector3 TargetInit = new Vector3(0.300000012f, 6.30000019f, -18f);
     private Vector3 _target;
     private Vector3 _firstPos;
@@ -67,11 +68,17 @@ public class Door : MonoBehaviour
     void Update()
     {
         if (_win)
+        {
+            moveToVitraje = true;
             MoveToVitrajWinCase();
+        }
         
         else if (_wrong && !_touchBallon)
+        {
+            moveToVitraje = true;
             MoveToVitrajWrongCase();
-        
+        }
+        else moveToVitraje = false;
         if ((RecognizeShape.GetRecognizeShape() && !_doorAppear) || LevelManager.GetLevel() == 0)
         {
             foreach (var child in _childs)
