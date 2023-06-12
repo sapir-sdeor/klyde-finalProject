@@ -10191,6 +10191,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: ==========vitraj========
       objectReference: {fileID: 0}
+    - target: {fileID: 7918129047119113740, guid: 6c56c0acd26e85841a107af9786a2df7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: a10cb79a8bc61274fae3a7b5bd973086, type: 2}
+    - target: {fileID: 7918129047468557608, guid: 6c56c0acd26e85841a107af9786a2df7, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 218ac0f10330a8c4fbdc9f5ac417e9c4, type: 2}
     - target: {fileID: 8093625616418869522, guid: 6c56c0acd26e85841a107af9786a2df7, type: 3}
       propertyPath: m_RootOrder
       value: 17
