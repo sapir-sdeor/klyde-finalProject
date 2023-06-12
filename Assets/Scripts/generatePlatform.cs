@@ -28,7 +28,7 @@ public class generatePlatform : MonoBehaviour
             //try 2
             // print("i :" + i);
             float j = i * (1f / numberOfPieces);
-            print(j);
+            // print(j);
             renderer.material.SetTextureOffset("_MainTex", new Vector2(0, j));
             //try 3
             // renderer.material.SetTextureOffset("_MainTex", new Vector2(i*offsetFactor, i*offsetFactor));
