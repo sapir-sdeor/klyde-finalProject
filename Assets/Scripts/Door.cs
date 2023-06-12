@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
@@ -9,10 +10,12 @@ public class Door : MonoBehaviour
     [SerializeField] private float offset;
     [SerializeField] private float speed = 10f,getBackDistance=5f;
     [SerializeField] private Vector3 TargetInit = new(0.300000012f, 6.30000019f, -18f);
+    [SerializeField] private GameObject flash,plane;
+    [SerializeField] private int newRenderQueue=4000;
     private float _angle;
     private List<Transform> _childs = new();
     private bool _win, _rotateOnce,_wrong,_getBack, _doorAppear,_touchBallon;
-    public static bool moveToVitraje;
+    public static bool moveToVitraje,_shake;
    
     private Vector3 _target;
     private Vector3 _firstPos;
@@ -105,10 +108,16 @@ public class Door : MonoBehaviour
         else if (other.gameObject.CompareTag("klyde"))
         {
             Vibration.Vibrate(500);
+            _shake = true;
         }
-        
     }
-    
+
+    private void OnTriggerExit(Collider other)
+    {
+        if(other.gameObject.CompareTag("klyde")) _shake = false;
+        print("on trigger exit");
+    }
+
     // Helper method to check if an angle is within a specified range
     private bool IsAngleWithinRange(float angle, float start, float end)
     {
@@ -159,10 +168,28 @@ public class Door : MonoBehaviour
         
         if (Vector3.Distance(_klyde.transform.position, _target) < 0.01f)
         {
+            flash.gameObject.SetActive(true);
+            var rendererComponent = flash.gameObject.GetComponent<Renderer>();
+        
+            // Change the render queue
+            rendererComponent.material.renderQueue = newRenderQueue;
             LevelManager.NextLevel();
             _win = false;
+            _klyde.SetActive(false);
         }
     }
+
+    public static bool GetShake()
+    {
+        return _shake;
+    }
+    public static void SetShake()
+    { 
+        _shake = false;
+    }
+
+
+ 
 
     private void MoveToVitrajWrongCase()
     {
