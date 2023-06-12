@@ -8,12 +8,12 @@ public class Door : MonoBehaviour
     [SerializeField] private int halfNum;
     [SerializeField] private float offset;
     [SerializeField] private float speed = 10f,getBackDistance=5f;
-    
+    [SerializeField] private Vector3 TargetInit = new(0.300000012f, 6.30000019f, -18f);
     private float _angle;
     private List<Transform> _childs = new();
     private bool _win, _rotateOnce,_wrong,_getBack, _doorAppear,_touchBallon;
     public static bool moveToVitraje;
-    private Vector3 TargetInit = new(0.300000012f, 6.30000019f, -18f);
+   
     private Vector3 _target;
     private Vector3 _firstPos;
     private GameObject _klyde;
