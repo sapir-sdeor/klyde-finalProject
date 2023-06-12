@@ -63,7 +63,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _Ambient: 0.15
-    - _Angle: 120
+    - _Angle: 90
     - _BumpScale: 1
     - _CurrAngle: 45
     - _Cutoff: 0.5
@@ -72,7 +72,7 @@ Material:
     - _GlossMapScale: 1
     - _Glossiness: 0
     - _GlossyReflections: 1
-    - _HalfNum: 1
+    - _HalfNum: 2
     - _Metallic: 0
     - _Mode: 0
     - _OcclusionStrength: 1

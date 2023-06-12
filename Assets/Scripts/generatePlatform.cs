@@ -24,11 +24,14 @@ public class generatePlatform : MonoBehaviour
             Renderer renderer = piece.GetComponent<Renderer>();
             renderer.GetPropertyBlock(propertyBlock);
             //try 1
-            renderer.material.SetTextureOffset("_MainTex", new Vector2(piece.transform.eulerAngles.y, 0));
+            // renderer.material.SetTextureOffset("_MainTex", new Vector2(piece.transform.eulerAngles.y, 0));
             //try 2
-            renderer.material.SetTextureOffset("_MainTex", new Vector2(i*offsetFactor, 0));
+            // print("i :" + i);
+            float j = i * (1f / numberOfPieces);
+            print(j);
+            renderer.material.SetTextureOffset("_MainTex", new Vector2(0, j));
             //try 3
-            renderer.material.SetTextureOffset("_MainTex", new Vector2(i*offsetFactor, i*offsetFactor));
+            // renderer.material.SetTextureOffset("_MainTex", new Vector2(i*offsetFactor, i*offsetFactor));
             renderer.SetPropertyBlock(propertyBlock);
         }
     }

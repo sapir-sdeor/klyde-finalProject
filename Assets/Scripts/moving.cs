@@ -8,7 +8,7 @@ using UnityEngine.AI;
 public class moving : MonoBehaviour
 {
     private static bool isWalk;
-    private bool isWalkAnimation;
+    private static bool isWalkAnimation;
     private NavMeshAgent agent;
     private Animator animator;
     private Vector3 pos;
@@ -31,13 +31,13 @@ public class moving : MonoBehaviour
         // print(transform.position.x+"klyde pos");
         if (UIButtons.isPause) return;
         if (Input.GetMouseButtonDown(0)) 
-        {
-            print("is walking");
+        { 
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
            Debug.DrawRay(ray.origin, ray.direction * 50, Color.red);
            if (Physics.Raycast(ray, out RaycastHit raycastHit))
            {
                // print("is walking");
+               isWalk = true;
                if (agent.isOnNavMesh && !Rotate2D3D.GetIsRotating()) // Check if agent is on NavMesh
                {
                    var target = raycastHit.point;
@@ -52,11 +52,13 @@ public class moving : MonoBehaviour
                            target.x -= buffer;
                        }
                    }
+
                    agent.SetDestination(target);
                }
            }
+           else isWalk = false;
         }
-        isWalk = agent.velocity.magnitude > 0.01f;
+        // isWalk = agent.velocity.magnitude > 0.01f;
         if (agent.isOnNavMesh && !Rotate2D3D.GetIsRotating()) 
             isWalkAnimation = agent.remainingDistance > bufferDistance;
    
@@ -80,9 +82,9 @@ public class moving : MonoBehaviour
         return isWalk;
     }
 
-    public void SetWalkAnimationFalse()
+    public static void SetWalkAnimationFalse()
     {
-        animator.SetBool(IsWalking,false);    
+        isWalkAnimation = false;
     }
     
     

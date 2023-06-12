@@ -820,7 +820,7 @@ MonoBehaviour:
   - {fileID: 1150346541}
   aprroximate: 0.1
   distance: 12
-  halfNumPoints: 
+  halfNumPoints: 0100000002000000
 --- !u!4 &224393010
 Transform:
   m_ObjectHideFlags: 0
@@ -868,23 +868,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c9e9a04796a00274ebb5bbb5a34567cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  snapAngle: 1
   worlds:
   - {fileID: 655831159}
   - {fileID: 904975030}
   - {fileID: 1784987644}
-  sensitivity: 2
-  rotationSpeed: 5
-  pivotPoint: {fileID: 1458877390}
   surfaces:
   - {fileID: 685927048}
   SeprateBetweenRotateWalk: 0.3
-  maxRotationAmount: 4
   speed: 150
-  flipAngle: 30
-  flipDelta: 10
-  createObj: 1
-  obj: {fileID: 0}
 --- !u!4 &384441277
 Transform:
   m_ObjectHideFlags: 0
@@ -917,6 +908,9 @@ MonoBehaviour:
   objectToShown: {fileID: 0}
   background: {fileID: 0}
   backgroundAfterShape: {fileID: 0}
+  rightPlane: {fileID: 0}
+  leftPlane: {fileID: 0}
+  timeToDisappearLimit: 7
 --- !u!114 &384441279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3615,6 +3609,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   halfNum: 2
   offset: -60
+  speed: 10
+  getBackDistance: 5
+  TargetInit: {x: 0.3, y: 6.3, z: -18}
 --- !u!1 &1431864471
 GameObject:
   m_ObjectHideFlags: 0

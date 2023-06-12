@@ -63,7 +63,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _Ambient: 0.15
-    - _Angle: 120
+    - _Angle: 90
     - _BumpScale: 1
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
