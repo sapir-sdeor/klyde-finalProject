@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1273174, g: 0.13414761, b: 0.12107885, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5609,8 +5609,6 @@ MonoBehaviour:
   - {fileID: 904975030}
   surfaces:
   - {fileID: 685927048}
-  linkObject1: {fileID: 1999889309}
-  linkObject2: {fileID: 31224187}
   SeprateBetweenRotateWalk: 0.3
   speed: 150
 --- !u!4 &384441277
@@ -12806,6 +12804,7 @@ MonoBehaviour:
   offset: 0
   speed: 10
   getBackDistance: 5
+  TargetInit: {x: 0.3, y: 6.3, z: -18}
 --- !u!320 &1405859929
 PlayableDirector:
   m_ObjectHideFlags: 0
@@ -13758,6 +13757,7 @@ MonoBehaviour:
   offset: 5
   speed: 10
   getBackDistance: 20
+  TargetInit: {x: 0.3, y: 6.3, z: -18}
 --- !u!95 &1674770038
 Animator:
   serializedVersion: 4
@@ -14521,6 +14521,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1307523624}
     m_Modifications:
+    - target: {fileID: 13645905839336136, guid: cb8e6e5a50f55884984327e2aac1bc8d, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 13645906411902258, guid: cb8e6e5a50f55884984327e2aac1bc8d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 247.19995
+      objectReference: {fileID: 0}
     - target: {fileID: 13645907547495936, guid: cb8e6e5a50f55884984327e2aac1bc8d, type: 3}
       propertyPath: m_Camera
       value: 
