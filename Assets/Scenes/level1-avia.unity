@@ -5068,7 +5068,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ac345f2aa91594408f6e00447da00c4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeForTurnOn: 8
+  timeForTurnOn: 15
 --- !u!1 &174688092 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 625793636646962227, guid: 5bb5a4bdc45cfed48b630775dd0034f6, type: 3}
@@ -9227,6 +9227,18 @@ PrefabInstance:
     - target: {fileID: 625793637269729159, guid: 5bb5a4bdc45cfed48b630775dd0034f6, type: 3}
       propertyPath: m_Name
       value: ==========vitraj==========
+      objectReference: {fileID: 0}
+    - target: {fileID: 625793637447544596, guid: 5bb5a4bdc45cfed48b630775dd0034f6, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -7.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 625793637447544596, guid: 5bb5a4bdc45cfed48b630775dd0034f6, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 14.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 625793637447544596, guid: 5bb5a4bdc45cfed48b630775dd0034f6, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -3.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bb5a4bdc45cfed48b630775dd0034f6, type: 3}

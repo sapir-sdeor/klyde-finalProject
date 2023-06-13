@@ -1,53 +1,69 @@
 Shader "Custom/ShaderMaskWithOffset"
 {
-    Properties
-    {
+     Properties {
         _Color ("Color", Color) = (1,1,1,1)
-        _MainTex ("Albedo (RGB)", 2D) = "white" {}
+        _MainTex ("Texture", 2D) = "white" {}
+        _Metallic ("Metallic", Range(0,1)) = 0
         _Glossiness ("Smoothness", Range(0,1)) = 0.5
-        _Metallic ("Metallic", Range(0,1)) = 0.0
+        _Transparent ("Transparent", Range(0,1)) = 0.5
+        _Angle ("Angle", Range(0, 360)) = 45
+        _HalfNum ("Half Number", Range(0, 10)) = 2
+        _OffsetX("OffsetX",Range(-200,200)) = 10
     }
-    SubShader
-    {
-        Tags { "RenderType"="Opaque" }
+    SubShader {
+        Tags {  "IgnoreProjector" = "True"
+            "RenderType" = "Transparent"}
+        
         LOD 200
-
+        Blend SrcAlpha OneMinusSrcAlpha
+        
         CGPROGRAM
-        // Physically based Standard lighting model, and enable shadows on all light types
-        #pragma surface surf Standard fullforwardshadows
-
-        // Use shader model 3.0 target, to get nicer looking lighting
-        #pragma target 3.0
-
+        #pragma surface surf Standard fullforwardshadows alpha:fade addshadow
         sampler2D _MainTex;
+        fixed4 _Color;
+        float _Metallic;
+        float _Glossiness;
+        float _Transparent;
+        float _Angle;
+        float _ParentAngle;
+        int _HalfNum;
+        float _OffsetX;
+        float4 _Rotation;
+        
 
-        struct Input
-        {
+        struct Input {
             float2 uv_MainTex;
+            float3 worldPos;
+            float3 vertex;
         };
 
-        half _Glossiness;
-        half _Metallic;
-        fixed4 _Color;
+        void surf (Input IN, inout SurfaceOutputStandard o) {
+            // Use the existing Standard shader code to get the texture color and set it to tex variable
+            fixed4 tex = tex2D(_MainTex, IN.uv_MainTex) ;
+           
+            
+           //float currAngle = atan(dot(float3(0, 0, 1), normalize(IN.worldPos - _WorldSpaceCameraPos)));// calculate the angle in radians
+            /*float2 uv = IN.uv_MainTex - 0.5; // shift UV coordinates to the center
+            float currAngle = atan2(uv.x, uv.y);*/
+            float2 projectedPos = normalize(float2(IN.worldPos.z - _OffsetX, IN.worldPos.x )); // Project vertex position onto the XZ plane
+            float currAngle = atan2(projectedPos.y, projectedPos.x); // Calculate the angle based on the projected position
+            if (currAngle < 0.0)
+                currAngle += 2.0 * 3.14159; // ensure the angle is in the range [0, 2pi]
 
-        // Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.
-        // See https://docs.unity3d.com/Manual/GPUInstancing.html for more information about instancing.
-        // #pragma instancing_options assumeuniformscaling
-        UNITY_INSTANCING_BUFFER_START(Props)
-            // put more per-instance properties here
-        UNITY_INSTANCING_BUFFER_END(Props)
-
-        void surf (Input IN, inout SurfaceOutputStandard o)
-        {
-            // Albedo comes from a texture tinted by color
-            fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
-            o.Albedo = c.rgb;
-            // Metallic and smoothness come from slider variables
+            float angleRange = 2.0 * 3.14159 / (360.0 / _Angle); // calculate the angle range for each division based on _Angle
+            float startAngle = angleRange * (_HalfNum - 1.0); // calculate the starting angle for the current division
+            float endAngle = angleRange * (_HalfNum); // calculate the ending angle for the current division
+            bool isInDivision = (startAngle <= currAngle && currAngle <= endAngle);
+            if (!isInDivision) {
+                tex.a = _Transparent;
+            }
+            // Set the surface properties using the existing Standard shader code
+            o.Albedo = tex.rgb * _Color.rgb * tex.a;
             o.Metallic = _Metallic;
             o.Smoothness = _Glossiness;
-            o.Alpha = c.a;
+            o.Alpha = tex.a;
         }
         ENDCG
     }
-    FallBack "Diffuse"
+    FallBack "Standard"
 }
