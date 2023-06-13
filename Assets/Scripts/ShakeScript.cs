@@ -58,7 +58,7 @@ public class ShakeScript : MonoBehaviour
 
         while (Time.time - startTime < shakeDuration)
         {
-            print(Time.time - startTime + " shake duration");
+            // print(Time.time - startTime + " shake duration");
             Shake();
             yield return null; // Wait for the next frame
         }
