@@ -10,16 +10,18 @@ public class Door : MonoBehaviour
     [SerializeField] private float offset;
     [SerializeField] private float speed = 10f,getBackDistance=5f;
     [SerializeField] private Vector3 TargetInit = new(0.300000012f, 6.30000019f, -18f);
-    [SerializeField] private GameObject flash,plane;
-    [SerializeField] private int newRenderQueue=4000;
+    [SerializeField] private GameObject flash;
+ 
     private float _angle;
     private List<Transform> _childs = new();
     private bool _win, _rotateOnce,_wrong,_getBack, _doorAppear,_touchBallon;
-    public static bool moveToVitraje,_shake;
+    public static bool moveToVitraje,_shake,_triggerStay;
    
     private Vector3 _target;
     private Vector3 _firstPos;
     private GameObject _klyde;
+    private float _stayTimer = 0f;
+    [SerializeField] private float _requiredStayTime = 0.3f;
 
     private void Start()
     {
@@ -51,6 +53,18 @@ public class Door : MonoBehaviour
             }
             _doorAppear = true;
         }
+        //
+        // if (_triggerStay)
+        // {
+        //     _stayTimer += Time.deltaTime;
+        //     if (_stayTimer >= _requiredStayTime)
+        //     {
+        //         // Reset the timer and disable further shaking until OnTriggerStay is called again
+        //         _shake =true;
+        //         _triggerStay = false;
+        //         _stayTimer = 0f;
+        //     }
+        // }
 
         var trans = transform;
         Vector3 direction = trans.position - Vector3.zero;
@@ -105,25 +119,18 @@ public class Door : MonoBehaviour
              _doorAppear = false;
              _target = TargetInit;
         }
-        
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag("klyde"))
+        if (other.gameObject.CompareTag("klyde")&& !moving.GetIsWalk())
         {
             Vibration.Vibrate(500);
+            _triggerStay = true;
             _shake = true;
         } 
     }
 
-    // private void OnTriggerExit(Collider other)
-    // {
-    //     if(other.gameObject.CompareTag("klyde")) _shake = false;
-    //     print("on trigger exit");
-    // }
-
-    // Helper method to check if an angle is within a specified range
     private bool IsAngleWithinRange(float angle, float start, float end)
     {
         // Normalize the angles to ensure proper comparison
