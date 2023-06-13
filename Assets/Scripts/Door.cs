@@ -112,11 +112,11 @@ public class Door : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit(Collider other)
-    {
-        if(other.gameObject.CompareTag("klyde")) _shake = false;
-        print("on trigger exit");
-    }
+    // private void OnTriggerExit(Collider other)
+    // {
+    //     if(other.gameObject.CompareTag("klyde")) _shake = false;
+    //     print("on trigger exit");
+    // }
 
     // Helper method to check if an angle is within a specified range
     private bool IsAngleWithinRange(float angle, float start, float end)
@@ -169,10 +169,10 @@ public class Door : MonoBehaviour
         if (Vector3.Distance(_klyde.transform.position, _target) < 0.01f)
         {
             flash.gameObject.SetActive(true);
-            var rendererComponent = flash.gameObject.GetComponent<Renderer>();
+            // var rendererComponent = flash.gameObject.GetComponent<Renderer>();
         
             // Change the render queue
-            rendererComponent.material.renderQueue = newRenderQueue;
+            // rendererComponent.material.renderQueue = newRenderQueue;
             LevelManager.NextLevel();
             _win = false;
             _klyde.SetActive(false);

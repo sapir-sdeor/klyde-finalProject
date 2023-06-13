@@ -46,8 +46,8 @@ public class RecognizeShape : MonoBehaviour
         foreach (var row in grid)
         {
             var dist = Vector3.Distance(row.positions[0].transform.position, row.positions[1].transform.position);
-            print(dist + " distance " + row.aprroximate +" aprroximate "+ " is rotating? "+ Rotate2D3D.GetIsRotating()+
-                " points in right half? "+ !PointsInRightHalf(row));
+            // print(dist + " distance " + row.aprroximate +" aprroximate "+ " is rotating? "+ Rotate2D3D.GetIsRotating()+
+            //     " points in right half? "+ !PointsInRightHalf(row));
                 
             
             if (row.distance-row.aprroximate >=dist || dist>= row.distance+row.aprroximate ||Rotate2D3D.GetIsRotating()

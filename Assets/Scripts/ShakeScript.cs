@@ -23,10 +23,13 @@ public class ShakeScript : MonoBehaviour
     {
         noisePerlin.m_AmplitudeGain = amplitudeGain;
         noisePerlin.m_FrequencyGain = frequencyGain;
-        // if (Time.time - _startTimeShake > shakeDuration)
+        // print(_startTimeShake- Time.time  + " shake duration");
+        // if ((_startTimeShake - Time.time)> shakeDuration)
         // {
-        //     Door.SetShake();
-        //     n
+        //     noisePerlin.m_AmplitudeGain = 0;
+        //     noisePerlin.m_FrequencyGain = 0;
+        //     
+        //     print("pass time duration");
         // }
     }
 
@@ -40,11 +43,28 @@ public class ShakeScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Door.GetShake())
+        if (Door.GetShake() )
         {
-            _startTimeShake = Time.time;
-            Shake();
+            Door.SetShake();
+            StartCoroutine(ShakeCoroutine());
+            
         }
-        else CancelShake();
+    }
+
+    IEnumerator ShakeCoroutine()
+    {
+      
+        float startTime = Time.time;
+
+        while (Time.time - startTime < shakeDuration)
+        {
+            print(Time.time - startTime + " shake duration");
+            Shake();
+            yield return null; // Wait for the next frame
+        }
+        
+        yield return new WaitForSeconds(shakeDuration);
+        CancelShake();
+        // Wait for 2 seconds
     }
 }

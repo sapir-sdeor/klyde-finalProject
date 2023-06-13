@@ -78,7 +78,7 @@ public class Rotate2D3D : MonoBehaviour
 
     private void RemoveAllNavMesh()
     {
-        print("is walking "+!moving.GetIsWalk());
+        // print("is walking "+!moving.GetIsWalk());
             // ||!moving.GetIsWalk()
         if ((Time.time - millisecCounter >= SeprateBetweenRotateWalk) )
         {
@@ -99,7 +99,7 @@ public class Rotate2D3D : MonoBehaviour
             // linkObject2.UpdateLink();
             surfaces[i].BuildNavMesh();
         }
-        print("build new navmesh");
+        // print("build new navmesh");
         // if (!moving.GetIsWalk())
         // {
         // }
@@ -113,12 +113,12 @@ public class Rotate2D3D : MonoBehaviour
     
     private void PerformCircularRotation()
     {
-        print(worlds.Length + "world length");
+        // print(worlds.Length + "world length");
         var currPosition = GetPointOnPlane(Input.mousePosition);
         foreach (var world in worlds)
         {
             
-            print(world.name + " world name is klyde on "+world.GetComponent<World>().isKlydeOn);
+            // print(world.name + " world name is klyde on "+world.GetComponent<World>().isKlydeOn);
             if (!world.GetComponent<World>().isKlydeOn)
             { 
               var adjustedSpeed = Time.deltaTime * speed;
@@ -127,7 +127,7 @@ public class Rotate2D3D : MonoBehaviour
               var up = Vector3.up;
               
               var angleDelta = Vector3.SignedAngle(OrigDir, currPosition - center, up) ;
-              print(world.name + " world name angle delta "+angleDelta); 
+              // print(world.name + " world name angle delta "+angleDelta); 
               // angleDelta = HandleFlipAngle(center, currPosition, up, angleDelta);
               // TODO: Any smoothing will probably go here
               // rotate by that much
