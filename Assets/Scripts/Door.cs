@@ -105,11 +105,16 @@ public class Door : MonoBehaviour
              _doorAppear = false;
              _target = TargetInit;
         }
-        else if (other.gameObject.CompareTag("klyde"))
+        
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.gameObject.CompareTag("klyde"))
         {
             Vibration.Vibrate(500);
             _shake = true;
-        }
+        } 
     }
 
     // private void OnTriggerExit(Collider other)

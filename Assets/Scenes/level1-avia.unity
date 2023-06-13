@@ -518,7 +518,7 @@ ParticleSystem:
         m_NumAlphaKeys: 2
     startSize:
       serializedVersion: 2
-      minMaxState: 3
+      minMaxState: 0
       scalar: 0.9
       minScalar: 0.2
       maxCurve:
@@ -571,7 +571,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startSizeY:
       serializedVersion: 2
-      minMaxState: 3
+      minMaxState: 0
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -624,7 +624,7 @@ ParticleSystem:
         m_RotationOrder: 4
     startSizeZ:
       serializedVersion: 2
-      minMaxState: 3
+      minMaxState: 0
       scalar: 1
       minScalar: 1
       maxCurve:
@@ -5545,7 +5545,7 @@ MonoBehaviour:
   - {fileID: 904975030}
   surfaces:
   - {fileID: 685927048}
-  SeprateBetweenRotateWalk: 0.09
+  SeprateBetweenRotateWalk: 0.3
   speed: 150
 --- !u!4 &384441277
 Transform:
@@ -9334,6 +9334,26 @@ PrefabInstance:
     - target: {fileID: 1636013385651231883, guid: 7d519a153ecd2374ab3aa2770d2e1f77, type: 3}
       propertyPath: m_Camera
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 1636013386086676629, guid: 7d519a153ecd2374ab3aa2770d2e1f77, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 20.8
+      objectReference: {fileID: 0}
+    - target: {fileID: 1636013386086676629, guid: 7d519a153ecd2374ab3aa2770d2e1f77, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.3948064
+      objectReference: {fileID: 0}
+    - target: {fileID: 1636013386086676629, guid: 7d519a153ecd2374ab3aa2770d2e1f77, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 13.038477
+      objectReference: {fileID: 0}
+    - target: {fileID: 1636013386086676629, guid: 7d519a153ecd2374ab3aa2770d2e1f77, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -3.9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1636013386086676629, guid: 7d519a153ecd2374ab3aa2770d2e1f77, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -31.91
       objectReference: {fileID: 0}
     - target: {fileID: 1636013386686961478, guid: 7d519a153ecd2374ab3aa2770d2e1f77, type: 3}
       propertyPath: m_RootOrder
