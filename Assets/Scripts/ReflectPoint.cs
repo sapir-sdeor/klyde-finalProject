@@ -8,15 +8,17 @@ public class ReflectPoint : MonoBehaviour
     [SerializeField] private int halfNum;
     [SerializeField] private float offset;
     private float _angle;
+    private GameObject _child;
     
     private void Start()
     {
+        _child = GetComponentsInChildren<Transform>()[1].gameObject;
         _angle = 360 /(float) LevelManager.GetNumOfHalves();
     }
 
     private void Update()
     {
-        var trans = transform;
+        var trans = _child.transform;
         Vector3 direction = trans.position - Vector3.zero;
         // Calculate the angle between the direction vector and the forward vector
         float currAngle = Vector3.SignedAngle(Vector3.forward, direction, Vector3.up);
@@ -73,9 +75,6 @@ public class ReflectPoint : MonoBehaviour
     
     private void EnabledChild(bool enabled)
     {
-        foreach (var child in GetComponentsInChildren<MeshRenderer>())
-        {
-            child.GetComponent<MeshRenderer>().enabled = enabled;
-        }
+        _child.gameObject.SetActive(enabled);
     }
 }
