@@ -8,8 +8,9 @@ using UnityEngine.UI;
 public class Levels : MonoBehaviour
 {
     [SerializeField] private int totalLevel = 7;
-    public static int unlockedLevel = 2;
+    public static int unlockedLevel = 0;
     private ButtonLevel[] levelButtons;
+    [SerializeField] private GameObject glow;
     [SerializeField] private Camera _camera;
     [SerializeField] private float speed = 10f;
     [SerializeField] private float limitLeft = 0;
@@ -41,10 +42,11 @@ public class Levels : MonoBehaviour
 
     private void Update()
     {
-        if (!Input.GetMouseButton(0)) return;
+        /*if (!Input.GetMouseButton(0)) return;
         float deltaX = Input.GetAxis("Mouse X") * speed;
         var transformPosition = transform.position;
         transformPosition.x += deltaX;
-        transform.position = transformPosition;
+        transform.position = transformPosition;*/
+        glow.transform.position = levelButtons[unlockedLevel].transform.position;
     }
 }

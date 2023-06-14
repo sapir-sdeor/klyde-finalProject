@@ -15,6 +15,7 @@ public class Circle : World
     
     void Start()
     {
+        print(LevelManager.GetNumOfHalves());
         _angle = 360 /(float) LevelManager.GetNumOfHalves();
         klyde = GameObject.FindGameObjectWithTag("klyde");
        
@@ -46,7 +47,7 @@ public class Circle : World
         foreach (var child in GetComponentsInChildren<Transform>())
         {
             if (!child.gameObject.CompareTag("circle")) continue;
-            if (RecognizeShape.GetRecognizeShape() && !_changeTexture)
+            if (RecognizeShape.GetRecognizeShape() && !_changeTexture && textureWithoutShape)
             {
                 child.GetComponent<MeshRenderer>().material.mainTexture = textureWithoutShape;
                 _changeTexture = true;

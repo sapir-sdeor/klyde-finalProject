@@ -12,7 +12,7 @@ public class RecognizeShape : MonoBehaviour
     [SerializeField] private GameObject background;
     [SerializeField] private Texture backgroundAfterShape;
     [SerializeField] private GameObject rightPlane, leftPlane;
-
+    [SerializeField] private GameObject reflect;
     [SerializeField] private float timeToDisappearLimit = 7;
     // Start is called before the first frame update
     private static bool _recognizeShape ;
@@ -47,19 +47,39 @@ public class RecognizeShape : MonoBehaviour
         {
             var dist = Vector3.Distance(row.positions[0].transform.position, row.positions[1].transform.position);
             print(dist + " distance " + row.aprroximate +" aprroximate "+ " is rotating? "+ Rotate2D3D.GetIsRotating()+
-                " points in right half? "+ !PointsInRightHalf(row));
-                
-            
+                " points in right half? "+ !PointsInRightHalf(row) + " name: " +  row.gameObject.name);
+
+            if (LevelManager.GetLevel() == 4 )
+            {
+                foreach (var pos in row.positions)
+                {
+                    if (!pos.GetComponent<ReflectPoint>().IsPointSeen())
+                    {
+                        print(" _recognizeShape failed " + row.name);
+                        flag = false; 
+                    }
+                }
+            }
             if (row.distance-row.aprroximate >=dist || dist>= row.distance+row.aprroximate ||Rotate2D3D.GetIsRotating()
-                || !PointsInRightHalf(row)  )
-            {    
-                // print(" _recognizeShape failed");
-                flag = false;            
+                )
+            {
+                if (!PointsInRightHalf(row) && LevelManager.GetLevel() != 4)
+                {
+                    print(" _recognizeShape failed " + row.name);
+                    flag = false;  
+                }
+                else 
+                {
+                    print(" _recognizeShape failed " + row.name);
+                    flag = false;  
+                }
             } 
         }
         if (flag && !_recognizeShape){
             _recognizeShape = true;
             objectToShown.gameObject.SetActive(true);
+            if (reflect)
+                reflect.gameObject.SetActive(false);
         }
         
     }

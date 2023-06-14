@@ -9,6 +9,7 @@ public class ReflectPoint : MonoBehaviour
     [SerializeField] private float offset;
     private float _angle;
     private GameObject _child;
+    private bool enable;
     
     private void Start()
     {
@@ -35,12 +36,19 @@ public class ReflectPoint : MonoBehaviour
         // Check if the current angle is within the adjusted range
         if (IsAngleWithinRange(currAngle, startAngle, endAngle))
         {
-            EnabledChild(true);
+            enable = true;
+            EnabledChild(enable);
         }
         else
         {
-            EnabledChild(false);
+            enable = false;
+            EnabledChild(enable);
         }
+    }
+
+    public bool IsPointSeen()
+    {
+        return enable;
     }
     
     private bool IsAngleWithinRange(float angle, float start, float end)
@@ -56,7 +64,6 @@ public class ReflectPoint : MonoBehaviour
             return angle >= start && angle <= end;
         }
         return angle >= start || angle <= end;
-        
     }
     
     private float NormalizeAngle(float angle)
