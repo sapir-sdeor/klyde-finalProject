@@ -1876,7 +1876,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30d4f2077e209df45adf1d50a15383e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  halfNum: 2
+  halfNum: 1
   angleFadeEffect: 5
   offset: 0
 --- !u!114 &685927048
@@ -3444,7 +3444,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   halfNum: 4
-  angleFadeEffect: 5
+  angleFadeEffect: 1
   offset: 0
 --- !u!114 &1313585682
 MonoBehaviour:
@@ -3979,8 +3979,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30d4f2077e209df45adf1d50a15383e8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  halfNum: 1
-  angleFadeEffect: 5
+  halfNum: 2
+  angleFadeEffect: 1
   offset: 0
 --- !u!114 &1553835270
 MonoBehaviour:
@@ -4497,7 +4497,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   halfNum: 4
-  angleFadeEffect: 5
+  angleFadeEffect: 1
   offset: 0
 --- !u!114 &1738827742
 MonoBehaviour:
