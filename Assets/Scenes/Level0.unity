@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
+  m_IndirectSpecularColor: {r: 0.1273174, g: 0.13414761, b: 0.12107885, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1018,8 +1018,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 542584259}
   m_LocalRotation: {x: 0.4855414, y: 0.009917247, z: -0.005508538, w: 0.87414014}
-  m_LocalPosition: {x: 5.42, y: -42.8, z: -76.6}
-  m_LocalScale: {x: 18.12, y: 1.18, z: 10.3}
+  m_LocalPosition: {x: -1.6, y: -42.8, z: -76.6}
+  m_LocalScale: {x: 20.69, y: 1.18, z: 10.3}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -2656,8 +2656,7 @@ MonoBehaviour:
   getBackDistance: 20
   TargetInit: {x: -6.4, y: 28.83, z: -3.6}
   flash: {fileID: 1444509065}
-  plane: {fileID: 1054845020}
-  newRenderQueue: 4000
+  _requiredStayTime: 0.3
 --- !u!114 &1034859301
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3209,6 +3208,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 531841522}
     m_Modifications:
+    - target: {fileID: 13645905839336136, guid: cb8e6e5a50f55884984327e2aac1bc8d, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 165.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 13645905839336136, guid: cb8e6e5a50f55884984327e2aac1bc8d, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -97.2
+      objectReference: {fileID: 0}
     - target: {fileID: 13645906411902258, guid: cb8e6e5a50f55884984327e2aac1bc8d, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 247.19995
@@ -3304,6 +3311,10 @@ PrefabInstance:
     - target: {fileID: 13645907547495940, guid: cb8e6e5a50f55884984327e2aac1bc8d, type: 3}
       propertyPath: m_Name
       value: Canvas (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 13645907547495940, guid: cb8e6e5a50f55884984327e2aac1bc8d, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 13645907733611118, guid: cb8e6e5a50f55884984327e2aac1bc8d, type: 3}
       propertyPath: m_IsActive
@@ -4226,8 +4237,7 @@ MonoBehaviour:
   getBackDistance: 5
   TargetInit: {x: 0.3, y: 6.3, z: -18}
   flash: {fileID: 0}
-  plane: {fileID: 0}
-  newRenderQueue: 4000
+  _requiredStayTime: 0.3
 --- !u!1 &1958892534
 GameObject:
   m_ObjectHideFlags: 0
@@ -9628,8 +9638,7 @@ MonoBehaviour:
   getBackDistance: 5
   TargetInit: {x: 0.3, y: 6.3, z: -18}
   flash: {fileID: 0}
-  plane: {fileID: 0}
-  newRenderQueue: 4000
+  _requiredStayTime: 0.3
 --- !u!65 &5428542080724840219
 BoxCollider:
   m_ObjectHideFlags: 0
