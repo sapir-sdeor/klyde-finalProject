@@ -14,6 +14,7 @@ public class RecognizeShape : MonoBehaviour
     [SerializeField] private GameObject rightPlane, leftPlane;
     [SerializeField] private GameObject reflect;
     [SerializeField] private float timeToDisappearLimit = 7;
+    [SerializeField] private float offset=0;
     // Start is called before the first frame update
     private static bool _recognizeShape ;
     private float _angle;
@@ -61,18 +62,9 @@ public class RecognizeShape : MonoBehaviour
                 }
             }
             if (row.distance-row.aprroximate >=dist || dist>= row.distance+row.aprroximate ||Rotate2D3D.GetIsRotating()
-                )
+                || !PointsInRightHalf(row) && LevelManager.GetLevel() != 4)
             {
-                if (!PointsInRightHalf(row) && LevelManager.GetLevel() != 4)
-                {
-                    print(" _recognizeShape failed " + row.name);
-                    flag = false;  
-                }
-                else 
-                {
-                    print(" _recognizeShape failed " + row.name);
-                    flag = false;  
-                }
+                flag = false;
             } 
         }
         if (flag && !_recognizeShape){
@@ -97,14 +89,59 @@ public class RecognizeShape : MonoBehaviour
             Transform trans =row.positions[i].transform;
             Vector3 direction = trans.position - Vector3.zero;
             // Calculate the angle between the direction vector and the forward vector
-            float currAngle = Vector3.Angle(Vector3.forward, direction);
-            if (trans.position.x < 0) currAngle = 360 - currAngle;
-            if ((_angle * (row.halfNumPoints[i] - 1) >= currAngle || currAngle >= _angle * (row.halfNumPoints[i])))
+            // float currAngle = Vector3.Angle(Vector3.forward, direction);
+            // if (trans.position.x < 0) currAngle = 360 - currAngle;
+            float currAngle = Vector3.SignedAngle(Vector3.forward, direction, Vector3.up);
+            if (currAngle < 0) currAngle += 360f;
+
+            // Calculate the adjusted angle range based on the number of halves
+            float startAngle = _angle * (row.halfNumPoints[i] - 1)+offset;
+            float endAngle = _angle * row.halfNumPoints[i]+offset;
+
+            // Handle wraparound from 360 to 0 degrees
+            if (endAngle > 360f)
+                endAngle -= 360f;
+
+            // Check if the current angle is within the adjusted range
+            if ( !IsAngleWithinRange(currAngle, startAngle, endAngle))
             {
+                flag = false;
                 return false;
             }
         }
         return true;
+    }
+    
+        
+    // Helper method to check if an angle is within a specified range
+    private bool IsAngleWithinRange(float angle, float start, float end)
+    {
+        // Normalize the angles to ensure proper comparison
+        angle = NormalizeAngle(angle);
+        start = NormalizeAngle(start);
+        end = NormalizeAngle(end);
+
+        // Check if the angle is within the specified range
+        if (start <= end)
+        {
+            return angle >= start && angle <= end;
+        }
+        return angle >= start || angle <= end;
+    }
+
+// Helper method to normalize an angle to the range of 0-360 degrees
+    private float NormalizeAngle(float angle)
+    {
+        if (angle < 0f)
+        {
+            angle %= 360f;
+            angle += 360f;
+        }
+        else if (angle >= 360f)
+        {
+            angle %= 360f;
+        }
+        return angle;
     }
     
     

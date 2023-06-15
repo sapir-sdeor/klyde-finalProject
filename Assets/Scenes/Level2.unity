@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1273174, g: 0.13414761, b: 0.12107885, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -182,7 +182,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 69864007}
   m_LocalRotation: {x: 0.4725313, y: 0.00624956, z: -0.0045017274, w: 0.8812803}
-  m_LocalPosition: {x: -32.22735, y: 5.3, z: 1.92}
+  m_LocalPosition: {x: -36.7, y: 5.7, z: 3.1}
   m_LocalScale: {x: 3.0086281, y: 0.7699929, z: 4.899985}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -924,6 +924,7 @@ MonoBehaviour:
   leftPlane: {fileID: 537229500}
   reflect: {fileID: 0}
   timeToDisappearLimit: 4
+  offset: 0
 --- !u!114 &384441279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2625,7 +2626,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7d90a74ea006c454c825b04503aad3ed, type: 2}
+  - {fileID: 8857378974602150164, guid: 4c8fc6a4d70284aa9966ad1d36706130, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -3277,7 +3278,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7d90a74ea006c454c825b04503aad3ed, type: 2}
+  - {fileID: 8857378974602150164, guid: 4c8fc6a4d70284aa9966ad1d36706130, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4029,7 +4030,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7d90a74ea006c454c825b04503aad3ed, type: 2}
+  - {fileID: 8857378974602150164, guid: 4c8fc6a4d70284aa9966ad1d36706130, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4282,7 +4283,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 13645905839336136, guid: cb8e6e5a50f55884984327e2aac1bc8d, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 212.70001
+      value: 212.69995
       objectReference: {fileID: 0}
     - target: {fileID: 13645905839336136, guid: cb8e6e5a50f55884984327e2aac1bc8d, type: 3}
       propertyPath: m_AnchoredPosition.y
@@ -4710,7 +4711,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 7d90a74ea006c454c825b04503aad3ed, type: 2}
+  - {fileID: 8857378974602150164, guid: 4c8fc6a4d70284aa9966ad1d36706130, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -10685,7 +10686,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1871584556}
   m_LocalRotation: {x: 0.47216257, y: 0.015109064, z: -0.008752608, w: 0.8813386}
-  m_LocalPosition: {x: -0.27520388, y: 18.06, z: 17.6}
+  m_LocalPosition: {x: -4.7478523, y: 18.46, z: 18.78}
   m_LocalScale: {x: 6.779218, y: 0.4798585, z: 4.1887283}
   m_ConstrainProportionsScale: 1
   m_Children: []
