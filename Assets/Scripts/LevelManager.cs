@@ -41,13 +41,16 @@ public class LevelManager : MonoBehaviour
     public static void SetLevel(int newLevel)
     {
         _level = newLevel;
-       // _currentLevel = LevelFactory.CreateLevel(_level);
+        // _currentLevel = LevelFactory.CreateLevel(_level);
     }
-    
-    private void SetNumOfHalves()
+
+    public static void SetNumOfHalves()
     {
         switch (_level)
         {
+            case 0:
+                _numOfHalves = 2;
+                break;
             case 1:
                 _numOfHalves = 2;
                 break;

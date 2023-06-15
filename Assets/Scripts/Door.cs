@@ -123,7 +123,8 @@ public class Door : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (other.gameObject.CompareTag("klyde")&& !moving.GetIsWalk())
+        if (other.gameObject.CompareTag("klyde")&& !moving.GetIsWalk() && 
+            (!RecognizeShape.GetRecognizeShape() && LevelManager.GetLevel() !=0))
         {
             Vibration.Vibrate(500);
             _triggerStay = true;

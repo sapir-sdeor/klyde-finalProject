@@ -45,7 +45,7 @@ Shader "Custom/ShaderMaskWithOffset"
            //float currAngle = atan(dot(float3(0, 0, 1), normalize(IN.worldPos - _WorldSpaceCameraPos)));// calculate the angle in radians
             /*float2 uv = IN.uv_MainTex - 0.5; // shift UV coordinates to the center
             float currAngle = atan2(uv.x, uv.y);*/
-            float2 projectedPos = normalize(float2(IN.worldPos.z - _OffsetX, IN.worldPos.x )); // Project vertex position onto the XZ plane
+            float2 projectedPos = normalize(float2(IN.worldPos.z, IN.worldPos.x + _OffsetX)); // Project vertex position onto the XZ plane
             float currAngle = atan2(projectedPos.y, projectedPos.x); // Calculate the angle based on the projected position
             if (currAngle < 0.0)
                 currAngle += 2.0 * 3.14159; // ensure the angle is in the range [0, 2pi]

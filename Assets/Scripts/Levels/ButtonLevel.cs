@@ -43,8 +43,11 @@ public class ButtonLevel : MonoBehaviour
     {
         if (!_isUnlock) return;
         LevelManager.SetLevel(_level);
+        LevelManager.SetNumOfHalves();
         SceneManager.LoadScene("Level" + _level);
     }
+
+   
     
  
 }

@@ -10,6 +10,21 @@ public class UIButtons : MonoBehaviour
 {
     [SerializeField] private GameObject panel;
     public static bool isPause;
+
+    public void StartGame()
+    {
+        isPause = false;
+        Time.timeScale = 1;
+        SceneManager.LoadScene("Start");
+    }
+
+    public void Menu()
+    {
+        isPause = false;
+        Time.timeScale = 1;
+        SceneManager.LoadScene("Levels");
+    }
+
     public void Restart()
     {
         Resume();
@@ -29,9 +44,5 @@ public class UIButtons : MonoBehaviour
         Time.timeScale = 1;
         isPause = false;
     }
-
-    public void Menu()
-    {
-        SceneManager.LoadScene("Levels");
-    }
+    
 }
