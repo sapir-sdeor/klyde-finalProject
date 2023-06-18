@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8e6292b2c06870d4495f009f912b9600, type: 3}
-  m_Name: Cube Profile
+  m_Name: Cube (2) Profile
   m_EditorClassIdentifier: 
   settings:
-  - {fileID: 6419300583672958237}
---- !u!114 &6419300583672958237
+  - {fileID: 4814781762899298714}
+--- !u!114 &4814781762899298714
 MonoBehaviour:
   m_ObjectHideFlags: 3
   m_CorrespondingSourceObject: {fileID: 0}
@@ -32,27 +32,27 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 27.93
+    value: 7.8
   threshold:
     overrideState: 1
-    value: 7.03
+    value: 4.73
   softKnee:
     overrideState: 1
-    value: 0
+    value: -0
   clamp:
     overrideState: 1
-    value: 65466.02
+    value: 65475.47
   diffusion:
-    overrideState: 1
-    value: 2.83
+    overrideState: 0
+    value: 7
   anamorphicRatio:
-    overrideState: 1
+    overrideState: 0
     value: 0
   color:
-    overrideState: 1
+    overrideState: 0
     value: {r: 1, g: 1, b: 1, a: 1}
   fastMode:
-    overrideState: 1
+    overrideState: 0
     value: 0
   dirtTexture:
     overrideState: 0
