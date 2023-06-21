@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
-    private static int _level = 0;
+    private static int _level = 1;
     private static int _numOfHalves = 2;
     private static LevelManager _instance;
     
@@ -61,7 +61,7 @@ public class LevelManager : MonoBehaviour
                 _numOfHalves = 3;
                 break;    
             case 4:
-                _numOfHalves = 4;
+                _numOfHalves = 3;
                 break;  
         }
     }

@@ -47,22 +47,28 @@ public class RecognizeShape : MonoBehaviour
         foreach (var row in grid)
         {
             var dist = Vector3.Distance(row.positions[0].transform.position, row.positions[1].transform.position);
-            print(dist + " distance " + row.aprroximate +" aprroximate "+ " is rotating? "+ Rotate2D3D.GetIsRotating()+
+            print(dist + " distance ," + row.aprroximate +" aprroximate "+ " is rotating? "+ Rotate2D3D.GetIsRotating()+
                 " points in right half? name: " +  row.gameObject.name);
 
             if (LevelManager.GetLevel() == 4 )
             {
                 foreach (var pos in row.positions)
                 {
+                    print("is point seen: " + pos.GetComponent<ReflectPoint>().IsPointSeen());
                     if (!pos.GetComponent<ReflectPoint>().IsPointSeen())
                     {
                         print(" _recognizeShape failed " + row.name);
                         flag = false; 
                     }
                 }
+
                 if (row.distance - row.aprroximate >= dist || dist >= row.distance + row.aprroximate ||
                     Rotate2D3D.GetIsRotating())
+                {
+                    print("failed here");
                     flag = false;
+                }
+                    
             }
             else
             {
