@@ -10,6 +10,7 @@ TagManager:
   - world1
   - world2
   - circle
+  - fade
   layers:
   - Default
   - TransparentFX

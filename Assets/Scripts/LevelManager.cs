@@ -7,14 +7,16 @@ using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
-    private static int _level = 1;
+    private static int _level = 0;
     private static int _numOfHalves = 2;
     private static LevelManager _instance;
+    private static GameObject panelPade;
     
     private void Awake()
     {
         SetNumOfHalves();
         _instance = this;
+        panelPade = GameObject.FindWithTag("fade");
     }
 
     private void Update()
@@ -27,6 +29,7 @@ public class LevelManager : MonoBehaviour
         _level++;
         if (Levels.unlockedLevel == _level-1)
             Levels.unlockedLevel += 1;
+        panelPade.GetComponent<Animator>().SetTrigger("fadeOut");
         _instance.StartCoroutine(WaitForLoadNextLevel());
         //SceneManager.LoadScene("Level" + _level);
         //  _currentLevel = LevelFactory.CreateLevel(_level);
@@ -34,7 +37,7 @@ public class LevelManager : MonoBehaviour
 
     static IEnumerator WaitForLoadNextLevel()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(3f);
         SceneManager.LoadScene("Level" + _level);
     }
     
