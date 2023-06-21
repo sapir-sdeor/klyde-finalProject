@@ -17,11 +17,11 @@ public class Rotate2D3D : MonoBehaviour
     // [SerializeField] private NavMeshLink linkObject1,linkObject2;
     private Plane _plane;
     [SerializeField] private float SeprateBetweenRotateWalk;
-    [SerializeField] private float TimeForRotateMusic = 0.3f;
-    private float millisecCounter;
-    private float timeCounter;
-    private float currentTime;
-    private bool isWalking;
+    [SerializeField] private float timeForRotateMusic = 0.3f;
+    private float _millisecCounter;
+    private float _timeCounter;
+    private float _currentTime;
+    private bool _isWalking;
     [SerializeField]
     private float speed = 150f;
     
@@ -60,8 +60,8 @@ public class Rotate2D3D : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             OrigDir = _lastPosition;
-            millisecCounter = Time.time;
-            timeCounter = Time.time;
+            _millisecCounter = Time.time;
+            _timeCounter = Time.time;
         }
         if (Input.GetMouseButtonUp(0))
         {
@@ -83,13 +83,13 @@ public class Rotate2D3D : MonoBehaviour
     {
         // print("is walking "+!moving.GetIsWalk());
             // ||!moving.GetIsWalk()
-        if ((Time.time - millisecCounter >= SeprateBetweenRotateWalk) )
+        if ((Time.time - _millisecCounter >= SeprateBetweenRotateWalk) )
         {
             _isDragging = true;
             _isRotating = true;
         }
 
-        if (Time.time - timeCounter >= TimeForRotateMusic)
+        if (Time.time - _timeCounter >= timeForRotateMusic)
         {
             if (!GetComponent<AudioSource>().isPlaying)
                 GetComponent<AudioSource>().Play();
