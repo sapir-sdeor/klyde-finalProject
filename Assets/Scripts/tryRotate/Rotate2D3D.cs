@@ -17,7 +17,9 @@ public class Rotate2D3D : MonoBehaviour
     // [SerializeField] private NavMeshLink linkObject1,linkObject2;
     private Plane _plane;
     [SerializeField] private float SeprateBetweenRotateWalk;
+    [SerializeField] private float TimeForRotateMusic = 0.3f;
     private float millisecCounter;
+    private float timeCounter;
     private float currentTime;
     private bool isWalking;
     [SerializeField]
@@ -59,6 +61,7 @@ public class Rotate2D3D : MonoBehaviour
         {
             OrigDir = _lastPosition;
             millisecCounter = Time.time;
+            timeCounter = Time.time;
         }
         if (Input.GetMouseButtonUp(0))
         {
@@ -84,6 +87,12 @@ public class Rotate2D3D : MonoBehaviour
         {
             _isDragging = true;
             _isRotating = true;
+        }
+
+        if (Time.time - timeCounter >= TimeForRotateMusic)
+        {
+            if (!GetComponent<AudioSource>().isPlaying)
+                GetComponent<AudioSource>().Play();
         }
     }
 
