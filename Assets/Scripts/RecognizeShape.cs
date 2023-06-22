@@ -50,32 +50,11 @@ public class RecognizeShape : MonoBehaviour
             print(dist + " distance ," + row.aprroximate +" aprroximate "+ " is rotating? "+ Rotate2D3D.GetIsRotating()+
                 " points in right half? name: " +  row.gameObject.name);
 
-            if (LevelManager.GetLevel() == 4 )
-            {
-                foreach (var pos in row.positions)
-                {
-                    print("is point seen: " + pos.GetComponent<ReflectPoint>().IsPointSeen());
-                    if (!pos.GetComponent<ReflectPoint>().IsPointSeen())
-                    {
-                        print(" _recognizeShape failed " + row.name);
-                        flag = false; 
-                    }
-                }
 
-                if (row.distance - row.aprroximate >= dist || dist >= row.distance + row.aprroximate ||
-                    Rotate2D3D.GetIsRotating())
-                {
-                    print("failed here");
-                    flag = false;
-                }
-                    
-            }
-            else
-            {
-                if (row.distance - row.aprroximate >= dist || dist >= row.distance + row.aprroximate ||
-                    Rotate2D3D.GetIsRotating() || !PointsInRightHalf(row))
-                    flag = false;
-            }
+            if (row.distance - row.aprroximate >= dist || dist >= row.distance + row.aprroximate ||
+                Rotate2D3D.GetIsRotating() || !PointsInRightHalf(row))
+                flag = false;
+
             
         }
         if (flag && !_recognizeShape){
@@ -154,6 +133,27 @@ public class RecognizeShape : MonoBehaviour
         }
         return angle;
     }
+    
+    // if (LevelManager.GetLevel() == 4 )
+    // {
+    //     foreach (var pos in row.positions)
+    //     {
+    //         print("is point seen: " + pos.GetComponent<ReflectPoint>().IsPointSeen());
+    //         if (!pos.GetComponent<ReflectPoint>().IsPointSeen())
+    //         {
+    //             print(" _recognizeShape failed " + row.name);
+    //             flag = false; 
+    //         }
+    //     }
+    //
+    //     if (row.distance - row.aprroximate >= dist || dist >= row.distance + row.aprroximate ||
+    //         Rotate2D3D.GetIsRotating())
+    //     {
+    //         print("failed here");
+    //         flag = false;
+    //     }
+    //         
+    // }
     
     
 }
