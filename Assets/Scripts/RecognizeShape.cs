@@ -76,6 +76,7 @@ public class RecognizeShape : MonoBehaviour
     {
         for(int i=0; i < 2 ;i++)
         {
+            print("is angle within range");
             Transform trans =row.positions[i].transform;
             Vector3 direction = trans.position - Vector3.zero;
             // Calculate the angle between the direction vector and the forward vector
@@ -95,6 +96,7 @@ public class RecognizeShape : MonoBehaviour
             // Check if the current angle is within the adjusted range
             if ( !IsAngleWithinRange(currAngle, startAngle, endAngle))
             {
+                print("false world");
                 flag = false;
                 return false;
             }
