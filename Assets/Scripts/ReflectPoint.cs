@@ -9,11 +9,13 @@ public class ReflectPoint : MonoBehaviour
     [SerializeField] private float offset;
     private float _angle;
     private GameObject _child;
+    private GameObject _mirror;
     private bool enable;
     
     private void Start()
     {
         _child = GetComponentsInChildren<Transform>()[1].gameObject;
+        _mirror = GetComponentsInChildren<Transform>()[2].gameObject;
         _angle = 360 /(float) LevelManager.GetNumOfHalves();
     }
 
@@ -83,5 +85,6 @@ public class ReflectPoint : MonoBehaviour
     private void EnabledChild(bool enabled)
     {
         _child.gameObject.SetActive(enabled);
+        _mirror.gameObject.SetActive(enabled);
     }
 }

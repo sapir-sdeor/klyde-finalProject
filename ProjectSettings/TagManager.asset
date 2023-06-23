@@ -10,6 +10,7 @@ TagManager:
   - world1
   - world2
   - circle
+  - fade
   layers:
   - Default
   - TransparentFX
@@ -17,9 +18,9 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
-  - 
+  - glow
+  - no glow
+  - ui-pause
   - 
   - 
   - 
@@ -46,4 +47,7 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: UI
+    uniqueID: 660661355
     locked: 0

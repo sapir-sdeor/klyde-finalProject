@@ -75,6 +75,12 @@ public class moving : MonoBehaviour
            pos = agent.transform.position;
            agent.enabled = true;
         }
+
+        if (isWalkAnimation)
+        {
+            if (!GetComponent<AudioSource>().isPlaying) GetComponent<AudioSource>().Play();
+        }
+        else GetComponent<AudioSource>().Stop();
         animator.SetBool(IsWalking,isWalkAnimation);
     }
     public static bool GetIsWalk()

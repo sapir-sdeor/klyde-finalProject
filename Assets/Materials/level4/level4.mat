@@ -14,7 +14,7 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 2450
+  m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
   m_SavedProperties:
@@ -63,7 +63,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _Ambient: 0.15
-    - _Angle: 90
+    - _Angle: 120
     - _BumpScale: 1
     - _CurrAngle: 45
     - _Cutoff: 0.5
@@ -79,6 +79,7 @@ Material:
     - _Parallax: 0.02
     - _ParentAngle: 0
     - _SmoothnessTextureChannel: 0
+    - _Softness: 0.427
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Transparent: 0.5
