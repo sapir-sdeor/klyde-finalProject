@@ -65,6 +65,7 @@ public class Rotate2D3D : MonoBehaviour
         }
         if (Input.GetMouseButtonUp(0))
         {
+            if(!moving.GetIsWalk()) PerformCompletionOfRound();
             BuildNewNavMesh();
             GetComponent<AudioSource>().Stop();
         }
@@ -103,15 +104,8 @@ public class Rotate2D3D : MonoBehaviour
         // surfaces[0].RemoveData();
         for (int i = 0; i < surfaces.Length; i++) 
         {
-            // NavMeshLink navMeshLink = linkObject.GetComponent<NavMeshLink>();
-            // linkObject1.UpdateLink();
-            // linkObject2.UpdateLink();
             surfaces[i].BuildNavMesh();
         }
-        // print("build new navmesh");
-        // if (!moving.GetIsWalk())
-        // {
-        // }
     }
     
     public static bool GetIsRotating()
@@ -122,12 +116,10 @@ public class Rotate2D3D : MonoBehaviour
     
     private void PerformCircularRotation()
     {
-        // print(worlds.Length + "world length");
         var currPosition = GetPointOnPlane(Input.mousePosition);
         foreach (var world in worlds)
         {
             
-            // print(world.name + " world name is klyde on "+world.GetComponent<World>().isKlydeOn);
             if (!world.GetComponent<World>().isKlydeOn)
             { 
               var adjustedSpeed = Time.deltaTime * speed;
@@ -148,6 +140,34 @@ public class Rotate2D3D : MonoBehaviour
               Debug.DrawLine(center, currPosition, Color.green);
               Debug.DrawRay(center, OrigDir, Color.red);
               worldTransform.Rotate(0,angleDelta,0,Space.World);  
+            }
+            
+        }
+        OrigDir = currPosition;
+    } 
+    
+    
+    private void PerformCompletionOfRound()
+    {
+        var currPosition = GetPointOnPlane(Input.mousePosition); 
+        foreach (var world in worlds)
+        {
+            if (!world.GetComponent<World>().isKlydeOn)
+            {
+                var rotate = world.eulerAngles.y % 360;
+                var addToRotate= rotate % 10;
+                print(addToRotate);
+                var target = new Vector3(0, 0,rotate + addToRotate );
+                //new Vector3(world.eulerAngles.x,world.eulerAngles.z,world.eulerAngles.y);
+                target += world.eulerAngles;
+                var adjustedSpeed = Time.deltaTime * speed;
+                var worldTransform = world.transform;
+                var center = Vector3.zero;
+                var up = Vector3.up;
+              
+                var angleDelta = Vector3.SignedAngle(OrigDir, currPosition - center, up) ;
+                addToRotate = Mathf.Clamp(addToRotate, -adjustedSpeed, adjustedSpeed);
+                worldTransform.Rotate( 0,-addToRotate,0,Space.World);  
             }
             
         }

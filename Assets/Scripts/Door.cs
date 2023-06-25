@@ -85,6 +85,7 @@ public class Door : MonoBehaviour
 
     private void EnabledDoorChild(bool enabled)
     {
+        print("enabled door child"+enabled);
         foreach (var child in GetComponentsInChildren<MeshRenderer>())
         {
             child.GetComponent<MeshRenderer>().enabled = enabled;
