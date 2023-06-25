@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1273174, g: 0.13414761, b: 0.12107885, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -301,7 +301,7 @@ GameObject:
   - component: {fileID: 188792598}
   - component: {fileID: 188792599}
   m_Layer: 0
-  m_Name: right-down-point
+  m_Name: right-point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1040,7 +1040,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   grid:
-  - {fileID: 1453908461}
+  - {fileID: 1581888820}
   - {fileID: 1926256905}
   - {fileID: 1968780111}
   objectToShown: {fileID: 466488788}
@@ -2105,7 +2105,7 @@ GameObject:
   - component: {fileID: 588647290}
   - component: {fileID: 588647291}
   m_Layer: 0
-  m_Name: right-up-point
+  m_Name: left-point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4777,24 +4777,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1453908461
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1581888811}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8f894785ff2c6e4886adc57b118dc57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  positions:
-  - {fileID: 588647289}
-  - {fileID: 188792597}
-  aprroximate: 0.6
-  distance: 8.573666
-  halfNumPoints: 0100000003000000
 --- !u!1 &1458877389
 GameObject:
   m_ObjectHideFlags: 0
@@ -5133,13 +5115,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3155557358144281563, guid: c8b0a58bbfedced4bb4bd457e4475734, type: 3}
       propertyPath: halfNumPoints.Array.data[0]
-      value: 3
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3155557358144281563, guid: c8b0a58bbfedced4bb4bd457e4475734, type: 3}
       propertyPath: halfNumPoints.Array.data[1]
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3155557358144281563, guid: c8b0a58bbfedced4bb4bd457e4475734, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: c8b0a58bbfedced4bb4bd457e4475734, type: 3}
 --- !u!4 &1581888809 stripped
 Transform:
@@ -5174,25 +5157,7 @@ MonoBehaviour:
   aprroximate: 0.4
   distance: 1.999796
   halfNumPoints: 0300000001000000
---- !u!114 &1581888813
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1581888811}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8f894785ff2c6e4886adc57b118dc57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  positions:
-  - {fileID: 0}
-  - {fileID: 0}
-  aprroximate: 0.6
-  distance: 1.9602
-  halfNumPoints: 0200000003000000
---- !u!114 &1581888817
+--- !u!114 &1581888820
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5207,27 +5172,9 @@ MonoBehaviour:
   positions:
   - {fileID: 588647289}
   - {fileID: 188792597}
-  aprroximate: 0.6
-  distance: 16.7859
-  halfNumPoints: 0300000004000000
---- !u!114 &1581888818
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1581888811}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8f894785ff2c6e4886adc57b118dc57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  positions:
-  - {fileID: 588647289}
-  - {fileID: 188792597}
-  aprroximate: 0.6
-  distance: 16.61321
-  halfNumPoints: 0300000004000000
+  aprroximate: 1
+  distance: 16.7
+  halfNumPoints: 0100000003000000
 --- !u!1 &1587579940
 GameObject:
   m_ObjectHideFlags: 0
@@ -5864,7 +5811,7 @@ GameObject:
   - component: {fileID: 1769893070}
   - component: {fileID: 1769893071}
   m_Layer: 0
-  m_Name: left-up-point
+  m_Name: up-point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -11280,8 +11227,8 @@ MonoBehaviour:
   positions:
   - {fileID: 1769893069}
   - {fileID: 588647289}
-  aprroximate: 0.5
-  distance: 29.35406
+  aprroximate: 1
+  distance: 29
   halfNumPoints: 0200000001000000
 --- !u!1 &1967706943
 GameObject:
@@ -11376,7 +11323,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1968780109}
   - component: {fileID: 1968780111}
-  - component: {fileID: 1968780110}
   m_Layer: 0
   m_Name: row down right
   m_TagString: Untagged
@@ -11399,24 +11345,6 @@ Transform:
   m_Father: {fileID: 1581888809}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1968780110
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1968780108}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c8f894785ff2c6e4886adc57b118dc57, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  positions:
-  - {fileID: 0}
-  - {fileID: 0}
-  aprroximate: 0.6
-  distance: 1.9602
-  halfNumPoints: 0200000003000000
 --- !u!114 &1968780111
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11432,7 +11360,7 @@ MonoBehaviour:
   positions:
   - {fileID: 188792597}
   - {fileID: 1769893069}
-  aprroximate: 0.6
+  aprroximate: 1
   distance: 35.57749
   halfNumPoints: 0300000002000000
 --- !u!4 &2016046740 stripped
