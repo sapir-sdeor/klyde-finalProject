@@ -9,8 +9,10 @@ public class Circle : World
 {
     private GameObject klyde;
     private float _angle;
-    private bool _changeTexture;
+    private bool _changeTexture,_changeTextureStart;
+    private float _startTime;
     [SerializeField] private int halfNum;
+    [SerializeField] private float timeToChangeTexture = 3.35f;
     [SerializeField] private float offset=-60;
     
     void Start()
@@ -18,11 +20,23 @@ public class Circle : World
         print(LevelManager.GetNumOfHalves());
         _angle = 360 /(float) LevelManager.GetNumOfHalves();
         klyde = GameObject.FindGameObjectWithTag("klyde");
-       
+        _startTime = Time.time;
+
     }
     
     void Update()
     {
+        if (LevelManager.GetLevel()==1 && Time.time - _startTime > timeToChangeTexture && !_changeTextureStart)
+        {
+            _changeTextureStart = true;
+            foreach (var child in GetComponentsInChildren<Transform>())
+            {
+                if (!child.gameObject.CompareTag("circle")) continue;
+                child.GetComponent<MeshRenderer>().material.mainTexture = textureWithShape;
+                child.GetComponent<MeshRenderer>().material.SetFloat("_Angle", _angle);
+                child.GetComponent<MeshRenderer>().material.SetInt("_HalfNum", halfNum);
+            }
+        }
         var trans = klyde.transform;
         Vector3 direction = trans.position - Vector3.zero;
         // Calculate the angle between the direction vector and the forward vector

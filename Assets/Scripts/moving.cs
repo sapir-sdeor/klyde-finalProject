@@ -70,7 +70,7 @@ public class moving : MonoBehaviour
            agent.velocity = Vector3.zero;
            agent.transform.position = pos;
         }
-        else
+        else if(!Rotate2D3D.GetIsRotating()&& !isWalkAnimation)
         {
            pos = agent.transform.position;
            agent.enabled = true;

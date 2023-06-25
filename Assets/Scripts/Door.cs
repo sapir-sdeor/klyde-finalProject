@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
 using UnityEngine;
@@ -11,20 +12,22 @@ public class Door : MonoBehaviour
     [SerializeField] private float speed = 10f,getBackDistance=5f;
     [SerializeField] private Vector3 TargetInit = new(0.300000012f, 6.30000019f, -18f);
     [SerializeField] private GameObject flash;
+    [SerializeField] private float _stayTimer = 0.3f;
  
     private float _angle;
     private List<Transform> _childs = new();
     private bool _win, _rotateOnce,_wrong,_getBack, _doorAppear,_touchBallon;
-    public static bool moveToVitraje,_shake,_triggerStay;
-   
+    public static bool moveToVitraje,_shake;
+    private bool _triggerStay = true;
     private Vector3 _target;
     private Vector3 _firstPos;
     private GameObject _klyde;
-    private float _stayTimer = 0f;
-    [SerializeField] private float _requiredStayTime = 0.3f;
+    
+     // private float _requiredStayTime = 0.3f;
 
     private void Start()
     {
+        GetComponent<AudioSource>().Stop();
         _target = TargetInit;
         foreach (var child in GetComponentsInChildren<Transform>())
         {
@@ -53,18 +56,6 @@ public class Door : MonoBehaviour
             }
             _doorAppear = true;
         }
-        //
-        // if (_triggerStay)
-        // {
-        //     _stayTimer += Time.deltaTime;
-        //     if (_stayTimer >= _requiredStayTime)
-        //     {
-        //         // Reset the timer and disable further shaking until OnTriggerStay is called again
-        //         _shake =true;
-        //         _triggerStay = false;
-        //         _stayTimer = 0f;
-        //     }
-        // }
 
         var trans = transform;
         Vector3 direction = trans.position - Vector3.zero;
@@ -119,6 +110,7 @@ public class Door : MonoBehaviour
              _doorAppear = false;
              _target = TargetInit;
         }
+
     }
 
     private void OnTriggerStay(Collider other)
@@ -126,10 +118,27 @@ public class Door : MonoBehaviour
         if (other.gameObject.CompareTag("klyde")&& !moving.GetIsWalk() && 
             (!RecognizeShape.GetRecognizeShape() && LevelManager.GetLevel() !=0))
         {
-            Vibration.Vibrate(500);
-            _triggerStay = true;
-            _shake = true;
+            if (_triggerStay)
+            {
+                _triggerStay = false;
+                StartCoroutine(ShakeCam());
+            }
         } 
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        _triggerStay = true;
+    }
+
+    private IEnumerator ShakeCam()
+    {
+        Vibration.Vibrate(500);
+        _shake = true;
+        if (!GetComponent<AudioSource>().isPlaying)
+            GetComponent<AudioSource>().Play();
+        yield return new WaitForSeconds(_stayTimer);
+        _triggerStay = false;
     }
 
     private bool IsAngleWithinRange(float angle, float start, float end)

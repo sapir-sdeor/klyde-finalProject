@@ -2,6 +2,6 @@
 
 public abstract class World : MonoBehaviour
 {
-    public Texture textureWithoutShape;
+    public Texture textureWithoutShape, textureWithShape;
     public bool isKlydeOn;
 }
