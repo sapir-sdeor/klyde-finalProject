@@ -25,6 +25,16 @@ public class RecognizeShape : MonoBehaviour
     {
         _recognizeShape = false;
         _angle = 360 /(float) LevelManager.GetNumOfHalves();
+        if (LevelManager.GetLevel() == 1)
+        {
+            rightPlane.GetComponent<Animator>().SetBool("Level1",true); 
+            leftPlane.GetComponent<Animator>().SetBool("Level1",true);
+        }
+        else
+        {
+            rightPlane.GetComponent<Animator>().SetBool("Level1",false); 
+            leftPlane.GetComponent<Animator>().SetBool("Level1",false);
+        }
     }
 
     // Update is called once per frame
