@@ -1,66 +1,161 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 
-// by @kurtdekker
-
-public class RotateZViaDragBar : MonoBehaviour
+public class RotateZViaDrag : MonoBehaviour
 {
-    public bool RotateAroundAxis;
+    [SerializeField]
+    private float speed = 50f;
 
-    Vector3 lastPosition;
+    [SerializeField]
+    [Range(0, 360)]
+    private int clickAngle = 5;
 
-    void OnMouseDown()
+    [SerializeField]
+    private float stayAtClickTime = 0f;
+
+    [Space]
+    [SerializeField]
+    private bool createObj = true;
+
+    [SerializeField]
+    private GameObject obj;
+
+    private GameObject _lastObj;
+    private Plane _plane;
+    private bool _isMouseUp;
+    private bool _finishedAdjust;
+    private Vector3 _lastPosition;
+    private Vector3 _lastTarget;
+    private float _waitTimer;
+
+    private Vector3 OrigDir { get; set; }
+
+    private Transform MyTransform { get; set; }
+
+    private void Awake()
     {
-        lastPosition = Input.mousePosition;
+        MyTransform = transform;
+        _plane = new Plane(MyTransform.up, MyTransform.position);
+        _isMouseUp = true;
+        _finishedAdjust = true;
     }
 
-    void PerformLinearRotation()
+    private void OnMouseDown()
     {
-        Vector3 currPosition = Input.mousePosition;
+        _lastPosition = GetPointOnPlane(Input.mousePosition);
+        _lastTarget = GetClosestClick(_lastPosition - MyTransform.position);
+        OrigDir = _lastTarget;
+        if (createObj)
+        {
+            obj.SetActive(true);
+            obj.transform.position = _lastPosition;
+        }
 
-        Vector3 difference = currPosition - lastPosition;
-
-        lastPosition = currPosition;
-
-        // now choose what axis to care about... this adds X and Y
-        float change = difference.x + difference.y;
-
-        // and it rotates it around the Z (forward)
-        transform.Rotate(new Vector3(0, 0, change));
+        _isMouseUp = false;
+        _finishedAdjust = true;
     }
 
-    void PerformCircularRotation()
+    private void OnMouseUp()
     {
-		// where is our center on screen?
-        Vector3 center = Camera.main.WorldToScreenPoint(transform.position);
+        if (createObj)
+        {
+            obj.SetActive(false);
+        }
 
-		// angle to previous finger
-        float anglePrevious = Mathf.Atan2(center.x - lastPosition.x, lastPosition.y - center.y);
-
-        Vector3 currPosition = Input.mousePosition;
-
-		// angle to current finger
-        float angleNow = Mathf.Atan2(center.x - currPosition.x, currPosition.y - center.y);
-
-        lastPosition = currPosition;
-
-		// how different are those angles?
-        float angleDelta = angleNow - anglePrevious;
-
-		// rotate by that much
-        transform.Rotate(new Vector3(0, 0, angleDelta * Mathf.Rad2Deg));
+        _isMouseUp = true;
+        _finishedAdjust = false;
     }
 
-    void OnMouseDrag()
+    private void Update()
     {
-        if (RotateAroundAxis)
+        if (_waitTimer < stayAtClickTime)
+        {
+            _waitTimer += Time.deltaTime;
+            if (_waitTimer < stayAtClickTime)
+            {
+                return;
+            }
+        }   
+        
+        if (!_isMouseUp || !_finishedAdjust)
         {
             PerformCircularRotation();
         }
-		else
+    }
+
+    private void FixedUpdate()
+    {
+        var forward = MyTransform.right;
+        var center = MyTransform.position;
+        
+        for (int i = 0; i < 360; i += clickAngle)
         {
-            PerformLinearRotation();
+            var angleAxis = Quaternion.AngleAxis(i, MyTransform.up);
+            // Debug.DrawRay(center, angleAxis * forward, color, Time.deltaTime);
+            var dir = angleAxis * Vector3.right;
+            Debug.DrawRay(center, dir , Color.gray, Time.deltaTime);
+        }
+
+        Debug.DrawRay(center, forward, new Color(0.32f, 0.33f, 0.5f), Time.deltaTime);
+        Debug.DrawRay(center, Vector3.right, Color.black, Time.deltaTime);
+        Debug.DrawRay(center, OrigDir, Color.red, Time.deltaTime);
+        Debug.DrawRay(center, _lastTarget, Color.green, Time.deltaTime);
+    }
+    
+
+    private void PerformCircularRotation()
+    {
+        var adjustedSpeed = Time.deltaTime * speed;
+
+        var center = MyTransform.position;
+        var up = MyTransform.up;
+        var rotation = MyTransform.rotation;
+
+        // _lastPosition = GetPointOnPlane(Input.mousePosition);
+        var curTargetDir = _lastTarget;
+
+        var angleDelta = Vector3.SignedAngle(OrigDir, curTargetDir, up) % 360f;
+        angleDelta = Mathf.Clamp(angleDelta, -adjustedSpeed, adjustedSpeed);
+        
+        Debug.DrawLine(center, _lastPosition, Color.yellow);
+        
+        // rotate by that much
+        var rot = Quaternion.AngleAxis(angleDelta, up);
+        MyTransform.rotation = rotation * rot;
+        if (Mathf.Abs(angleDelta) < 0.1f)
+        {
+            _finishedAdjust = true;
+            OrigDir = _lastTarget;
+            _lastPosition = GetPointOnPlane(Input.mousePosition);
+            _lastTarget = GetClosestClick(_lastPosition - center);
+            angleDelta = Vector3.SignedAngle(OrigDir, _lastTarget, up) % 360f;
+            angleDelta = Mathf.Clamp(angleDelta, -clickAngle, clickAngle);
+            OrigDir = Quaternion.AngleAxis(-angleDelta, up) * _lastTarget;
+            _waitTimer = 0f;
+        }
+        else
+        {
+            _finishedAdjust = false;
+            OrigDir = rot * OrigDir;
         }
     }
+    
+
+    private Vector3 GetPointOnPlane(Vector3 mousePos)
+    {
+        var ray = Camera.main!.ScreenPointToRay(mousePos);
+        return _plane.Raycast(ray, out var dist) ? ray.GetPoint(dist) : Vector3.zero;
+    }
+
+    private Vector3 GetClosestClick(Vector3 curDir)
+    {
+        var globalRight = Vector3.right;
+        var up = MyTransform.up;
+
+        var curAngle = Vector3.SignedAngle(curDir, globalRight, up) % 360f;
+        var closestFiveAngle = (int) (clickAngle * Mathf.Floor(curAngle / clickAngle)) % 360;
+        var closestFiveDeg = Quaternion.AngleAxis(-closestFiveAngle, up) * globalRight;
+        return closestFiveDeg;
+    }
+
 }
