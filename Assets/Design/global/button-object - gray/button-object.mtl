@@ -1,0 +1,18 @@
+# Apple ModelI/O MTL File: button-object.mtl
+
+newmtl Material.002
+	map_Kd Material.002-color.png
+	Kd 1 1 1
+	Ka 0 0 0
+	Ks 0
+	ao 0
+	subsurface 0
+	map_metallic Material.002-metallic.png
+	specularTint 0
+	map_roughness Material.002-roughness.png
+	anisotropicRotation 0
+	sheen 0.05
+	sheenTint 0
+	clearCoat 0
+	clearCoatGloss 0
+
