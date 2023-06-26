@@ -11,16 +11,17 @@ TagManager:
   - world2
   - circle
   - fade
+  - front-elements
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - front-elements
   - Water
   - UI
-  - glow
-  - no glow
-  - ui-pause
+  - 
+  - 
+  - 
   - 
   - 
   - 
@@ -48,6 +49,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: UI
-    uniqueID: 660661355
+  - name: front-elements
+    uniqueID: 285590377
     locked: 0
