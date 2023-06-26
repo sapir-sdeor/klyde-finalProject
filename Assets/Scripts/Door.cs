@@ -91,6 +91,7 @@ public class Door : MonoBehaviour
             child.GetComponent<MeshRenderer>().enabled = enabled;
         }
         GetComponent<Collider>().enabled = enabled;
+        GetComponent<CapsuleCollider>().enabled = enabled;
     }
     //todo: understand how collider work with ballon
 
