@@ -59,7 +59,7 @@ public class moving : MonoBehaviour
            // else isWalk = false;
         }
         // isWalk = agent.velocity.magnitude > 0.01f;
-        if (agent.isOnNavMesh && !Rotate2D3D.GetIsRotating()) 
+        if (agent.isOnNavMesh && !Rotate2D3D.GetIsRotating()&& !Door.GetWin()) 
             isWalkAnimation = agent.remainingDistance > bufferDistance;
    
 
@@ -70,7 +70,7 @@ public class moving : MonoBehaviour
            agent.velocity = Vector3.zero;
            agent.transform.position = pos;
         }
-        else if(!Rotate2D3D.GetIsRotating()&& !isWalkAnimation)
+        else if(!Rotate2D3D.GetIsRotating()&& !isWalkAnimation )
         {
            pos = agent.transform.position;
            agent.enabled = true;
@@ -91,6 +91,12 @@ public class moving : MonoBehaviour
     public static void SetWalkAnimationFalse()
     {
         isWalkAnimation = false;
+    }
+    
+    public static void SetWalkAnimationTrue()
+    {
+        isWalkAnimation = true;
+        
     }
     
     

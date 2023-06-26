@@ -2,8 +2,10 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
+using TMPro;
 using UnityEngine;
 using UnityEngine.AI;
+using UnityEngine.UI;
 
 public class Door : MonoBehaviour
 {
@@ -12,16 +14,20 @@ public class Door : MonoBehaviour
     [SerializeField] private float speed = 10f,getBackDistance=5f;
     [SerializeField] private Vector3 TargetInit = new(0.300000012f, 6.30000019f, -18f);
     [SerializeField] private GameObject flash;
-    [SerializeField] private float _stayTimer = 0.3f;
+    private float _stayTimer = 0.3f;
+    [SerializeField] private Image[] lightPathImages;
+    [SerializeField] private float duration = 5f ;
+    [SerializeField] private int newRenderQueue;
  
     private float _angle;
     private List<Transform> _childs = new();
-    private bool _win, _rotateOnce,_wrong,_getBack, _doorAppear,_touchBallon;
-    public static bool moveToVitraje,_shake;
+    private bool _rotateOnce,_wrong,_getBack, _doorAppear,_touchBallon;
+    public static bool moveToVitraje,_shake,_win;
     private bool _triggerStay = true;
     private Vector3 _target;
     private Vector3 _firstPos;
     private GameObject _klyde;
+   
     
      // private float _requiredStayTime = 0.3f;
 
@@ -45,7 +51,9 @@ public class Door : MonoBehaviour
         if (_win)
         {
             moveToVitraje = true;
-            MoveToVitrajWinCase();
+            CalculateLightPathPos();
+            // MoveToVitrajWinCase();
+            
         }
         else moveToVitraje = false;
         if ((RecognizeShape.GetRecognizeShape() && !_doorAppear) || LevelManager.GetLevel() == 0)
@@ -56,12 +64,8 @@ public class Door : MonoBehaviour
             }
             _doorAppear = true;
         }
-
-        var trans = transform;
-        Vector3 direction = trans.position - Vector3.zero;
-        // Calculate the angle between the direction vector and the forward vector
-        float currAngle = Vector3.SignedAngle(Vector3.forward, direction, Vector3.up);
-        if (currAngle < 0) currAngle += 360f;
+        // CalculateLightPathPos();
+        float currAngle = CalculateDoorPos();
 
         // Calculate the adjusted angle range based on the number of halves
         float startAngle = offset + _angle * (halfNum - 1);
@@ -106,7 +110,7 @@ public class Door : MonoBehaviour
              _win = true;
              _klyde.transform.eulerAngles =
                  new Vector3(_klyde.transform.eulerAngles.x, 180, _klyde.transform.eulerAngles.z);
-             moving.SetWalkAnimationFalse();
+             // moving.SetWalkAnimationFalse();
              other.GetComponent<NavMeshAgent>().enabled = false;
             // other.transform.parent = transform;
              _doorAppear = false;
@@ -179,24 +183,23 @@ public class Door : MonoBehaviour
 
     private void MoveToVitrajWinCase()
     {
-        print("win");
+        // print("win");
         _klyde.GetComponent<NavMeshAgent>().enabled = false;
-        _klyde.GetComponent<moving>().enabled = false;
-        _klyde.transform.position = Vector3.MoveTowards(_klyde.transform.position, _target,
-            Time.deltaTime * speed);
         if (!_rotateOnce)
         {
-            _klyde.transform.Rotate(45, 0, 0);
+            print("vector up");
+            _klyde.transform.position += Vector3.up *100;
+            // _klyde.transform.Rotate(45, 0, 0);
             _rotateOnce = true;
         }
+        // _klyde.GetComponent<moving>().enabled = false;
+        moving.SetWalkAnimationTrue();
+        _klyde.transform.position = Vector3.MoveTowards(_klyde.transform.position, _target,
+            Time.deltaTime * speed);
         
         if (Vector3.Distance(_klyde.transform.position, _target) < 0.01f)
         {
             flash.gameObject.SetActive(true);
-            // var rendererComponent = flash.gameObject.GetComponent<Renderer>();
-        
-            // Change the render queue
-            // rendererComponent.material.renderQueue = newRenderQueue;
             LevelManager.NextLevel();
             _win = false;
             _klyde.SetActive(false);
@@ -212,36 +215,71 @@ public class Door : MonoBehaviour
         _shake = false;
     }
 
-
- 
-
-    private void MoveToVitrajWrongCase()
+    public static bool GetWin()
     {
-        print("enterWrong");
-        _klyde.GetComponent<NavMeshAgent>().enabled = false;
-        _klyde.GetComponent<moving>().enabled = false;
-        _klyde.transform.position = Vector3.MoveTowards(_klyde.transform.position, _target,
-            Time.deltaTime * speed*1.5f);
-        if (!_rotateOnce)
+        return _win;
+    }
+
+    private void CalculateLightPathPos()
+    {
+        var currAngle = CalculateDoorPos();
+        switch (LevelManager.GetLevel())
+        {          
+            case 0:
+            case 1:
+            case 2:
+                var range =60 / 4;
+                var index = 0;
+                if (currAngle > 0 && currAngle < range)
+                    index = 0;
+                else if (currAngle > range && currAngle < (range * 2))
+                    index = 1;
+                else if (currAngle > (range * 2) && currAngle < (range * 3))
+                    index = 2;
+                else
+                    index = 3;
+                ShowImage(lightPathImages[index]);
+                break;
+                
+        }                
+    }
+
+    private void ShowImage(Image image)
+    {
+        image.enabled = true;
+        StartCoroutine(FadeImageAlpha(image, 0f, 1f)); 
+    }
+    private IEnumerator FadeImageAlpha(Image image, float startAlpha, float endAlpha)
+    {
+        Color startColor = image.color;
+        Color endColor = new Color(startColor.r, startColor.g, startColor.b, endAlpha);
+
+        float startTime = Time.time;
+        float endTime = startTime + duration;
+
+        while (Time.time < endTime)
         {
-            _klyde.transform.Rotate(45, 0, 0);
-            _rotateOnce = true;
+            float normalizedTime = (Time.time - startTime) / duration;
+            float currentAlpha = Mathf.Lerp(startAlpha, endAlpha, normalizedTime);
+            image.color = new Color(image.color.r, image.color.g, image.color.b, currentAlpha);
+
+            yield return null;
         }
-        if (Vector3.Distance(_klyde.transform.position, _target) < getBackDistance && !_getBack)
-        {
-            _getBack = true;
-            _target = _firstPos;
-            _rotateOnce = false;
-        }
-        else if (Vector3.Distance(_klyde.transform.position, _target) < 0.01f)
-        {
-            _wrong = false;
-            _klyde.transform.eulerAngles =
-                new Vector3(_klyde.transform.eulerAngles.x, 0, _klyde.transform.eulerAngles.z);
-            _klyde.GetComponent<NavMeshAgent>().enabled = true;
-            _klyde.GetComponent<moving>().enabled = true;
-            _touchBallon = true;
-            _rotateOnce = false;
-        }
+
+        image.color = endColor;
+        MoveToVitrajWinCase();
+    }
+    
+    
+
+    private float CalculateDoorPos()
+    {
+        var trans = transform;
+        Vector3 direction = trans.position - Vector3.zero;
+        // Calculate the angle between the direction vector and the forward vector
+        float currAngle = Vector3.SignedAngle(Vector3.forward, direction, Vector3.up);
+        if (currAngle < 0) currAngle += 360f;
+        print(currAngle+ "currAngle");
+        return currAngle;
     }
 }
