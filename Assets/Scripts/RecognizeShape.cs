@@ -48,6 +48,7 @@ public class RecognizeShape : MonoBehaviour
         //     background.GetComponent<MeshRenderer>().material.mainTexture = backgroundAfterShape;
         if (_timeToDisappear > timeToDisappearLimit)
         {
+            // print("recognize shape");
             rightPlane.GetComponent<Animator>().SetBool("recognizeShape",true); 
             leftPlane.GetComponent<Animator>().SetBool("recognizeShape",true);
             objectToShown.gameObject.SetActive(false);
@@ -86,7 +87,7 @@ public class RecognizeShape : MonoBehaviour
     {
         for(int i=0; i < 2 ;i++)
         {
-            print("is angle within range");
+            // print("is angle within range");
             Transform trans =row.positions[i].transform;
             Vector3 direction = trans.position - Vector3.zero;
             // Calculate the angle between the direction vector and the forward vector
@@ -106,7 +107,7 @@ public class RecognizeShape : MonoBehaviour
             // Check if the current angle is within the adjusted range
             if ( !IsAngleWithinRange(currAngle, startAngle, endAngle))
             {
-                print("false world");
+                // print("false world");
                 flag = false;
                 return false;
             }
@@ -145,27 +146,6 @@ public class RecognizeShape : MonoBehaviour
         }
         return angle;
     }
-    
-    // if (LevelManager.GetLevel() == 4 )
-    // {
-    //     foreach (var pos in row.positions)
-    //     {
-    //         print("is point seen: " + pos.GetComponent<ReflectPoint>().IsPointSeen());
-    //         if (!pos.GetComponent<ReflectPoint>().IsPointSeen())
-    //         {
-    //             print(" _recognizeShape failed " + row.name);
-    //             flag = false; 
-    //         }
-    //     }
-    //
-    //     if (row.distance - row.aprroximate >= dist || dist >= row.distance + row.aprroximate ||
-    //         Rotate2D3D.GetIsRotating())
-    //     {
-    //         print("failed here");
-    //         flag = false;
-    //     }
-    //         
-    // }
     
     
 }

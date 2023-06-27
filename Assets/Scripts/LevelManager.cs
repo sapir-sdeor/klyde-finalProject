@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
-    private static int _level = 1;
+    private static int _level = 0;
     private static int _numOfHalves = 2;
     private static LevelManager _instance;
     private static GameObject panelPade;
@@ -37,7 +37,7 @@ public class LevelManager : MonoBehaviour
 
     static IEnumerator WaitForLoadNextLevel()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(1.5f);
         SceneManager.LoadScene("Level" + _level);
     }
     

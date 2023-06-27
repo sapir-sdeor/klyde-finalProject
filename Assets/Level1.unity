@@ -2203,7 +2203,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66a5361494e186740a8dfa5c7a049b39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToDisapper: 5
+  timeToDisapper: 4.6
 --- !u!1 &525876814
 GameObject:
   m_ObjectHideFlags: 0
@@ -2769,7 +2769,7 @@ MonoBehaviour:
   textureWithShape: {fileID: 2800000, guid: 3134fb397820a456ea9a55cf5c5e620d, type: 3}
   isKlydeOn: 1
   halfNum: 2
-  timeToChangeTexture: 4.7
+  timeToChangeTexture: 4.6
   offset: 0
 --- !u!1 &685008956
 GameObject:
@@ -3791,7 +3791,7 @@ MonoBehaviour:
   textureWithShape: {fileID: 2800000, guid: 0790efb9ce83c4c6dbc75b440f309a5f, type: 3}
   isKlydeOn: 0
   halfNum: 1
-  timeToChangeTexture: 4.7
+  timeToChangeTexture: 4.6
   offset: 0
 --- !u!23 &904975033
 MeshRenderer:
@@ -11517,7 +11517,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   halfNum: 1
-  offset: 10
+  offset: 5
   speed: 14
   getBackDistance: 20
   TargetInit: {x: -7.61, y: 14.53, z: -2}
@@ -13104,7 +13104,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1975833785
 RectTransform:
   m_ObjectHideFlags: 0

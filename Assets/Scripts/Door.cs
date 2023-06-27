@@ -16,12 +16,12 @@ public class Door : MonoBehaviour
     [SerializeField] private GameObject flash;
     private float _stayTimer = 0.3f;
     [SerializeField] private Image[] lightPathImages;
-    [SerializeField] private float duration = 5f ;
+    [SerializeField] private float duration = 3f ;
     [SerializeField] private int newRenderQueue;
  
     private float _angle;
     private List<Transform> _childs = new();
-    private bool _rotateOnce,_wrong,_getBack, _doorAppear,_touchBallon;
+    private bool _loadNextLevel,_wrong,_getBack, _doorAppear,_touchBallon;
     public static bool moveToVitraje,_shake,_win;
     private bool _triggerStay = true;
     private Vector3 _target;
@@ -53,7 +53,6 @@ public class Door : MonoBehaviour
             moveToVitraje = true;
             CalculateLightPathPos();
             // MoveToVitrajWinCase();
-            
         }
         else moveToVitraje = false;
         if ((RecognizeShape.GetRecognizeShape() && !_doorAppear) || LevelManager.GetLevel() == 0)
@@ -89,7 +88,7 @@ public class Door : MonoBehaviour
 
     private void EnabledDoorChild(bool enabled)
     {
-        print("enabled door child"+enabled);
+        // print("enabled door child"+enabled);
         foreach (var child in GetComponentsInChildren<MeshRenderer>())
         {
             child.GetComponent<MeshRenderer>().enabled = enabled;
@@ -101,16 +100,16 @@ public class Door : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        print("_doorAppear "+_doorAppear);
+        // print("_doorAppear "+_doorAppear);
         if(other.gameObject.CompareTag("klyde") && _doorAppear)
         {
-             print("klyde win");
+             // print("klyde win");
            //  GetComponent<PlayableDirector>().Play();
              _klyde = other.gameObject;
              _win = true;
              _klyde.transform.eulerAngles =
                  new Vector3(_klyde.transform.eulerAngles.x, 180, _klyde.transform.eulerAngles.z);
-             // moving.SetWalkAnimationFalse();
+             moving.SetWalkAnimationFalse();
              other.GetComponent<NavMeshAgent>().enabled = false;
             // other.transform.parent = transform;
              _doorAppear = false;
@@ -185,20 +184,13 @@ public class Door : MonoBehaviour
     {
         // print("win");
         _klyde.GetComponent<NavMeshAgent>().enabled = false;
-        if (!_rotateOnce)
-        {
-            print("vector up");
-            _klyde.transform.position += Vector3.up *100;
-            // _klyde.transform.Rotate(45, 0, 0);
-            _rotateOnce = true;
-        }
-        // _klyde.GetComponent<moving>().enabled = false;
         moving.SetWalkAnimationTrue();
         _klyde.transform.position = Vector3.MoveTowards(_klyde.transform.position, _target,
             Time.deltaTime * speed);
         
-        if (Vector3.Distance(_klyde.transform.position, _target) < 0.01f)
+        if (Vector3.Distance(_klyde.transform.position, _target) < 0.01f && !_loadNextLevel)
         {
+            _loadNextLevel = true;
             flash.gameObject.SetActive(true);
             LevelManager.NextLevel();
             _win = false;
@@ -223,25 +215,30 @@ public class Door : MonoBehaviour
     private void CalculateLightPathPos()
     {
         var currAngle = CalculateDoorPos();
+        var index = 0;
+        var range = 0;
         switch (LevelManager.GetLevel())
         {          
             case 0:
-            case 1:
-            case 2:
-                var range =60 / 4;
-                var index = 0;
+                range =45 / 2;
                 if (currAngle > 0 && currAngle < range)
                     index = 0;
                 else if (currAngle > range && currAngle < (range * 2))
                     index = 1;
-                else if (currAngle > (range * 2) && currAngle < (range * 3))
+                break;
+            case 1:
+            case 2:
+                range =55 / 3;
+                if (currAngle > 0 && currAngle < range+5)
+                    index = 0;
+                else if (currAngle > range + 5 && currAngle < (range * 2))
+                    index = 1;
+                else 
                     index = 2;
-                else
-                    index = 3;
-                ShowImage(lightPathImages[index]);
                 break;
                 
-        }                
+        }
+        ShowImage(lightPathImages[index]);
     }
 
     private void ShowImage(Image image)

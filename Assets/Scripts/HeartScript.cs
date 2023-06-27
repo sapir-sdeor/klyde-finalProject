@@ -16,7 +16,7 @@ public class HeartScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        print("timeToDisappear" + (Time.time - startTime));
+        // print("timeToDisappear" + (Time.time - startTime));
         if(Time.time - startTime > timeToDisapper) gameObject.SetActive(false);
     }
 }

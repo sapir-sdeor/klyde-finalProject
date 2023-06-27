@@ -180,22 +180,40 @@ public class Rotate2D3D : MonoBehaviour
               Debug.DrawLine(center, currPosition, Color.green);
               Debug.DrawRay(center, OrigDir, Color.red);
               worldTransform.Rotate(0,angleDelta,0,Space.World);  
-              if (Mathf.Abs(angleDelta) < 0.1f)
+              var absDelta = Mathf.Abs(angleDelta);
+              if (absDelta < adjustedSpeed)
               {
                   _finishedAdjust = true;
                   OrigDir = _lastTarget;
                   _lastPosition = GetPointOnPlane(Input.mousePosition);
                   _lastTarget = GetClosestClick(_lastPosition - center);
-                  angleDelta = Vector3.SignedAngle(OrigDir, _lastTarget, up) % 360f;
-                  angleDelta = Mathf.Clamp(angleDelta, -clickAngle, clickAngle);
-                  OrigDir = Quaternion.AngleAxis(-angleDelta, up) * _lastTarget;
+                  var origDirAngleDelta = Vector3.SignedAngle(OrigDir, _lastTarget, up) % 360f;
+                  origDirAngleDelta = Mathf.Clamp(origDirAngleDelta, -clickAngle, clickAngle);
+                  OrigDir = Quaternion.AngleAxis(-origDirAngleDelta, up) * _lastTarget;
                   _waitTimer = 0f;
+
+                  if (!(absDelta > 0) || _isMouseUp)
+                  {
+                      var fixedRot = world.rotation.eulerAngles;
+                      fixedRot = new Vector3(fixedRot.x, Mathf.RoundToInt(fixedRot.z), fixedRot.y);
+                      world.localRotation = Quaternion.Euler(fixedRot);
+                      return;
+                  }
+
+                  adjustedSpeed -= absDelta;
+                  curTargetDir = _lastTarget;
+                  angleDelta = Vector3.SignedAngle(OrigDir, curTargetDir, up) % 360f;
+                  angleDelta = Mathf.Clamp(angleDelta, -adjustedSpeed, adjustedSpeed);
+                  worldTransform.Rotate(0,angleDelta,0,Space.World); 
+                  rot = Quaternion.AngleAxis(angleDelta, up);
+                  // world.rotation *= rot;
+                  OrigDir = rot * OrigDir;
+
               }
               else
               {
                   _finishedAdjust = false;
-                  // OrigDir = rot * OrigDir;
-                  OrigDir = currPosition;
+                  OrigDir = rot * OrigDir;
               }
               
             }
@@ -210,7 +228,7 @@ public class Rotate2D3D : MonoBehaviour
         var up = Vector3.up;
 
         var curAngle = Vector3.SignedAngle(curDir, globalRight, up) % 360f;
-        var closestFiveAngle = (int) (clickAngle * Mathf.Floor(curAngle / clickAngle)) % 360;
+        var closestFiveAngle = Mathf.RoundToInt(curAngle / clickAngle) * clickAngle % 360;
         var closestFiveDeg = Quaternion.AngleAxis(-closestFiveAngle, up) * globalRight;
         return closestFiveDeg;
     }

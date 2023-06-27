@@ -36,7 +36,7 @@ public class moving : MonoBehaviour
            Debug.DrawRay(ray.origin, ray.direction * 300, Color.red);
            if (Physics.Raycast(ray, out RaycastHit raycastHit))
            {
-               print("is walking");
+               // print("is walking");
                isWalk = true;
                if (agent.isOnNavMesh && !Rotate2D3D.GetIsRotating()) // Check if agent is on NavMesh
                {

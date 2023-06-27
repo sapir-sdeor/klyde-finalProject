@@ -17,7 +17,7 @@ public class Circle : World
     
     void Start()
     {
-        print(LevelManager.GetNumOfHalves());
+        // print(LevelManager.GetNumOfHalves());
         _angle = 360 /(float) LevelManager.GetNumOfHalves();
         klyde = GameObject.FindGameObjectWithTag("klyde");
         _startTime = Time.time;
