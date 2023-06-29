@@ -32,6 +32,7 @@ public class moving : MonoBehaviour
         if (UIButtons.isPause) return;
         if (Input.GetMouseButtonDown(0)) 
         { 
+            agent.SetDestination(transform.position);
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
            Debug.DrawRay(ray.origin, ray.direction * 300, Color.red);
            if (Physics.Raycast(ray, out RaycastHit raycastHit))
@@ -65,14 +66,15 @@ public class moving : MonoBehaviour
 
         if (Rotate2D3D.GetIsRotating())
         { 
-           isWalkAnimation = false;
+            agent.SetDestination(transform.position);
+            isWalkAnimation = false;
            agent.enabled = false;
            agent.velocity = Vector3.zero;
-           agent.transform.position = pos;
+           // agent.transform.position = pos;
         }
         else if(!Rotate2D3D.GetIsRotating()&& !isWalkAnimation )
         {
-           pos = agent.transform.position;
+           // pos = agent.transform.position;
            agent.enabled = true;
         }
 
