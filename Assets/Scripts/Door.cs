@@ -15,7 +15,7 @@ public class Door : MonoBehaviour
     [SerializeField] private Vector3 TargetInit = new(0.300000012f, 6.30000019f, -18f);
     [SerializeField] private GameObject flash;
     private float _stayTimer = 0.3f;
-    [SerializeField] private Image[] lightPathImages;
+    [SerializeField] private GameObject[] lightPathImages;
     [SerializeField] private float duration = 3f ;
     [SerializeField] private int newRenderQueue;
  
@@ -241,29 +241,34 @@ public class Door : MonoBehaviour
         ShowImage(lightPathImages[index]);
     }
 
-    private void ShowImage(Image image)
+    private void ShowImage(GameObject image)
     {
-        image.enabled = true;
-        StartCoroutine(FadeImageAlpha(image, 0f, 1f)); 
+        _klyde.GetComponentInChildren<SkinnedMeshRenderer>().material.renderQueue = 3000;
+        // mat. = 4000;
+        image.GetComponent<MeshRenderer>().enabled = true;
+        StartCoroutine(FadeImageAlpha(image.GetComponent<MeshRenderer>().material, 0f, 1f)); 
     }
-    private IEnumerator FadeImageAlpha(Image image, float startAlpha, float endAlpha)
+    private IEnumerator FadeImageAlpha(Material mat, float startAlpha, float endAlpha)
     {
-        Color startColor = image.color;
-        Color endColor = new Color(startColor.r, startColor.g, startColor.b, endAlpha);
+        // Color startColor = mat.color;
+        // Color endColor = new Color(startColor.r, startColor.g, startColor.b, endAlpha);
 
         float startTime = Time.time;
         float endTime = startTime + duration;
+        // var tAlpha = mat.GetFloat("_Alpha");
 
         while (Time.time < endTime)
         {
             float normalizedTime = (Time.time - startTime) / duration;
             float currentAlpha = Mathf.Lerp(startAlpha, endAlpha, normalizedTime);
-            image.color = new Color(image.color.r, image.color.g, image.color.b, currentAlpha);
+            // mat.color = new Color(mat.color.r, mat.color.g, mat.color.b, currentAlpha);
+            mat.SetFloat("_Alpha", currentAlpha);
 
             yield return null;
         }
 
-        image.color = endColor;
+        // mat.color = endColor;
+        mat.SetFloat("_Alpha", endAlpha);
         MoveToVitrajWinCase();
     }
     
