@@ -48,7 +48,7 @@ public class RecognizeShape : MonoBehaviour
         //     background.GetComponent<MeshRenderer>().material.mainTexture = backgroundAfterShape;
         if (_timeToDisappear > timeToDisappearLimit)
         {
-            // print("recognize shape");
+            print("recognize shape, animation should work");
             rightPlane.GetComponent<Animator>().SetBool("recognizeShape",true); 
             leftPlane.GetComponent<Animator>().SetBool("recognizeShape",true);
             objectToShown.gameObject.SetActive(false);

@@ -3931,6 +3931,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1528282119278234058, guid: 0875165370be81945a43952599504501, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2747863693932920863, guid: 0875165370be81945a43952599504501, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -4015,6 +4019,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: =======Design===
       objectReference: {fileID: 0}
+    - target: {fileID: 2747863694572470331, guid: 0875165370be81945a43952599504501, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2747863695624981497, guid: 0875165370be81945a43952599504501, type: 3}
       propertyPath: m_Camera
       value: 
@@ -4022,7 +4030,7 @@ PrefabInstance:
     - target: {fileID: 3389405071001273781, guid: 0875165370be81945a43952599504501, type: 3}
       propertyPath: m_Camera
       value: 
-      objectReference: {fileID: 716822390}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0875165370be81945a43952599504501, type: 3}
 --- !u!1001 &4126185327746132943
