@@ -5655,7 +5655,7 @@ MonoBehaviour:
   positions:
   - {fileID: 534535227}
   - {fileID: 1034785063}
-  aprroximate: 0.5
+  aprroximate: 0.7
   distance: 8.6
   halfNumPoints: 0200000001000000
 --- !u!4 &224393010
@@ -23673,7 +23673,7 @@ MonoBehaviour:
   positions:
   - {fileID: 394288878}
   - {fileID: 1455274807}
-  aprroximate: 0.6
+  aprroximate: 0.7
   distance: 3.6
   halfNumPoints: 0200000001000000
 --- !u!224 &414576427618154037
