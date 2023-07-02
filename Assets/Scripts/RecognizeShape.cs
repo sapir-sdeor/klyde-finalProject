@@ -43,7 +43,12 @@ public class RecognizeShape : MonoBehaviour
         flag = true;
         int i = 0;
         if (_recognizeShape)
+        {
             _timeToDisappear += Time.deltaTime;
+            // rightPlane.GetComponent<Animator>().SetBool("recognizeShape",true); 
+            // leftPlane.GetComponent<Animator>().SetBool("recognizeShape",true);
+        }
+            
         // if (_timeToDisappear > 3)
         //     background.GetComponent<MeshRenderer>().material.mainTexture = backgroundAfterShape;
         if (_timeToDisappear > timeToDisappearLimit)
