@@ -250,25 +250,18 @@ public class Door : MonoBehaviour
     }
     private IEnumerator FadeImageAlpha(Material mat, float startAlpha, float endAlpha)
     {
-        // Color startColor = mat.color;
-        // Color endColor = new Color(startColor.r, startColor.g, startColor.b, endAlpha);
-
         float startTime = Time.time;
         float endTime = startTime + duration;
-        // var tAlpha = mat.GetFloat("_Alpha");
 
         while (Time.time < endTime)
         {
             float normalizedTime = (Time.time - startTime) / duration;
             float currentAlpha = Mathf.Lerp(startAlpha, endAlpha, normalizedTime);
-            // mat.color = new Color(mat.color.r, mat.color.g, mat.color.b, currentAlpha);
-            mat.SetFloat("_Alpha", currentAlpha);
-
+            mat.SetFloat("_Alpha", currentAlpha); // Updated property name
             yield return null;
         }
 
-        // mat.color = endColor;
-        mat.SetFloat("_Alpha", endAlpha);
+        mat.SetFloat("_Alpha", endAlpha); // Updated property name
         MoveToVitrajWinCase();
     }
     
