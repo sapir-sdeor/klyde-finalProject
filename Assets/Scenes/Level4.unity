@@ -1388,6 +1388,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 34f5edb4776104ef694c014ca6e3381e, type: 3}
+    - target: {fileID: 2747863694167027365, guid: 0875165370be81945a43952599504501, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 12.673562
+      objectReference: {fileID: 0}
+    - target: {fileID: 2747863694167027365, guid: 0875165370be81945a43952599504501, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.6668091
+      objectReference: {fileID: 0}
     - target: {fileID: 2747863694181138225, guid: 0875165370be81945a43952599504501, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
@@ -7694,6 +7702,7 @@ MonoBehaviour:
   speed: 10
   getBackDistance: 20
   TargetInit: {x: -8.02, y: 5, z: -26.3}
+  TargetInit1: {x: 0.3, y: 6.3, z: -18}
   flash: {fileID: 1632227927}
   lightPathImages:
   - {fileID: 308597346}
