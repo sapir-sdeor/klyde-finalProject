@@ -186,7 +186,7 @@ public class Door : MonoBehaviour
         // _klyde.GetComponent<NavMeshAgent>().enabled = false;
         moving.SetWalkAnimationTrue();
         _klyde.transform.position = Vector3.MoveTowards(_klyde.transform.position, _target,
-             Time.time*speed);
+             Time.deltaTime*speed);
         print(_target+" target");
         
         if (Vector3.Distance(_klyde.transform.position, _target) < 0.7f && !_loadNextLevel)
