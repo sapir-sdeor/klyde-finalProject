@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
+  m_IndirectSpecularColor: {r: 0.1273174, g: 0.13414761, b: 0.12107885, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5657,7 +5657,7 @@ MonoBehaviour:
   - {fileID: 1034785063}
   aprroximate: 0.7
   distance: 8.6
-  halfNumPoints: 0200000001000000
+  halfNumPoints: 0100000002000000
 --- !u!4 &224393010
 Transform:
   m_ObjectHideFlags: 0
@@ -13838,7 +13838,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1528282119278234058, guid: 0875165370be81945a43952599504501, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2747863693887266461, guid: 0875165370be81945a43952599504501, type: 3}
       propertyPath: m_Sprite
@@ -26042,7 +26042,7 @@ MonoBehaviour:
   - {fileID: 1455274807}
   aprroximate: 0.7
   distance: 3.6
-  halfNumPoints: 0200000001000000
+  halfNumPoints: 0100000002000000
 --- !u!224 &414576427618154037
 RectTransform:
   m_ObjectHideFlags: 0
