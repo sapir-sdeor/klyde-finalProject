@@ -1063,7 +1063,7 @@ MonoBehaviour:
   leftPlane: {fileID: 450220891}
   reflect: {fileID: 1168267831}
   timeToDisappearLimit: 2
-  offset: 0
+  offset: 60
 --- !u!114 &384441279
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8467,7 +8467,7 @@ MonoBehaviour:
   positions:
   - {fileID: 588647289}
   - {fileID: 188792597}
-  aprroximate: 1
+  aprroximate: 1.2
   distance: 16.7
   halfNumPoints: 0100000003000000
 --- !u!1 &1587579940
@@ -14607,7 +14607,7 @@ MonoBehaviour:
   positions:
   - {fileID: 1769893069}
   - {fileID: 588647289}
-  aprroximate: 1
+  aprroximate: 1.3
   distance: 29
   halfNumPoints: 0200000001000000
 --- !u!1 &1967706943
@@ -14740,7 +14740,7 @@ MonoBehaviour:
   positions:
   - {fileID: 188792597}
   - {fileID: 1769893069}
-  aprroximate: 1
+  aprroximate: 1.2
   distance: 35.57749
   halfNumPoints: 0300000002000000
 --- !u!1 &1977718547
