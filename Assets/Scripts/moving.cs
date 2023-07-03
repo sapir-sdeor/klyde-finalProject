@@ -28,6 +28,13 @@ public class moving : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        animator.SetBool(IsWalking,isWalkAnimation);
+        print("door.getWin " + Door.GetWin());
+        if (Door.GetWin())
+        {
+            print("win is true, iswalkanimation = false "+isWalkAnimation);
+            isWalkAnimation = false;
+        }
         // print(transform.position.x+"klyde pos");
         if (UIButtons.isPause) return;
         if (Input.GetMouseButtonDown(0)) 
@@ -54,36 +61,46 @@ public class moving : MonoBehaviour
                        }
                    }
 
-                   agent.SetDestination(target);
+                   if (!Door.GetWin())
+                   {
+                       agent.SetDestination(target);
+                   }
                }
            }
            // else isWalk = false;
         }
         // isWalk = agent.velocity.magnitude > 0.01f;
-        if (agent.isOnNavMesh && !Rotate2D3D.GetIsRotating()&& !Door.GetWin()) 
-            isWalkAnimation = agent.remainingDistance > bufferDistance;
-   
-
-        if (Rotate2D3D.GetIsRotating())
-        { 
-            if(agent.isOnNavMesh) agent.SetDestination(transform.position);   
-            isWalkAnimation = false;
-           agent.enabled = false;
-           agent.velocity = Vector3.zero;
-           // agent.transform.position = pos;
-        }
-        else if(!Rotate2D3D.GetIsRotating()&& !isWalkAnimation )
+        if (!Door.GetWin())
         {
-           // pos = agent.transform.position;
-           agent.enabled = true;
+            if ( !Rotate2D3D.GetIsRotating() && agent.isOnNavMesh)
+            {
+                print("walk animation is true");
+                isWalkAnimation = agent.remainingDistance > bufferDistance;
+            } 
+        
+            if (Rotate2D3D.GetIsRotating())
+            {
+                if (agent.isOnNavMesh )
+                {
+                    agent.SetDestination(transform.position); 
+                }
+                isWalkAnimation = false;
+                agent.enabled = false;
+                agent.velocity = Vector3.zero;
+                // agent.transform.position = pos;
+            }
+            else if(!Rotate2D3D.GetIsRotating()&& !isWalkAnimation )
+            {
+                // pos = agent.transform.position;
+                agent.enabled = true;
+            } 
         }
-
         if (isWalkAnimation)
         {
             if (!GetComponent<AudioSource>().isPlaying) GetComponent<AudioSource>().Play();
         }
         else GetComponent<AudioSource>().Stop();
-        animator.SetBool(IsWalking,isWalkAnimation);
+       
     }
     public static bool GetIsWalk()
     {
