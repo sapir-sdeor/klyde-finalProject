@@ -717,7 +717,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!95 &191060217
 Animator:
   serializedVersion: 4
@@ -6905,6 +6905,7 @@ MonoBehaviour:
   speed: 10
   getBackDistance: 20
   TargetInit: {x: -8.94, y: 9.4, z: -24.8}
+  TargetInit1: {x: 0.3, y: 6.3, z: -18}
   flash: {fileID: 1008429100}
   lightPathImages:
   - {fileID: 1064885144}
@@ -8137,6 +8138,14 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 2747863694167027365, guid: 0875165370be81945a43952599504501, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 13.140018
+      objectReference: {fileID: 0}
+    - target: {fileID: 2747863694167027365, guid: 0875165370be81945a43952599504501, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 1.7800293
+      objectReference: {fileID: 0}
     - target: {fileID: 2747863694181138225, guid: 0875165370be81945a43952599504501, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
@@ -8413,6 +8422,7 @@ MonoBehaviour:
   speed: 10
   getBackDistance: 5
   TargetInit: {x: 0.3, y: 6.3, z: -18}
+  TargetInit1: {x: 0.3, y: 6.3, z: -18}
   flash: {fileID: 0}
   lightPathImages: []
   duration: 3
