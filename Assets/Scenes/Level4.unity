@@ -1350,7 +1350,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1528282119278234058, guid: 0875165370be81945a43952599504501, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2747863693887266461, guid: 0875165370be81945a43952599504501, type: 3}
       propertyPath: m_Sprite
@@ -7693,7 +7693,7 @@ MonoBehaviour:
   offset: 0
   speed: 10
   getBackDistance: 20
-  TargetInit: {x: -6.4, y: 5, z: -40}
+  TargetInit: {x: -8.02, y: 5, z: -26.3}
   flash: {fileID: 1632227927}
   lightPathImages:
   - {fileID: 308597346}
