@@ -4179,14 +4179,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1142471712}
-  m_LocalRotation: {x: 0.00022990014, y: -0.55484444, z: 0.00023727793, w: 0.83195406}
+  m_LocalRotation: {x: 0.00016768476, y: -0.7348554, z: 0.00028466948, w: 0.6782238}
   m_LocalPosition: {x: 6.029008, y: 0.0073799402, z: -36.055157}
   m_LocalScale: {x: 0.03999999, y: 0.039999988, z: 0.04}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1738827739}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0.037, y: -67.4, z: 0.008}
+  m_LocalEulerAnglesHint: {x: 0.037, y: -94.59, z: 0.008}
 --- !u!64 &1142471714
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -5159,6 +5159,7 @@ MonoBehaviour:
   speed: 10
   getBackDistance: 20
   TargetInit: {x: -8.02, y: 5, z: -26.3}
+  TargetInit1: {x: 0.3, y: 6.3, z: -18}
   flash: {fileID: 628074583}
   lightPathImages:
   - {fileID: 1779372324}
@@ -5365,6 +5366,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 2649126323415568056, guid: 0875165370be81945a43952599504501, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2747863693887266461, guid: 0875165370be81945a43952599504501, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -5403,11 +5408,19 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 34f5edb4776104ef694c014ca6e3381e, type: 3}
     - target: {fileID: 2747863694167027364, guid: 0875165370be81945a43952599504501, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2747863694167027365, guid: 0875165370be81945a43952599504501, type: 3}
       propertyPath: m_RootOrder
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2747863694167027365, guid: 0875165370be81945a43952599504501, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 12.443445
+      objectReference: {fileID: 0}
+    - target: {fileID: 2747863694167027365, guid: 0875165370be81945a43952599504501, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.7817383
       objectReference: {fileID: 0}
     - target: {fileID: 2747863694181138225, guid: 0875165370be81945a43952599504501, type: 3}
       propertyPath: m_SizeDelta.y
@@ -9092,7 +9105,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabPlatform: {fileID: 1142471712}
   angle: 1
-  numberOfPieces: 100
+  numberOfPieces: 130
   offsetFactor: 1
 --- !u!1 &1769893069
 GameObject:

@@ -13,6 +13,7 @@ public class Door : MonoBehaviour
     [SerializeField] private float offset;
     [SerializeField] private float speed = 10f,getBackDistance=5f;
     [SerializeField] private Vector3 TargetInit = new(0.300000012f, 6.30000019f, -18f);
+    [SerializeField] private Vector3 TargetInit1 = new(0.300000012f, 6.30000019f, -18f);
     [SerializeField] private GameObject flash;
     private float _stayTimer = 0.3f;
     [SerializeField] private GameObject[] lightPathImages;
@@ -187,7 +188,7 @@ public class Door : MonoBehaviour
         moving.SetWalkAnimationTrue();
         _klyde.transform.position = Vector3.MoveTowards(_klyde.transform.position, _target,
              Time.deltaTime*speed);
-        print(_target+" target");
+        // print(_target+" target");
         
         if (Vector3.Distance(_klyde.transform.position, _target) < 0.7f && !_loadNextLevel)
         {
