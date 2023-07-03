@@ -218,6 +218,7 @@ public class Door : MonoBehaviour
         var currAngle = CalculateDoorPos();
         var index = 0;
         var range = 0;
+        var start = 0;
         switch (LevelManager.GetLevel())
         {          
             case 0:
@@ -234,7 +235,7 @@ public class Door : MonoBehaviour
                     index = 3;
                 break;
             case 3:
-                var start = 165;
+                start = 165;
                 range = 11;
                 if (currAngle > start)
                     index = 0;
@@ -243,7 +244,23 @@ public class Door : MonoBehaviour
                 else
                     index = 2;
                 break;
-                
+            case 4:
+                range = 11;
+                start = 211;
+                if (currAngle > start)
+                    index = 0;
+                else if (currAngle < start && currAngle > start - range)
+                    index = 1;
+                else if (currAngle < start - range && currAngle > start - (range * 2))
+                    index = 2;
+                else if (currAngle < start - (range * 2) && currAngle > start - (range * 5))
+                    index = 3;
+                else if (currAngle < start - (range * 5) && currAngle > start - (range * 6))
+                    index = 4;
+                else
+                    index = 5;
+                break;
+
         }
         ShowImage(lightPathImages[index]);
     }
