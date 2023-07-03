@@ -113,6 +113,8 @@ public class LevelManager : MonoBehaviour
                 _numOfHalves = 3;
                 break;
             case 6:
+                _numOfHalves = 4;
+                break;
             case 7:
                 _numOfHalves = 4;
                 break;
