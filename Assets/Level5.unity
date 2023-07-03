@@ -1059,8 +1059,8 @@ MonoBehaviour:
   objectToShown: {fileID: 466488788}
   background: {fileID: 0}
   backgroundAfterShape: {fileID: 0}
-  rightPlane: {fileID: 1629768905}
-  leftPlane: {fileID: 1629768904}
+  rightPlane: {fileID: 1626983207}
+  leftPlane: {fileID: 450220891}
   reflect: {fileID: 1168267831}
   timeToDisappearLimit: 2
   offset: 0
@@ -1269,6 +1269,11 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
+--- !u!1 &450220891 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2747863695820946122, guid: 0875165370be81945a43952599504501, type: 3}
+  m_PrefabInstance: {fileID: 1356966904}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &466488788
 GameObject:
   m_ObjectHideFlags: 0
@@ -8559,6 +8564,11 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!1 &1626983207 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2747863693887266402, guid: 0875165370be81945a43952599504501, type: 3}
+  m_PrefabInstance: {fileID: 1356966904}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1629768903
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -8700,16 +8710,6 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: c09747bb14fff164a92a323f29973d31, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bb5a4bdc45cfed48b630775dd0034f6, type: 3}
---- !u!1 &1629768904 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 625793636154801118, guid: 5bb5a4bdc45cfed48b630775dd0034f6, type: 3}
-  m_PrefabInstance: {fileID: 1629768903}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1629768905 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 625793637447544600, guid: 5bb5a4bdc45cfed48b630775dd0034f6, type: 3}
-  m_PrefabInstance: {fileID: 1629768903}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1639575138
 PrefabInstance:
   m_ObjectHideFlags: 0
