@@ -58,20 +58,17 @@ public class RecognizeShape : MonoBehaviour
             leftPlane.GetComponent<Animator>().SetBool("recognizeShape",true);
             objectToShown.gameObject.SetActive(false);
         }
-
+        
         //for multiple we have grid with row that hold two game objects and the distance between them
         foreach (var row in grid)
         {
             var dist = Vector3.Distance(row.positions[0].transform.position, row.positions[1].transform.position);
             print(dist + " distance ," + row.aprroximate +" aprroximate "+ " is rotating? "+ Rotate2D3D.GetIsRotating()+
                 " points in right half? name: " +  row.gameObject.name);
-
-
+            
             if (row.distance - row.aprroximate >= dist || dist >= row.distance + row.aprroximate ||
                 Rotate2D3D.GetIsRotating() || !PointsInRightHalf(row))
                 flag = false;
-
-            
         }
         if (flag && !_recognizeShape){
             _recognizeShape = true;
