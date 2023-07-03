@@ -16,11 +16,9 @@ public class Door : MonoBehaviour
     [SerializeField] private GameObject flash;
     private float _stayTimer = 0.3f;
     [SerializeField] private GameObject[] lightPathImages;
-    [SerializeField] private GameObject[] pivots;
     [SerializeField] private float duration = 2f ;
     [SerializeField] private float remainingDistance = 1f;
     [SerializeField] private int newRenderQueue;
- 
     private float _angle;
     
     private List<Transform> _childs = new();
@@ -101,38 +99,8 @@ public class Door : MonoBehaviour
         GetComponent<Collider>().enabled = enabled;
         GetComponent<CapsuleCollider>().enabled = enabled;
     }
-    //todo: understand how collider work with ballon
 
-    // private void OnTriggerEnter(Collider other)
-    // {
-    //     // print("_doorAppear "+_doorAppear);
-    //     if(other.gameObject.CompareTag("klyde") && _doorAppear)
-    //     {
-    //          print("klyde win");
-    //        //  GetComponent<PlayableDirector>().Play();
-    //        if (!_win)
-    //        {
-    //            _klyde = other.gameObject;
-    //            // moving.SetWalkAnimationFalse();
-    //            _klyde.GetComponent<NavMeshAgent>().SetDestination(pivots[0].transform.position);
-    //            print("remainingDistance "+ _klyde.GetComponent<NavMeshAgent>().remainingDistance);
-    //            if (_klyde.GetComponent<NavMeshAgent>().remainingDistance < remainingDistance)
-    //            {
-    //                print("pivots[0].transform.position "+pivots[0].transform.position );
-    //                _klyde.GetComponent<NavMeshAgent>().SetDestination(_klyde.transform.position);
-    //                Destroy(_klyde.GetComponent<NavMeshAgent>());
-    //                _win = true;
-    //                _klyde.transform.eulerAngles =
-    //                    new Vector3(_klyde.transform.eulerAngles.x, 180, _klyde.transform.eulerAngles.z);  
-    //                // other.transform.parent = transform;
-    //                _doorAppear = false;
-    //                _target = TargetInit;
-    //                MoveToVitrajWinCase();
-    //            }
-    //            CalculateLightPathPos();
-    //        }
-    //     }
-    // }
+
     private void OnTriggerEnter(Collider other)
     {
         // print("_doorAppear "+_doorAppear);
@@ -218,7 +186,7 @@ public class Door : MonoBehaviour
         // _klyde.GetComponent<NavMeshAgent>().enabled = false;
         moving.SetWalkAnimationTrue();
         _klyde.transform.position = Vector3.MoveTowards(_klyde.transform.position, _target,
-            Time.deltaTime * speed);
+             Time.time*speed);
         print(_target+" target");
         
         if (Vector3.Distance(_klyde.transform.position, _target) < 0.7f && !_loadNextLevel)
@@ -255,7 +223,7 @@ public class Door : MonoBehaviour
             case 0:
             case 1:
             case 2:
-                range =62 / 4;
+                range = 62 / 4;
                 if (currAngle > 0 && currAngle < range+5)
                     index = 0;
                 else if (currAngle > range+ 5 && currAngle < (range*2))
@@ -264,6 +232,16 @@ public class Door : MonoBehaviour
                     index = 2;
                 else
                     index = 3;
+                break;
+            case 3:
+                var start = 165;
+                range = 11;
+                if (currAngle > start)
+                    index = 0;
+                else if (currAngle < start && currAngle > start - range)
+                    index = 1;
+                else
+                    index = 2;
                 break;
                 
         }
