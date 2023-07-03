@@ -33,6 +33,7 @@ public class UIButtons : MonoBehaviour
 
     public void Pause()
     {
+        print("here");
         panel.SetActive(true);
         Time.timeScale = 0;
         isPause = true;
