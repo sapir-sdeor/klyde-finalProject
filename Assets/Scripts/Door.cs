@@ -19,6 +19,7 @@ public class Door : MonoBehaviour
     [SerializeField] private GameObject[] lightPathImages;
     [SerializeField] private float duration = 2f;
     [SerializeField] private Material openDoorMaterial;
+    private Animator _animator;
     private float _angle;
     
     private List<Transform> _childs = new();
@@ -36,6 +37,7 @@ public class Door : MonoBehaviour
     {
         GetComponent<AudioSource>().Stop();
         _target = TargetInit;
+        _animator = GetComponent<Animator>();
         foreach (var child in GetComponentsInChildren<Transform>())
         {
             if (child != transform)
@@ -60,7 +62,8 @@ public class Door : MonoBehaviour
         {
             foreach (var child in _childs)
             {
-                child.GetComponent<MeshRenderer>().material = openDoorMaterial;
+                if(child.GetComponent<MeshRenderer>()!=null)
+                    child.GetComponent<MeshRenderer>().material = openDoorMaterial;
             }
             _doorAppear = true;
         }
@@ -92,9 +95,15 @@ public class Door : MonoBehaviour
     private void EnabledDoorChild(bool enabled)
     {
         // print("enabled door child"+enabled);
-        foreach (var child in GetComponentsInChildren<MeshRenderer>())
+        foreach (var child in _childs)
         {
-            child.GetComponent<MeshRenderer>().enabled = enabled;
+            if(child.GetComponent<MeshRenderer>()!=null)
+                child.GetComponent<MeshRenderer>().enabled = enabled;
+            if(child.GetComponent<SpriteRenderer>()!=null)
+                child.GetComponent<SpriteRenderer>().enabled = enabled;
+            if(child.GetComponent<ParticleSystem>()!=null)
+                child.gameObject.SetActive(enabled);
+            
         }
         GetComponent<Collider>().enabled = enabled;
         GetComponent<CapsuleCollider>().enabled = enabled;
@@ -103,6 +112,8 @@ public class Door : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if(other.gameObject.CompareTag("klyde"))
+            _animator.SetBool("moveButton",true);
         // print("_doorAppear "+_doorAppear);
         if(other.gameObject.CompareTag("klyde") && _doorAppear)
         {
@@ -134,6 +145,7 @@ public class Door : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         _triggerStay = true;
+        _animator.SetBool("moveButton",false);
     }
 
     private IEnumerator ShakeCam()
@@ -274,6 +286,24 @@ public class Door : MonoBehaviour
                 else if (currAngle < start - (range * 5) && currAngle > start - (range * 6))
                     index = 4;
                 else if(currAngle < start - (range * 6) && currAngle > start - (range * 7))
+                    index = 5;
+                else
+                    index = 6;
+                break;
+            case 6:
+                range = 8;
+                start = 344;
+                if (currAngle > start)
+                    index = 0;
+                else if (currAngle < start && currAngle > start - range)
+                    index = 1;
+                else if (currAngle < start - range && currAngle > start - (range * 2))
+                    index = 2;
+                else if (currAngle < start - (range * 2) && currAngle > start - (range * 3))
+                    index = 3;
+                else if (currAngle < start - (range * 3) && currAngle > start - (range * 4))
+                    index = 4;
+                else if(currAngle < start - (range * 4) && currAngle > start - (range * 5))
                     index = 5;
                 else
                     index = 6;
