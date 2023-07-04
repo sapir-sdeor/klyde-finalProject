@@ -7752,10 +7752,10 @@ RectTransform:
   m_Father: {fileID: 5342538079228845765}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.36, y: 0.38}
-  m_AnchorMax: {x: 0.66, y: 0.85}
+  m_AnchorMin: {x: 0.39, y: 0.31}
+  m_AnchorMax: {x: 0.6, y: 0.85}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: -1033.9569}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!223 &1427856413
 Canvas:
@@ -7790,8 +7790,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86710e43de46f6f4bac7c8e50813a599, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_AspectMode: 1
-  m_AspectRatio: 1
+  m_AspectMode: 2
+  m_AspectRatio: 1.3
 --- !u!114 &1427856415
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25026,7 +25026,7 @@ MonoBehaviour:
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 2732, y: 2048}
-  m_ScreenMatchMode: 2
+  m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0.504
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
