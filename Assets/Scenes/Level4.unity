@@ -733,7 +733,7 @@ MonoBehaviour:
   positions:
   - {fileID: 329087789}
   - {fileID: 836482855}
-  aprroximate: 0.5
+  aprroximate: 1.5
   distance: 5.8
   halfNumPoints: 0100000002000000
 --- !u!4 &224393010
@@ -784,7 +784,7 @@ Animator:
   m_GameObject: {fileID: 319851406}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 404adb3973d5e8545b5972d166e46dd9, type: 2}
+  m_Controller: {fileID: 9100000, guid: 1d3e833463df9404a9d901abe8432cc2, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -1183,7 +1183,7 @@ MonoBehaviour:
   rotationsRecognizeShape:
   - {x: 270, y: 309.77902, z: 0}
   - {x: 270, y: 238.50732, z: 0}
-  - {x: 270, y: 111.1267, z: 0}
+  - {x: 270, y: 117.50849, z: 0}
   timeToWaitBetweenRotation: 0.05
   speed: 150
 --- !u!4 &384441277
@@ -1223,7 +1223,7 @@ MonoBehaviour:
   rightPlane: {fileID: 1299620463}
   leftPlane: {fileID: 1606698102}
   reflect: {fileID: 0}
-  timeToDisappearLimit: 2
+  timeToDisappearLimit: 4
   offset: 0
 --- !u!114 &384441279
 MonoBehaviour:
@@ -7963,6 +7963,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 3155557357439779876, guid: c8b0a58bbfedced4bb4bd457e4475734, type: 3}
+      propertyPath: aprroximate
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3155557357439779876, guid: c8b0a58bbfedced4bb4bd457e4475734, type: 3}
       propertyPath: positions.Array.data[0]
       value: 
       objectReference: {fileID: 918339873}
@@ -8033,6 +8037,10 @@ PrefabInstance:
     - target: {fileID: 3155557358144281562, guid: c8b0a58bbfedced4bb4bd457e4475734, type: 3}
       propertyPath: m_Name
       value: row up right
+      objectReference: {fileID: 0}
+    - target: {fileID: 3155557358144281563, guid: c8b0a58bbfedced4bb4bd457e4475734, type: 3}
+      propertyPath: aprroximate
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 3155557358144281563, guid: c8b0a58bbfedced4bb4bd457e4475734, type: 3}
       propertyPath: positions.Array.data[0]
