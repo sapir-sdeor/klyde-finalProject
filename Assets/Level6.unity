@@ -4167,7 +4167,7 @@ MonoBehaviour:
   offset: -5
   speed: 10
   getBackDistance: 20
-  TargetInit: {x: -10.9, y: 6.04, z: -26.88}
+  TargetInit: {x: -7.3, y: 6.04, z: -15}
   TargetInit1: {x: 0.3, y: 6.3, z: -18}
   flash: {fileID: 628074583}
   lightPathImages:
@@ -19093,7 +19093,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1528282119278234058, guid: 0875165370be81945a43952599504501, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2747863693887266461, guid: 0875165370be81945a43952599504501, type: 3}
       propertyPath: m_Sprite
