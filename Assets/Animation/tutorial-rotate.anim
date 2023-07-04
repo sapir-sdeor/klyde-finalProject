@@ -38,9 +38,9 @@ AnimationClip:
     - time: 0.6666667
       value: {fileID: 21300000, guid: 68bfb511a9d2a4ff685edd38a92d7e06, type: 3}
     - time: 0.75
-      value: {fileID: 21300000, guid: 68bfb511a9d2a4ff685edd38a92d7e06, type: 3}
-    - time: 0.8333333
       value: {fileID: 21300000, guid: 26dbdd97bd047404eb2f5917a52768be, type: 3}
+    - time: 0.8333333
+      value: {fileID: 21300000, guid: 702d212f7c5674dd08b9d04b93d1f02d, type: 3}
     - time: 0.9166667
       value: {fileID: 21300000, guid: 702d212f7c5674dd08b9d04b93d1f02d, type: 3}
     - time: 1
@@ -59,8 +59,8 @@ AnimationClip:
       value: {fileID: 21300000, guid: 3136c7fdf87914920a5dc6258ecefdf7, type: 3}
     attribute: m_Sprite
     path: 
-    classID: 114
-    script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+    classID: 212
+    script: {fileID: 0}
   m_SampleRate: 12
   m_WrapMode: 0
   m_Bounds:
@@ -70,10 +70,10 @@ AnimationClip:
     genericBindings:
     - serializedVersion: 2
       path: 0
-      attribute: 2015549526
-      script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-      typeID: 114
-      customType: 0
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 212
+      customType: 23
       isPPtrCurve: 1
     pptrCurveMapping:
     - {fileID: 21300000, guid: a66e330e8e3c94aa3b8840bbbeeaa92b, type: 3}
@@ -85,8 +85,8 @@ AnimationClip:
     - {fileID: 21300000, guid: 739f5a0e14db044428416ef22894ac27, type: 3}
     - {fileID: 21300000, guid: 14a0614dbc0d14c32ac966d711214abf, type: 3}
     - {fileID: 21300000, guid: 68bfb511a9d2a4ff685edd38a92d7e06, type: 3}
-    - {fileID: 21300000, guid: 68bfb511a9d2a4ff685edd38a92d7e06, type: 3}
     - {fileID: 21300000, guid: 26dbdd97bd047404eb2f5917a52768be, type: 3}
+    - {fileID: 21300000, guid: 702d212f7c5674dd08b9d04b93d1f02d, type: 3}
     - {fileID: 21300000, guid: 702d212f7c5674dd08b9d04b93d1f02d, type: 3}
     - {fileID: 21300000, guid: 4b5e059e2bcee4345a6fd2b81028a1b6, type: 3}
     - {fileID: 21300000, guid: 30fcd66283163412fa7e1a39fc69241d, type: 3}
