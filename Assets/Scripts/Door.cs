@@ -103,7 +103,6 @@ public class Door : MonoBehaviour
                 child.GetComponent<SpriteRenderer>().enabled = enabled;
             if(child.GetComponent<ParticleSystem>()!=null)
                 child.gameObject.SetActive(enabled);
-            
         }
         GetComponent<Collider>().enabled = enabled;
         GetComponent<CapsuleCollider>().enabled = enabled;
