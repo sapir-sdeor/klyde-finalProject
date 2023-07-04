@@ -25,6 +25,7 @@ public class Rotate2D3D : MonoBehaviour
     private float _currentTime;
     private bool _isWalking;
     private static bool _stopRotate;
+    private static bool _isRotatingMore;
     [SerializeField]
     private float speed = 150f;
     
@@ -70,6 +71,7 @@ public class Rotate2D3D : MonoBehaviour
         if (Input.GetMouseButtonUp(0))
         {
             BuildNewNavMesh();
+            _isRotatingMore = false;
             GetComponent<AudioSource>().Stop();
         }
         else if (Input.GetMouseButton(0))
@@ -100,6 +102,7 @@ public class Rotate2D3D : MonoBehaviour
 
         if (Time.time - _timeCounter >= timeForRotateMusic)
         {
+            _isRotatingMore = true;
             if (!GetComponent<AudioSource>().isPlaying)
                 GetComponent<AudioSource>().Play();
         }
@@ -119,6 +122,11 @@ public class Rotate2D3D : MonoBehaviour
     public static bool GetIsRotating()
     {
         return _isRotating;
+    }
+    
+    public static bool GetIsRotatingMore()
+    {
+        return _isRotatingMore;
     }
     
     
