@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1273174, g: 0.13414761, b: 0.12107885, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -728,7 +728,7 @@ Animator:
   m_GameObject: {fileID: 191060216}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 404adb3973d5e8545b5972d166e46dd9, type: 2}
+  m_Controller: {fileID: 9100000, guid: 8f162b63b7a94854c97560d5e3b8d5fb, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -798,7 +798,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 191060216}
   m_LocalRotation: {x: 0.4055798, y: 0.579228, z: -0.579228, w: 0.4055798}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 1.39, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -996,7 +996,7 @@ MonoBehaviour:
   positions:
   - {fileID: 734939875}
   - {fileID: 1150346541}
-  aprroximate: 0.6
+  aprroximate: 5
   distance: 10.4
   halfNumPoints: 0200000001000000
 --- !u!4 &224393010
@@ -1309,6 +1309,10 @@ MonoBehaviour:
   - {fileID: 685927048}
   SeprateBetweenRotateWalk: 0.1
   timeForRotateMusic: 0.3
+  rotationsRecognizeShape:
+  - {x: 270.01978, y: 179.77892, z: 0}
+  - {x: 270, y: 343.1519, z: 0}
+  timeToWaitBetweenRotation: 0.05
   speed: 150
 --- !u!4 &384441277
 Transform:
@@ -8930,7 +8934,7 @@ MonoBehaviour:
   positions:
   - {fileID: 1317466485}
   - {fileID: 890424074}
-  aprroximate: 0.6
+  aprroximate: 5
   distance: 6.3
   halfNumPoints: 020000000b000000
 --- !u!1 &1538441049
