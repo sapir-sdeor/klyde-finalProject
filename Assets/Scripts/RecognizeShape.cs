@@ -20,6 +20,7 @@ public class RecognizeShape : MonoBehaviour
     private float _angle;
     private bool flag = true;
     private float _timeToDisappear;
+    private static bool _showObject;
 
     private void Start()
     {
@@ -45,12 +46,8 @@ public class RecognizeShape : MonoBehaviour
         if (_recognizeShape)
         {
             _timeToDisappear += Time.deltaTime;
-            // rightPlane.GetComponent<Animator>().SetBool("recognizeShape",true); 
-            // leftPlane.GetComponent<Animator>().SetBool("recognizeShape",true);
         }
-            
-        // if (_timeToDisappear > 3)
-        //     background.GetComponent<MeshRenderer>().material.mainTexture = backgroundAfterShape;
+        
         if (_timeToDisappear > timeToDisappearLimit)
         {
             print("recognize shape, animation should work");
@@ -69,55 +66,39 @@ public class RecognizeShape : MonoBehaviour
             if (row.distance - row.aprroximate >= dist || dist >= row.distance + row.aprroximate ||
                 Rotate2D3D.GetIsRotating() || !PointsInRightHalf(row))
                 flag = false;
-
-            
         }
         if (flag && !_recognizeShape){
+            if (LevelManager.GetLevel() != (5) && LevelManager.GetLevel() != (6) && LevelManager.GetLevel() != (7))
+            {
+                Rotate2D3D.AutomaticCompleteTheShape();
+            }
+            else
+            {
+                _showObject = true;
+            }
+             
+        }
+
+        if (_showObject)
+        {
+            _showObject = false;
             _recognizeShape = true;
             objectToShown.gameObject.SetActive(true);
-            if (reflect)
+            if(reflect)
                 reflect.gameObject.SetActive(false);
         }
         
+    }
+
+    public static void SetShowObject()
+    {
+        _showObject = true;
     }
 
     public static bool GetRecognizeShape()
     {
         return _recognizeShape;
     }
-
-
-    // private bool PointsInRightHalf(Row row)
-    // {
-    //     for(int i=0; i < 2 ;i++)
-    //     {
-    //         // print("is angle within range");
-    //         Transform trans =row.positions[i].transform;
-    //         Vector3 direction = trans.position - Vector3.zero;
-    //         // Calculate the angle between the direction vector and the forward vector
-    //         // float currAngle = Vector3.Angle(Vector3.forward, direction);
-    //         // if (trans.position.x < 0) currAngle = 360 - currAngle;
-    //         float currAngle = Vector3.SignedAngle(Vector3.forward, direction, Vector3.up);
-    //         if (currAngle < 0) currAngle += 360f;
-    //
-    //         // Calculate the adjusted angle range based on the number of halves
-    //         float startAngle = _angle * (row.halfNumPoints[i] - 1)+offset;
-    //         float endAngle = _angle * row.halfNumPoints[i]+offset;
-    //
-    //         // Handle wraparound from 360 to 0 degrees
-    //         if (endAngle > 360f)
-    //             endAngle -= 360f;
-    //
-    //         // Check if the current angle is within the adjusted range
-    //         if ( !IsAngleWithinRange(currAngle, startAngle, endAngle))
-    //         {
-    //             print("false world "+row.name);
-    //             flag = false;
-    //             return false;
-    //         }
-    //     }
-    //     return true;
-    // }
     
     private bool PointsInRightHalf(Row row)
     {

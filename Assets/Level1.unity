@@ -422,7 +422,7 @@ MonoBehaviour:
   positions:
   - {fileID: 534535227}
   - {fileID: 1034785063}
-  aprroximate: 0.5
+  aprroximate: 5
   distance: 8.6
   halfNumPoints: 0200000001000000
 --- !u!4 &224393010
@@ -720,6 +720,10 @@ MonoBehaviour:
   - {fileID: 685927048}
   SeprateBetweenRotateWalk: 0.1
   timeForRotateMusic: 0.3
+  rotationsRecognizeShape:
+  - {x: 270, y: 340.40002, z: 0}
+  - {x: 270, y: 334.98923, z: 0}
+  timeToWaitBetweenRotation: 0.05
   speed: 150
 --- !u!4 &384441277
 Transform:
@@ -1305,7 +1309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66a5361494e186740a8dfa5c7a049b39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToDisapper: 4.6
+  timeToDisapper: 5
 --- !u!4 &628685553 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: fb1a05b542f514286a8d1ef5082707d0, type: 3}
@@ -1985,7 +1989,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5340227127234250567, guid: d97e5153745d4e34188ff82950b64949, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5824629468379984251, guid: d97e5153745d4e34188ff82950b64949, type: 3}
       propertyPath: m_Materials.Array.data[0]
@@ -5177,9 +5181,9 @@ MonoBehaviour:
   speed: 10
   getBackDistance: 5
   TargetInit: {x: 0.3, y: 6.3, z: -18}
+  TargetInit1: {x: 0.3, y: 6.3, z: -18}
   flash: {fileID: 0}
   lightPathImages: []
-  pivots: []
   duration: 5
   remainingDistance: 1
   newRenderQueue: 0
@@ -5784,14 +5788,13 @@ MonoBehaviour:
   speed: 10
   getBackDistance: 20
   TargetInit: {x: -12.53, y: 11.7, z: -23.07}
+  TargetInit1: {x: 0.3, y: 6.3, z: -18}
   flash: {fileID: 1395758071}
   lightPathImages:
   - {fileID: 1397002079}
   - {fileID: 1833629755}
   - {fileID: 1783083233}
   - {fileID: 1356096071}
-  pivots:
-  - {fileID: 0}
   duration: 2
   remainingDistance: 4.1
   newRenderQueue: 4000
@@ -6617,7 +6620,7 @@ MonoBehaviour:
   positions:
   - {fileID: 394288878}
   - {fileID: 1455274807}
-  aprroximate: 0.6
+  aprroximate: 5
   distance: 3.6
   halfNumPoints: 0200000001000000
 --- !u!1001 &2747863695471180316

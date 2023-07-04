@@ -12,16 +12,19 @@ public class Rotate2D3D : MonoBehaviour
     private static bool _isDragging ;
     private Vector3 lastMousePosition;
     private Vector3 lastPosition;
-    
+
     [SerializeField] private NavMeshSurface[] surfaces;
     // [SerializeField] private NavMeshLink linkObject1,linkObject2;
     private Plane _plane;
     [SerializeField] private float SeprateBetweenRotateWalk;
     [SerializeField] private float timeForRotateMusic = 0.3f;
+    [SerializeField] private Vector3[] rotationsRecognizeShape;
+    [SerializeField] private float timeToWaitBetweenRotation = 0.05f;
     private float _millisecCounter;
     private float _timeCounter;
     private float _currentTime;
     private bool _isWalking;
+    private static bool _stopRotate;
     private static bool _isRotatingMore;
     [SerializeField]
     private float speed = 150f;
@@ -29,6 +32,7 @@ public class Rotate2D3D : MonoBehaviour
 
     private Vector3 _lastPosition;
     private GameObject _lastObj;
+    private static bool _automaticCompleteTheShape;
 
     private Vector3 OrigDir { get; set; }
     
@@ -75,9 +79,14 @@ public class Rotate2D3D : MonoBehaviour
             RemoveAllNavMesh();
         }
         
-        if (_isDragging && !moving.GetIsWalk())
+        if (_isDragging && !moving.GetIsWalk() && !_stopRotate )
         {
             PerformCircularRotation();
+        }
+
+        if (_automaticCompleteTheShape)
+        {
+            AutomaticCompleteTheShapeHelper();
         }
     }
 
@@ -103,18 +112,11 @@ public class Rotate2D3D : MonoBehaviour
     {
         _isRotating = false;
         _isDragging = false;
-        // surfaces[0].RemoveData();
         for (int i = 0; i < surfaces.Length; i++) 
         {
-            // NavMeshLink navMeshLink = linkObject.GetComponent<NavMeshLink>();
-            // linkObject1.UpdateLink();
-            // linkObject2.UpdateLink();
             surfaces[i].BuildNavMesh();
         }
-        // print("build new navmesh");
-        // if (!moving.GetIsWalk())
-        // {
-        // }
+
     }
     
     public static bool GetIsRotating()
@@ -135,7 +137,6 @@ public class Rotate2D3D : MonoBehaviour
         foreach (var world in worlds)
         {
             
-            // print(world.name + " world name is klyde on "+world.GetComponent<World>().isKlydeOn);
             if (!world.GetComponent<World>().isKlydeOn)
             { 
               var adjustedSpeed = Time.deltaTime * speed;
@@ -144,13 +145,8 @@ public class Rotate2D3D : MonoBehaviour
               var up = Vector3.up;
               
               var angleDelta = Vector3.SignedAngle(OrigDir, currPosition - center, up) ;
-              print(world.name + " world name angle delta "+angleDelta); 
-              // angleDelta = HandleFlipAngle(center, currPosition, up, angleDelta);
-              // TODO: Any smoothing will probably go here
-              // rotate by that much
-              //var rot = Quaternion.AngleAxis(angleDelta * 1f, up);
-              //OrigDir = rot * OrigDir;
-              
+              print(world.name + " world name angle delta "+angleDelta);
+
               angleDelta = Mathf.Clamp(angleDelta, -adjustedSpeed, adjustedSpeed);
               
               Debug.DrawLine(center, currPosition, Color.green);
@@ -167,5 +163,51 @@ public class Rotate2D3D : MonoBehaviour
         var ray = Camera.main!.ScreenPointToRay(mousePos);
         return _plane.Raycast(ray, out var dist) ? ray.GetPoint(dist) : Vector3.zero;
     }
+    
+    public static void AutomaticCompleteTheShape()
+    {
+        _automaticCompleteTheShape = true;
+    }
+    
+    private void AutomaticCompleteTheShapeHelper()
+    {
+        _automaticCompleteTheShape = false;
+        StartCoroutine(RotateShapes());
+    }
+
+    private IEnumerator RotateShapes()
+    {
+        _stopRotate = true;
+        moving.SetStopWalk(true);
+        int index = 0;
+        foreach (var world in worlds)
+        {
+            Vector3 currentRotation = world.transform.eulerAngles;
+            Vector3 targetRotation = rotationsRecognizeShape[index];
+            float rotationSpeed = speed/10; // Adjust the rotation speed as needed
+
+            while (Quaternion.Euler(currentRotation) != Quaternion.Euler(targetRotation))
+            {
+                Quaternion fromRotation = Quaternion.Euler(currentRotation);
+                Quaternion toRotation = Quaternion.Euler(targetRotation);
+                float rotationStep = rotationSpeed * Time.deltaTime;
+                world.transform.rotation = Quaternion.RotateTowards(fromRotation, toRotation, rotationStep);
+                currentRotation = world.transform.eulerAngles;
+                yield return null;
+            }
+            // Delay the start of the second rotation
+            yield return new WaitForSeconds(timeToWaitBetweenRotation); // Adjust the delay time as needed
+            index++;
+        }
+        RecognizeShape.SetShowObject();
+        _stopRotate = false;
+        moving.SetStopWalk(false);
+    }
+
+    public static void SetStopRotate(bool val)
+    {
+        _stopRotate = val;
+    }
+    
     
 }

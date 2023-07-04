@@ -1024,6 +1024,11 @@ MonoBehaviour:
   - {fileID: 1313585680}
   SeprateBetweenRotateWalk: 0.3
   timeForRotateMusic: 0.3
+  rotationsRecognizeShape:
+  - {x: 270, y: 137.04842, z: 0}
+  - {x: 270, y: 352.64948, z: 0}
+  - {x: 270, y: 340.81702, z: 0}
+  timeToWaitBetweenRotation: 0.05
   speed: 150
 --- !u!4 &384441277
 Transform:
@@ -5364,7 +5369,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1528282119278234058, guid: 0875165370be81945a43952599504501, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2649126323415568056, guid: 0875165370be81945a43952599504501, type: 3}
       propertyPath: m_IsActive
@@ -8465,6 +8470,24 @@ MonoBehaviour:
   aprroximate: 0.4
   distance: 1.999796
   halfNumPoints: 0300000001000000
+--- !u!114 &1581888814
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1581888810}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c8f894785ff2c6e4886adc57b118dc57, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  positions:
+  - {fileID: 102464051}
+  - {fileID: 1769893069}
+  aprroximate: 0
+  distance: 1.999796
+  halfNumPoints: 0100000002000000
 --- !u!114 &1581888820
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14620,7 +14643,7 @@ MonoBehaviour:
   positions:
   - {fileID: 1769893069}
   - {fileID: 588647289}
-  aprroximate: 1.3
+  aprroximate: 1.2
   distance: 29
   halfNumPoints: 0200000001000000
 --- !u!1 &1967706943

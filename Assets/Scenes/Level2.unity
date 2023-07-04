@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1273174, g: 0.13414761, b: 0.12107885, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5655,7 +5655,7 @@ MonoBehaviour:
   positions:
   - {fileID: 534535227}
   - {fileID: 1034785063}
-  aprroximate: 0.7
+  aprroximate: 5
   distance: 8.6
   halfNumPoints: 0100000002000000
 --- !u!4 &224393010
@@ -6209,6 +6209,10 @@ MonoBehaviour:
   - {fileID: 685927048}
   SeprateBetweenRotateWalk: 0.1
   timeForRotateMusic: 0.3
+  rotationsRecognizeShape:
+  - {x: 270, y: 159.75111, z: 0}
+  - {x: 270.01978, y: 158.8808, z: 0}
+  timeToWaitBetweenRotation: 0.05
   speed: 150
 --- !u!4 &384441277
 Transform:
@@ -7538,14 +7542,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 645037638}
-  m_LocalRotation: {x: 0.6917547, y: 0.1465209, z: 0.14630347, w: 0.69181097}
+  m_LocalRotation: {x: 0.14654493, y: -0.6917598, z: -0.69180584, w: 0.14627947}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.14678578, y: 0.0003571429, z: 0.14678578}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 904975030}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 66.1, y: 89.998, z: 89.98}
+  m_LocalEulerAnglesHint: {x: 246.1, y: 89.998, z: 89.98}
 --- !u!208 &645037643
 NavMeshObstacle:
   m_ObjectHideFlags: 0
@@ -7678,8 +7682,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1b32c23687558347ad2a7e64e53b735, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textureWithoutShape: {fileID: 2800000, guid: cbfdde87263824a4daa46e27ad49ef74, type: 3}
-  textureWithShape: {fileID: 2800000, guid: cbfdde87263824a4daa46e27ad49ef74, type: 3}
+  textureWithoutShape: {fileID: 2800000, guid: 694f4c5fda7294f9d8080f0491f776c8, type: 3}
+  textureWithShape: {fileID: 2800000, guid: b739e16a4328f4f2ca6f3a7af3b46df3, type: 3}
   isKlydeOn: 0
   halfNum: 2
   timeToChangeTexture: 3.35
@@ -8710,8 +8714,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1b32c23687558347ad2a7e64e53b735, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textureWithoutShape: {fileID: 2800000, guid: 694f4c5fda7294f9d8080f0491f776c8, type: 3}
-  textureWithShape: {fileID: 2800000, guid: 694f4c5fda7294f9d8080f0491f776c8, type: 3}
+  textureWithoutShape: {fileID: 2800000, guid: cbfdde87263824a4daa46e27ad49ef74, type: 3}
+  textureWithShape: {fileID: 2800000, guid: 2e353057f5ba74719b501e5e4f5f2b67, type: 3}
   isKlydeOn: 0
   halfNum: 1
   timeToChangeTexture: 3.35
@@ -24122,14 +24126,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1676777920}
-  m_LocalRotation: {x: 0.6945638, y: 0.13191679, z: 0.13186815, w: 0.6948309}
+  m_LocalRotation: {x: 0.13259591, y: -0.6946923, z: -0.6947016, w: 0.13118932}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.14678581, y: 0.00035714297, z: 0.14678577}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 655831159}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 68.5, y: 89.944, z: 89.94}
+  m_LocalEulerAnglesHint: {x: 248.5, y: 89.944, z: 89.94}
 --- !u!136 &1676777922
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -26157,7 +26161,7 @@ MonoBehaviour:
   positions:
   - {fileID: 394288878}
   - {fileID: 1455274807}
-  aprroximate: 0.7
+  aprroximate: 5
   distance: 3.6
   halfNumPoints: 0100000002000000
 --- !u!224 &414576427618154037
