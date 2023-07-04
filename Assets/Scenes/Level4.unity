@@ -1180,6 +1180,11 @@ MonoBehaviour:
   - {fileID: 685927048}
   SeprateBetweenRotateWalk: 0.3
   timeForRotateMusic: 0.3
+  rotationsRecognizeShape:
+  - {x: 270, y: 309.77902, z: 0}
+  - {x: 270, y: 238.50732, z: 0}
+  - {x: 270, y: 111.1267, z: 0}
+  timeToWaitBetweenRotation: 0.05
   speed: 150
 --- !u!4 &384441277
 Transform:
