@@ -13,6 +13,7 @@ public class moving : MonoBehaviour
     private Animator animator;
     private Vector3 pos;
     private static bool changeRot;
+    private static bool _stopWalk;
     private static readonly int IsWalking = Animator.StringToHash("IsWalking");
     [SerializeField] private float buffer=0.5f;
     [SerializeField] private float bufferDistance =1.5f;
@@ -46,7 +47,7 @@ public class moving : MonoBehaviour
            {
                // print("is walking");
                isWalk = true;
-               if (agent.isOnNavMesh && !Rotate2D3D.GetIsRotating()) // Check if agent is on NavMesh
+               if (agent.isOnNavMesh && !Rotate2D3D.GetIsRotating()&& !_stopWalk) // Check if agent is on NavMesh
                {
                    var target = raycastHit.point;
                    if (-buffer <= target.x && target.x <= +buffer)
@@ -115,7 +116,11 @@ public class moving : MonoBehaviour
     public static void SetWalkAnimationTrue()
     {
         isWalkAnimation = true;
-        
+    }
+    
+    public static void SetStopWalk(bool val)
+    {
+        _stopWalk = val;
     }
     
     

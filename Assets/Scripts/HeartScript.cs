@@ -17,6 +17,17 @@ public class HeartScript : MonoBehaviour
     void Update()
     {
         // print("timeToDisappear" + (Time.time - startTime));
-        if(Time.time - startTime > timeToDisapper) gameObject.SetActive(false);
+        if (Time.time - startTime > timeToDisapper)
+        {
+            gameObject.SetActive(false); 
+            Rotate2D3D.SetStopRotate(false);
+            moving.SetStopWalk(false);
+        }
+        else
+        {
+            Rotate2D3D.SetStopRotate(true);
+            moving.SetStopWalk(true);
+        }
+            
     }
 }
