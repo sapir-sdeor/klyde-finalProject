@@ -68,7 +68,15 @@ public class RecognizeShape : MonoBehaviour
                 flag = false;
         }
         if (flag && !_recognizeShape){
-             Rotate2D3D.AutomaticCompleteTheShape();
+            if (LevelManager.GetLevel() != (5) && LevelManager.GetLevel() != (6) && LevelManager.GetLevel() != (7))
+            {
+                Rotate2D3D.AutomaticCompleteTheShape();
+            }
+            else
+            {
+                _showObject = true;
+            }
+             
         }
 
         if (_showObject)
