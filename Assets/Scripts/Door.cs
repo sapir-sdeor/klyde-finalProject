@@ -17,9 +17,8 @@ public class Door : MonoBehaviour
     [SerializeField] private GameObject flash;
     private float _stayTimer = 0.3f;
     [SerializeField] private GameObject[] lightPathImages;
-    [SerializeField] private float duration = 2f ;
-    [SerializeField] private float remainingDistance = 1f;
-    [SerializeField] private int newRenderQueue;
+    [SerializeField] private float duration = 2f;
+    [SerializeField] private Material openDoorMaterial;
     private float _angle;
     
     private List<Transform> _childs = new();
@@ -42,7 +41,7 @@ public class Door : MonoBehaviour
             if (child != transform)
             {
                 _childs.Add(child);
-                child.GetComponent<MeshRenderer>().material.color = Color.gray;
+               // child.GetComponent<MeshRenderer>().material.color = Color.gray;
             }
         }
         _angle = 360 /(float) LevelManager.GetNumOfHalves();
@@ -61,7 +60,7 @@ public class Door : MonoBehaviour
         {
             foreach (var child in _childs)
             {
-                child.GetComponent<MeshRenderer>().material.color = new Color32(200, 111, 103, 255);
+                child.GetComponent<MeshRenderer>().material = openDoorMaterial;
             }
             _doorAppear = true;
         }
