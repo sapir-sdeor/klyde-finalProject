@@ -40,7 +40,7 @@ public class LevelManager : MonoBehaviour
             Levels.unlockedLevel += 1;
         _panelFade.GetComponent<Animator>().SetTrigger("fadeOut");
         // _instance.StartCoroutine(WaitForLoadNextLevel());
-        SceneManager.LoadScene("Level4");
+        SceneManager.LoadScene("Level" + _level);
         //  _currentLevel = LevelFactory.CreateLevel(_level);
     }
     
