@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1273174, g: 0.13414761, b: 0.12107885, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1355,7 +1355,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 1528282119278234058, guid: 0875165370be81945a43952599504501, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2747863693887266461, guid: 0875165370be81945a43952599504501, type: 3}
       propertyPath: m_Sprite
@@ -12564,7 +12564,8 @@ MonoBehaviour:
   halfNum: 2
   offset: 0
   speed: 10
-  getBackDistance: 20
+  zAnimation: 0.01
+  animationSpeed: 15
   TargetInit: {x: -8.02, y: 5, z: -26.3}
   TargetInit1: {x: 0.3, y: 6.3, z: -18}
   flash: {fileID: 1632227927}
@@ -13271,7 +13272,8 @@ MonoBehaviour:
   halfNum: 2
   offset: 0
   speed: 10
-  getBackDistance: 20
+  zAnimation: 0.01
+  animationSpeed: 15
   TargetInit: {x: -8.02, y: 5, z: -26.3}
   TargetInit1: {x: 0.3, y: 6.3, z: -18}
   flash: {fileID: 1632227927}
@@ -13283,7 +13285,7 @@ MonoBehaviour:
   - {fileID: 635113951}
   - {fileID: 1488953656}
   duration: 3
-  openDoorMaterial: {fileID: 2100000, guid: f9790575db9ed4e028235cf38c4cb0c8, type: 2}
+  openDoorMaterial: {fileID: 2100000, guid: c0fd2c0941bbb4d598e94ef5763f0412, type: 2}
 --- !u!95 &1805414583
 Animator:
   serializedVersion: 4
@@ -13410,7 +13412,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.15
+  m_Radius: 0.17
   m_Height: 0.42
   m_Direction: 1
   m_Center: {x: 0.01943901, y: 0.07, z: 0.000000011469997}
@@ -13877,7 +13879,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a89b3312da9144264bdd3fc48d7abea3, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 49c82d6d986fb446cb5cc0ed0016a977, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
