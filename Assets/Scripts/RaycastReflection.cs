@@ -12,6 +12,7 @@ public class RaycastReflection : MonoBehaviour
 	private Ray ray;
 	private RaycastHit hit;
 	private Vector3 direction;
+	private int countReflections;
 
 	private void Awake()
 	{
@@ -21,7 +22,6 @@ public class RaycastReflection : MonoBehaviour
 	private void Update()
 	{
 		ray = new Ray(transform.position, transform.forward);
-
 		lineRenderer.positionCount = 1;
 		lineRenderer.SetPosition(0, transform.position);
 		float remainingLength = maxLength;
