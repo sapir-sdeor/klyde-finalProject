@@ -31,11 +31,11 @@ public class moving : MonoBehaviour
     {
         animator.SetBool(IsWalking,isWalkAnimation);
         print("door.getWin " + Door.GetWin());
-        if (Door.GetWin())
-        {
-            print("win is true, iswalkanimation = false "+isWalkAnimation);
-            isWalkAnimation = false;
-        }
+        // if (Door.GetWin())
+        // {
+        //     print("win is true, iswalkanimation = false "+isWalkAnimation);
+        //     isWalkAnimation = false;
+        // }
         // print(transform.position.x+"klyde pos");
         if (UIButtons.isPause) return;
         if (Input.GetMouseButtonDown(0)) 
@@ -96,6 +96,7 @@ public class moving : MonoBehaviour
                 agent.enabled = true;
             } 
         }
+        print("isWalkAnimation "+isWalkAnimation);
         if (isWalkAnimation)
         {
             if (!GetComponent<AudioSource>().isPlaying) GetComponent<AudioSource>().Play();
