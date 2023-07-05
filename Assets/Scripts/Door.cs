@@ -88,44 +88,6 @@ public class Door : MonoBehaviour
         }
         // CalculateLightPathPos();
     }
-    
-    // private IEnumerator AnimateDoor()
-    // {
-    //     isAnimating = true;
-    //     float elapsedTime = 0f;
-    //     Vector3 initialPosition = transform.position;
-    //     targetPosition = new Vector3(initialPosition.x, initialPosition.y, initialPosition.z - zAnimation);
-    //
-    //     while (elapsedTime < animationSpeed)
-    //     {
-    //         float t = elapsedTime / animationSpeed;
-    //         transform.position = Vector3.Lerp(initialPosition, targetPosition, t);
-    //         elapsedTime += Time.deltaTime;
-    //         yield return null;
-    //     }
-    //
-    //     // Ensure the door reaches the target position exactly
-    //     transform.position = targetPosition;
-    //
-    //     // // Wait for a delay (optional)
-    //     // yield return new WaitForSeconds(1f);
-    //
-    //     elapsedTime = 0f;
-    //
-    //     while (elapsedTime < animationSpeed)
-    //     {
-    //         float t = elapsedTime / animationSpeed;
-    //         transform.position = Vector3.Lerp(targetPosition, initialPosition, t);
-    //         elapsedTime += Time.deltaTime;
-    //         yield return null;
-    //     }
-    //
-    //     // Ensure the door reaches the initial position exactly
-    //     transform.position = initialPosition;
-    //
-    //     isAnimating = false;
-    // }
-
 
     private void EnabledDoorChild(bool enabled)
     {
