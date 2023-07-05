@@ -11,7 +11,7 @@ public class Door : MonoBehaviour
 {
     [SerializeField] private int halfNum;
     [SerializeField] private float offset;
-    [SerializeField] private float speed = 10f,getBackDistance=5f;
+    [SerializeField] private float speed = 10f,zAnimation = 0.01f,animationSpeed = 15f;
     [SerializeField] private Vector3 TargetInit = new(0.300000012f, 6.30000019f, -18f);
     [SerializeField] private Vector3 TargetInit1 = new(0.300000012f, 6.30000019f, -18f);
     [SerializeField] private GameObject flash;
@@ -23,15 +23,14 @@ public class Door : MonoBehaviour
     private float _angle;
     
     private List<Transform> _childs = new();
-    private bool _loadNextLevel,_wrong,_getBack, _doorAppear,_touchBallon;
+    private bool _loadNextLevel,_wrong,_getBack, _doorAppear,_touchBallon, isAnimating,isAnimatingBack;
     public static bool moveToVitraje,_shake,_win;
     private bool _triggerStay = true;
     private Vector3 _target;
     private Vector3 _firstPos;
     private GameObject _klyde;
-   
-    
-     // private float _requiredStayTime = 0.3f;
+    private Vector3 trans,targetPosition;
+
 
     private void Start()
     {
@@ -87,9 +86,45 @@ public class Door : MonoBehaviour
         {
             EnabledDoorChild(false);
         }
-
         // CalculateLightPathPos();
     }
+    
+    // private IEnumerator AnimateDoor()
+    // {
+    //     isAnimating = true;
+    //     float elapsedTime = 0f;
+    //     Vector3 initialPosition = transform.position;
+    //     targetPosition = new Vector3(initialPosition.x, initialPosition.y, initialPosition.z - zAnimation);
+    //
+    //     while (elapsedTime < animationSpeed)
+    //     {
+    //         float t = elapsedTime / animationSpeed;
+    //         transform.position = Vector3.Lerp(initialPosition, targetPosition, t);
+    //         elapsedTime += Time.deltaTime;
+    //         yield return null;
+    //     }
+    //
+    //     // Ensure the door reaches the target position exactly
+    //     transform.position = targetPosition;
+    //
+    //     // // Wait for a delay (optional)
+    //     // yield return new WaitForSeconds(1f);
+    //
+    //     elapsedTime = 0f;
+    //
+    //     while (elapsedTime < animationSpeed)
+    //     {
+    //         float t = elapsedTime / animationSpeed;
+    //         transform.position = Vector3.Lerp(targetPosition, initialPosition, t);
+    //         elapsedTime += Time.deltaTime;
+    //         yield return null;
+    //     }
+    //
+    //     // Ensure the door reaches the initial position exactly
+    //     transform.position = initialPosition;
+    //
+    //     isAnimating = false;
+    // }
 
 
     private void EnabledDoorChild(bool enabled)
@@ -112,8 +147,10 @@ public class Door : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         if(other.gameObject.CompareTag("klyde"))
+            // StartCoroutine(AnimateDoor());
             _animator.SetBool("moveButton",true);
         // print("_doorAppear "+_doorAppear);
+        isAnimating = true;
         if(other.gameObject.CompareTag("klyde") && _doorAppear)
         {
             print("klyde win");
@@ -144,7 +181,9 @@ public class Door : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         _triggerStay = true;
-        _animator.SetBool("moveButton",false);
+        if(other.gameObject.CompareTag("klyde"))
+            // StartCoroutine(AnimateDoor());
+            _animator.SetBool("moveButton",false);
     }
 
     private IEnumerator ShakeCam()
