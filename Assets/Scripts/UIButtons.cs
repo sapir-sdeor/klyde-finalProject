@@ -11,6 +11,12 @@ public class UIButtons : MonoBehaviour
     [SerializeField] private GameObject panel;
     public static bool isPause;
 
+    private void Start()
+    {
+        isPause = false;
+        Time.timeScale = 1;
+    }
+
     public void StartGame()
     {
         isPause = false;
@@ -33,7 +39,6 @@ public class UIButtons : MonoBehaviour
 
     public void Pause()
     {
-        print("here");
         panel.SetActive(true);
         Time.timeScale = 0;
         isPause = true;
