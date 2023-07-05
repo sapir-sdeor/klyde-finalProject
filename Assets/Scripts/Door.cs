@@ -11,7 +11,7 @@ public class Door : MonoBehaviour
 {
     [SerializeField] private int halfNum;
     [SerializeField] private float offset;
-    [SerializeField] private float speed = 10f,getBackDistance=5f;
+    [SerializeField] private float speed = 10f,zAnimation = 0.01f,animationSpeed = 15f;
     [SerializeField] private Vector3 TargetInit = new(0.300000012f, 6.30000019f, -18f);
     [SerializeField] private Vector3 TargetInit1 = new(0.300000012f, 6.30000019f, -18f);
     [SerializeField] private GameObject flash;
@@ -19,23 +19,24 @@ public class Door : MonoBehaviour
     [SerializeField] private GameObject[] lightPathImages;
     [SerializeField] private float duration = 2f;
     [SerializeField] private Material openDoorMaterial;
+    private Animator _animator;
     private float _angle;
     
     private List<Transform> _childs = new();
-    private bool _loadNextLevel,_wrong,_getBack, _doorAppear,_touchBallon;
+    private bool _loadNextLevel,_wrong,_getBack, _doorAppear,_touchBallon, isAnimating,isAnimatingBack;
     public static bool moveToVitraje,_shake,_win;
     private bool _triggerStay = true;
     private Vector3 _target;
     private Vector3 _firstPos;
     private GameObject _klyde;
-   
-    
-     // private float _requiredStayTime = 0.3f;
+    private Vector3 trans,targetPosition;
+
 
     private void Start()
     {
         GetComponent<AudioSource>().Stop();
         _target = TargetInit;
+        _animator = GetComponent<Animator>();
         foreach (var child in GetComponentsInChildren<Transform>())
         {
             if (child != transform)
@@ -60,7 +61,8 @@ public class Door : MonoBehaviour
         {
             foreach (var child in _childs)
             {
-                child.GetComponent<MeshRenderer>().material = openDoorMaterial;
+                if(child.GetComponent<MeshRenderer>()!=null)
+                    child.GetComponent<MeshRenderer>().material = openDoorMaterial;
             }
             _doorAppear = true;
         }
@@ -84,17 +86,20 @@ public class Door : MonoBehaviour
         {
             EnabledDoorChild(false);
         }
-
         // CalculateLightPathPos();
     }
-
 
     private void EnabledDoorChild(bool enabled)
     {
         // print("enabled door child"+enabled);
-        foreach (var child in GetComponentsInChildren<MeshRenderer>())
+        foreach (var child in _childs)
         {
-            child.GetComponent<MeshRenderer>().enabled = enabled;
+            if(child.GetComponent<MeshRenderer>()!=null)
+                child.GetComponent<MeshRenderer>().enabled = enabled;
+            if(child.GetComponent<SpriteRenderer>()!=null)
+                child.GetComponent<SpriteRenderer>().enabled = enabled;
+            if(child.GetComponent<ParticleSystem>()!=null)
+                child.gameObject.SetActive(enabled);
         }
         GetComponent<Collider>().enabled = enabled;
         GetComponent<CapsuleCollider>().enabled = enabled;
@@ -103,10 +108,15 @@ public class Door : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if(other.gameObject.CompareTag("klyde"))
+            // StartCoroutine(AnimateDoor());
+            _animator.SetBool("moveButton",true);
         // print("_doorAppear "+_doorAppear);
+        isAnimating = true;
         if(other.gameObject.CompareTag("klyde") && _doorAppear)
         {
             print("klyde win");
+            moving.SetWalkAnimationFalse();
             //  GetComponent<PlayableDirector>().Play();
             _klyde = other.gameObject;
             // _klyde.GetComponent<NavMeshAgent>().SetDestination(_klyde.transform.position);
@@ -134,6 +144,9 @@ public class Door : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         _triggerStay = true;
+        if(other.gameObject.CompareTag("klyde"))
+            // StartCoroutine(AnimateDoor());
+            _animator.SetBool("moveButton",false);
     }
 
     private IEnumerator ShakeCam()
@@ -274,6 +287,24 @@ public class Door : MonoBehaviour
                 else if (currAngle < start - (range * 5) && currAngle > start - (range * 6))
                     index = 4;
                 else if(currAngle < start - (range * 6) && currAngle > start - (range * 7))
+                    index = 5;
+                else
+                    index = 6;
+                break;
+            case 6:
+                range = 8;
+                start = 344;
+                if (currAngle > start)
+                    index = 0;
+                else if (currAngle < start && currAngle > start - range)
+                    index = 1;
+                else if (currAngle < start - range && currAngle > start - (range * 2))
+                    index = 2;
+                else if (currAngle < start - (range * 2) && currAngle > start - (range * 3))
+                    index = 3;
+                else if (currAngle < start - (range * 3) && currAngle > start - (range * 4))
+                    index = 4;
+                else if(currAngle < start - (range * 4) && currAngle > start - (range * 5))
                     index = 5;
                 else
                     index = 6;
