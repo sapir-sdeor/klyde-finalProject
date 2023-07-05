@@ -154,6 +154,7 @@ public class Door : MonoBehaviour
         if(other.gameObject.CompareTag("klyde") && _doorAppear)
         {
             print("klyde win");
+            moving.SetWalkAnimationFalse();
             //  GetComponent<PlayableDirector>().Play();
             _klyde = other.gameObject;
             // _klyde.GetComponent<NavMeshAgent>().SetDestination(_klyde.transform.position);
