@@ -15,6 +15,8 @@ public class RecognizeShape : MonoBehaviour
     [SerializeField] private GameObject reflect;
     [SerializeField] private float timeToDisappearLimit = 7;
     [SerializeField] private float offset=0;
+
+    [SerializeField] private AudioSource _audio;
     // Start is called before the first frame update
     private static bool _recognizeShape ;
     private float _angle;
@@ -84,6 +86,8 @@ public class RecognizeShape : MonoBehaviour
             _showObject = false;
             _recognizeShape = true;
             objectToShown.gameObject.SetActive(true);
+            if (!_audio.isPlaying)
+                _audio.Play();
             if(reflect)
                 reflect.gameObject.SetActive(false);
         }
