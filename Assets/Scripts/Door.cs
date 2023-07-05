@@ -111,8 +111,8 @@ public class Door : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(other.gameObject.CompareTag("klyde"))
-            _animator.SetBool("moveButton",true);
+        // if(other.gameObject.CompareTag("klyde"))
+        //     _animator.SetBool("moveButton",true);
         // print("_doorAppear "+_doorAppear);
         if(other.gameObject.CompareTag("klyde") && _doorAppear)
         {
