@@ -14164,6 +14164,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -82.90009
       objectReference: {fileID: 0}
+    - target: {fileID: 2497151247347190713, guid: 0875165370be81945a43952599504501, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 981850771}
+    - target: {fileID: 2497151247347190713, guid: 0875165370be81945a43952599504501, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Pause
+      objectReference: {fileID: 0}
     - target: {fileID: 2703525113720041923, guid: 0875165370be81945a43952599504501, type: 3}
       propertyPath: m_LocalScale.x
       value: 0.23
@@ -14215,6 +14223,22 @@ PrefabInstance:
     - target: {fileID: 2747863694012155813, guid: 0875165370be81945a43952599504501, type: 3}
       propertyPath: m_SizeDelta.x
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2747863694167027365, guid: 0875165370be81945a43952599504501, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 2747863694167027365, guid: 0875165370be81945a43952599504501, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.0791918
+      objectReference: {fileID: 0}
+    - target: {fileID: 2747863694167027365, guid: 0875165370be81945a43952599504501, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.0792587
+      objectReference: {fileID: 0}
+    - target: {fileID: 2747863694167027365, guid: 0875165370be81945a43952599504501, type: 3}
+      propertyPath: m_ConstrainProportionsScale
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2747863694181138225, guid: 0875165370be81945a43952599504501, type: 3}
       propertyPath: m_SizeDelta.y
@@ -14372,6 +14396,17 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 2747863694149533787, guid: 0875165370be81945a43952599504501, type: 3}
   m_PrefabInstance: {fileID: 981850768}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &981850771 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2747863695624981502, guid: 0875165370be81945a43952599504501, type: 3}
+  m_PrefabInstance: {fileID: 981850768}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd77828042f14bdea400448e75765023, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1034785063
 GameObject:
   m_ObjectHideFlags: 0
