@@ -30,6 +30,7 @@ public class Levels : MonoBehaviour
             {
                 levelButtons[i].gameObject.SetActive(true);
                 levelButtons[i].SetUp(level, level<=unlockedLevel);
+                print(level<=unlockedLevel);
             }
             else
                 levelButtons[i].gameObject.SetActive(false);
