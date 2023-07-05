@@ -16,7 +16,7 @@ public class RecognizeShape : MonoBehaviour
     [SerializeField] private float timeToDisappearLimit = 7;
     [SerializeField] private float offset=0;
 
-    [SerializeField] private AudioSource _audio;
+    [SerializeField] private AudioSource _audioRecognize, _audioWindow;
     // Start is called before the first frame update
     private static bool _recognizeShape ;
     private float _angle;
@@ -32,6 +32,15 @@ public class RecognizeShape : MonoBehaviour
         {
             rightPlane.GetComponent<Animator>().SetBool("Level1",true); 
             leftPlane.GetComponent<Animator>().SetBool("Level1",true);
+            if (!_audioWindow.isPlaying)
+                _audioWindow.Play();
+        }
+        else if (LevelManager.GetLevel() == 0)
+        {
+            rightPlane.GetComponent<Animator>().SetBool("recognizeShape",true); 
+            leftPlane.GetComponent<Animator>().SetBool("recognizeShape",true);
+            if (!_audioWindow.isPlaying)
+                _audioWindow.Play();
         }
         else
         {
@@ -55,6 +64,8 @@ public class RecognizeShape : MonoBehaviour
             print("recognize shape, animation should work");
             rightPlane.GetComponent<Animator>().SetBool("recognizeShape",true); 
             leftPlane.GetComponent<Animator>().SetBool("recognizeShape",true);
+            if (!_audioWindow.isPlaying)
+                _audioWindow.Play();
             objectToShown.gameObject.SetActive(false);
         }
 
@@ -86,8 +97,8 @@ public class RecognizeShape : MonoBehaviour
             _showObject = false;
             _recognizeShape = true;
             objectToShown.gameObject.SetActive(true);
-            if (!_audio.isPlaying)
-                _audio.Play();
+            if (!_audioRecognize.isPlaying)
+                _audioRecognize.Play();
             if(reflect)
                 reflect.gameObject.SetActive(false);
         }

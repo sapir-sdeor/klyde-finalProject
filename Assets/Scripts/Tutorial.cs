@@ -14,8 +14,9 @@ public class Tutorial : World
     [SerializeField] private GameObject completeTheHeartHint;
     [SerializeField] private float timeToDisapear = 1;
     [SerializeField] private float timeToAppear = 0.5f;
-    private bool _rotateOnce,_rotateHintShow, _disRotate, _disWalk, _disHeart;
-    private float _timeRotate, _timeWalk, _timeAppear, _timeHeart;
+    [SerializeField] private GameObject buttonHint;
+    private bool _rotateOnce,_rotateHintShow, _disRotate, _disWalk, _disHeart,_disButton;
+    private float _timeRotate, _timeWalk, _timeAppear, _timeHeart,_timeButton;
 
     private void Start()
     {
@@ -38,7 +39,17 @@ public class Tutorial : World
         {
             _timeRotate += Time.deltaTime;
             if (_timeRotate > timeToDisapear)
+            {
                 rotateHint.GetComponent<Animator>().SetBool("disappear", true);
+                _disButton = true;
+                buttonHint.SetActive(true);
+            }
+      
+        }
+        if (_disButton)
+        {
+            if (Door.GetWin())
+                buttonHint.SetActive(false);
         }
 
         if (_disHeart)
