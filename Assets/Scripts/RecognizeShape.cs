@@ -13,7 +13,7 @@ public class RecognizeShape : MonoBehaviour
     [SerializeField] private Texture backgroundAfterShape;
     [SerializeField] private GameObject rightPlane, leftPlane;
     [SerializeField] private GameObject reflect;
-    [SerializeField] private float timeToDisappearLimit = 7;
+    [SerializeField] private float timeToDisappearLimit = 7,_soundTimeLimit=4;
     [SerializeField] private float offset=0;
 
     [SerializeField] private AudioSource _audioRecognize, _audioWindow;
@@ -21,8 +21,8 @@ public class RecognizeShape : MonoBehaviour
     private static bool _recognizeShape ;
     private float _angle;
     private bool flag = true;
-    private float _timeToDisappear;
-    private static bool _showObject;
+    private float _timeToDisappear,_soundTime;
+    private static bool _showObject,_level0SoundPlay=true;
 
     private void Start()
     {
@@ -32,13 +32,7 @@ public class RecognizeShape : MonoBehaviour
         {
             rightPlane.GetComponent<Animator>().SetBool("Level1",true); 
             leftPlane.GetComponent<Animator>().SetBool("Level1",true);
-            if (!_audioWindow.isPlaying)
-                _audioWindow.Play();
-        }
-        else if (LevelManager.GetLevel() == 0)
-        {
-            rightPlane.GetComponent<Animator>().SetBool("recognizeShape",true); 
-            leftPlane.GetComponent<Animator>().SetBool("recognizeShape",true);
+            print("level 1");
             if (!_audioWindow.isPlaying)
                 _audioWindow.Play();
         }
@@ -58,6 +52,7 @@ public class RecognizeShape : MonoBehaviour
         {
             _timeToDisappear += Time.deltaTime;
         }
+        
         
         if (_timeToDisappear > timeToDisappearLimit)
         {
