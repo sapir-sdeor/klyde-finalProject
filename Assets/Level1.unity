@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1273174, g: 0.13414761, b: 0.12107885, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9627,7 +9627,8 @@ MonoBehaviour:
   halfNum: 1
   offset: 5
   speed: 10
-  getBackDistance: 20
+  zAnimation: 100
+  animationSpeed: 200
   TargetInit: {x: -12.53, y: 11.7, z: -23.07}
   TargetInit1: {x: 0.3, y: 6.3, z: -18}
   flash: {fileID: 1395758071}
@@ -9637,7 +9638,7 @@ MonoBehaviour:
   - {fileID: 1783083233}
   - {fileID: 1356096071}
   duration: 2
-  openDoorMaterial: {fileID: 2100000, guid: f9790575db9ed4e028235cf38c4cb0c8, type: 2}
+  openDoorMaterial: {fileID: 2100000, guid: c0fd2c0941bbb4d598e94ef5763f0412, type: 2}
 --- !u!114 &1064197698
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9808,7 +9809,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.15
+  m_Radius: 0.1
   m_Height: 0.42
   m_Direction: 1
   m_Center: {x: 0.01943901, y: 0.07, z: 0.000000011469997}
@@ -10284,7 +10285,8 @@ MonoBehaviour:
   halfNum: 1
   offset: 0
   speed: 10
-  getBackDistance: 5
+  zAnimation: 0.01
+  animationSpeed: 15
   TargetInit: {x: 0.3, y: 6.3, z: -18}
   TargetInit1: {x: 0.3, y: 6.3, z: -18}
   flash: {fileID: 0}
@@ -10747,14 +10749,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1613268355}
-  m_LocalRotation: {x: 0.70710677, y: -0, z: -0, w: 0.70710677}
+  m_LocalRotation: {x: 0, y: 0.7071068, z: -0.7071068, w: 0}
   m_LocalPosition: {x: 0.00950693, y: 0.03857121, z: -0.015090773}
   m_LocalScale: {x: 0.04285713, y: 0.04285715, z: 0.04285715}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1064197696}
   m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 90, y: 180, z: 0}
 --- !u!212 &1613268357
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -10796,7 +10798,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: ac39c56345181423e9f386c1467c57cf, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 36e827f65c09a4c8d992763f9851dbc4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -10974,7 +10976,8 @@ MonoBehaviour:
   halfNum: 1
   offset: 15
   speed: 10
-  getBackDistance: 20
+  zAnimation: 0.01
+  animationSpeed: 15
   TargetInit: {x: -12.53, y: 11.7, z: -23.07}
   TargetInit1: {x: 0.3, y: 6.3, z: -18}
   flash: {fileID: 1395758071}

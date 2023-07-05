@@ -6390,7 +6390,8 @@ MonoBehaviour:
   isKlydeOn: 0
   walkHint: {fileID: 1613323150}
   rotateHint: {fileID: 1347776900}
-  _timeToDisapear: 1
+  timeToDisapear: 1
+  timeToAppear: 0.5
 --- !u!1 &394288878
 GameObject:
   m_ObjectHideFlags: 0
@@ -8749,7 +8750,7 @@ MonoBehaviour:
   - {fileID: 1330757394}
   - {fileID: 1070651909}
   duration: 3
-  openDoorMaterial: {fileID: 2100000, guid: f9790575db9ed4e028235cf38c4cb0c8, type: 2}
+  openDoorMaterial: {fileID: 2100000, guid: c0fd2c0941bbb4d598e94ef5763f0412, type: 2}
 --- !u!95 &891116649
 Animator:
   serializedVersion: 4
