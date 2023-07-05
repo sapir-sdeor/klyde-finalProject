@@ -148,6 +148,7 @@ public class Door : MonoBehaviour
     {
         if(other.gameObject.CompareTag("klyde"))
             // StartCoroutine(AnimateDoor());
+            _animator.SetBool("moveButton",true);
         // print("_doorAppear "+_doorAppear);
         isAnimating = true;
         if(other.gameObject.CompareTag("klyde") && _doorAppear)
@@ -180,7 +181,9 @@ public class Door : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         _triggerStay = true;
-        _animator.SetBool("moveButton",false);
+        if(other.gameObject.CompareTag("klyde"))
+            // StartCoroutine(AnimateDoor());
+            _animator.SetBool("moveButton",false);
     }
 
     private IEnumerator ShakeCam()
