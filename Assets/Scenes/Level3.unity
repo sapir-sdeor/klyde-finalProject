@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
+  m_IndirectSpecularColor: {r: 0.1273174, g: 0.13414761, b: 0.12107885, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2739,7 +2739,8 @@ MonoBehaviour:
   halfNum: 1
   offset: 0
   speed: 10
-  getBackDistance: 20
+  zAnimation: 0.01
+  animationSpeed: 15
   TargetInit: {x: -8.94, y: 9.4, z: -24.8}
   TargetInit1: {x: 0.3, y: 6.3, z: -18}
   flash: {fileID: 1008429100}
@@ -4044,7 +4045,7 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 3.38
+  m_Intensity: 11.78
   m_Range: 100
   m_SpotAngle: 179
   m_InnerSpotAngle: 1
@@ -7117,7 +7118,8 @@ MonoBehaviour:
   halfNum: 1
   offset: 0
   speed: 10
-  getBackDistance: 20
+  zAnimation: 0.01
+  animationSpeed: 15
   TargetInit: {x: -8.94, y: 9.4, z: -24.8}
   TargetInit1: {x: 0.3, y: 6.3, z: -18}
   flash: {fileID: 1008429100}
@@ -8390,7 +8392,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1528282119278234058, guid: 0875165370be81945a43952599504501, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1657247795000102056, guid: 0875165370be81945a43952599504501, type: 3}
       propertyPath: m_SizeDelta.y
@@ -8592,6 +8594,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7541080434138409699, guid: 0875165370be81945a43952599504501, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 9110827602841297316, guid: 0875165370be81945a43952599504501, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
@@ -8785,7 +8791,8 @@ MonoBehaviour:
   halfNum: 1
   offset: 0
   speed: 10
-  getBackDistance: 5
+  zAnimation: 0.01
+  animationSpeed: 15
   TargetInit: {x: 0.3, y: 6.3, z: -18}
   TargetInit1: {x: 0.3, y: 6.3, z: -18}
   flash: {fileID: 0}

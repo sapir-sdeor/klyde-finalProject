@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
+  m_IndirectSpecularColor: {r: 0.1273174, g: 0.13414761, b: 0.12107885, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6390,6 +6390,7 @@ MonoBehaviour:
   isKlydeOn: 0
   walkHint: {fileID: 1613323150}
   rotateHint: {fileID: 1347776900}
+  completeTheHeartHint: {fileID: 0}
   timeToDisapear: 1
   timeToAppear: 0.5
 --- !u!1 &394288878
@@ -8539,7 +8540,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 884925220}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 43.800003, y: 31.769997, z: 0}
+  m_LocalPosition: {x: 0, y: 31.769997, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -8558,9 +8559,9 @@ Light:
   m_Type: 0
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 3.38
+  m_Intensity: 8.77
   m_Range: 100
-  m_SpotAngle: 179
+  m_SpotAngle: 177.4
   m_InnerSpotAngle: 1
   m_CookieSize: 10
   m_Shadows:
@@ -8740,7 +8741,8 @@ MonoBehaviour:
   halfNum: 1
   offset: 5
   speed: 14
-  getBackDistance: 20
+  zAnimation: 0.01
+  animationSpeed: 15
   TargetInit: {x: -7.61, y: 14.53, z: -2}
   TargetInit1: {x: 0.3, y: 6.3, z: -18}
   flash: {fileID: 1769685569}
@@ -14349,6 +14351,10 @@ PrefabInstance:
     - target: {fileID: 6195649109426315442, guid: 0875165370be81945a43952599504501, type: 3}
       propertyPath: m_LocalPosition.z
       value: -312.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 7541080434138409699, guid: 0875165370be81945a43952599504501, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8260037896207236700, guid: 0875165370be81945a43952599504501, type: 3}
       propertyPath: m_RootOrder
@@ -23093,7 +23099,8 @@ MonoBehaviour:
   halfNum: 1
   offset: 0
   speed: 10
-  getBackDistance: 5
+  zAnimation: 0.01
+  animationSpeed: 15
   TargetInit: {x: 0.3, y: 6.3, z: -18}
   TargetInit1: {x: 0.3, y: 6.3, z: -18}
   flash: {fileID: 0}
@@ -28993,7 +29000,8 @@ MonoBehaviour:
   halfNum: 1
   offset: 5
   speed: 14
-  getBackDistance: 20
+  zAnimation: 0.01
+  animationSpeed: 15
   TargetInit: {x: -7.61, y: 14.53, z: -2}
   TargetInit1: {x: 0.3, y: 6.3, z: -18}
   flash: {fileID: 1769685569}
