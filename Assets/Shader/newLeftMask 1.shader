@@ -51,6 +51,10 @@ Shader "Custom/combineMask"
             if (!isInDivision) {
                 tex.a = _Transparent;
             }
+            else
+            {
+                tex.a = _Color.a;
+            }
             // Set the surface properties using the existing Standard shader code
             o.Albedo = tex.rgb * _Color.rgb * tex.a;
             o.Metallic = _Metallic;
