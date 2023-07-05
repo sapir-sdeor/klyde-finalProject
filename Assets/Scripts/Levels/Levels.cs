@@ -11,10 +11,6 @@ public class Levels : MonoBehaviour
     public static int unlockedLevel = 0;
     private ButtonLevel[] levelButtons;
     [SerializeField] private GameObject glow;
-    [SerializeField] private Camera _camera;
-    [SerializeField] private float speed = 10f;
-    [SerializeField] private float limitLeft = 0;
-    [SerializeField] private float limitRight = -2057;
     private void Start()
     {
         Refresh();
@@ -42,11 +38,6 @@ public class Levels : MonoBehaviour
 
     private void Update()
     {
-        /*if (!Input.GetMouseButton(0)) return;
-        float deltaX = Input.GetAxis("Mouse X") * speed;
-        var transformPosition = transform.position;
-        transformPosition.x += deltaX;
-        transform.position = transformPosition;*/
         glow.transform.position = levelButtons[unlockedLevel].transform.position;
     }
 }
