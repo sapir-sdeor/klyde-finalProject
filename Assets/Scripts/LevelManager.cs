@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour 
 {
-    private static int _level = 2;
+    private static int _level = 1;
     private static int _numOfHalves = 0;
     private static LevelManager _instance;
     private static GameObject _panelFade;
@@ -38,16 +38,16 @@ public class LevelManager : MonoBehaviour
         _level++;
         if (Levels.unlockedLevel == _level-1)
             Levels.unlockedLevel += 1;
-        _panelFade.GetComponent<Animator>().SetTrigger("fadeOut");
+        _panelFade.GetComponent<Animator>().SetBool("fadeOutBool",true);
         // _instance.StartCoroutine(WaitForLoadNextLevel());
-        if (_level != 8)
-        {
-            SceneManager.LoadScene("Level" + _level);
-        }
-        else
-        {
-            SceneManager.LoadScene("EndScene");
-        }
+        // if (_level != 8)
+        // {
+        //     SceneManager.LoadScene("Level" + _level);
+        // }
+        // else
+        // {
+        //     SceneManager.LoadScene("EndScene");
+        // }
         //  _currentLevel = LevelFactory.CreateLevel(_level);
     }
     
@@ -76,15 +76,23 @@ public class LevelManager : MonoBehaviour
     public static void FadeOutComplete()
     {
         _fadeOutComplete = true;
-        print("fadeOutComplete");
+        // print("fadeOutComplete");
         LoadNextLevel();
     }
 
     private static void LoadNextLevel()
     {
-        if (_fadeOutComplete)
+        // if (_fadeOutComplete)
+        // {
+        //     SceneManager.LoadScene("Level" + _level);
+        // }
+        if (_level != 8)
         {
             SceneManager.LoadScene("Level" + _level);
+        }
+        else
+        {
+            SceneManager.LoadScene("EndScene");
         }
     }
 

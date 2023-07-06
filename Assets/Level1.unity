@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1273174, g: 0.13414761, b: 0.12107885, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -272,7 +272,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 66a5361494e186740a8dfa5c7a049b39, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToDisapper: 5
+  timeToDisapper: 5.5
 --- !u!1001 &148481117
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5637,7 +5637,6 @@ GameObject:
   - component: {fileID: 384441277}
   - component: {fileID: 384441276}
   - component: {fileID: 384441278}
-  - component: {fileID: 384441279}
   - component: {fileID: 384441280}
   - component: {fileID: 384441281}
   - component: {fileID: 384441282}
@@ -5713,19 +5712,6 @@ MonoBehaviour:
   offset: 0
   _audioRecognize: {fileID: 672812286}
   _audioWindow: {fileID: 1839529712}
---- !u!114 &384441279
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 384441275}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd50b3bdd1c94b95917ec20a776d4c82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioSource: {fileID: 0}
 --- !u!114 &384441280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6521,7 +6507,7 @@ MonoBehaviour:
   textureWithShape: {fileID: 2800000, guid: 1ebd358bfc65c4693a451f7a827074b3, type: 3}
   isKlydeOn: 1
   halfNum: 2
-  timeToChangeTexture: 5
+  timeToChangeTexture: 5.3
   offset: 0
 --- !u!4 &672812285 stripped
 Transform:
@@ -7261,7 +7247,7 @@ MonoBehaviour:
   textureWithShape: {fileID: 2800000, guid: 18d96dd0acc634ba18c0b364124779c6, type: 3}
   isKlydeOn: 0
   halfNum: 1
-  timeToChangeTexture: 5
+  timeToChangeTexture: 5.3
   offset: 0
 --- !u!23 &904975033
 MeshRenderer:
@@ -9806,7 +9792,7 @@ MonoBehaviour:
   - {fileID: 1833629755}
   - {fileID: 1783083233}
   - {fileID: 1356096071}
-  duration: 2
+  duration: 1.5
   openDoorMaterial: {fileID: 2100000, guid: c0fd2c0941bbb4d598e94ef5763f0412, type: 2}
 --- !u!114 &1064197698
 MonoBehaviour:
@@ -9868,7 +9854,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 56dd332f76df09347985e9e6d38cc2bf, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 3b6d0054657b140fda277c39bfe7003f, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -12176,6 +12162,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 957699573705603483, guid: 0875165370be81945a43952599504501, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 1385337651575598210, guid: 0875165370be81945a43952599504501, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -12411,6 +12401,38 @@ PrefabInstance:
     - target: {fileID: 7402806416895257977, guid: 0875165370be81945a43952599504501, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7402806416895257977, guid: 0875165370be81945a43952599504501, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.999888
+      objectReference: {fileID: 0}
+    - target: {fileID: 7402806416895257977, guid: 0875165370be81945a43952599504501, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.9998884
+      objectReference: {fileID: 0}
+    - target: {fileID: 7402806416895257977, guid: 0875165370be81945a43952599504501, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.99988824
+      objectReference: {fileID: 0}
+    - target: {fileID: 7402806416895257977, guid: 0875165370be81945a43952599504501, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 102.00379
+      objectReference: {fileID: 0}
+    - target: {fileID: 7402806416895257977, guid: 0875165370be81945a43952599504501, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: -0.99974555
+      objectReference: {fileID: 0}
+    - target: {fileID: 7402806416895257977, guid: 0875165370be81945a43952599504501, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0.013886681
+      objectReference: {fileID: 0}
+    - target: {fileID: 7402806416895257977, guid: 0875165370be81945a43952599504501, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0.010719376
+      objectReference: {fileID: 0}
+    - target: {fileID: 7402806416895257977, guid: 0875165370be81945a43952599504501, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0.014180422
       objectReference: {fileID: 0}
     - target: {fileID: 7541080434138409699, guid: 0875165370be81945a43952599504501, type: 3}
       propertyPath: m_SizeDelta.y

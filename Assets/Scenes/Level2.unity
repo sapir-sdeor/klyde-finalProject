@@ -6284,7 +6284,6 @@ GameObject:
   - component: {fileID: 384441277}
   - component: {fileID: 384441276}
   - component: {fileID: 384441278}
-  - component: {fileID: 384441279}
   - component: {fileID: 384441280}
   - component: {fileID: 384441281}
   - component: {fileID: 384441282}
@@ -6360,19 +6359,6 @@ MonoBehaviour:
   offset: 0
   _audioRecognize: {fileID: 697489580}
   _audioWindow: {fileID: 545453417}
---- !u!114 &384441279
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 384441275}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd50b3bdd1c94b95917ec20a776d4c82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioSource: {fileID: 0}
 --- !u!114 &384441280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9132,7 +9118,7 @@ MonoBehaviour:
   - {fileID: 1724911242}
   - {fileID: 1330757394}
   - {fileID: 1070651909}
-  duration: 3
+  duration: 1.5
   openDoorMaterial: {fileID: 2100000, guid: c0fd2c0941bbb4d598e94ef5763f0412, type: 2}
 --- !u!95 &891116649
 Animator:
@@ -9164,7 +9150,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 56dd332f76df09347985e9e6d38cc2bf, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 3b6d0054657b140fda277c39bfe7003f, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -14732,7 +14718,7 @@ PrefabInstance:
     - target: {fileID: 2747863695624981502, guid: 0875165370be81945a43952599504501, type: 3}
       propertyPath: panel
       value: 
-      objectReference: {fileID: 1241028020}
+      objectReference: {fileID: 2130566242}
     - target: {fileID: 2747863695820946118, guid: 0875165370be81945a43952599504501, type: 3}
       propertyPath: m_Controller
       value: 
@@ -14781,6 +14767,14 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 118ec80ab682e4173945d893509f4a90, type: 3}
+    - target: {fileID: 3364475366264786927, guid: 0875165370be81945a43952599504501, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 981850771}
+    - target: {fileID: 3364475366264786927, guid: 0875165370be81945a43952599504501, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Resume
+      objectReference: {fileID: 0}
     - target: {fileID: 3389405071001273781, guid: 0875165370be81945a43952599504501, type: 3}
       propertyPath: m_SortingOrder
       value: 3
@@ -14817,9 +14811,37 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3922668466949963127, guid: 0875165370be81945a43952599504501, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 981850771}
+    - target: {fileID: 3922668466949963127, guid: 0875165370be81945a43952599504501, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Restart
+      objectReference: {fileID: 0}
+    - target: {fileID: 3922668468630855091, guid: 0875165370be81945a43952599504501, type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3922668468630855102, guid: 0875165370be81945a43952599504501, type: 3}
       propertyPath: m_RootOrder
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4322521558234172948, guid: 0875165370be81945a43952599504501, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 981850771}
+    - target: {fileID: 4322521558234172948, guid: 0875165370be81945a43952599504501, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: StartGame
+      objectReference: {fileID: 0}
+    - target: {fileID: 4927263228259215069, guid: 0875165370be81945a43952599504501, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 981850771}
+    - target: {fileID: 4927263228259215069, guid: 0875165370be81945a43952599504501, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Menu
       objectReference: {fileID: 0}
     - target: {fileID: 5188207651571285323, guid: 0875165370be81945a43952599504501, type: 3}
       propertyPath: m_LocalScale.x
@@ -20400,11 +20422,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1241028020 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3922668468630855103, guid: 0875165370be81945a43952599504501, type: 3}
-  m_PrefabInstance: {fileID: 981850768}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1247691811 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8164078558771037576, guid: fb1a05b542f514286a8d1ef5082707d0, type: 3}
@@ -31998,6 +32015,11 @@ MonoBehaviour:
   aprroximate: 5
   distance: 3.6
   halfNumPoints: 0100000002000000
+--- !u!1 &2130566242 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3922668468630855103, guid: 0875165370be81945a43952599504501, type: 3}
+  m_PrefabInstance: {fileID: 981850768}
+  m_PrefabAsset: {fileID: 0}
 --- !u!224 &414576427618154037
 RectTransform:
   m_ObjectHideFlags: 0
