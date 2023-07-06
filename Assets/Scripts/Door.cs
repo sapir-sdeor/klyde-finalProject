@@ -309,6 +309,24 @@ public class Door : MonoBehaviour
                 else
                     index = 6;
                 break;
+            case 7: 
+                range = 11;
+                start = 222;
+                if (currAngle > start)
+                    index = 0;
+                else if (currAngle < start && currAngle > start - range)
+                    index = 1;
+                else if (currAngle < start - range && currAngle > start - (range * 2))
+                    index = 2;
+                else if (currAngle < start - (range * 2) && currAngle > start - (range * 5))
+                    index = 3;
+                else if (currAngle < start - (range * 5) && currAngle > start - (range * 6))
+                    index = 4;
+                else if(currAngle < start - (range * 6) && currAngle > start - (range * 7))
+                    index = 5;
+                else
+                    index = 6;
+                break;
 
         }
         ShowImage(lightPathImages[index]);
@@ -316,7 +334,7 @@ public class Door : MonoBehaviour
 
     private void ShowImage(GameObject image)
     {
-        _klyde.GetComponentInChildren<SkinnedMeshRenderer>().material.renderQueue = 3000;
+        // _klyde.GetComponentInChildren<SkinnedMeshRenderer>().material.renderQueue = 3000;
         // mat. = 4000;
         image.GetComponent<MeshRenderer>().enabled = true;
         StartCoroutine(FadeImageAlpha(image.GetComponent<MeshRenderer>().material, 0f, 1f)); 
@@ -335,7 +353,7 @@ public class Door : MonoBehaviour
         }
 
         mat.SetFloat("_Alpha", endAlpha); // Updated property name
-        MoveToVitrajWinCase();
+        // MoveToVitrajWinCase();
     }
     
     
