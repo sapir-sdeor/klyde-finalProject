@@ -21400,7 +21400,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 56dd332f76df09347985e9e6d38cc2bf, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 3b6d0054657b140fda277c39bfe7003f, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -21542,7 +21542,7 @@ MonoBehaviour:
   - {fileID: 949553448}
   - {fileID: 334993977}
   - {fileID: 1311801291}
-  duration: 3
+  duration: 1.5
   openDoorMaterial: {fileID: 2100000, guid: c0fd2c0941bbb4d598e94ef5763f0412, type: 2}
 --- !u!1001 &1636013385281120703
 PrefabInstance:

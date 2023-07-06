@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1273174, g: 0.13414761, b: 0.12107885, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2995,7 +2995,7 @@ MonoBehaviour:
   - {fileID: 1064885144}
   - {fileID: 256562322}
   - {fileID: 698853779}
-  duration: 3
+  duration: 1.5
   openDoorMaterial: {fileID: 2100000, guid: c0fd2c0941bbb4d598e94ef5763f0412, type: 2}
 --- !u!114 &635085467
 MonoBehaviour:
@@ -3057,7 +3057,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 56dd332f76df09347985e9e6d38cc2bf, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 3b6d0054657b140fda277c39bfe7003f, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

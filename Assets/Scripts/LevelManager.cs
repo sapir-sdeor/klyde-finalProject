@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour 
 {
-    private static int _level = 1;
+    private static int _level = 4;
     private static int _numOfHalves = 0;
     private static LevelManager _instance;
     private static GameObject _panelFade;
