@@ -157,6 +157,7 @@ PlayerSettings:
   applicationIdentifier:
     Android: com.DefaultCompany.finalproject
     Standalone: com.DefaultCompany.final-project-test
+    iPhone: com.DefaultCompany.final-project
   buildNumber:
     Standalone: 0
     iPhone: 0
@@ -178,7 +179,7 @@ PlayerSettings:
   StripUnusedMeshComponents: 1
   VertexChannelCompressionMask: 4054
   iPhoneSdkVersion: 988
-  iOSTargetOSVersionString: 11.0
+  iOSTargetOSVersionString: 12.0
   tvOSSdkVersion: 0
   tvOSRequireExtendedGameController: 0
   tvOSTargetOSVersionString: 11.0
