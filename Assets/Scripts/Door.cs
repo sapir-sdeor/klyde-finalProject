@@ -42,9 +42,14 @@ public class Door : MonoBehaviour
             if (child != transform)
             {
                 _childs.Add(child);
+                if (child.gameObject.name == "Hint")
+                {
+                    child.gameObject.SetActive(false);
+                }
                // child.GetComponent<MeshRenderer>().material.color = Color.gray;
             }
         }
+        print(_childs.Count+" count");
         _angle = 360 /(float) LevelManager.GetNumOfHalves();
     }
 
