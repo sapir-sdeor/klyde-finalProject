@@ -38,6 +38,7 @@ public class moving : MonoBehaviour
         // }
         // print(transform.position.x+"klyde pos");
         if (UIButtons.isPause) return;
+        if (_stopWalk && agent.isOnNavMesh) agent.SetDestination(transform.position);
         if (Input.GetMouseButtonDown(0)) 
         { 
             if(agent.isOnNavMesh) agent.SetDestination(transform.position);
