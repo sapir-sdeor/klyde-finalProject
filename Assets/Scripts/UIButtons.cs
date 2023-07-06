@@ -31,6 +31,11 @@ public class UIButtons : MonoBehaviour
         SceneManager.LoadScene("Levels");
     }
 
+    public void CutScene()
+    {
+        SceneManager.LoadScene("Cutscene");
+    }
+
     public void Restart()
     {
         Resume();
