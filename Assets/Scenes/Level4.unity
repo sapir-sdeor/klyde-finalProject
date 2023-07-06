@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
+  m_IndirectSpecularColor: {r: 0.1273174, g: 0.13414761, b: 0.12107885, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -1356,6 +1356,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 950064940391616689, guid: 0875165370be81945a43952599504501, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: a5a924ee8abaf444bb6f87939459e4d5, type: 3}
+    - target: {fileID: 950064940391616689, guid: 0875165370be81945a43952599504501, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1057556828352730563, guid: 0875165370be81945a43952599504501, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1385337651575598210, guid: 0875165370be81945a43952599504501, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1385337651575598210, guid: 0875165370be81945a43952599504501, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1385337651575598210, guid: 0875165370be81945a43952599504501, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1700.3862
+      objectReference: {fileID: 0}
     - target: {fileID: 1528282119278234058, guid: 0875165370be81945a43952599504501, type: 3}
       propertyPath: m_IsActive
       value: 1
@@ -1367,6 +1391,10 @@ PrefabInstance:
     - target: {fileID: 2497151247347190713, guid: 0875165370be81945a43952599504501, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Pause
+      objectReference: {fileID: 0}
+    - target: {fileID: 2649126323415568056, guid: 0875165370be81945a43952599504501, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2747863693887266461, guid: 0875165370be81945a43952599504501, type: 3}
       propertyPath: m_Sprite
@@ -1404,6 +1432,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 34f5edb4776104ef694c014ca6e3381e, type: 3}
+    - target: {fileID: 2747863694167027364, guid: 0875165370be81945a43952599504501, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2747863694167027365, guid: 0875165370be81945a43952599504501, type: 3}
       propertyPath: m_SizeDelta.y
       value: 12.673562
@@ -1552,12 +1584,32 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Menu
       objectReference: {fileID: 0}
+    - target: {fileID: 6629078563694104596, guid: 0875165370be81945a43952599504501, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7333686776812167078, guid: 0875165370be81945a43952599504501, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7541080434138409699, guid: 0875165370be81945a43952599504501, type: 3}
       propertyPath: m_RootOrder
       value: 15
       objectReference: {fileID: 0}
     - target: {fileID: 7541080434138409699, guid: 0875165370be81945a43952599504501, type: 3}
       propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8097422867845495555, guid: 0875165370be81945a43952599504501, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8097422867845495555, guid: 0875165370be81945a43952599504501, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8097422867845495555, guid: 0875165370be81945a43952599504501, type: 3}
+      propertyPath: m_SizeDelta.x
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9062475334644484584, guid: 0875165370be81945a43952599504501, type: 3}
@@ -2512,7 +2564,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &727456729
 RectTransform:
   m_ObjectHideFlags: 0

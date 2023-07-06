@@ -7,7 +7,7 @@ using UnityEngine.UI;
 
 public class LevelManager : MonoBehaviour
 {
-    private static int _level = 0;
+    private static int _level = 7;
     private static int _numOfHalves = 0;
     private static LevelManager _instance;
     private static GameObject _panelFade;
@@ -40,7 +40,7 @@ public class LevelManager : MonoBehaviour
             Levels.unlockedLevel += 1;
         _panelFade.GetComponent<Animator>().SetTrigger("fadeOut");
         // _instance.StartCoroutine(WaitForLoadNextLevel());
-        // SceneManager.LoadScene("Level7");
+        SceneManager.LoadScene("Level" + _level);
         //  _currentLevel = LevelFactory.CreateLevel(_level);
     }
     

@@ -309,6 +309,20 @@ public class Door : MonoBehaviour
                 else
                     index = 6;
                 break;
+            case 7: 
+                range = 11;
+                start = 160;
+                if (currAngle > start)
+                    index = 0;
+                else if (currAngle < start && currAngle > 146)
+                    index = 1;
+                else if (currAngle < 146 && currAngle > 130)
+                    index = 2;
+                else if (currAngle < 130 && currAngle > 104)
+                    index = 3;
+                else 
+                    index = 4;
+                break;
 
         }
         ShowImage(lightPathImages[index]);
