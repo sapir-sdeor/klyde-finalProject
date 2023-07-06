@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1273174, g: 0.13414761, b: 0.12107885, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -9553,7 +9553,7 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: 080daf42f18094e9288f5b7733b23430, type: 3}
     - target: {fileID: 2747863694167027364, guid: 0875165370be81945a43952599504501, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2747863694167027365, guid: 0875165370be81945a43952599504501, type: 3}
       propertyPath: m_RootOrder
@@ -10427,7 +10427,7 @@ MonoBehaviour:
   animationSpeed: 15
   TargetInit: {x: -8.02, y: 5, z: -26.3}
   TargetInit1: {x: 0.3, y: 6.3, z: -18}
-  flash: {fileID: 0}
+  flash: {fileID: 628074583}
   lightPathImages:
   - {fileID: 1970450618}
   - {fileID: 1970450619}
@@ -13925,11 +13925,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e8ba502bb891742509d38f9e9ca712b9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.0307
+      value: -0.0494
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e8ba502bb891742509d38f9e9ca712b9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.0327
+      value: -0.0008
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e8ba502bb891742509d38f9e9ca712b9, type: 3}
       propertyPath: m_LocalPosition.z
