@@ -41,6 +41,8 @@ public class UIButtons : MonoBehaviour
     {
         panel.SetActive(true);
         Time.timeScale = 0;
+        Rotate2D3D.SetStopRotate(false);
+        moving.SetStopWalk(false);
         isPause = true;
     }
 
