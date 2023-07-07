@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1273174, g: 0.13414761, b: 0.12107885, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -14737,7 +14737,7 @@ MonoBehaviour:
   positions:
   - {fileID: 588647289}
   - {fileID: 188792597}
-  aprroximate: 0.5
+  aprroximate: 0.8
   distance: 18.5
   halfNumPoints: 0100000003000000
 --- !u!1 &1587579940
@@ -20937,7 +20937,7 @@ MonoBehaviour:
   positions:
   - {fileID: 757622221}
   - {fileID: 588647289}
-  aprroximate: 0.1
+  aprroximate: 0.24
   distance: 18.8
   halfNumPoints: 0200000001000000
 --- !u!1 &1967706943
@@ -21070,7 +21070,7 @@ MonoBehaviour:
   positions:
   - {fileID: 188792597}
   - {fileID: 757622221}
-  aprroximate: 0.1
+  aprroximate: 0.24
   distance: 24.4
   halfNumPoints: 0300000002000000
 --- !u!1 &1977718547
@@ -21582,7 +21582,7 @@ MonoBehaviour:
   speed: 10
   zAnimation: 0.01
   animationSpeed: 15
-  TargetInit: {x: -15, y: 5, z: -26.3}
+  TargetInit: {x: -10, y: 5, z: -20}
   TargetInit1: {x: 0.3, y: 6.3, z: -18}
   flash: {fileID: 628074583}
   lightPathImages:
