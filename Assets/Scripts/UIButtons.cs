@@ -19,15 +19,12 @@ public class UIButtons : MonoBehaviour
     {
         isPause = false;
         Time.timeScale = 1;
-        GameObject obj = GameObject.FindGameObjectWithTag("gameManager");
         if (isMute && panel)
         {
-            obj.GetComponent<AudioSource>().Stop();
             panel.GetComponentsInChildren<Image>()[1].sprite = mute;
         }
         else if (panel)
         {
-            obj.GetComponent<AudioSource>().Play();
             panel.GetComponentsInChildren<Image>()[1].sprite = unMute;
         }
     }
