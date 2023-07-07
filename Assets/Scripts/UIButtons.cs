@@ -41,6 +41,16 @@ public class UIButtons : MonoBehaviour
         SceneManager.LoadScene("Start");
     }
 
+    public void BackToStart()
+    {
+        GameObject obj = GameObject.FindGameObjectWithTag("gameManager");
+        if(obj)
+            Destroy(obj);
+        isPause = false;
+        Time.timeScale = 1;
+        SceneManager.LoadScene("Start");
+    }
+
     public void Mute()
     {
         GameObject obj = GameObject.FindGameObjectWithTag("gameManager");
