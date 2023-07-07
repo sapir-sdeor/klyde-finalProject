@@ -31,8 +31,6 @@ public class ButtonLevel : MonoBehaviour
             this._isUnlock = true;
             _image.sprite = unlockSprite;
             _button.enabled = true;
-            print("true here");
-            print(_button);
         }
         else
         {

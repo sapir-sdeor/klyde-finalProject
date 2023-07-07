@@ -23,7 +23,10 @@ public class SkipButton : MonoBehaviour
         if (timePast >= cutSceneTime)
         {
             if (SceneManager.GetActiveScene().name == "EndScene")
+            {
+                Destroy(FindObjectOfType<GameManager>());
                 SceneManager.LoadScene("Start");
+            }
             else SceneManager.LoadScene("Levels");
         }
             

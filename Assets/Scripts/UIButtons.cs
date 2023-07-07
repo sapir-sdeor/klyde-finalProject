@@ -19,8 +19,12 @@ public class UIButtons : MonoBehaviour
 
     public void StartGame()
     {
+        GameObject obj = GameObject.FindGameObjectWithTag("gameManager");
+        if(obj)
+            Destroy(obj);
         isPause = false;
         Time.timeScale = 1;
+        LevelManager.SetLevel(0);
         SceneManager.LoadScene("Start");
     }
 
@@ -44,6 +48,7 @@ public class UIButtons : MonoBehaviour
 
     public void Pause()
     {
+        if (Door._win) return;
         panel.SetActive(true);
         Time.timeScale = 0;
         Rotate2D3D.SetStopRotate(false);

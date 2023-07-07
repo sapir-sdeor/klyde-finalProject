@@ -46,11 +46,11 @@ public class Door : MonoBehaviour
                 {
                     child.gameObject.SetActive(false);
                 }
-               // child.GetComponent<MeshRenderer>().material.color = Color.gray;
             }
         }
         print(_childs.Count+" count");
         _angle = 360 /(float) LevelManager.GetNumOfHalves();
+        _win = false;
     }
 
     void Update()
@@ -120,11 +120,8 @@ public class Door : MonoBehaviour
         isAnimating = true;
         if(other.gameObject.CompareTag("klyde") && _doorAppear)
         {
-            print("klyde win");
             moving.SetWalkAnimationFalse();
-            //  GetComponent<PlayableDirector>().Play();
             _klyde = other.gameObject;
-            // _klyde.GetComponent<NavMeshAgent>().SetDestination(_klyde.transform.position);
             Destroy(_klyde.GetComponent<NavMeshAgent>());
             _win = true;
             _klyde.transform.eulerAngles = new Vector3(_klyde.transform.eulerAngles.x, 180, _klyde.transform.eulerAngles.z);
