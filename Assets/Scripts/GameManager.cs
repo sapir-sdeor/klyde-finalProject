@@ -8,6 +8,7 @@ using UnityEngine.PlayerLoop;
 public class GameManager : MonoBehaviour
 {
     [SerializeField] private AudioSource audioSource;
+    
     private void Awake()
     {
         DontDestroyOnLoad(audioSource);
