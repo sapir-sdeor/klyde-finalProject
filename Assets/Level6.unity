@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
+  m_IndirectSpecularColor: {r: 0.1273174, g: 0.13414761, b: 0.12107885, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -764,7 +764,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 251333718}
   m_LocalRotation: {x: 0, y: -0.033242423, z: 0, w: 0.99944735}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.0003, y: 0, z: 0.0017}
   m_LocalScale: {x: 0.0035714298, y: 0.0035714305, z: 0.0035714298}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -13195,8 +13195,8 @@ MonoBehaviour:
   positions:
   - {fileID: 1573254657}
   - {fileID: 2097905766}
-  aprroximate: 3
-  distance: 16
+  aprroximate: 1
+  distance: 18.5
   halfNumPoints: 0100000002000000
 --- !u!114 &1581888820
 MonoBehaviour:
@@ -13213,7 +13213,7 @@ MonoBehaviour:
   positions:
   - {fileID: 588647289}
   - {fileID: 1573254657}
-  aprroximate: 1
+  aprroximate: 0.9
   distance: 18
   halfNumPoints: 0300000001000000
 --- !u!1 &1587579940
@@ -19029,7 +19029,7 @@ MonoBehaviour:
   - {fileID: 2097905766}
   - {fileID: 588647289}
   aprroximate: 1
-  distance: 16
+  distance: 15.5
   halfNumPoints: 0200000003000000
 --- !u!1 &1942286238
 GameObject:
