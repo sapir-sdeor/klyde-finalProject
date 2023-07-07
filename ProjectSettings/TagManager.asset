@@ -12,6 +12,7 @@ TagManager:
   - circle
   - fade
   - front-elements
+  - lastMirror
   layers:
   - Default
   - TransparentFX
