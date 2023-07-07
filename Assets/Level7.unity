@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
+  m_IndirectSpecularColor: {r: 0.1273174, g: 0.13414761, b: 0.12107885, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -3262,6 +3262,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 369646052, guid: 575bcbf88cecb1c408551982a8eca415, type: 3}
+      propertyPath: m_Radius
+      value: 0.4067606
+      objectReference: {fileID: 0}
+    - target: {fileID: 369646052, guid: 575bcbf88cecb1c408551982a8eca415, type: 3}
+      propertyPath: m_Center.x
+      value: -0.027547646
+      objectReference: {fileID: 0}
+    - target: {fileID: 369646052, guid: 575bcbf88cecb1c408551982a8eca415, type: 3}
+      propertyPath: m_Center.y
+      value: 1.0500001
+      objectReference: {fileID: 0}
+    - target: {fileID: 369646052, guid: 575bcbf88cecb1c408551982a8eca415, type: 3}
+      propertyPath: m_Center.z
+      value: -0.028157616
+      objectReference: {fileID: 0}
     - target: {fileID: 2537991297597439468, guid: 575bcbf88cecb1c408551982a8eca415, type: 3}
       propertyPath: m_CastShadows
       value: 0
@@ -9783,6 +9799,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: StartGame
       objectReference: {fileID: 0}
+    - target: {fileID: 4834589132428027881, guid: 0875165370be81945a43952599504501, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1769922474}
+    - target: {fileID: 4834589132428027881, guid: 0875165370be81945a43952599504501, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Mute
+      objectReference: {fileID: 0}
     - target: {fileID: 4927263228259215069, guid: 0875165370be81945a43952599504501, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -13997,15 +14021,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e8ba502bb891742509d38f9e9ca712b9, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.0494
+      value: -0.0532
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e8ba502bb891742509d38f9e9ca712b9, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.0008
+      value: 0.0012
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e8ba502bb891742509d38f9e9ca712b9, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.0104
+      value: 0.0083
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: e8ba502bb891742509d38f9e9ca712b9, type: 3}
       propertyPath: m_LocalRotation.w

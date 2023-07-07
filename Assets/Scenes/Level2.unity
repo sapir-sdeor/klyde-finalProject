@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
+  m_IndirectSpecularColor: {r: 0.1273174, g: 0.13414761, b: 0.12107885, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -156,6 +156,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 0}
+  mute: {fileID: 0}
+  unMute: {fileID: 0}
 --- !u!114 &9335374
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5880,6 +5882,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 70462859}
+  mute: {fileID: 0}
+  unMute: {fileID: 0}
 --- !u!114 &254489059
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14835,6 +14839,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: StartGame
       objectReference: {fileID: 0}
+    - target: {fileID: 4834589132428027881, guid: 0875165370be81945a43952599504501, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 981850771}
     - target: {fileID: 4927263228259215069, guid: 0875165370be81945a43952599504501, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -24472,6 +24480,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 0}
+  mute: {fileID: 0}
+  unMute: {fileID: 0}
 --- !u!114 &1527155952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -32449,6 +32459,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 369646052, guid: 575bcbf88cecb1c408551982a8eca415, type: 3}
+      propertyPath: m_Radius
+      value: 0.4059638
+      objectReference: {fileID: 0}
+    - target: {fileID: 369646052, guid: 575bcbf88cecb1c408551982a8eca415, type: 3}
+      propertyPath: m_Center.x
+      value: -0.02356329
+      objectReference: {fileID: 0}
+    - target: {fileID: 369646052, guid: 575bcbf88cecb1c408551982a8eca415, type: 3}
+      propertyPath: m_Center.y
+      value: 1.0500001
+      objectReference: {fileID: 0}
+    - target: {fileID: 369646052, guid: 575bcbf88cecb1c408551982a8eca415, type: 3}
+      propertyPath: m_Center.z
+      value: -0.013317394
+      objectReference: {fileID: 0}
     - target: {fileID: 4219584026030637412, guid: 575bcbf88cecb1c408551982a8eca415, type: 3}
       propertyPath: m_IsActive
       value: 1

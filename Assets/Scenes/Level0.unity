@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
+  m_IndirectSpecularColor: {r: 0.1273174, g: 0.13414761, b: 0.12107885, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2045,6 +2045,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 0}
+  mute: {fileID: 0}
+  unMute: {fileID: 0}
 --- !u!114 &458218184
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14964,6 +14966,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 0}
+  mute: {fileID: 0}
+  unMute: {fileID: 0}
 --- !u!114 &2048931161
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20774,6 +20778,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 1566107574}
+  mute: {fileID: 0}
+  unMute: {fileID: 0}
 --- !u!114 &1636013386022548583
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23614,6 +23620,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 1257057684}
+  mute: {fileID: 21300000, guid: f36f14cca61ac40328500a62f95c4932, type: 3}
+  unMute: {fileID: 21300000, guid: c11c2b5dcaa1547d1b29560e37a20ab8, type: 3}
 --- !u!114 &2747863695201347387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -29712,6 +29720,26 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 2747863695201347386}
+    - target: {fileID: 313111584513983827, guid: 8f026c5f84bebb748bf1e489f5413cee, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 2747863695201347386}
+    - target: {fileID: 2649467169111498471, guid: 8f026c5f84bebb748bf1e489f5413cee, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4125197266438832926, guid: 8f026c5f84bebb748bf1e489f5413cee, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5886264595799469586, guid: 8f026c5f84bebb748bf1e489f5413cee, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6105556819092967318, guid: 8f026c5f84bebb748bf1e489f5413cee, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7637692536648232277, guid: 8f026c5f84bebb748bf1e489f5413cee, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -29804,10 +29832,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas-pause
       objectReference: {fileID: 0}
+    - target: {fileID: 8160401922768781061, guid: 8f026c5f84bebb748bf1e489f5413cee, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8160401922768781065, guid: 8f026c5f84bebb748bf1e489f5413cee, type: 3}
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1124064369}
+    - target: {fileID: 8160401923246104523, guid: 8f026c5f84bebb748bf1e489f5413cee, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8160401923246104525, guid: 8f026c5f84bebb748bf1e489f5413cee, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 

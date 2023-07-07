@@ -9,12 +9,27 @@ using UnityEngine.UI;
 public class UIButtons : MonoBehaviour
 {
     [SerializeField] private GameObject panel;
+    [SerializeField] private Sprite mute;
+    [SerializeField] private Sprite unMute;
     public static bool isPause;
+    public static bool isMute;
+    
 
     private void Start()
     {
         isPause = false;
         Time.timeScale = 1;
+        GameObject obj = GameObject.FindGameObjectWithTag("gameManager");
+        if (isMute && panel)
+        {
+            obj.GetComponent<AudioSource>().Stop();
+            panel.GetComponentsInChildren<Image>()[1].sprite = mute;
+        }
+        else if (panel)
+        {
+            obj.GetComponent<AudioSource>().Play();
+            panel.GetComponentsInChildren<Image>()[1].sprite = unMute;
+        }
     }
 
     public void StartGame()
@@ -29,6 +44,21 @@ public class UIButtons : MonoBehaviour
         SceneManager.LoadScene("Start");
     }
 
+    public void Mute()
+    {
+        GameObject obj = GameObject.FindGameObjectWithTag("gameManager");
+        isMute = !isMute;
+        if (isMute)
+        {
+            obj.GetComponent<AudioSource>().Stop();
+            panel.GetComponentsInChildren<Image>()[1].sprite = mute;
+        }
+        else
+        {
+            obj.GetComponent<AudioSource>().Play();
+            panel.GetComponentsInChildren<Image>()[1].sprite = unMute;
+        }
+    }
     public void Menu()
     {
         isPause = false;

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
+  m_IndirectSpecularColor: {r: 0.1273174, g: 0.13414761, b: 0.12107885, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -447,6 +447,22 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 369646052, guid: 575bcbf88cecb1c408551982a8eca415, type: 3}
+      propertyPath: m_Radius
+      value: 0.40347034
+      objectReference: {fileID: 0}
+    - target: {fileID: 369646052, guid: 575bcbf88cecb1c408551982a8eca415, type: 3}
+      propertyPath: m_Center.x
+      value: -0.012558365
+      objectReference: {fileID: 0}
+    - target: {fileID: 369646052, guid: 575bcbf88cecb1c408551982a8eca415, type: 3}
+      propertyPath: m_Center.y
+      value: 1.0500001
+      objectReference: {fileID: 0}
+    - target: {fileID: 369646052, guid: 575bcbf88cecb1c408551982a8eca415, type: 3}
+      propertyPath: m_Center.z
+      value: -0.009530926
+      objectReference: {fileID: 0}
     - target: {fileID: 7154528542542016402, guid: 575bcbf88cecb1c408551982a8eca415, type: 3}
       propertyPath: m_Name
       value: Klea
@@ -3167,10 +3183,10 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_Enabled: 1
-  m_Radius: 0.15
+  m_Radius: 0.13551669
   m_Height: 0.42
   m_Direction: 1
-  m_Center: {x: 0.01943901, y: 0.07, z: 0.000000011469997}
+  m_Center: {x: 0.004955698, y: 0.07000001, z: 0.000000014623974}
 --- !u!1 &638184342
 GameObject:
   m_ObjectHideFlags: 0
@@ -7592,6 +7608,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 614054912}
+  mute: {fileID: 0}
+  unMute: {fileID: 0}
 --- !u!114 &1048759102
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8644,7 +8662,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1385337651575598210, guid: 0875165370be81945a43952599504501, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1385337651575598210, guid: 0875165370be81945a43952599504501, type: 3}
       propertyPath: m_AnchorMax.x
@@ -8926,6 +8944,14 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: StartGame
       objectReference: {fileID: 0}
+    - target: {fileID: 4834589132428027881, guid: 0875165370be81945a43952599504501, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1329479255}
+    - target: {fileID: 4834589132428027881, guid: 0875165370be81945a43952599504501, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Mute
+      objectReference: {fileID: 0}
     - target: {fileID: 4927263228259215069, guid: 0875165370be81945a43952599504501, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -8941,6 +8967,10 @@ PrefabInstance:
     - target: {fileID: 6629078563694104596, guid: 0875165370be81945a43952599504501, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6784842379186837667, guid: 0875165370be81945a43952599504501, type: 3}
+      propertyPath: m_RootOrder
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7172897449665723485, guid: 0875165370be81945a43952599504501, type: 3}
       propertyPath: m_SizeDelta.y
@@ -8988,7 +9018,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8101685121333351966, guid: 0875165370be81945a43952599504501, type: 3}
       propertyPath: m_RootOrder
-      value: 6
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 8189009784460174029, guid: 0875165370be81945a43952599504501, type: 3}
       propertyPath: m_IsActive

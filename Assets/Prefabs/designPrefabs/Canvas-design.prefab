@@ -1220,7 +1220,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd77828042f14bdea400448e75765023, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panel: {fileID: 8590721338067970272}
+  panel: {fileID: 0}
+  mute: {fileID: 21300000, guid: f36f14cca61ac40328500a62f95c4932, type: 3}
+  unMute: {fileID: 21300000, guid: c11c2b5dcaa1547d1b29560e37a20ab8, type: 3}
 --- !u!1 &8590721339239441759
 GameObject:
   m_ObjectHideFlags: 0
