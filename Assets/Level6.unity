@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.1273174, g: 0.13414761, b: 0.12107885, a: 1}
+  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -2466,6 +2466,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   halfNum: 3
   offset: 0
+  thisCollider: 0
 --- !u!1001 &628074582
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4122,7 +4123,7 @@ MonoBehaviour:
   speed: 10
   zAnimation: 0.01
   animationSpeed: 15
-  TargetInit: {x: -7.3, y: 6.04, z: -15}
+  TargetInit: {x: -10.3, y: 6.04, z: -15}
   TargetInit1: {x: 0.3, y: 6.3, z: -18}
   flash: {fileID: 628074583}
   lightPathImages:
@@ -13021,6 +13022,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   halfNum: 1
   offset: 0
+  thisCollider: 0
 --- !u!4 &1573254659
 Transform:
   m_ObjectHideFlags: 0
@@ -20245,6 +20247,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   halfNum: 2
   offset: 0
+  thisCollider: 0
 --- !u!1 &2119850164
 GameObject:
   m_ObjectHideFlags: 0
