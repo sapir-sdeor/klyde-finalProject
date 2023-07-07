@@ -21,7 +21,12 @@ public class SkipButton : MonoBehaviour
     {
         timePast += Time.deltaTime;
         if (timePast >= cutSceneTime)
-            SceneManager.LoadScene("Levels");
+        {
+            if (SceneManager.GetActiveScene().name == "EndScene")
+                SceneManager.LoadScene("Start");
+            else SceneManager.LoadScene("Levels");
+        }
+            
     }
     public void SkipLevel()
     {
