@@ -9107,7 +9107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   halfNum: 1
   offset: 5
-  speed: 14
+  speed: 10
   zAnimation: 0.01
   animationSpeed: 15
   TargetInit: {x: -7.61, y: 14.53, z: -2}

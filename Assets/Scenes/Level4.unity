@@ -3218,7 +3218,7 @@ MonoBehaviour:
   prefabPlatform: {fileID: 1695572867}
   angle: 1
   numberOfPieces: 10
-  offsetFactor: 1
+  offsetFactor: 5
 --- !u!1 &823187840 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3155557358144281562, guid: c8b0a58bbfedced4bb4bd457e4475734, type: 3}
@@ -4345,7 +4345,7 @@ MonoBehaviour:
   prefabPlatform: {fileID: 222887202}
   angle: 1
   numberOfPieces: 140
-  offsetFactor: 1
+  offsetFactor: 5
 --- !u!1 &1339752304
 GameObject:
   m_ObjectHideFlags: 0
@@ -13579,7 +13579,7 @@ MonoBehaviour:
   prefabPlatform: {fileID: 1090941783}
   angle: 1
   numberOfPieces: 10
-  offsetFactor: 1
+  offsetFactor: 5
 --- !u!1001 &1805414578
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -13714,7 +13714,7 @@ MonoBehaviour:
   speed: 10
   zAnimation: 0.01
   animationSpeed: 15
-  TargetInit: {x: -8.02, y: 5, z: -26.3}
+  TargetInit: {x: -10.32, y: 5, z: -26.3}
   TargetInit1: {x: 0.3, y: 6.3, z: -18}
   flash: {fileID: 1632227927}
   lightPathImages:
@@ -14151,7 +14151,7 @@ MonoBehaviour:
   prefabPlatform: {fileID: 774428788}
   angle: 1
   numberOfPieces: 60
-  offsetFactor: 1
+  offsetFactor: 5
 --- !u!1 &1958892534
 GameObject:
   m_ObjectHideFlags: 0
