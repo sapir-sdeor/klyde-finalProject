@@ -24,7 +24,9 @@ public class SkipButton : MonoBehaviour
         {
             if (SceneManager.GetActiveScene().name == "EndScene")
             {
-                Destroy(FindObjectOfType<GameManager>());
+                GameObject obj = GameObject.FindGameObjectWithTag("gameManager");
+                if(obj)
+                    Destroy(obj);
                 SceneManager.LoadScene("Start");
             }
             else SceneManager.LoadScene("Levels");

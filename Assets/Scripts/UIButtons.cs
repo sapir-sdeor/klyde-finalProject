@@ -25,6 +25,7 @@ public class UIButtons : MonoBehaviour
         isPause = false;
         Time.timeScale = 1;
         LevelManager.SetLevel(0);
+        LevelManager.SetNumOfHalves();
         SceneManager.LoadScene("Start");
     }
 
