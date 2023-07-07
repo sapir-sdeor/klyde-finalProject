@@ -2496,7 +2496,7 @@ MonoBehaviour:
   speed: 10
   zAnimation: 0.01
   animationSpeed: 15
-  TargetInit: {x: -12.53, y: 11.7, z: -23.07}
+  TargetInit: {x: -10.81, y: 11.7, z: -23.07}
   TargetInit1: {x: 0.3, y: 6.3, z: -18}
   flash: {fileID: 34695095}
   lightPathImages:
