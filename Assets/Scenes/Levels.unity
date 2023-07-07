@@ -3353,6 +3353,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 0}
+  mute: {fileID: 0}
+  unMute: {fileID: 0}
 --- !u!1 &620486054
 GameObject:
   m_ObjectHideFlags: 0
@@ -5185,7 +5187,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 603769407}
         m_TargetAssemblyTypeName: UIButtons, Assembly-CSharp
-        m_MethodName: StartGame
+        m_MethodName: BackToStart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -8348,6 +8350,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   panel: {fileID: 0}
+  mute: {fileID: 0}
+  unMute: {fileID: 0}
 --- !u!114 &1582266821
 MonoBehaviour:
   m_ObjectHideFlags: 0
