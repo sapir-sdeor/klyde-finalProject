@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.12731704, g: 0.13414727, b: 0.121078536, a: 1}
+  m_IndirectSpecularColor: {r: 0.1273174, g: 0.13414761, b: 0.12107885, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -232,7 +232,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 63491950}
   m_LocalRotation: {x: 0.5654994, y: 0.39883482, z: 0.42420074, w: 0.58411896}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0.0032, y: 0.005, z: -0}
   m_LocalScale: {x: 0.0035714293, y: 0.0035714284, z: 0.0035714295}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -688,14 +688,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 222887202}
-  m_LocalRotation: {x: 0.0002777632, y: -0.73248345, z: 0.00017068071, w: 0.68078476}
+  m_LocalRotation: {x: 0.00025733883, y: -0.80281734, z: 0.00020015256, w: 0.59622496}
   m_LocalPosition: {x: 6.029008, y: 0.0073799402, z: -36.055157}
   m_LocalScale: {x: 0.039999984, y: 0.039999988, z: 0.039999995}
   m_ConstrainProportionsScale: 1
   m_Children: []
   m_Father: {fileID: 1313585679}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0.036, y: -94.19, z: -0.01}
+  m_LocalEulerAnglesHint: {x: 0.036, y: -106.8, z: -0.01}
 --- !u!64 &222887204
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -9792,7 +9792,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabPlatform: {fileID: 247657506}
   angle: 1
-  numberOfPieces: 70
+  numberOfPieces: 100
   offsetFactor: 1
 --- !u!224 &1126303027 stripped
 RectTransform:
@@ -10608,7 +10608,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   halfNum: 2
-  angleFadeEffect: 1
+  angleFadeEffect: 5
   offset: -60
 --- !u!114 &1313585682
 MonoBehaviour:
@@ -14737,8 +14737,8 @@ MonoBehaviour:
   positions:
   - {fileID: 588647289}
   - {fileID: 188792597}
-  aprroximate: 1
-  distance: 18
+  aprroximate: 0.5
+  distance: 18.5
   halfNumPoints: 0100000003000000
 --- !u!1 &1587579940
 GameObject:
@@ -15379,7 +15379,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   halfNum: 2
-  angleFadeEffect: 1
+  angleFadeEffect: 5
   offset: -60
 --- !u!114 &1738827742
 MonoBehaviour:
@@ -20937,8 +20937,8 @@ MonoBehaviour:
   positions:
   - {fileID: 757622221}
   - {fileID: 588647289}
-  aprroximate: 1
-  distance: 19
+  aprroximate: 0.1
+  distance: 18.8
   halfNumPoints: 0200000001000000
 --- !u!1 &1967706943
 GameObject:
@@ -21070,8 +21070,8 @@ MonoBehaviour:
   positions:
   - {fileID: 188792597}
   - {fileID: 757622221}
-  aprroximate: 1
-  distance: 25
+  aprroximate: 0.1
+  distance: 24.4
   halfNumPoints: 0300000002000000
 --- !u!1 &1977718547
 GameObject:
