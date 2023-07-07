@@ -7,7 +7,8 @@ public class RaycastReflection : MonoBehaviour
 {
 	public int reflections;
 	public float maxLength;
-
+	public static bool isCollideWithLastCollider; 
+		
 	private LineRenderer lineRenderer;
 	private Ray ray;
 	private RaycastHit hit;
@@ -15,6 +16,7 @@ public class RaycastReflection : MonoBehaviour
 
 	private void Awake()
 	{
+		isCollideWithLastCollider = false;
 		lineRenderer = GetComponent<LineRenderer>();
 	}
 
@@ -25,7 +27,7 @@ public class RaycastReflection : MonoBehaviour
 		lineRenderer.positionCount = 1;
 		lineRenderer.SetPosition(0, transform.position);
 		float remainingLength = maxLength;
-
+		print("isCollide " + isCollideWithLastCollider);
 		for (int i = 0; i < reflections; i++)
 		{
 			if(Physics.Raycast(ray.origin, ray.direction, out hit, remainingLength))
@@ -34,7 +36,8 @@ public class RaycastReflection : MonoBehaviour
 				lineRenderer.SetPosition(lineRenderer.positionCount - 1, hit.point);
 				remainingLength -= Vector3.Distance(ray.origin, hit.point);
 				ray = new Ray(hit.point, Vector3.Reflect(ray.direction, hit.normal));
-				if (hit.collider.tag != "Mirror")
+				//isCollideWithLastCollider = hit.collider.tag == "lastMirror";
+				if (hit.collider.tag != "Mirror" && hit.collider.tag != "lastMirror")
 					break;
 			}
 			else

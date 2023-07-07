@@ -11,6 +11,7 @@ public class ReflectPoint : MonoBehaviour
     private GameObject _child;
     private GameObject _mirror;
     private bool enable;
+    [SerializeField] private bool thisCollider;
     
     private void Start()
     {
@@ -35,8 +36,13 @@ public class ReflectPoint : MonoBehaviour
         if (endAngle > 360f)
             endAngle -= 360f;
 
+        /*if (thisCollider && transform.position.x <= -7.5)
+        {
+            enable = false;
+            EnabledCollider(enable);
+        }*/
         // Check if the current angle is within the adjusted range
-        if (IsAngleWithinRange(currAngle, startAngle, endAngle))
+         if (IsAngleWithinRange(currAngle, startAngle, endAngle))
         {
             enable = true;
             EnabledChild(enable);
@@ -82,9 +88,14 @@ public class ReflectPoint : MonoBehaviour
         return angle;
     }
     
-    private void EnabledChild(bool enabled)
+    public void EnabledChild(bool enabled)
     {
         _child.gameObject.SetActive(enabled);
         _mirror.gameObject.SetActive(enabled);
+    }
+    
+    public void EnabledCollider(bool enabled)
+    {
+        _child.gameObject.SetActive(enabled);
     }
 }
