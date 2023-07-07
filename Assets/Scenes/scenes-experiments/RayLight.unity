@@ -139,7 +139,7 @@ GameObject:
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &309019201
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -323,7 +323,7 @@ GameObject:
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &852105471
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -368,7 +368,7 @@ GameObject:
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &1032986476
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -462,7 +462,7 @@ GameObject:
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!120 &1482311824
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -751,8 +751,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1761770151}
-  m_LocalRotation: {x: 0.45878333, y: -0.22749044, z: 0.121431366, w: 0.85030603}
-  m_LocalPosition: {x: -14.466469, y: 9.446139, z: -25.479591}
+  m_LocalRotation: {x: 0.4058332, y: -0.0054836725, z: 0.0024349953, w: 0.9139275}
+  m_LocalPosition: {x: -5.5671816, y: 26.825481, z: -19.19819}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -843,7 +843,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1826313071}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -28, y: 4.090579, z: -27.2}
+  m_LocalPosition: {x: -28, y: 4.090579, z: -6.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -870,7 +870,7 @@ GameObject:
   m_Icon: {fileID: 1206586993520771344, guid: 0000000000000000d000000000000000, type: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!65 &1842443232
 BoxCollider:
   m_ObjectHideFlags: 0
