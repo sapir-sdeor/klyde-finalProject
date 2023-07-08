@@ -27,7 +27,7 @@ public class SkipButton : MonoBehaviour
                 GameObject obj = GameObject.FindGameObjectWithTag("gameManager");
                 if(obj)
                     Destroy(obj);
-                SceneManager.LoadScene("Start");
+                SceneManager.LoadScene("Credits");
             }
             else SceneManager.LoadScene("Levels");
         }

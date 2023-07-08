@@ -36,6 +36,7 @@ public class UIButtons : MonoBehaviour
             Destroy(obj);
         isPause = false;
         Time.timeScale = 1;
+        Levels.unlockedLevel = 0;
         LevelManager.SetLevel(0);
         LevelManager.SetNumOfHalves();
         SceneManager.LoadScene("Start");
