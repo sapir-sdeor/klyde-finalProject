@@ -13,7 +13,6 @@ public class Door : MonoBehaviour
     [SerializeField] private float offset;
     [SerializeField] private float speed = 10f,zAnimation = 0.01f,animationSpeed = 15f;
     [SerializeField] private Vector3 TargetInit = new(0.300000012f, 6.30000019f, -18f);
-    [SerializeField] private Vector3 TargetInit1 = new(0.300000012f, 6.30000019f, -18f);
     [SerializeField] private GameObject flash;
     private float _stayTimer = 0.3f;
     [SerializeField] private GameObject[] lightPathImages;
@@ -23,7 +22,7 @@ public class Door : MonoBehaviour
     private float _angle;
     
     private List<Transform> _childs = new();
-    private bool _loadNextLevel,_wrong,_getBack, _doorAppear,_touchBallon, isAnimating,isAnimatingBack;
+    private bool _loadNextLevel,_wrong,_getBack, _doorAppear,_touchBallon,isAnimatingBack;
     public static bool moveToVitraje,_shake,_win;
     private bool _triggerStay = true;
     private Vector3 _target;
@@ -114,7 +113,6 @@ public class Door : MonoBehaviour
         if(other.gameObject.CompareTag("klyde"))
             // StartCoroutine(AnimateDoor());
             _animator.SetBool("moveButton",true);
-        isAnimating = true;
         if(other.gameObject.CompareTag("klyde") && _doorAppear)
         {
             moving.SetWalkAnimationFalse();
