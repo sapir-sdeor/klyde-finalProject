@@ -132,7 +132,6 @@ public class Rotate2D3D : MonoBehaviour
     
     private void PerformCircularRotation()
     {
-        print(worlds.Length + "world length");
         var currPosition = GetPointOnPlane(Input.mousePosition);
         foreach (var world in worlds)
         {
@@ -145,7 +144,6 @@ public class Rotate2D3D : MonoBehaviour
               var up = Vector3.up;
               
               var angleDelta = Vector3.SignedAngle(OrigDir, currPosition - center, up) ;
-              print(world.name + " world name angle delta "+angleDelta);
 
               angleDelta = Mathf.Clamp(angleDelta, -adjustedSpeed, adjustedSpeed);
               

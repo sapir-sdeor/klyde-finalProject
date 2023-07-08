@@ -9,8 +9,6 @@ public class RecognizeShape : MonoBehaviour
     [SerializeField] private Row[] grid;
     [SerializeField] private GameObject objectToShown;
 
-    [SerializeField] private GameObject background;
-    [SerializeField] private Texture backgroundAfterShape;
     [SerializeField] private GameObject rightPlane, leftPlane;
     [SerializeField] private GameObject reflect;
     [SerializeField] private float timeToDisappearLimit = 7,_soundTimeLimit=4;
@@ -44,7 +42,6 @@ public class RecognizeShape : MonoBehaviour
     void Update()
     {
         flag = true;
-        int i = 0;
         if (LevelManager.GetLevel() == 1 && _level1SoundPlay)
         {
             _soundTime += Time.deltaTime;

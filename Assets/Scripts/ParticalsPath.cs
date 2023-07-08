@@ -18,13 +18,9 @@ public class ParticalsPath : MonoBehaviour
     private int _pointIndex;
     private Vector3 targetPos;
     private ParticleSystem particleSystem;
-    private ParticleSystem.Particle[] particles;
-    private Vector3[] initialPositions;
     private void Start()
     {
         particleSystem = GetComponent<ParticleSystem>();
-        particles = new ParticleSystem.Particle[10000];
-        initialPositions = new Vector3[10000];
     }
 
     private void Update()

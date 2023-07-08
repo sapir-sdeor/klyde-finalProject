@@ -7,6 +7,5 @@ public class FadeReciver : MonoBehaviour
     public void FadeOutComplete()
     {
         LevelManager.FadeOutComplete();
-        print("fade out complete");
     }
 }
