@@ -10616,7 +10616,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   halfNum: 2
-  angleFadeEffect: 3
+  angleFadeEffect: 1
   offset: -60
 --- !u!114 &1313585682
 MonoBehaviour:
@@ -15394,7 +15394,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   halfNum: 2
-  angleFadeEffect: 3
+  angleFadeEffect: 1
   offset: -60
 --- !u!114 &1738827742
 MonoBehaviour:
