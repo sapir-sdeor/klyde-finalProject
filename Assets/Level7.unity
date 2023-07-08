@@ -10504,7 +10504,6 @@ MonoBehaviour:
   zAnimation: 0.01
   animationSpeed: 15
   TargetInit: {x: -8.02, y: 5, z: -26.3}
-  TargetInit1: {x: 0.3, y: 6.3, z: -18}
   flash: {fileID: 628074583}
   lightPathImages:
   - {fileID: 1970450618}
@@ -11427,7 +11426,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1289925526}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &1289925529
 Camera:
   m_ObjectHideFlags: 0
@@ -12041,7 +12040,6 @@ MonoBehaviour:
   zAnimation: 0.01
   animationSpeed: 15
   TargetInit: {x: -6.4, y: 5, z: -40}
-  TargetInit1: {x: 0.3, y: 6.3, z: -18}
   flash: {fileID: 628074583}
   lightPathImages: []
   duration: 3

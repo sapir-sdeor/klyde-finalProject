@@ -90,6 +90,7 @@ public class LevelManager : MonoBehaviour
         }
         else
         {
+            Levels.unlockedLevel = 7;
             SceneManager.LoadScene("EndScene");
         }
     }
