@@ -12,12 +12,14 @@ public class LevelManager : MonoBehaviour
     private static LevelManager _instance;
     private static GameObject _panelFade;
     private static bool _fadeOutComplete;
+    private static bool _loadScene;
     
     private void Awake()
     {
         SetNumOfHalves();
         _instance = this;
         _panelFade = GameObject.FindWithTag("fade");
+        _loadScene = false;
         RegisterFadeOutCallback();
     }
     
@@ -40,15 +42,16 @@ public class LevelManager : MonoBehaviour
         {
             if (Levels.unlockedLevel == _level-1)
                 Levels.unlockedLevel += 1;
-        
             _panelFade.GetComponent<Animator>().SetBool("fadeOutBool",true);
         }
-        else
+        else if (!_loadScene)
         {
+            _loadScene = true;
             SceneManager.LoadScene("EndScene");
         }
         
     }
+    
     
     private static void RegisterFadeOutCallback()
     {
@@ -83,13 +86,10 @@ public class LevelManager : MonoBehaviour
         // {
         //     SceneManager.LoadScene("Level" + _level);
         // }
-        if (_level != 8)
+        if (_level != 8 && !_loadScene)
         {
-            SceneManager.LoadScene("Level" + _level);
-        }
-        else
-        {
-            SceneManager.LoadScene("EndScene");
+            SceneManager.LoadSceneAsync("Level" + _level,LoadSceneMode.Single);
+            _loadScene = true;
         }
     }
     
