@@ -117,9 +117,7 @@ public class Tutorial : World
         }
         if (_disRotate)
         {
-            print("dis rotate");
             _timeRotate += Time.deltaTime;
-            print("time " + _timeRotate);
             if (_timeRotate > timeToDisapear)
             {
                 rotateHint.SetActive(false);
@@ -133,14 +131,12 @@ public class Tutorial : World
             _disWalk = true;
             if (!_rotateOnce && !_rotateHintShow)
             {
-                print("rotate hint show");
                 _rotateHintShow = true;
             }
         }
         
         if (_rotateHintShow && Rotate2D3D.GetIsRotatingMore())
         {
-            print("start disappear");
             _rotateOnce = true;
             _disRotate = true;
         }
@@ -150,7 +146,6 @@ public class Tutorial : World
             _timeAppear += Time.deltaTime;
             if (_timeAppear > timeToAppear)
             {
-                print("set active");
                 rotateHint.SetActive(true);
             }
         }
