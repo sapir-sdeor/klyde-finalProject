@@ -27,7 +27,6 @@ public class RaycastReflection : MonoBehaviour
 		lineRenderer.positionCount = 1;
 		lineRenderer.SetPosition(0, transform.position);
 		float remainingLength = maxLength;
-		print("isCollide " + isCollideWithLastCollider);
 		for (int i = 0; i < reflections; i++)
 		{
 			if(Physics.Raycast(ray.origin, ray.direction, out hit, remainingLength))

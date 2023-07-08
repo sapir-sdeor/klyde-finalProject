@@ -60,13 +60,11 @@ public class LevelManager : MonoBehaviour
         AnimationClip[] clips = fadeAnimator.runtimeAnimatorController.animationClips;
         foreach (AnimationClip clip in clips)
         {
-            print("clip"+clip);
             if (clip.name == "fade-out")
             {
                 AnimationEvent animEvent = new AnimationEvent();
                 animEvent.functionName = "FadeOutComplete";
                 animEvent.time = clip.length;
-                print("animEvent.time"+animEvent.time);
                 clip.AddEvent(animEvent);
                 break;
             }

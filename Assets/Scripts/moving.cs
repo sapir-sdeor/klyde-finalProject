@@ -30,13 +30,6 @@ public class moving : MonoBehaviour
     void Update()
     {
         animator.SetBool(IsWalking,isWalkAnimation);
-        print("door.getWin " + Door.GetWin());
-        // if (Door.GetWin())
-        // {
-        //     print("win is true, iswalkanimation = false "+isWalkAnimation);
-        //     isWalkAnimation = false;
-        // }
-        // print(transform.position.x+"klyde pos");
         if (UIButtons.isPause) return;
         if (_stopWalk && agent.isOnNavMesh) agent.SetDestination(transform.position);
         if (Input.GetMouseButtonDown(0)) 
@@ -76,7 +69,6 @@ public class moving : MonoBehaviour
         {
             if ( !Rotate2D3D.GetIsRotating() && agent.isOnNavMesh)
             {
-                print("walk animation is true");
                 isWalkAnimation = agent.remainingDistance > bufferDistance;
             } 
         
@@ -97,7 +89,6 @@ public class moving : MonoBehaviour
                 agent.enabled = true;
             } 
         }
-        print("isWalkAnimation "+isWalkAnimation);
         if (isWalkAnimation)
         {
             if (!GetComponent<AudioSource>().isPlaying) GetComponent<AudioSource>().Play();

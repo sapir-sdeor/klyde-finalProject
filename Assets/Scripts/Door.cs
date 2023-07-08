@@ -48,7 +48,6 @@ public class Door : MonoBehaviour
                 }
             }
         }
-        print(_childs.Count+" count");
         _angle = 360 /(float) LevelManager.GetNumOfHalves();
         _win = false;
     }
@@ -96,7 +95,6 @@ public class Door : MonoBehaviour
 
     private void EnabledDoorChild(bool enabled)
     {
-        // print("enabled door child"+enabled);
         foreach (var child in _childs)
         {
             if(child.GetComponent<MeshRenderer>()!=null)
@@ -116,7 +114,6 @@ public class Door : MonoBehaviour
         if(other.gameObject.CompareTag("klyde"))
             // StartCoroutine(AnimateDoor());
             _animator.SetBool("moveButton",true);
-        // print("_doorAppear "+_doorAppear);
         isAnimating = true;
         if(other.gameObject.CompareTag("klyde") && _doorAppear)
         {
@@ -197,13 +194,11 @@ public class Door : MonoBehaviour
 
     private void MoveToVitrajWinCase()
     {
-        print("MoveToVitrajWinCase");
         // _klyde.GetComponent<NavMeshAgent>().enabled = false;
         moving.SetWalkAnimationTrue();
         _klyde.transform.position = Vector3.MoveTowards(_klyde.transform.position, _target,
              Time.deltaTime*speed);
-        // print(_target+" target");
-        
+
         if (Vector3.Distance(_klyde.transform.position, _target) < 0.7f && !_loadNextLevel)
         {
             _loadNextLevel = true;
@@ -363,7 +358,6 @@ public class Door : MonoBehaviour
         // Calculate the angle between the direction vector and the forward vector
         float currAngle = Vector3.SignedAngle(Vector3.forward, direction, Vector3.up);
         if (currAngle < 0) currAngle += 360f;
-        print(currAngle+ "currAngle");
         return currAngle;
     }
 }

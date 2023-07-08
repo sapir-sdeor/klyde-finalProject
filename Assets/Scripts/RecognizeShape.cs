@@ -48,7 +48,6 @@ public class RecognizeShape : MonoBehaviour
         if (LevelManager.GetLevel() == 1 && _level1SoundPlay)
         {
             _soundTime += Time.deltaTime;
-            print("soundTime " + _soundTime);
             if (_soundTime > _soundTimeLimit)
             {
                 _level1SoundPlay = false;
@@ -65,7 +64,6 @@ public class RecognizeShape : MonoBehaviour
         
         if (_timeToDisappear > timeToDisappearLimit)
         {
-            print("recognize shape, animation should work");
             rightPlane.GetComponent<Animator>().SetBool("recognizeShape",true); 
             leftPlane.GetComponent<Animator>().SetBool("recognizeShape",true);
             if (!_audioWindow.isPlaying && _recognizeShapeSound)
@@ -80,7 +78,7 @@ public class RecognizeShape : MonoBehaviour
         foreach (var row in grid)
         {
             var dist = Vector3.Distance(row.positions[0].transform.position, row.positions[1].transform.position);
-            print(dist + " distance ," +" points in right half? name: " +  row.gameObject.name);
+           // print(dist + " distance ," +" points in right half? name: " +  row.gameObject.name);
 
 
             if (row.distance - row.aprroximate >= dist || dist >= row.distance + row.aprroximate ||
@@ -144,7 +142,6 @@ public class RecognizeShape : MonoBehaviour
             // Check if the current angle is within the adjusted range
             if ( !IsAngleWithinRange(currAngle, startAngle, endAngle))
             {
-                print("false world "+row.name);
                 flag = false;
                 return false;
             }
