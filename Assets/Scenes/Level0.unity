@@ -987,7 +987,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 154622559}
   m_LocalRotation: {x: 0.000000029798684, y: -0, z: 6.9849193e-10, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 225.32123}
+  m_LocalPosition: {x: 0, y: 0, z: 93.7}
   m_LocalScale: {x: 0.9998885, y: 0.9998883, z: 0.99988836}
   m_ConstrainProportionsScale: 1
   m_Children: []
@@ -1488,7 +1488,6 @@ GameObject:
   m_Component:
   - component: {fileID: 384441277}
   - component: {fileID: 384441276}
-  - component: {fileID: 384441280}
   - component: {fileID: 384441279}
   - component: {fileID: 384441281}
   - component: {fileID: 384441282}
@@ -1549,19 +1548,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 89ff3395a894dad4ea060aaaf1f29f12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &384441280
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 384441275}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd50b3bdd1c94b95917ec20a776d4c82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioSource: {fileID: 962103954}
 --- !u!114 &384441281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2499,7 +2485,6 @@ MonoBehaviour:
   zAnimation: 0.01
   animationSpeed: 15
   TargetInit: {x: -10.81, y: 11.7, z: -23.07}
-  TargetInit1: {x: 0.3, y: 6.3, z: -18}
   flash: {fileID: 34695095}
   lightPathImages:
   - {fileID: 1873452830}
@@ -3545,7 +3530,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8585424279284279800, guid: dfc39b8175381d44e8e72fb3e77d6ac3, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 155.42213
+      value: 10.8
       objectReference: {fileID: 0}
     - target: {fileID: 8585424279284279800, guid: dfc39b8175381d44e8e72fb3e77d6ac3, type: 3}
       propertyPath: m_LocalRotation.w
@@ -4747,7 +4732,6 @@ MonoBehaviour:
   zAnimation: 0.01
   animationSpeed: 15
   TargetInit: {x: -12.53, y: 11.7, z: -23.07}
-  TargetInit1: {x: 0.3, y: 6.3, z: -18}
   flash: {fileID: 34695095}
   lightPathImages:
   - {fileID: 1873452830}
@@ -5304,6 +5288,10 @@ PrefabInstance:
     - target: {fileID: 3837248798324925255, guid: 7eb6f1861abeb664bacde7e05a4b0035, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3837248798324925259, guid: 7eb6f1861abeb664bacde7e05a4b0035, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3837248798324925261, guid: 7eb6f1861abeb664bacde7e05a4b0035, type: 3}
       propertyPath: m_RootOrder
@@ -14124,10 +14112,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8585424279284279807, guid: dfc39b8175381d44e8e72fb3e77d6ac3, type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: ba139d0c8ef45423b89608dab2a2104d, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: dfc39b8175381d44e8e72fb3e77d6ac3, type: 3}
 --- !u!224 &1644033638 stripped
@@ -23424,7 +23408,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2747863694991661330
 Transform:
   m_ObjectHideFlags: 0
@@ -29482,7 +29466,6 @@ MonoBehaviour:
   zAnimation: 0.01
   animationSpeed: 15
   TargetInit: {x: 0.3, y: 6.3, z: -18}
-  TargetInit1: {x: 0.3, y: 6.3, z: -18}
   flash: {fileID: 0}
   lightPathImages: []
   duration: 5

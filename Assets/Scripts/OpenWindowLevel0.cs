@@ -21,7 +21,6 @@ public class OpenWindowLevel0 : MonoBehaviour
     {
         if (_level0SoundPlay){
             _soundTime += Time.deltaTime;
-            print("soundTime "+_soundTime);
             if (_soundTime > _soundTimeLimit)
             {
                 _level0SoundPlay = false;

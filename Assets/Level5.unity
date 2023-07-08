@@ -1299,7 +1299,6 @@ GameObject:
   - component: {fileID: 384441277}
   - component: {fileID: 384441276}
   - component: {fileID: 384441278}
-  - component: {fileID: 384441279}
   - component: {fileID: 384441280}
   - component: {fileID: 384441281}
   m_Layer: 0
@@ -1367,8 +1366,6 @@ MonoBehaviour:
   - {fileID: 1926256905}
   - {fileID: 1968780111}
   objectToShown: {fileID: 466488788}
-  background: {fileID: 0}
-  backgroundAfterShape: {fileID: 0}
   rightPlane: {fileID: 1626983207}
   leftPlane: {fileID: 450220891}
   reflect: {fileID: 1168267831}
@@ -1377,19 +1374,6 @@ MonoBehaviour:
   offset: 60
   _audioRecognize: {fileID: 1851500367}
   _audioWindow: {fileID: 2001293000}
---- !u!114 &384441279
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 384441275}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd50b3bdd1c94b95917ec20a776d4c82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioSource: {fileID: 0}
 --- !u!114 &384441280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9967,6 +9951,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3837248798324925259, guid: 7eb6f1861abeb664bacde7e05a4b0035, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3837248798324925261, guid: 7eb6f1861abeb664bacde7e05a4b0035, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -10501,7 +10489,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1289925526}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &1289925529
 Camera:
   m_ObjectHideFlags: 0
@@ -10628,7 +10616,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   halfNum: 2
-  angleFadeEffect: 5
+  angleFadeEffect: 1
   offset: -60
 --- !u!114 &1313585682
 MonoBehaviour:
@@ -10914,7 +10902,6 @@ MonoBehaviour:
   zAnimation: 0.01
   animationSpeed: 15
   TargetInit: {x: -8.02, y: 5, z: -26.3}
-  TargetInit1: {x: 0.3, y: 6.3, z: -18}
   flash: {fileID: 628074583}
   lightPathImages:
   - {fileID: 1779372324}
@@ -15407,7 +15394,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   halfNum: 2
-  angleFadeEffect: 5
+  angleFadeEffect: 1
   offset: -60
 --- !u!114 &1738827742
 MonoBehaviour:
@@ -21611,7 +21598,6 @@ MonoBehaviour:
   zAnimation: 0.01
   animationSpeed: 15
   TargetInit: {x: -10, y: 5, z: -20}
-  TargetInit1: {x: 0.3, y: 6.3, z: -18}
   flash: {fileID: 628074583}
   lightPathImages:
   - {fileID: 1779372324}

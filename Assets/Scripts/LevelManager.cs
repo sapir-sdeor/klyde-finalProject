@@ -12,12 +12,14 @@ public class LevelManager : MonoBehaviour
     private static LevelManager _instance;
     private static GameObject _panelFade;
     private static bool _fadeOutComplete;
+    private static bool _loadScene;
     
     private void Awake()
     {
         SetNumOfHalves();
         _instance = this;
         _panelFade = GameObject.FindWithTag("fade");
+        _loadScene = false;
         RegisterFadeOutCallback();
     }
     
@@ -36,20 +38,20 @@ public class LevelManager : MonoBehaviour
     public static void NextLevel()
     {
         _level++;
-        if (Levels.unlockedLevel == _level-1)
-            Levels.unlockedLevel += 1;
-        _panelFade.GetComponent<Animator>().SetBool("fadeOutBool",true);
-        // _instance.StartCoroutine(WaitForLoadNextLevel());
-        // if (_level != 8)
-        // {
-        //     SceneManager.LoadScene("Level" + _level);
-        // }
-        // else
-        // {
-        //     SceneManager.LoadScene("EndScene");
-        // }
-        //  _currentLevel = LevelFactory.CreateLevel(_level);
+        if (_level != 8)
+        {
+            if (Levels.unlockedLevel == _level-1)
+                Levels.unlockedLevel += 1;
+            _panelFade.GetComponent<Animator>().SetBool("fadeOutBool",true);
+        }
+        else if (!_loadScene)
+        {
+            _loadScene = true;
+            SceneManager.LoadScene("EndScene");
+        }
+        
     }
+    
     
     private static void RegisterFadeOutCallback()
     {
@@ -60,13 +62,11 @@ public class LevelManager : MonoBehaviour
         AnimationClip[] clips = fadeAnimator.runtimeAnimatorController.animationClips;
         foreach (AnimationClip clip in clips)
         {
-            print("clip"+clip);
             if (clip.name == "fade-out")
             {
                 AnimationEvent animEvent = new AnimationEvent();
                 animEvent.functionName = "FadeOutComplete";
                 animEvent.time = clip.length;
-                print("animEvent.time"+animEvent.time);
                 clip.AddEvent(animEvent);
                 break;
             }
@@ -86,26 +86,12 @@ public class LevelManager : MonoBehaviour
         // {
         //     SceneManager.LoadScene("Level" + _level);
         // }
-        if (_level != 8)
+        if (_level != 8 && !_loadScene)
         {
-            SceneManager.LoadScene("Level" + _level);
-        }
-        else
-        {
-            SceneManager.LoadScene("EndScene");
+            SceneManager.LoadSceneAsync("Level" + _level,LoadSceneMode.Single);
+            _loadScene = true;
         }
     }
-
-    // static IEnumerator WaitForLoadNextLevel()
-    // {
-    //     yield return new WaitForSeconds(1.5f);
-    //     SceneManager.LoadScene("Level" + _level);
-    //     AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Level" + _level);
-    //     while (!asyncLoad.isDone)
-    //     {
-    //         yield return null;
-    //     }
-    // }
     
     public static void SetLevel(int newLevel)
     {

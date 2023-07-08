@@ -1707,7 +1707,6 @@ GameObject:
   - component: {fileID: 384441277}
   - component: {fileID: 384441276}
   - component: {fileID: 384441278}
-  - component: {fileID: 384441279}
   - component: {fileID: 384441280}
   - component: {fileID: 384441281}
   - component: {fileID: 384441282}
@@ -1776,8 +1775,6 @@ MonoBehaviour:
   - {fileID: 1968780111}
   - {fileID: 1003705279}
   objectToShown: {fileID: 744031434}
-  background: {fileID: 0}
-  backgroundAfterShape: {fileID: 0}
   rightPlane: {fileID: 1489727942}
   leftPlane: {fileID: 210979018}
   reflect: {fileID: 1354006743}
@@ -1786,19 +1783,6 @@ MonoBehaviour:
   offset: 0
   _audioRecognize: {fileID: 108547305}
   _audioWindow: {fileID: 1306490861}
---- !u!114 &384441279
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 384441275}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd50b3bdd1c94b95917ec20a776d4c82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioSource: {fileID: 0}
 --- !u!114 &384441280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1926,8 +1910,6 @@ MonoBehaviour:
   - {fileID: 1880275049}
   - {fileID: 1180086553}
   objectToShown: {fileID: 744031434}
-  background: {fileID: 0}
-  backgroundAfterShape: {fileID: 0}
   rightPlane: {fileID: 1489727942}
   leftPlane: {fileID: 210979018}
   reflect: {fileID: 1354006743}
@@ -10522,7 +10504,6 @@ MonoBehaviour:
   zAnimation: 0.01
   animationSpeed: 15
   TargetInit: {x: -8.02, y: 5, z: -26.3}
-  TargetInit1: {x: 0.3, y: 6.3, z: -18}
   flash: {fileID: 628074583}
   lightPathImages:
   - {fileID: 1970450618}
@@ -10936,6 +10917,10 @@ PrefabInstance:
     - target: {fileID: 3837248798324925255, guid: 7eb6f1861abeb664bacde7e05a4b0035, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3837248798324925259, guid: 7eb6f1861abeb664bacde7e05a4b0035, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3837248798324925261, guid: 7eb6f1861abeb664bacde7e05a4b0035, type: 3}
       propertyPath: m_RootOrder
@@ -11441,7 +11426,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1289925526}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &1289925529
 Camera:
   m_ObjectHideFlags: 0
@@ -12055,7 +12040,6 @@ MonoBehaviour:
   zAnimation: 0.01
   animationSpeed: 15
   TargetInit: {x: -6.4, y: 5, z: -40}
-  TargetInit1: {x: 0.3, y: 6.3, z: -18}
   flash: {fileID: 628074583}
   lightPathImages: []
   duration: 3

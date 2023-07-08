@@ -1162,7 +1162,6 @@ GameObject:
   - component: {fileID: 384441277}
   - component: {fileID: 384441276}
   - component: {fileID: 384441278}
-  - component: {fileID: 384441279}
   - component: {fileID: 384441280}
   - component: {fileID: 384441281}
   m_Layer: 0
@@ -1230,8 +1229,6 @@ MonoBehaviour:
   - {fileID: 1393745268}
   - {fileID: 224393009}
   objectToShown: {fileID: 319851406}
-  background: {fileID: 0}
-  backgroundAfterShape: {fileID: 0}
   rightPlane: {fileID: 1299620463}
   leftPlane: {fileID: 1606698102}
   reflect: {fileID: 0}
@@ -1240,19 +1237,6 @@ MonoBehaviour:
   offset: 0
   _audioRecognize: {fileID: 729170126}
   _audioWindow: {fileID: 790904002}
---- !u!114 &384441279
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 384441275}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fd50b3bdd1c94b95917ec20a776d4c82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  audioSource: {fileID: 0}
 --- !u!114 &384441280
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1626,7 +1610,7 @@ PrefabInstance:
       objectReference: {fileID: 441497847}
     - target: {fileID: 4834589132428027881, guid: 0875165370be81945a43952599504501, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: Pause
+      value: Mute
       objectReference: {fileID: 0}
     - target: {fileID: 4927263228259215069, guid: 0875165370be81945a43952599504501, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -4761,6 +4745,10 @@ PrefabInstance:
     - target: {fileID: 3837248798324925255, guid: 7eb6f1861abeb664bacde7e05a4b0035, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3837248798324925259, guid: 7eb6f1861abeb664bacde7e05a4b0035, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3837248798324925261, guid: 7eb6f1861abeb664bacde7e05a4b0035, type: 3}
       propertyPath: m_RootOrder

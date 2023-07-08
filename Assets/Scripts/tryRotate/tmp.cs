@@ -24,8 +24,6 @@ public class tmp : MonoBehaviour
     [Range(0, 360)]
     private int clickAngle = 5;
 
-    [SerializeField]
-    private float stayAtClickTime = 0f;
     private float _millisecCounter;
     private float _timeCounter;
     private float _currentTime;

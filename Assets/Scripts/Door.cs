@@ -13,7 +13,6 @@ public class Door : MonoBehaviour
     [SerializeField] private float offset;
     [SerializeField] private float speed = 10f,zAnimation = 0.01f,animationSpeed = 15f;
     [SerializeField] private Vector3 TargetInit = new(0.300000012f, 6.30000019f, -18f);
-    [SerializeField] private Vector3 TargetInit1 = new(0.300000012f, 6.30000019f, -18f);
     [SerializeField] private GameObject flash;
     private float _stayTimer = 0.3f;
     [SerializeField] private GameObject[] lightPathImages;
@@ -23,7 +22,7 @@ public class Door : MonoBehaviour
     private float _angle;
     
     private List<Transform> _childs = new();
-    private bool _loadNextLevel,_wrong,_getBack, _doorAppear,_touchBallon, isAnimating,isAnimatingBack;
+    private bool _loadNextLevel,_wrong,_getBack, _doorAppear,_touchBallon,isAnimatingBack;
     public static bool moveToVitraje,_shake,_win;
     private bool _triggerStay = true;
     private Vector3 _target;
@@ -48,7 +47,6 @@ public class Door : MonoBehaviour
                 }
             }
         }
-        print(_childs.Count+" count");
         _angle = 360 /(float) LevelManager.GetNumOfHalves();
         _win = false;
     }
@@ -96,7 +94,6 @@ public class Door : MonoBehaviour
 
     private void EnabledDoorChild(bool enabled)
     {
-        // print("enabled door child"+enabled);
         foreach (var child in _childs)
         {
             if(child.GetComponent<MeshRenderer>()!=null)
@@ -116,8 +113,6 @@ public class Door : MonoBehaviour
         if(other.gameObject.CompareTag("klyde"))
             // StartCoroutine(AnimateDoor());
             _animator.SetBool("moveButton",true);
-        // print("_doorAppear "+_doorAppear);
-        isAnimating = true;
         if(other.gameObject.CompareTag("klyde") && _doorAppear)
         {
             moving.SetWalkAnimationFalse();
@@ -197,13 +192,11 @@ public class Door : MonoBehaviour
 
     private void MoveToVitrajWinCase()
     {
-        print("MoveToVitrajWinCase");
         // _klyde.GetComponent<NavMeshAgent>().enabled = false;
         moving.SetWalkAnimationTrue();
         _klyde.transform.position = Vector3.MoveTowards(_klyde.transform.position, _target,
              Time.deltaTime*speed);
-        // print(_target+" target");
-        
+
         if (Vector3.Distance(_klyde.transform.position, _target) < 0.7f && !_loadNextLevel)
         {
             _loadNextLevel = true;
@@ -363,7 +356,6 @@ public class Door : MonoBehaviour
         // Calculate the angle between the direction vector and the forward vector
         float currAngle = Vector3.SignedAngle(Vector3.forward, direction, Vector3.up);
         if (currAngle < 0) currAngle += 360f;
-        print(currAngle+ "currAngle");
         return currAngle;
     }
 }
