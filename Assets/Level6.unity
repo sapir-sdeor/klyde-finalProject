@@ -1238,8 +1238,6 @@ MonoBehaviour:
   - {fileID: 1581888816}
   - {fileID: 1926256905}
   objectToShown: {fileID: 1858666600}
-  background: {fileID: 0}
-  backgroundAfterShape: {fileID: 0}
   rightPlane: {fileID: 559045704}
   leftPlane: {fileID: 267053597}
   reflect: {fileID: 1168267831}
@@ -3475,6 +3473,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3837248798324925259, guid: 7eb6f1861abeb664bacde7e05a4b0035, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3837248798324925261, guid: 7eb6f1861abeb664bacde7e05a4b0035, type: 3}
       propertyPath: m_RootOrder
       value: 14
@@ -4126,7 +4128,6 @@ MonoBehaviour:
   zAnimation: 0.01
   animationSpeed: 15
   TargetInit: {x: -10.3, y: 6.04, z: -15}
-  TargetInit1: {x: 0.3, y: 6.3, z: -18}
   flash: {fileID: 628074583}
   lightPathImages:
   - {fileID: 100858522}
@@ -4346,7 +4347,7 @@ AudioListener:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1289925526}
-  m_Enabled: 1
+  m_Enabled: 0
 --- !u!20 &1289925529
 Camera:
   m_ObjectHideFlags: 0
@@ -4662,7 +4663,6 @@ MonoBehaviour:
   zAnimation: 0.01
   animationSpeed: 15
   TargetInit: {x: -6.4, y: 5, z: -40}
-  TargetInit1: {x: 0.3, y: 6.3, z: -18}
   flash: {fileID: 628074583}
   lightPathImages:
   - {fileID: 100858522}

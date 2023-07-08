@@ -1547,8 +1547,6 @@ MonoBehaviour:
   - {fileID: 224393009}
   - {fileID: 1530996942}
   objectToShown: {fileID: 191060216}
-  background: {fileID: 567760375}
-  backgroundAfterShape: {fileID: 2800000, guid: cbe4f5418a93944c38ae8ea8cf8abb60, type: 3}
   rightPlane: {fileID: 1503317948}
   leftPlane: {fileID: 753769576}
   reflect: {fileID: 0}
@@ -9088,6 +9086,10 @@ PrefabInstance:
     - target: {fileID: 3837248798324925255, guid: 7eb6f1861abeb664bacde7e05a4b0035, type: 3}
       propertyPath: m_IsActive
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3837248798324925259, guid: 7eb6f1861abeb664bacde7e05a4b0035, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3837248798324925261, guid: 7eb6f1861abeb664bacde7e05a4b0035, type: 3}
       propertyPath: m_RootOrder
