@@ -36,19 +36,18 @@ public class LevelManager : MonoBehaviour
     public static void NextLevel()
     {
         _level++;
-        if (Levels.unlockedLevel == _level-1)
-            Levels.unlockedLevel += 1;
-        _panelFade.GetComponent<Animator>().SetBool("fadeOutBool",true);
-        // _instance.StartCoroutine(WaitForLoadNextLevel());
-        // if (_level != 8)
-        // {
-        //     SceneManager.LoadScene("Level" + _level);
-        // }
-        // else
-        // {
-        //     SceneManager.LoadScene("EndScene");
-        // }
-        //  _currentLevel = LevelFactory.CreateLevel(_level);
+        if (_level != 8)
+        {
+            if (Levels.unlockedLevel == _level-1)
+                Levels.unlockedLevel += 1;
+        
+            _panelFade.GetComponent<Animator>().SetBool("fadeOutBool",true);
+        }
+        else
+        {
+            SceneManager.LoadScene("EndScene");
+        }
+        
     }
     
     private static void RegisterFadeOutCallback()
@@ -93,17 +92,6 @@ public class LevelManager : MonoBehaviour
             SceneManager.LoadScene("EndScene");
         }
     }
-
-    // static IEnumerator WaitForLoadNextLevel()
-    // {
-    //     yield return new WaitForSeconds(1.5f);
-    //     SceneManager.LoadScene("Level" + _level);
-    //     AsyncOperation asyncLoad = SceneManager.LoadSceneAsync("Level" + _level);
-    //     while (!asyncLoad.isDone)
-    //     {
-    //         yield return null;
-    //     }
-    // }
     
     public static void SetLevel(int newLevel)
     {
