@@ -9117,7 +9117,6 @@ MonoBehaviour:
   zAnimation: 0.01
   animationSpeed: 15
   TargetInit: {x: -7.61, y: 14.53, z: -2}
-  TargetInit1: {x: 0.3, y: 6.3, z: -18}
   flash: {fileID: 1769685569}
   lightPathImages:
   - {fileID: 1731510045}
@@ -14609,6 +14608,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 21300000, guid: 720e38f0c846346be9bb095ac2d7482c, type: 3}
+    - target: {fileID: 2747863693932920862, guid: 0875165370be81945a43952599504501, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2747863693932920863, guid: 0875165370be81945a43952599504501, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -14957,6 +14960,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9062475334644484590, guid: 0875165370be81945a43952599504501, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1a38e66cab1104bb6827982f8ebc8c73, type: 3}
     - target: {fileID: 9062475334644484590, guid: 0875165370be81945a43952599504501, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -23746,7 +23753,6 @@ MonoBehaviour:
   zAnimation: 0.01
   animationSpeed: 15
   TargetInit: {x: 0.3, y: 6.3, z: -18}
-  TargetInit1: {x: 0.3, y: 6.3, z: -18}
   flash: {fileID: 0}
   lightPathImages: []
   duration: 3
@@ -29702,7 +29708,6 @@ MonoBehaviour:
   zAnimation: 0.01
   animationSpeed: 15
   TargetInit: {x: -7.61, y: 14.53, z: -2}
-  TargetInit1: {x: 0.3, y: 6.3, z: -18}
   flash: {fileID: 1769685569}
   lightPathImages:
   - {fileID: 1731510045}

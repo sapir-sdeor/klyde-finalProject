@@ -9787,7 +9787,6 @@ MonoBehaviour:
   zAnimation: 100
   animationSpeed: 200
   TargetInit: {x: -12.53, y: 11.7, z: -23.07}
-  TargetInit1: {x: 0.3, y: 6.3, z: -18}
   flash: {fileID: 1395758071}
   lightPathImages:
   - {fileID: 1397002079}
@@ -10550,7 +10549,6 @@ MonoBehaviour:
   zAnimation: 0.01
   animationSpeed: 15
   TargetInit: {x: 0.3, y: 6.3, z: -18}
-  TargetInit1: {x: 0.3, y: 6.3, z: -18}
   flash: {fileID: 0}
   lightPathImages: []
   duration: 5
@@ -11298,7 +11296,6 @@ MonoBehaviour:
   zAnimation: 0.01
   animationSpeed: 15
   TargetInit: {x: -12.53, y: 11.7, z: -23.07}
-  TargetInit1: {x: 0.3, y: 6.3, z: -18}
   flash: {fileID: 1395758071}
   lightPathImages:
   - {fileID: 1397002079}
@@ -12208,6 +12205,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: Pause
       objectReference: {fileID: 0}
+    - target: {fileID: 2747863693932920856, guid: 0875165370be81945a43952599504501, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 17b62789837a842fca7bdb60896597cc, type: 3}
     - target: {fileID: 2747863693932920863, guid: 0875165370be81945a43952599504501, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -12484,6 +12485,10 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9062475334644484590, guid: 0875165370be81945a43952599504501, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 1a38e66cab1104bb6827982f8ebc8c73, type: 3}
     - target: {fileID: 9110827602841297316, guid: 0875165370be81945a43952599504501, type: 3}
       propertyPath: m_SizeDelta.y
       value: 0
