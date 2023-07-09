@@ -24,6 +24,9 @@ public class RecognizeShape : MonoBehaviour
 
     private void Start()
     {
+        _recognizeShapeSound = true;
+        _showObject = false;
+        _level1SoundPlay = true;
         _recognizeShape = false;
         _angle = 360 /(float) LevelManager.GetNumOfHalves();
         if (LevelManager.GetLevel() == 1)

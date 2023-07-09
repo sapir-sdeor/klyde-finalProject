@@ -12,6 +12,7 @@ public class OpenWindowLevel0 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        _level0SoundPlay = true;
         rightPlane.GetComponent<Animator>().SetBool("recognizeShape",true); 
         leftPlane.GetComponent<Animator>().SetBool("recognizeShape",true);
     }
